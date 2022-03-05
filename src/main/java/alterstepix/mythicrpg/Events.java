@@ -6,6 +6,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.event.entity.EntityBreedEvent;
+import org.bukkit.event.player.PlayerBucketEntityEvent;
 import org.bukkit.util.Vector;
 
 public class Events implements Listener {
@@ -17,10 +18,11 @@ public class Events implements Listener {
         Vector vector = new Vector(0,1,0);
         player.setVelocity(vector);
     }
-    @EventHandler
-    public void CreatureSpawnEvent(CreatureSpawnEvent event){
-        Creeper creeper = (Creeper)event.getEntity();
-        creeper.setPowered(true);
-    }
 
+    @EventHandler
+    public void PlayerBucketEntityEvent(PlayerBucketEntityEvent event)
+    {
+        Player player = (Player) event.getEntityBucket();
+        player.getInventory().getItemInMainHand().getItemMeta().setDisplayName("Imbatasher");
+    }
 }

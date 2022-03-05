@@ -12,6 +12,7 @@ import java.util.List;
 
 public class ItemManager {
     public static ItemStack LightingAxe;
+    public static ItemStack IdolsIncarnate;
     static Mythicrpg main;
 
     public void init(Mythicrpg main)
@@ -35,6 +36,24 @@ public class ItemManager {
         item.setItemMeta(meta);
 
         LightingAxe = item;
+    }
+    public static void createIdolsIncarnate()
+    {
+        ItemStack item = new ItemStack(Material.WOODEN_SWORD, 1);
+        ItemMeta meta = item.getItemMeta();
+
+        meta.setDisplayName("Idols Incarnate");
+        meta.setUnbreakable(true);
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.GOLD+"EpicLore");
+        lore.add(ChatColor.YELLOW+"Gives you some speed");
+
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+
+        IdolsIncarnate = item;
+
     }
 
 }

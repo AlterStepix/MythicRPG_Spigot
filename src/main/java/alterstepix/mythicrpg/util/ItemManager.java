@@ -17,6 +17,7 @@ public class ItemManager {
 
     public void init(Mythicrpg main)
     {
+        createLightingAxe();
         this.main = main;
     }
 
@@ -31,12 +32,10 @@ public class ItemManager {
         List<String> lore = new ArrayList<>();
         lore.add("§6RIGHT CLICK: §eThunderlord");
         lore.add("§7Strikes all nearby enemies with lightning");
-
         meta.setLore(lore);
         item.setItemMeta(meta);
 
         LightingAxe = item;
-
     }
     public static void createIdolsIncarnate()
     {

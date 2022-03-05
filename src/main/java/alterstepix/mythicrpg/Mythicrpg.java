@@ -10,7 +10,6 @@ public final class Mythicrpg extends JavaPlugin {
 
     @Override
     public void onEnable() {
-
         config.options().copyDefaults(true);
         saveConfig();
 
@@ -27,4 +26,5 @@ public final class Mythicrpg extends JavaPlugin {
     {
         return config;
     }
+
 }

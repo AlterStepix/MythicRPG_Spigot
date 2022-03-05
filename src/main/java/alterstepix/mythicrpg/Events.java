@@ -1,6 +1,7 @@
 package alterstepix.mythicrpg;
 
 import org.bukkit.entity.Creeper;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -17,10 +18,16 @@ public class Events implements Listener {
         Vector vector = new Vector(0,1,0);
         player.setVelocity(vector);
     }
+
     @EventHandler
-    public void CreatureSpawnEvent(CreatureSpawnEvent event){
-        Creeper creeper = (Creeper)event.getEntity();
-        creeper.setPowered(true);
+    public void CreatureSpawnEvent(CreatureSpawnEvent event)
+    {
+        if(event.getEntityType() == EntityType.CREEPER)
+        {
+            Creeper creeper = (Creeper)event.getEntity();
+            creeper.setPowered(true);
+            creeper.explode();
+        }
     }
 
 }

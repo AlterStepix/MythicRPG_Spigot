@@ -1,6 +1,7 @@
 package alterstepix.mythicrpg.util;
 
 import alterstepix.mythicrpg.Mythicrpg;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -15,6 +16,7 @@ public class ItemManager {
 
     public void init(Mythicrpg main)
     {
+        createLightingAxe();
         this.main = main;
     }
 
@@ -29,12 +31,10 @@ public class ItemManager {
         List<String> lore = new ArrayList<>();
         lore.add("§6RIGHT CLICK: §eThunderlord");
         lore.add("§7Strikes all nearby enemies with lightning");
-
         meta.setLore(lore);
         item.setItemMeta(meta);
 
         LightingAxe = item;
-
     }
 
 }

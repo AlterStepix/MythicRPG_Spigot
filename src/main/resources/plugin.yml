@@ -1,0 +1,7 @@
+name: Mythicrpg
+version: '${project.version}'
+main: alterstepix.mythicrpg.Mythicrpg
+api-version: 1.18
+prefix: mrpg
+authors: [ AlterStepix, Emeraldofcourse ]
+description: Just a simple rpg plugin

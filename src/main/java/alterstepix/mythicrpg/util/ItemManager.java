@@ -29,6 +29,7 @@ public class ItemManager {
         meta.setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
         List<String> lore = new ArrayList<>();
+        lore.add("");
         lore.add("§6RIGHT CLICK: §eThunderlord");
         lore.add("§7Strikes all nearby enemies with lightning");
         meta.setLore(lore);
@@ -38,15 +39,16 @@ public class ItemManager {
     }
     public static void createIdolsIncarnate()
     {
-        ItemStack item = new ItemStack(Material.WOODEN_SWORD, 1);
+        ItemStack item = new ItemStack(Material.NETHERITE_SWORD, 1);
         ItemMeta meta = item.getItemMeta();
 
         meta.setDisplayName("§cIdols Incarnate");
         meta.setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
         List<String> lore = new ArrayList<>();
-        lore.add("§6ITEM ABILITY:");
-        lore.add(ChatColor.YELLOW+"Applies stackable debuffs to your enemies on hit");
+        lore.add("");
+        lore.add("§6ITEM ABILITY: §eCurse");
+        lore.add("§7Applies stackable debuffs to your enemies on hit");
 
         meta.setLore(lore);
         item.setItemMeta(meta);

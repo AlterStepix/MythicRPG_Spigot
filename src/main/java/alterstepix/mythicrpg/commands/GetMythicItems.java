@@ -22,5 +22,6 @@ public class GetMythicItems implements CommandExecutor {
         Player p = (Player)sender;
         p.openInventory(gui);
         return true;
+
     }
 }

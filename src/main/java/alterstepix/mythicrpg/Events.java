@@ -20,14 +20,10 @@ public class Events implements Listener {
     }
 
     @EventHandler
-    public void CreatureSpawnEvent(CreatureSpawnEvent event)
+    public void PlayerBucketEntityEvent(PlayerBucketEntityEvent event)
     {
-        if(event.getEntityType() == EntityType.CREEPER)
-        {
-            Creeper creeper = (Creeper)event.getEntity();
-            creeper.setPowered(true);
-            creeper.explode();
-        }
+        Player player = (Player) event.getEntityBucket();
+        player.getInventory().getItemInMainHand().getItemMeta().setDisplayName("Imbatasher");
     }
 
 }

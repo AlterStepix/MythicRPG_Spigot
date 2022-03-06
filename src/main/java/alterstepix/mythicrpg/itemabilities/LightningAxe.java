@@ -1,5 +1,6 @@
 package alterstepix.mythicrpg.itemabilities;
 
+import alterstepix.mythicrpg.Mythicrpg;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -10,6 +11,14 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 public class LightningAxe implements Listener {
+    private Mythicrpg main;
+
+    public LightningAxe(Mythicrpg main)
+    {
+        this.main = main;
+    }
+
+
     @EventHandler
     public void onHit(EntityDamageByEntityEvent event)
     {
@@ -33,16 +42,17 @@ public class LightningAxe implements Listener {
         {
             Player player = e.getPlayer();
             if(player.getInventory().getItemInMainHand().getItemMeta() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore().contains("§6RIGHT CLICK: §eThunderlord")) {
-                for (Entity entity : e.getPlayer().getNearbyEntities(10, 10, 10))
-                {
-                    if(entity instanceof LivingEntity)
-                    {
-                        LivingEntity trg = (LivingEntity) entity;
-                        player.getWorld().strikeLightningEffect(trg.getLocation());
-                        trg.damage(6);
-                    }
+                        for (Entity entity : e.getPlayer().getNearbyEntities(10, 10, 10)) {
+                            if (entity instanceof LivingEntity) {
+                                LivingEntity trg = (LivingEntity) entity;
+                                player.getWorld().strikeLightningEffect(trg.getLocation());
+                                trg.damage(6);
+                            }
+                        }
+                }
+
                 }
             }
         }
-    }
-}
+
+

@@ -1,6 +1,5 @@
 package alterstepix.mythicrpg.commands;
 
-import alterstepix.mythicrpg.Mythicrpg;
 import alterstepix.mythicrpg.util.ItemManager;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -19,6 +18,7 @@ public class GetMythicItems implements CommandExecutor {
         ItemManager m = new ItemManager();
         gui.addItem(m.LightingAxe);
         gui.addItem(m.IdolsIncarnate);
+        gui.addItem(m.Terminator);
         Player p = (Player)sender;
         p.openInventory(gui);
         return true;

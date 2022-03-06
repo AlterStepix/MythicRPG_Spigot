@@ -22,7 +22,7 @@ public class Events implements Listener {
     @EventHandler
     public void PlayerBucketEntityEvent(PlayerBucketEntityEvent event)
     {
-        Player player = (Player) event.getEntityBucket();
+        Player player = event.getPlayer();
         player.getInventory().getItemInMainHand().getItemMeta().setDisplayName("Imbatasher");
     }
 }

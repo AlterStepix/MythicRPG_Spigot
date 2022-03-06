@@ -13,7 +13,6 @@ public class Terminator implements Listener {
 
     @EventHandler
     public void onInteract(PlayerInteractEvent e) {
-        Bukkit.getLogger().info("Interact Event");
         if (e.getAction().equals(Action.LEFT_CLICK_AIR) || e.getAction().equals(Action.LEFT_CLICK_BLOCK)) {
             Player p = e.getPlayer();
             if (p.getInventory().getItemInMainHand().getItemMeta() != null && p.getInventory().getItemInMainHand().getItemMeta().getLore() != null && p.getInventory().getItemInMainHand().getItemMeta().getLore().contains("§6LEFT CLICK CLICK: §eTermination")) {

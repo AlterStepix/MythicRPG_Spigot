@@ -5,18 +5,19 @@ import alterstepix.mythicrpg.itemabilities.IdolsIncarnate;
 import alterstepix.mythicrpg.itemabilities.LightningAxe;
 
 import alterstepix.mythicrpg.itemabilities.Terminator;
+import alterstepix.mythicrpg.util.Cooldown;
 import alterstepix.mythicrpg.util.ItemManager;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Mythicrpg extends JavaPlugin {
 
-    public static ItemManager itemManager;
 
     @Override
     public void onEnable() {
         
         ItemManager.init();
+        Cooldown.init();
 
         Bukkit.getServer().getPluginCommand("MythicItemGui").setExecutor(new GetMythicItems());
         Bukkit.getServer().getPluginManager().registerEvents(new LightningAxe(this),this);

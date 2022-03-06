@@ -13,12 +13,11 @@ import java.util.List;
 public class ItemManager {
     public static ItemStack LightingAxe;
     public static ItemStack IdolsIncarnate;
-    static Mythicrpg main;
 
-    public void init(Mythicrpg main)
+    public static void init()
     {
         createLightingAxe();
-        this.main = main;
+        createIdolsIncarnate();
     }
 
     public static void createLightingAxe()
@@ -26,10 +25,11 @@ public class ItemManager {
         ItemStack item = new ItemStack(Material.IRON_AXE, 1);
         ItemMeta meta = item.getItemMeta();
 
-        meta.setDisplayName(main.getConfig().getString("lightning_axe_name"));
+        meta.setDisplayName("§9Lighting Axe");
         meta.setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
         List<String> lore = new ArrayList<>();
+        lore.add("");
         lore.add("§6RIGHT CLICK: §eThunderlord");
         lore.add("§7Strikes all nearby enemies with lightning");
         meta.setLore(lore);
@@ -39,15 +39,16 @@ public class ItemManager {
     }
     public static void createIdolsIncarnate()
     {
-        ItemStack item = new ItemStack(Material.WOODEN_SWORD, 1);
+        ItemStack item = new ItemStack(Material.NETHERITE_SWORD, 1);
         ItemMeta meta = item.getItemMeta();
 
-        meta.setDisplayName("Idols Incarnate");
+        meta.setDisplayName("§cIdols Incarnate");
         meta.setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
         List<String> lore = new ArrayList<>();
-        lore.add(ChatColor.GOLD+"EpicLore");
-        lore.add(ChatColor.YELLOW+"Gives you some speed");
+        lore.add("");
+        lore.add("§6ITEM ABILITY: §eCurse");
+        lore.add("§7Applies stackable debuffs to your enemies on hit");
 
         meta.setLore(lore);
         item.setItemMeta(meta);

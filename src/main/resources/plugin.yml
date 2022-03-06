@@ -5,3 +5,7 @@ api-version: 1.18
 prefix: mrpg
 authors: [ AlterStepix, Emeraldofcourse ]
 description: Just a simple rpg plugin
+commands:
+  MythicItemGui:
+    description: Opens the item gui
+    usage: use /<command>

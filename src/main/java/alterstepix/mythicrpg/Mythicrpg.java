@@ -1,30 +1,32 @@
 package alterstepix.mythicrpg;
 
+import alterstepix.mythicrpg.commands.GetMythicItems;
+import alterstepix.mythicrpg.util.ItemManager;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Mythicrpg extends JavaPlugin {
 
-    FileConfiguration config = getConfig();
+    public static ItemManager itemManager;
 
     @Override
     public void onEnable() {
-        config.options().copyDefaults(true);
-        saveConfig();
 
+        ItemManager.init();
+
+        Bukkit.getServer().getPluginCommand("MythicItemGui").setExecutor(new GetMythicItems());
         Bukkit.getServer().getPluginManager().registerEvents(new Events(), this);
-        Bukkit.getLogger().info("[MRPG] Plugin Enabled");
+
+        System.out.println("Plugin Enabled");
+
+        this.saveDefaultConfig();
     }
 
     @Override
     public void onDisable() {
-        Bukkit.getLogger().info("[MRPG] Plugin Disabled");
+        System.out.println("Plugin Disabled");
     }
 
-    public FileConfiguration getConfig()
-    {
-        return config;
-    }
 
 }

@@ -70,8 +70,15 @@ public class ItemManager {
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
         List<String> lore = new ArrayList<>();
         lore.add("");
-        lore.add("§6LEFT CLICK CLICK: §eTermination");
+        lore.add("§6LEFT CLICK: §eTermination");
         lore.add("§7Instantly shoots 3 arrow");
+        lore.add("");
+        lore.add("§6SNEAK + LEFT CLICK: §eRecall");
+        lore.add("§7Sends all arrows in a 12x12x12 radius to the sky");
+        lore.add("");
+        lore.add("§6KEYBOARD F: §eAnnihilation");
+        lore.add("§7Explodes all arrows in a 12x12x12 radius");
+
 
 
         meta.setLore(lore);

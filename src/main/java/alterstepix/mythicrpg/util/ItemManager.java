@@ -15,12 +15,14 @@ public class ItemManager {
     public static ItemStack LightingAxe;
     public static ItemStack IdolsIncarnate;
     public static ItemStack Terminator;
+    public static ItemStack HealingSword;
 
     public static void init()
     {
         createLightingAxe();
         createIdolsIncarnate();
         createTerminator();
+        createHealingSword();
     }
 
     public static void createLightingAxe()
@@ -87,5 +89,26 @@ public class ItemManager {
         Terminator = item;
 
     }
+    public static void createHealingSword()
+    {
+        ItemStack item = new ItemStack(Material.GOLDEN_AXE, 1);
+        ItemMeta meta = item.getItemMeta();
+
+        meta.setDisplayName("§dHealing Sword");
+        meta.setUnbreakable(true);
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        List<String> lore = new ArrayList<>();
+        lore.add("");
+        lore.add("§6RIGHT CLICK: §eHealing");
+        lore.add("§7Applies strong errors to your console on hit\"");
+
+
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+
+        HealingSword = item;
+
+    }
+
 
 }

@@ -110,7 +110,7 @@ public class ItemManager {
         ItemStack item = new ItemStack(Material.GOLDEN_AXE, 1);
         ItemMeta meta = item.getItemMeta();
 
-        meta.setDisplayName("§dHealing Axe");
+        meta.setDisplayName(this.config.getString("healingSword"));
         meta.setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
         List<String> lore = new ArrayList<>();

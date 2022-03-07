@@ -1,5 +1,7 @@
 package alterstepix.mythicrpg.itemabilities;
 
+import alterstepix.mythicrpg.Mythicrpg;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -8,6 +10,18 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 public class HealingSword implements Listener {
+
+    int cd;
+    Mythicrpg main;
+    FileConfiguration config;
+
+    public HealingSword(Mythicrpg main)
+    {
+        this.main = main;
+        this.config = main.getConfig();
+        this.cd = this.config.getInt("healingSwordCooldown");
+    }
+
     @EventHandler
     public void onInteract(PlayerInteractEvent e)
     {

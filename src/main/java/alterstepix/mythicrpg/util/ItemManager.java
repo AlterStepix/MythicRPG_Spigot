@@ -44,11 +44,12 @@ public class ItemManager {
         meta.setDisplayName(this.config.getString("lightingAxe"));
         meta.setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        int cooldown = this.config.getInt("healingSwordCooldown");
         List<String> lore = new ArrayList<>();
         lore.add("");
         lore.add("§6RIGHT CLICK: §eThunderlord");
         lore.add("§7Strikes all nearby enemies with lightning");
-        lore.add("§9Cooldown: 3s");
+        lore.add("§7Cooldown: "+ cooldown);
         lore.add("");
         lore.add("§6ITEM ABILITY: §eLightning Power");
         lore.add("§7Strikes your enemies with lightning on hit");
@@ -82,7 +83,7 @@ public class ItemManager {
     {
         ItemStack item = new ItemStack(Material.BOW, 1);
         ItemMeta meta = item.getItemMeta();
-
+        int radius = this.config.getInt("terminatorAbilityRange");
         meta.setDisplayName(this.config.getString("terminator"));
         meta.setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
@@ -92,11 +93,10 @@ public class ItemManager {
         lore.add("§7Instantly shoots 3 arrow");
         lore.add("");
         lore.add("§6SNEAK + LEFT CLICK: §eRecall");
-        lore.add("§7Sends all arrows in a 12x12x12 radius to the sky");
+        lore.add("§7Sends all arrows in a "+radius+" blocks radius to the sky");
         lore.add("");
         lore.add("§6KEYBOARD F: §eAnnihilation");
-        lore.add("§7Explodes all arrows in a 12x12x12 radius");
-
+        lore.add("§7Explodes all arrows in a "+radius+" blocks radius");
 
 
         meta.setLore(lore);

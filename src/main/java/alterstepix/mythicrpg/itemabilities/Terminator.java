@@ -1,7 +1,9 @@
 package alterstepix.mythicrpg.itemabilities;
 
+import alterstepix.mythicrpg.Mythicrpg;
 import com.sun.media.jfxmedia.events.BufferListener;
 import org.bukkit.Bukkit;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -13,6 +15,16 @@ import org.bukkit.inventory.meta.FireworkMeta;
 
 
 public class Terminator implements Listener {
+
+    Mythicrpg main;
+    FileConfiguration config;
+    int abilityRadius;
+    public Terminator(Mythicrpg main)
+    {
+        this.main = main;
+        this.config = main.getConfig();
+        this.abilityRadius = this.config.getInt("terminatorAbilityRange");
+    }
 
     @EventHandler
     public void onInteract(PlayerInteractEvent e) {

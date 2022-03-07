@@ -29,8 +29,8 @@ public final class Mythicrpg extends JavaPlugin {
         Bukkit.getServer().getPluginCommand("AddItemAbility").setExecutor(new AppendAbilityLore());
         Bukkit.getServer().getPluginManager().registerEvents(new LightningAxe(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new IdolsIncarnate(),this);
-        Bukkit.getServer().getPluginManager().registerEvents(new Terminator(),this);
-        Bukkit.getServer().getPluginManager().registerEvents(new HealingSword(),this);
+        Bukkit.getServer().getPluginManager().registerEvents(new Terminator(this),this);
+        Bukkit.getServer().getPluginManager().registerEvents(new HealingSword(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new Events(), this);
 
         System.out.println("Plugin Enabled");

@@ -110,13 +110,13 @@ public class ItemManager {
         ItemStack item = new ItemStack(Material.GOLDEN_AXE, 1);
         ItemMeta meta = item.getItemMeta();
 
-        meta.setDisplayName("§dHealing Sword");
+        meta.setDisplayName("§dHealing Axe");
         meta.setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
         List<String> lore = new ArrayList<>();
         lore.add("");
         lore.add("§6RIGHT CLICK: §eHealing");
-        lore.add("§7Applies strong errors to your console on hit\"");
+        lore.add("§7Heals you in exchange for hunger");
 
 
         meta.setLore(lore);

@@ -1,6 +1,7 @@
 package alterstepix.mythicrpg;
 
 import alterstepix.mythicrpg.commands.GetMythicItems;
+import alterstepix.mythicrpg.itemabilities.HealingSword;
 import alterstepix.mythicrpg.itemabilities.IdolsIncarnate;
 import alterstepix.mythicrpg.itemabilities.LightningAxe;
 
@@ -23,6 +24,7 @@ public final class Mythicrpg extends JavaPlugin {
         Bukkit.getServer().getPluginManager().registerEvents(new LightningAxe(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new IdolsIncarnate(),this);
         Bukkit.getServer().getPluginManager().registerEvents(new Terminator(),this);
+        Bukkit.getServer().getPluginManager().registerEvents(new HealingSword(),this);
         Bukkit.getServer().getPluginManager().registerEvents(new Events(), this);
 
         System.out.println("Plugin Enabled");

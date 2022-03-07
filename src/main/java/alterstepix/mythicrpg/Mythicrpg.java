@@ -8,18 +8,22 @@ import alterstepix.mythicrpg.itemabilities.Terminator;
 import alterstepix.mythicrpg.util.Cooldown;
 import alterstepix.mythicrpg.util.ItemManager;
 import org.bukkit.Bukkit;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Mythicrpg extends JavaPlugin {
 
+    FileConfiguration configuration = getConfig();
 
     @Override
     public void onEnable() {
-        
-        ItemManager.init();
+
+        configuration.options().copyDefaults(true);
+        saveConfig();
+
         Cooldown.init();
 
-        Bukkit.getServer().getPluginCommand("MythicItemGui").setExecutor(new GetMythicItems());
+        Bukkit.getServer().getPluginCommand("MythicItemGui").setExecutor(new GetMythicItems(this));
         Bukkit.getServer().getPluginManager().registerEvents(new LightningAxe(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new IdolsIncarnate(),this);
         Bukkit.getServer().getPluginManager().registerEvents(new Terminator(),this);
@@ -33,6 +37,11 @@ public final class Mythicrpg extends JavaPlugin {
     @Override
     public void onDisable() {
         System.out.println("Plugin Disabled");
+    }
+
+    public FileConfiguration getConfiguration()
+    {
+        return configuration;
     }
 
 

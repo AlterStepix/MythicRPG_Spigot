@@ -14,6 +14,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 public class LightningAxe implements Listener {
     private Mythicrpg main;
 
+
     public LightningAxe(Mythicrpg main)
     {
         this.main = main;

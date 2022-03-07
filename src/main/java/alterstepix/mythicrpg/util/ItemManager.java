@@ -3,6 +3,7 @@ package alterstepix.mythicrpg.util;
 import alterstepix.mythicrpg.Mythicrpg;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Item;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -17,20 +18,30 @@ public class ItemManager {
     public static ItemStack Terminator;
     public static ItemStack HealingSword;
 
-    public static void init()
+    Mythicrpg main;
+    FileConfiguration config;
+
+    public ItemManager(Mythicrpg main)
     {
-        createLightingAxe();
-        createIdolsIncarnate();
-        createTerminator();
-        createHealingSword();
+        this.main = main;
+        this.config = main.getConfiguration();
     }
 
-    public static void createLightingAxe()
+    public void init()
+    {
+        this.createLightingAxe();
+        this.createIdolsIncarnate();
+        this.createTerminator();
+        this.createHealingSword();
+    }
+
+    public void createLightingAxe()
     {
         ItemStack item = new ItemStack(Material.IRON_AXE, 1);
         ItemMeta meta = item.getItemMeta();
 
-        meta.setDisplayName("§9Lighting Axe");
+
+        meta.setDisplayName(this.config.getString("lightingAxe"));
         meta.setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
         List<String> lore = new ArrayList<>();
@@ -47,7 +58,7 @@ public class ItemManager {
 
         LightingAxe = item;
     }
-    public static void createIdolsIncarnate()
+    public void createIdolsIncarnate()
     {
         ItemStack item = new ItemStack(Material.NETHERITE_SWORD, 1);
         ItemMeta meta = item.getItemMeta();
@@ -67,7 +78,7 @@ public class ItemManager {
 
     }
 
-    public static void createTerminator()
+    public void createTerminator()
     {
         ItemStack item = new ItemStack(Material.BOW, 1);
         ItemMeta meta = item.getItemMeta();
@@ -94,7 +105,7 @@ public class ItemManager {
         Terminator = item;
 
     }
-    public static void createHealingSword()
+    public void createHealingSword()
     {
         ItemStack item = new ItemStack(Material.GOLDEN_AXE, 1);
         ItemMeta meta = item.getItemMeta();

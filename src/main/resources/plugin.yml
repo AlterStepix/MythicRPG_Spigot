@@ -8,4 +8,7 @@ description: Just a simple rpg plugin
 commands:
   MythicItemGui:
     description: Opens the item gui
-    usage: use /<command>
+    usage: Use /<command>
+  AddItemAbility:
+    description: Appends the existing item ability to current item in mainhand
+    usage: Use /<command> + ablility

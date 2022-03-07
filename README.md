@@ -1,7 +1,7 @@
 # MythicRPG
 Simple minecraft plugin made for rpg servers
 
-###TODO:
+TODO:
 1. Custom Enchants
 2. Custom Mobs
 3. Custom Armor

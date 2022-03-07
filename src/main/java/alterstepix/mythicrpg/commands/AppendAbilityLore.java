@@ -6,6 +6,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -17,11 +18,13 @@ public class AppendAbilityLore implements CommandExecutor {
 
     Mythicrpg main;
     ItemManager m;
+    FileConfiguration config;
     public AppendAbilityLore(Mythicrpg main)
     {
         this.main = main;
         m = new ItemManager(main);
         m.init();
+        this.config = main.getConfiguration();
     }
 
     @Override
@@ -30,12 +33,13 @@ public class AppendAbilityLore implements CommandExecutor {
         if(args.length == 1)
         {
             Player p = (Player)sender;
+            ItemStack mainhand = p.getInventory().getItemInMainHand();
+            ItemMeta meta = mainhand.getItemMeta();
+            List<String> lore = new ArrayList<String>();
+            int radius = this.config.getInt("terminatorAbilityRange");
             switch(args[0])
             {
                 case "Curse":
-                    ItemStack mainhand = p.getInventory().getItemInMainHand();
-                    ItemMeta meta = mainhand.getItemMeta();
-                    List<String> lore = new ArrayList<String>();
                     if(meta.hasLore())
                         lore=meta.getLore();
 
@@ -46,6 +50,72 @@ public class AppendAbilityLore implements CommandExecutor {
                     mainhand.setItemMeta(meta);
                     p.getInventory().setItemInMainHand(mainhand);
                     break;
+                case "Thunderlord":
+                    if(meta.hasLore())
+                        lore=meta.getLore();
+                    int cooldown = this.config.getInt("healingSwordCooldown");
+                    lore.add("");
+                    lore.add("§6RIGHT CLICK: §eThunderlord");
+                    lore.add("§7Strikes all nearby enemies with lightning");
+                    lore.add("§8Cooldown: "+ cooldown + "s");
+                    meta.setLore(lore);
+                    mainhand.setItemMeta(meta);
+                    p.getInventory().setItemInMainHand(mainhand);
+                    break;
+                case "LightningPower":
+                    if(meta.hasLore())
+                        lore=meta.getLore();
+
+                    lore.add("");
+                    lore.add("§6ITEM ABILITY: §eLightning Power");
+                    lore.add("§7Strikes your enemies with lightning on hit");
+                    meta.setLore(lore);
+                    mainhand.setItemMeta(meta);
+                    p.getInventory().setItemInMainHand(mainhand);
+                    break;
+                case "Termination":
+                    if(meta.hasLore())
+                        lore=meta.getLore();
+
+                    lore.add("");
+                    lore.add("§6LEFT CLICK: §eTermination");
+                    lore.add("§7Instantly shoots 3 arrow");
+                    meta.setLore(lore);
+                    mainhand.setItemMeta(meta);
+                    p.getInventory().setItemInMainHand(mainhand);
+                    break;
+                case "Recall":
+                    if(meta.hasLore())
+                        lore=meta.getLore();
+
+                    lore.add("");
+                    lore.add("§6SNEAK + LEFT CLICK: §eRecall");
+                    lore.add("§7Sends all arrows in a "+radius+" blocks radius to the sky");
+                    meta.setLore(lore);
+                    mainhand.setItemMeta(meta);
+                    p.getInventory().setItemInMainHand(mainhand);
+                    break;
+                case "Annihilation":
+                    if(meta.hasLore())
+                        lore=meta.getLore();
+
+                    lore.add("");
+                    lore.add("§6KEYBOARD F: §eAnnihilation");
+                    lore.add("§7Explodes all arrows in a "+radius+" blocks radius");
+                    meta.setLore(lore);
+                    mainhand.setItemMeta(meta);
+                    p.getInventory().setItemInMainHand(mainhand);
+                case "Healing":
+                    if(meta.hasLore())
+                        lore=meta.getLore();
+
+                    lore.add("");
+                    lore.add("§6RIGHT CLICK: §eHealing");
+                    lore.add("§7Heals you in exchange for hunger");
+                    meta.setLore(lore);
+                    mainhand.setItemMeta(meta);
+                    p.getInventory().setItemInMainHand(mainhand);
+
                 default:
                     break;
             }

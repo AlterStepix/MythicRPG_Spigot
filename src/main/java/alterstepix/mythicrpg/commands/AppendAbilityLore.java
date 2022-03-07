@@ -27,18 +27,12 @@ public class AppendAbilityLore implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args)
     {
-
-        for(String arg : args)
-            System.out.println(arg);
-        System.out.println(args.length+"");
         if(args.length == 1)
         {
             Player p = (Player)sender;
-            System.out.println(args[0].toLowerCase());
             switch(args[0])
             {
                 case "Curse":
-                    System.out.println("isCurse");
                     ItemStack mainhand = p.getInventory().getItemInMainHand();
                     ItemMeta meta = mainhand.getItemMeta();
                     List<String> lore = new ArrayList<String>();

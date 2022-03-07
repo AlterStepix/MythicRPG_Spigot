@@ -2,6 +2,7 @@ package alterstepix.mythicrpg;
 
 import alterstepix.mythicrpg.commands.AppendAbilityLore;
 import alterstepix.mythicrpg.commands.GetMythicItems;
+import alterstepix.mythicrpg.commands.SummonMythicMob;
 import alterstepix.mythicrpg.itemabilities.HealingSword;
 import alterstepix.mythicrpg.itemabilities.IdolsIncarnate;
 import alterstepix.mythicrpg.itemabilities.LightningAxe;
@@ -28,6 +29,9 @@ public final class Mythicrpg extends JavaPlugin {
 
         Bukkit.getServer().getPluginCommand("MythicItemGui").setExecutor(new GetMythicItems(this));
         Bukkit.getServer().getPluginCommand("AddItemAbility").setExecutor(new AppendAbilityLore(this));
+        Bukkit.getServer().getPluginCommand("SummonMythicMob").setExecutor(new SummonMythicMob());
+
+        Bukkit.getServer().getPluginCommand("AddItemAbility").setTabCompleter(new AppendAbilityLore(this));
 
         Bukkit.getServer().getPluginManager().registerEvents(new LightningAxe(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new IdolsIncarnate(),this);

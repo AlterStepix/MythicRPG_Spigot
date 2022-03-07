@@ -1,10 +1,7 @@
 package alterstepix.mythicrpg.mobs;
 
 import alterstepix.mythicrpg.Mythicrpg;
-import org.bukkit.ChatColor;
-import org.bukkit.Location;
-import org.bukkit.Particle;
-import org.bukkit.Sound;
+import org.bukkit.*;
 import org.bukkit.attribute.Attributable;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeInstance;
@@ -32,7 +29,7 @@ public class WitherSpider implements Listener {
     public static void createLeapingSpider(Location location)
     {
         Spider spider = location.getWorld().spawn(location, Spider.class);
-        spider.setCustomName(ChatColor.DARK_GRAY + "§7Wither Spider");
+        spider.setCustomName(ChatColor.DARK_GRAY + "Wither Spider");
         spider.setCustomNameVisible(true);
         Attributable spiderAt = spider;
         AttributeInstance attribute = spiderAt.getAttribute(Attribute.GENERIC_MAX_HEALTH);
@@ -51,7 +48,8 @@ public class WitherSpider implements Listener {
                             if(entity instanceof Player)
                             {
                                 Player player = (Player) entity;
-                                spider.setTarget(player);
+                                if(player.getGameMode() != GameMode.CREATIVE)
+                                    spider.setTarget(player);
                             }
                         }
                     }
@@ -79,7 +77,7 @@ public class WitherSpider implements Listener {
     {
         if(event.getDamager() instanceof Spider)
         {
-            if(event.getDamager().getCustomName() != null && event.getDamager().getCustomName().equals("§7Wither Spider"))
+            if(event.getDamager().getCustomName() != null && event.getDamager().getCustomName().equals(ChatColor.DARK_GRAY + "Wither Spider"))
             {
                 if(event.getEntity() instanceof Player)
                 {

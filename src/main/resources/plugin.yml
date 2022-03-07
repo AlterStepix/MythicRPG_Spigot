@@ -12,3 +12,6 @@ commands:
   AddItemAbility:
     description: Appends the existing item ability to current item in mainhand
     usage: Use /<command> + ablility
+  SummonMythicMob:
+    description: Summons custom mobs from this plugin
+    usage: Use /<command> + mob

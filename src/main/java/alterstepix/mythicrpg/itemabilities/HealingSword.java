@@ -18,7 +18,6 @@ public class HealingSword implements Listener {
 
             if(player.getInventory().getItemInMainHand().getItemMeta() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore().contains("§6RIGHT CLICK: §eHealing")) {
                 int hunger = player.getFoodLevel();
-
                 if(hunger>0) //Hunger > 0
                 {
                     player.setHealth(20);

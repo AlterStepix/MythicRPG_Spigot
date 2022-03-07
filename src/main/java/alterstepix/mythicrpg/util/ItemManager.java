@@ -37,6 +37,11 @@ public class ItemManager {
         lore.add("");
         lore.add("§6RIGHT CLICK: §eThunderlord");
         lore.add("§7Strikes all nearby enemies with lightning");
+        lore.add("§9Cooldown: 3s");
+        lore.add("");
+        lore.add("§6ITEM ABILITY: §eLightning Power");
+        lore.add("§7Strikes your enemies with lightning on hit");
+
         meta.setLore(lore);
         item.setItemMeta(meta);
 

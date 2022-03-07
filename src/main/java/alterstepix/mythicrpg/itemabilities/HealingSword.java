@@ -11,17 +11,6 @@ import org.bukkit.event.player.PlayerInteractEvent;
 
 public class HealingSword implements Listener {
 
-    int cd;
-    Mythicrpg main;
-    FileConfiguration config;
-
-    public HealingSword(Mythicrpg main)
-    {
-        this.main = main;
-        this.config = main.getConfig();
-        this.cd = this.config.getInt("healingSwordCooldown");
-    }
-
     @EventHandler
     public void onInteract(PlayerInteractEvent e)
     {

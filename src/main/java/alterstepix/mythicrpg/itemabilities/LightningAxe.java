@@ -2,6 +2,7 @@ package alterstepix.mythicrpg.itemabilities;
 
 import alterstepix.mythicrpg.Mythicrpg;
 import alterstepix.mythicrpg.util.Cooldown;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -12,12 +13,16 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 public class LightningAxe implements Listener {
-    private Mythicrpg main;
 
+    int cd;
+    Mythicrpg main;
+    FileConfiguration config;
 
     public LightningAxe(Mythicrpg main)
     {
         this.main = main;
+        this.config = main.getConfig();
+        this.cd = this.config.getInt("healingSwordCooldown");
     }
 
 
@@ -50,13 +55,13 @@ public class LightningAxe implements Listener {
                             LivingEntity trg = (LivingEntity) entity;
                             player.getWorld().strikeLightningEffect(trg.getLocation());
                             trg.damage(6);
-                            Cooldown.putCooldown(player, 3);
+                            Cooldown.putCooldown(player, cd);
                         }
                     }
                 }
                 else
                 {
-                    player.sendMessage("§c[Mythic RPG] This item is on cooldown for " + Cooldown.getCooldownTime(player));
+                    player.sendMessage("§c[Mythic RPG] This item is on cooldown for " + (Cooldown.getCooldownTime(player)+1));
                 }
             }
         }

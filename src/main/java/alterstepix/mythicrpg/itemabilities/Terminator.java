@@ -2,10 +2,7 @@ package alterstepix.mythicrpg.itemabilities;
 
 import com.sun.media.jfxmedia.events.BufferListener;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Arrow;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.Firework;
-import org.bukkit.entity.Player;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
@@ -26,16 +23,19 @@ public class Terminator implements Listener {
                 Arrow arrow = p.getWorld().spawn(p.getEyeLocation(), Arrow.class);
                 arrow.setDamage(2);
                 arrow.setShooter(p);
+                arrow.setPierceLevel(120);
                 arrow.setVelocity(p.getLocation().getDirection().multiply(2));
 
                 Arrow arrow2 = p.getWorld().spawn(p.getEyeLocation(), Arrow.class);
                 arrow2.setDamage(2);
                 arrow2.setShooter(p);
+                arrow2.setPierceLevel(120);
                 arrow2.setVelocity((p.getLocation().getDirection().multiply(2)).rotateAroundY(Math.toRadians(-10)));
 
                 Arrow arrow3 = p.getWorld().spawn(p.getEyeLocation(), Arrow.class);
                 arrow3.setDamage(2);
                 arrow3.setShooter(p);
+                arrow3.setPierceLevel(120);
                 arrow3.setVelocity((p.getLocation().getDirection().multiply(2)).rotateAroundY(Math.toRadians(10)));
             }
         }

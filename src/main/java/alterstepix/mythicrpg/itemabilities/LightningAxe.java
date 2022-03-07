@@ -28,7 +28,7 @@ public class LightningAxe implements Listener {
             Player player = (Player) event.getDamager();
             LivingEntity trg = (LivingEntity) event.getEntity();
 
-            if(player.getInventory().getItemInMainHand().getItemMeta() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore().contains("§6RIGHT CLICK: §eThunderlord"))
+            if(player.getInventory().getItemInMainHand().getItemMeta() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore().contains("§6ITEM ABILITY: §eLightning Power"))
             {
                 player.getWorld().strikeLightningEffect(event.getEntity().getLocation());
                 trg.damage(2);
@@ -43,19 +43,19 @@ public class LightningAxe implements Listener {
         {
             Player player = e.getPlayer();
             if(player.getInventory().getItemInMainHand().getItemMeta() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore().contains("§6RIGHT CLICK: §eThunderlord")) {
-                if (Cooldown.checkCooldown(e.getPlayer())) {
+                if (Cooldown.checkCD(player)) {
                     for (Entity entity : e.getPlayer().getNearbyEntities(10, 10, 10)) {
                         if (entity instanceof LivingEntity) {
                             LivingEntity trg = (LivingEntity) entity;
                             player.getWorld().strikeLightningEffect(trg.getLocation());
                             trg.damage(6);
-                            Cooldown.setCooldown(player, 3);
+                            Cooldown.putCooldown(player, 3);
                         }
                     }
                 }
                 else
                 {
-                    player.sendMessage("§c[Mythic RPG]This item is on cooldown");
+                    player.sendMessage("§c[Mythic RPG] This item is on cooldown for " + Cooldown.getCooldownTime(player));
                 }
             }
         }

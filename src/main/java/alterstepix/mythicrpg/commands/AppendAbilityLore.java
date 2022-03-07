@@ -105,6 +105,7 @@ public class AppendAbilityLore implements CommandExecutor {
                     meta.setLore(lore);
                     mainhand.setItemMeta(meta);
                     p.getInventory().setItemInMainHand(mainhand);
+                    break;
                 case "Healing":
                     if(meta.hasLore())
                         lore=meta.getLore();
@@ -115,7 +116,7 @@ public class AppendAbilityLore implements CommandExecutor {
                     meta.setLore(lore);
                     mainhand.setItemMeta(meta);
                     p.getInventory().setItemInMainHand(mainhand);
-
+                    break;
                 default:
                     break;
             }

@@ -39,7 +39,7 @@ public class WitherSpider implements Listener {
         AttributeInstance attribute = spiderAt.getAttribute(Attribute.GENERIC_MAX_HEALTH);
         attribute.setBaseValue(hp);
         spider.setHealth(hp);
-
+        spider.setCustomName(config.getString("WitherSpiderNametag") + " §7["+Math.round(spider.getHealth())+"/"+spider.getMaxHealth()+"]");
         new BukkitRunnable(){
             public void run()
             {

@@ -45,7 +45,7 @@ public class Necromancer implements Listener {
         skeleton.getEquipment().setChestplate(new ItemStack(Material.NETHERITE_CHESTPLATE));
         skeleton.getEquipment().setLeggings(new ItemStack(Material.NETHERITE_LEGGINGS));
         skeleton.getEquipment().setBoots(new ItemStack(Material.NETHERITE_BOOTS));
-
+        skeleton.setCustomName(config.getString("NecromancerNametag") + " §7["+Math.round(skeleton.getHealth())+"/"+skeleton.getMaxHealth()+"]");
         new BukkitRunnable(){
             int i = 0;
             public void run()

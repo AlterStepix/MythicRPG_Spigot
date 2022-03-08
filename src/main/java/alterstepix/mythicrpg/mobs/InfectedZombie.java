@@ -47,26 +47,29 @@ public class InfectedZombie implements Listener {
         infected.getEquipment().setBoots(new ItemStack(Material.LEATHER_BOOTS));
         infected.getEquipment().setLeggings(new ItemStack(Material.LEATHER_LEGGINGS));
 
-
+        infected.setCustomName(config.getString("InfectedZombieNametag") + " §7["+Math.round(infected.getHealth())+"/"+infected.getMaxHealth()+"]");
     }
 
     @EventHandler
     public void onHit(EntityDamageByEntityEvent event)
     {
-        if(event.getEntity().getCustomName() != null && event.getDamager().getCustomName().equals(config.getString("InfectedZombieNametag")))
+        if(event.getEntity().getCustomName() != null)
         {
-            if(event.getEntity() instanceof LivingEntity) {
-                LivingEntity trg = (LivingEntity) event.getEntity();
-                LivingEntity zombie = (LivingEntity) event.getDamager();
-                trg.damage(2);
+            if(event.getDamager().getCustomName().equals(config.getString("InfectedZombieNametag")))
+            {
+                if(event.getEntity() instanceof LivingEntity) {
+                    LivingEntity trg = (LivingEntity) event.getEntity();
+                    LivingEntity zombie = (LivingEntity) event.getDamager();
+                    trg.damage(2);
 
-                if (zombie.getMaxHealth() - zombie.getHealth() > 2)
-                {
-                    zombie.setHealth(zombie.getHealth() + 2);
+                    if (zombie.getMaxHealth() - zombie.getHealth() > 2)
+                    {
+                        zombie.setHealth(zombie.getHealth() + 4);
+                    }
+                    zombie.getWorld().spawnParticle(Particle.VILLAGER_HAPPY, zombie.getEyeLocation().getX(),zombie.getEyeLocation().getY()+1, zombie.getEyeLocation().getZ(),3);
+                    zombie.getWorld().playSound(zombie.getLocation(),Sound.ENTITY_WITCH_DRINK,5,5);
+
                 }
-                zombie.getWorld().spawnParticle(Particle.VILLAGER_HAPPY, zombie.getEyeLocation().getX(),zombie.getEyeLocation().getY()+1, zombie.getEyeLocation().getZ(),3);
-                zombie.getWorld().playSound(zombie.getLocation(),Sound.ENTITY_WITCH_DRINK,5,5);
-
             }
         }
     }

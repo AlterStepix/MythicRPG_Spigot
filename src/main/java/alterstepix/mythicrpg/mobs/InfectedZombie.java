@@ -53,7 +53,7 @@ public class InfectedZombie implements Listener {
     @EventHandler
     public void onHit(EntityDamageByEntityEvent event)
     {
-        if(event.getEntity().getCustomName() != null)
+        if(event.getDamager().getCustomName() != null)
         {
             if(event.getDamager().getCustomName().equals(config.getString("InfectedZombieNametag")))
             {

@@ -18,7 +18,6 @@ import java.util.List;
 // 3. Add ItemStack to GetMythicItems command
 // 4. Add item lore to AppendAbilityLore command
 // 5. Add new event handlers to itemabilities package
-// 6. Add new cooldown class (if needed)
 
 
 public class ItemManager {
@@ -27,6 +26,7 @@ public class ItemManager {
     public static ItemStack Terminator;
     public static ItemStack HealingSword;
     public static ItemStack FrozenWand;
+    public static ItemStack ImpulseSword;
 
     Mythicrpg main;
     FileConfiguration config;
@@ -44,6 +44,7 @@ public class ItemManager {
         this.createTerminator();
         this.createHealingSword();
         this.createFrozenWand();
+        this.createImpulseSword();
     }
 
     public void createLightingAxe()
@@ -152,7 +153,7 @@ public class ItemManager {
         int cooldown = config.getInt("frozenWandCooldown");
         lore.add("");
         lore.add("§6RIGHT CLICK: §eFrozen Breathe");
-        lore.add("§7Debuffs your enemies in a "+r+" radius");
+        lore.add("§7Debuffs your enemies in a "+r+" block radius");
         lore.add("§8Cooldown: "+ cooldown + "s");
 
         meta.setLore(lore);
@@ -161,5 +162,32 @@ public class ItemManager {
         FrozenWand = item;
     }
 
+    public void createImpulseSword()
+    {
+        ItemStack item = new ItemStack(Material.IRON_SWORD, 1);
+        ItemMeta meta = item.getItemMeta();
+
+
+        meta.setDisplayName(this.config.getString("impulseSword"));
+        meta.setUnbreakable(true);
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        List<String> lore = new ArrayList<>();
+
+        int r = config.getInt("impulseSwordRadius");
+        int cooldown = config.getInt("impulseSwordCooldown");
+        lore.add("");
+        lore.add("§6SNEAK + RIGHT CLICK: §ePush");
+        lore.add("§7Pushes your enemies from you in a "+r+" block radius");
+        lore.add("§8Cooldown: "+ cooldown + "s");
+        lore.add("");
+        lore.add("§6RIGHT CLICK: §ePull");
+        lore.add("§7Pulls your enemies towards you in a "+r+" block radius");
+        lore.add("§8Cooldown: "+ cooldown + "s");
+
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+
+        ImpulseSword = item;
+    }
 
 }

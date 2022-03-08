@@ -3,7 +3,10 @@ healingSword: "§6Healing Axe"
 idolsIncarnate: "§cIdols Incarnate"
 terminator: "§dTerminator"
 frozenWand: "§bFrozen Wand"
+impulseSword: "§eImpulse Sword"
 frozenWandRadius: 7
+impulseSwordRadius: 15
+impulseSwordCooldown: 5
 terminatorAbilityRange: 15
 lightningAxeCooldown: 3
 frozenWandCooldown: 7

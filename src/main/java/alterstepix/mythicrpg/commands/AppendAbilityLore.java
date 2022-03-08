@@ -40,6 +40,7 @@ public class AppendAbilityLore implements CommandExecutor, TabCompleter {
                     ItemMeta meta = mainhand.getItemMeta();
                     List<String> lore = new ArrayList<String>();
                     int radius = this.config.getInt("terminatorAbilityRange");
+                    int r2 = 0, cooldown2 = 0;
                     switch (args[0]) {
                         case "Curse":
                             if (meta.hasLore())
@@ -136,8 +137,40 @@ public class AppendAbilityLore implements CommandExecutor, TabCompleter {
                             int cooldownFW = config.getInt("frozenWandCooldown");
                             lore.add("");
                             lore.add("§6RIGHT CLICK: §eFrozen Breathe");
-                            lore.add("§7Debuffs your enemies in a "+r+" radius");
+                            lore.add("§7Debuffs your enemies in a "+r+" block radius");
                             lore.add("§8Cooldown: "+ cooldownFW + "s");
+
+                            meta.setLore(lore);
+                            mainhand.setItemMeta(meta);
+                            p.getInventory().setItemInMainHand(mainhand);
+                            p.sendMessage(Messages.CommandSuccess);
+                            break;
+                        case "Pull":
+                            if (meta.hasLore())
+                                lore = meta.getLore();
+
+                            r2 = config.getInt("impulseSwordRadius");
+                            cooldown2 = config.getInt("impulseSwordCooldown");
+                            lore.add("");
+                            lore.add("§6RIGHT CLICK: §ePull");
+                            lore.add("§7Pulls your enemies towards you in a "+r2+" block radius");
+                            lore.add("§8Cooldown: "+ cooldown2 + "s");
+
+                            meta.setLore(lore);
+                            mainhand.setItemMeta(meta);
+                            p.getInventory().setItemInMainHand(mainhand);
+                            p.sendMessage(Messages.CommandSuccess);
+                            break;
+                        case "Push":
+                            if (meta.hasLore())
+                                lore = meta.getLore();
+
+                            r2 = config.getInt("impulseSwordRadius");
+                            cooldown2 = config.getInt("impulseSwordCooldown");
+                            lore.add("");
+                            lore.add("§6SNEAK + RIGHT CLICK: §ePush");
+                            lore.add("§7Pushes your enemies from you in a "+r2+" block radius");
+                            lore.add("§8Cooldown: "+ cooldown2 + "s");
 
                             meta.setLore(lore);
                             mainhand.setItemMeta(meta);
@@ -180,6 +213,8 @@ public class AppendAbilityLore implements CommandExecutor, TabCompleter {
         Abilities.add("Thunderlord");
         Abilities.add("FrozenBreathe");
         Abilities.add("Curse");
+        Abilities.add("Pull");
+        Abilities.add("Push");
 
         return Abilities;
 

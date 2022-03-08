@@ -24,7 +24,13 @@ public class HealingSword implements Listener {
                 if(hunger>0) //Hunger > 0
                 {
                     player.setHealth(20);
-                    player.setFoodLevel(hunger-10);
+                    if(hunger>10)
+                    {
+                        player.setFoodLevel(hunger-10);
+                    }else{
+                        player.setFoodLevel(0);
+                    }
+
                 }
 
 

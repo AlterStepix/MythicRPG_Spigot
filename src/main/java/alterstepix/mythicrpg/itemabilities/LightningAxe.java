@@ -17,12 +17,14 @@ public class LightningAxe implements Listener {
     int cd;
     Mythicrpg main;
     FileConfiguration config;
+    Cooldown thiscd = new Cooldown();
 
     public LightningAxe(Mythicrpg main)
     {
         this.main = main;
         this.config = main.getConfig();
-        this.cd = this.config.getInt("healingSwordCooldown");
+        this.cd = this.config.getInt("lightningAxeCooldown");
+        thiscd.init();
     }
 
 
@@ -49,19 +51,19 @@ public class LightningAxe implements Listener {
         {
             Player player = e.getPlayer();
             if(player.getInventory().getItemInMainHand().getItemMeta() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore().contains("§6RIGHT CLICK: §eThunderlord")) {
-                if (Cooldown.checkCD(player)) {
+                if (thiscd.checkCD(player)) {
                     for (Entity entity : e.getPlayer().getNearbyEntities(10, 10, 10)) {
                         if (entity instanceof LivingEntity) {
                             LivingEntity trg = (LivingEntity) entity;
                             player.getWorld().strikeLightningEffect(trg.getLocation());
                             trg.damage(6);
-                            Cooldown.putCooldown(player, cd);
+                            thiscd.putCooldown(player, cd);
                         }
                     }
                 }
                 else
                 {
-                    player.sendMessage("§c[Mythic RPG] This item is on cooldown for " + (Cooldown.getCooldownTime(player)+1));
+                    player.sendMessage("§c[Mythic RPG] This item is on cooldown for " + (thiscd.getCooldownTime(player)+1));
                 }
             }
         }

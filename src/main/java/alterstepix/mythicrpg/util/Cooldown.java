@@ -8,19 +8,19 @@ import java.util.UUID;
 // Taken from Epic Items
 
 public class Cooldown {
-    public static HashMap<UUID, Double> cd;
+    public HashMap<UUID, Double> cd;
 
     public Cooldown() {}
 
-    public static void init() {
+    public void init() {
         cd = new HashMap<UUID, Double>();
     }
 
-    public static boolean checkCD(Player player) {
+    public boolean checkCD(Player player) {
         return !cd.containsKey(player.getUniqueId()) || cd.get(player.getUniqueId()) <= (double)System.currentTimeMillis();
     }
 
-    public static int getCooldownTime(Player player)
+    public int getCooldownTime(Player player)
     {
         if(cd.containsKey(player.getUniqueId()))
         {
@@ -31,7 +31,7 @@ public class Cooldown {
             return 0;
     }
 
-    public static void putCooldown(Player player, int seconds) {
+    public void putCooldown(Player player, int seconds) {
         double delay = (double)(System.currentTimeMillis() + (long)(seconds * 1000));
         cd.put(player.getUniqueId(), delay);
     }

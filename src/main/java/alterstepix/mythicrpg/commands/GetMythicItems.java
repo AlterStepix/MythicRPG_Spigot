@@ -2,6 +2,7 @@ package alterstepix.mythicrpg.commands;
 
 import alterstepix.mythicrpg.Mythicrpg;
 import alterstepix.mythicrpg.util.ItemManager;
+import alterstepix.mythicrpg.util.Messages;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -29,8 +30,10 @@ public class GetMythicItems implements CommandExecutor {
         gui.addItem(m.IdolsIncarnate);
         gui.addItem(m.Terminator);
         gui.addItem(m.HealingSword);
+        gui.addItem(m.FrozenWand);
         Player p = (Player)sender;
         p.openInventory(gui);
+        p.sendMessage(Messages.CommandSuccess);
         return true;
 
     }

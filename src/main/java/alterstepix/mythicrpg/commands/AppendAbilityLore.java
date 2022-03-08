@@ -51,7 +51,7 @@ public class AppendAbilityLore implements CommandExecutor, TabCompleter {
                             meta.setLore(lore);
                             mainhand.setItemMeta(meta);
                             p.getInventory().setItemInMainHand(mainhand);
-                            p.sendMessage(Messages.CommandSucсess);
+                            p.sendMessage(Messages.CommandSuccess);
                             break;
                         case "Thunderlord":
                             if (meta.hasLore())
@@ -64,7 +64,7 @@ public class AppendAbilityLore implements CommandExecutor, TabCompleter {
                             meta.setLore(lore);
                             mainhand.setItemMeta(meta);
                             p.getInventory().setItemInMainHand(mainhand);
-                            p.sendMessage(Messages.CommandSucсess);
+                            p.sendMessage(Messages.CommandSuccess);
                             break;
                         case "LightningPower":
                             if (meta.hasLore())
@@ -76,7 +76,7 @@ public class AppendAbilityLore implements CommandExecutor, TabCompleter {
                             meta.setLore(lore);
                             mainhand.setItemMeta(meta);
                             p.getInventory().setItemInMainHand(mainhand);
-                            p.sendMessage(Messages.CommandSucсess);
+                            p.sendMessage(Messages.CommandSuccess);
                             break;
                         case "Termination":
                             if (meta.hasLore())
@@ -88,7 +88,7 @@ public class AppendAbilityLore implements CommandExecutor, TabCompleter {
                             meta.setLore(lore);
                             mainhand.setItemMeta(meta);
                             p.getInventory().setItemInMainHand(mainhand);
-                            p.sendMessage(Messages.CommandSucсess);
+                            p.sendMessage(Messages.CommandSuccess);
                             break;
                         case "Recall":
                             if (meta.hasLore())
@@ -100,7 +100,7 @@ public class AppendAbilityLore implements CommandExecutor, TabCompleter {
                             meta.setLore(lore);
                             mainhand.setItemMeta(meta);
                             p.getInventory().setItemInMainHand(mainhand);
-                            p.sendMessage(Messages.CommandSucсess);
+                            p.sendMessage(Messages.CommandSuccess);
                             break;
                         case "Annihilation":
                             if (meta.hasLore())
@@ -112,7 +112,7 @@ public class AppendAbilityLore implements CommandExecutor, TabCompleter {
                             meta.setLore(lore);
                             mainhand.setItemMeta(meta);
                             p.getInventory().setItemInMainHand(mainhand);
-                            p.sendMessage(Messages.CommandSucсess);
+                            p.sendMessage(Messages.CommandSuccess);
                             break;
                         case "Healing":
                             if (meta.hasLore())
@@ -124,8 +124,27 @@ public class AppendAbilityLore implements CommandExecutor, TabCompleter {
                             meta.setLore(lore);
                             mainhand.setItemMeta(meta);
                             p.getInventory().setItemInMainHand(mainhand);
-                            p.sendMessage(Messages.CommandSucсess);
+                            p.sendMessage(Messages.CommandSuccess);
                             break;
+
+                        case "FrozenBreathe":
+                            if (meta.hasLore())
+                                lore = meta.getLore();
+
+
+                            int r = config.getInt("frozenWandRadius");
+                            int cooldownFW = config.getInt("frozenWandCooldown");
+                            lore.add("");
+                            lore.add("§6RIGHT CLICK: §eFrozen Breathe");
+                            lore.add("§7Debuffs your enemies in a "+r+" radius");
+                            lore.add("§8Cooldown: "+ cooldownFW + "s");
+
+                            meta.setLore(lore);
+                            mainhand.setItemMeta(meta);
+                            p.getInventory().setItemInMainHand(mainhand);
+                            p.sendMessage(Messages.CommandSuccess);
+                            break;
+
 
                         default:
                             p.sendMessage("§c[mrpg] Unknown ability name");
@@ -159,6 +178,7 @@ public class AppendAbilityLore implements CommandExecutor, TabCompleter {
         Abilities.add("Termination");
         Abilities.add("LightningPower");
         Abilities.add("Thunderlord");
+        Abilities.add("FrozenBreathe");
         Abilities.add("Curse");
 
         return Abilities;

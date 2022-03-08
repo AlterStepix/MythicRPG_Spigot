@@ -12,11 +12,21 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.ArrayList;
 import java.util.List;
 
+//Item creation step by step:
+// 1. Add ItemStack to ItemManager
+// 2. Add settings to config
+// 3. Add ItemStack to GetMythicItems command
+// 4. Add item lore to AppendAbilityLore command
+// 5. Add new event handlers to itemabilities package
+// 6. Add new cooldown class (if needed)
+
+
 public class ItemManager {
     public static ItemStack LightingAxe;
     public static ItemStack IdolsIncarnate;
     public static ItemStack Terminator;
     public static ItemStack HealingSword;
+    public static ItemStack FrozenWand;
 
     Mythicrpg main;
     FileConfiguration config;
@@ -33,6 +43,7 @@ public class ItemManager {
         this.createIdolsIncarnate();
         this.createTerminator();
         this.createHealingSword();
+        this.createFrozenWand();
     }
 
     public void createLightingAxe()
@@ -126,7 +137,29 @@ public class ItemManager {
 
     }
 
+    public void createFrozenWand()
+    {
+        ItemStack item = new ItemStack(Material.STICK, 1);
+        ItemMeta meta = item.getItemMeta();
 
+
+        meta.setDisplayName(this.config.getString("frozenWand"));
+        meta.setUnbreakable(true);
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        List<String> lore = new ArrayList<>();
+
+        int r = config.getInt("frozenWandRadius");
+        int cooldown = config.getInt("frozenWandCooldown");
+        lore.add("");
+        lore.add("§6RIGHT CLICK: §eFrozen Breathe");
+        lore.add("§7Debuffs your enemies in a "+r+" radius");
+        lore.add("§8Cooldown: "+ cooldown + "s");
+
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+
+        FrozenWand = item;
+    }
 
 
 }

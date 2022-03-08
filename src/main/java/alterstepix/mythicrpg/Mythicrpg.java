@@ -5,6 +5,7 @@ import alterstepix.mythicrpg.commands.GetMythicItems;
 import alterstepix.mythicrpg.commands.SummonMythicMob;
 import alterstepix.mythicrpg.itemabilities.*;
 
+import alterstepix.mythicrpg.mobs.InfectedZombie;
 import alterstepix.mythicrpg.mobs.Necromancer;
 import alterstepix.mythicrpg.mobs.WitherSpider;
 import alterstepix.mythicrpg.util.Cooldown;
@@ -39,6 +40,7 @@ public final class Mythicrpg extends JavaPlugin {
 
         Bukkit.getServer().getPluginManager().registerEvents(new WitherSpider(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new Necromancer(this),this);
+        Bukkit.getServer().getPluginManager().registerEvents(new InfectedZombie(this),this);
 
 
         System.out.println("Plugin Enabled");

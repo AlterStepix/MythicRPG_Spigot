@@ -1,6 +1,7 @@
 package alterstepix.mythicrpg.commands;
 
 import alterstepix.mythicrpg.Mythicrpg;
+import alterstepix.mythicrpg.mobs.InfectedZombie;
 import alterstepix.mythicrpg.mobs.Necromancer;
 import alterstepix.mythicrpg.mobs.WitherSpider;
 import alterstepix.mythicrpg.util.Messages;
@@ -45,6 +46,10 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                             Necromancer mob2 = new Necromancer(main);
                             mob2.createNecromancer(player.getLocation());
                             break;
+                        case "InfectedZombie":
+                            InfectedZombie mob3 = new InfectedZombie(main);
+                            mob3.createInfectedZombie(player.getLocation());
+                            break;
                     }
                 }
                 else
@@ -88,6 +93,12 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                     Location loc2 = new Location(wr,Integer.parseInt(args[1]),Integer.parseInt(args[2]),Integer.parseInt(args[3]));
                     mob2.createNecromancer(loc2);
                     break;
+                case "InfectedZombie":
+                    InfectedZombie mob3 = new InfectedZombie(main);
+
+                    Location loc3 = new Location(wr,Integer.parseInt(args[1]),Integer.parseInt(args[2]),Integer.parseInt(args[3]));
+                    mob3.createInfectedZombie(loc3);
+                    break;
             }
         }
         else
@@ -113,6 +124,7 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
         {
             tab.add("WitherSpider");
             tab.add("Necromancer");
+            tab.add("InfectedZombie");
         }
         else if(args.length == 5)
         {

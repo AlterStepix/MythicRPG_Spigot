@@ -31,13 +31,14 @@ public class WitherSpider implements Listener {
 
     public void createLeapingSpider(Location location)
     {
+        int hp = config.getInt("WitherSpiderHealth");
         Spider spider = location.getWorld().spawn(location, Spider.class);
         spider.setCustomName(config.getString("WitherSpiderNametag"));
         spider.setCustomNameVisible(true);
         Attributable spiderAt = spider;
         AttributeInstance attribute = spiderAt.getAttribute(Attribute.GENERIC_MAX_HEALTH);
-        attribute.setBaseValue(40);
-        spider.setHealth(40);
+        attribute.setBaseValue(hp);
+        spider.setHealth(hp);
 
         new BukkitRunnable(){
             public void run()

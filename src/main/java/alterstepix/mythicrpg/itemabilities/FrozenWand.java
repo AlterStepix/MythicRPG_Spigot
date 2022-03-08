@@ -48,8 +48,8 @@ public class FrozenWand implements Listener {
                     for (Entity entity : player.getNearbyEntities(radius, radius, radius)) {
                         if (entity instanceof LivingEntity) {
                             LivingEntity trg = (LivingEntity) entity;
-                            PotionEffect potionEffect = new PotionEffect(PotionEffectType.WEAKNESS, 60, 1, true, true, true);
-                            PotionEffect potionEffect2 = new PotionEffect(PotionEffectType.SLOW, 60, 1, true, true, true);
+                            PotionEffect potionEffect = new PotionEffect(PotionEffectType.WEAKNESS, 120, 2, true, true, true);
+                            PotionEffect potionEffect2 = new PotionEffect(PotionEffectType.SLOW, 80, 3, true, true, true);
                             trg.addPotionEffect(potionEffect);
                             trg.addPotionEffect(potionEffect2);
                             trg.getWorld().spawnParticle(Particle.WATER_SPLASH, trg.getLocation(), 10);

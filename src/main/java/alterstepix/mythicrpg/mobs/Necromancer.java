@@ -28,14 +28,15 @@ public class Necromancer implements Listener {
     }
 
     public void createNecromancer(Location location){
+        int hp = config.getInt("NecromancerHealth");
         WitherSkeleton skeleton = location.getWorld().spawn(location, WitherSkeleton.class);
 
         skeleton.setCustomName(config.getString("NecromancerNametag"));
         skeleton.setCustomNameVisible(true);
         Attributable skeletonAt = skeleton;
         AttributeInstance attributeHP = skeleton.getAttribute(Attribute.GENERIC_MAX_HEALTH);
-        attributeHP.setBaseValue(50);
-        skeleton.setHealth(50);
+        attributeHP.setBaseValue(hp);
+        skeleton.setHealth(hp);
         AttributeInstance attributeSpeed = skeleton.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED);
         attributeSpeed.setBaseValue(0.1);
 

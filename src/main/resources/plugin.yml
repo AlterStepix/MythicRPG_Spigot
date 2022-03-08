@@ -14,4 +14,4 @@ commands:
     usage: Use /<command> + ablility
   SummonMythicMob:
     description: Summons custom mobs from this plugin
-    usage: Use /<command> + mob
+    usage: Use /<command> + mob + x + y + z + world

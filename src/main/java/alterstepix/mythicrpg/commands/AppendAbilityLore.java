@@ -51,6 +51,7 @@ public class AppendAbilityLore implements CommandExecutor, TabCompleter {
                             meta.setLore(lore);
                             mainhand.setItemMeta(meta);
                             p.getInventory().setItemInMainHand(mainhand);
+                            p.sendMessage(Messages.CommandSucсess);
                             break;
                         case "Thunderlord":
                             if (meta.hasLore())
@@ -63,6 +64,7 @@ public class AppendAbilityLore implements CommandExecutor, TabCompleter {
                             meta.setLore(lore);
                             mainhand.setItemMeta(meta);
                             p.getInventory().setItemInMainHand(mainhand);
+                            p.sendMessage(Messages.CommandSucсess);
                             break;
                         case "LightningPower":
                             if (meta.hasLore())
@@ -74,6 +76,7 @@ public class AppendAbilityLore implements CommandExecutor, TabCompleter {
                             meta.setLore(lore);
                             mainhand.setItemMeta(meta);
                             p.getInventory().setItemInMainHand(mainhand);
+                            p.sendMessage(Messages.CommandSucсess);
                             break;
                         case "Termination":
                             if (meta.hasLore())
@@ -85,6 +88,7 @@ public class AppendAbilityLore implements CommandExecutor, TabCompleter {
                             meta.setLore(lore);
                             mainhand.setItemMeta(meta);
                             p.getInventory().setItemInMainHand(mainhand);
+                            p.sendMessage(Messages.CommandSucсess);
                             break;
                         case "Recall":
                             if (meta.hasLore())
@@ -96,6 +100,7 @@ public class AppendAbilityLore implements CommandExecutor, TabCompleter {
                             meta.setLore(lore);
                             mainhand.setItemMeta(meta);
                             p.getInventory().setItemInMainHand(mainhand);
+                            p.sendMessage(Messages.CommandSucсess);
                             break;
                         case "Annihilation":
                             if (meta.hasLore())
@@ -107,6 +112,8 @@ public class AppendAbilityLore implements CommandExecutor, TabCompleter {
                             meta.setLore(lore);
                             mainhand.setItemMeta(meta);
                             p.getInventory().setItemInMainHand(mainhand);
+                            p.sendMessage(Messages.CommandSucсess);
+                            break;
                         case "Healing":
                             if (meta.hasLore())
                                 lore = meta.getLore();
@@ -117,6 +124,8 @@ public class AppendAbilityLore implements CommandExecutor, TabCompleter {
                             meta.setLore(lore);
                             mainhand.setItemMeta(meta);
                             p.getInventory().setItemInMainHand(mainhand);
+                            p.sendMessage(Messages.CommandSucсess);
+                            break;
 
                         default:
                             p.sendMessage("§c[mrpg] Unknown ability name");
@@ -138,7 +147,7 @@ public class AppendAbilityLore implements CommandExecutor, TabCompleter {
             Bukkit.getLogger().info(Messages.NotPlayer);
         }
 
-        return false;
+        return true;
     }
 
     @Override
@@ -146,6 +155,11 @@ public class AppendAbilityLore implements CommandExecutor, TabCompleter {
         List<String> Abilities = new ArrayList<>();
         Abilities.add("Annihilation");
         Abilities.add("Healing");
+        Abilities.add("Recall");
+        Abilities.add("Termination");
+        Abilities.add("LightningPower");
+        Abilities.add("Thunderlord");
+        Abilities.add("Curse");
 
         return Abilities;
 

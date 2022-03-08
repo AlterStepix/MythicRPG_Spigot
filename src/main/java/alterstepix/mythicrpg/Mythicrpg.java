@@ -8,6 +8,7 @@ import alterstepix.mythicrpg.itemabilities.IdolsIncarnate;
 import alterstepix.mythicrpg.itemabilities.LightningAxe;
 
 import alterstepix.mythicrpg.itemabilities.Terminator;
+import alterstepix.mythicrpg.mobs.Necromancer;
 import alterstepix.mythicrpg.mobs.WitherSpider;
 import alterstepix.mythicrpg.util.Cooldown;
 import alterstepix.mythicrpg.util.ItemManager;
@@ -29,9 +30,10 @@ public final class Mythicrpg extends JavaPlugin {
 
         Bukkit.getServer().getPluginCommand("MythicItemGui").setExecutor(new GetMythicItems(this));
         Bukkit.getServer().getPluginCommand("AddItemAbility").setExecutor(new AppendAbilityLore(this));
-        Bukkit.getServer().getPluginCommand("SummonMythicMob").setExecutor(new SummonMythicMob());
+        Bukkit.getServer().getPluginCommand("SummonMythicMob").setExecutor(new SummonMythicMob(this));
 
         Bukkit.getServer().getPluginCommand("AddItemAbility").setTabCompleter(new AppendAbilityLore(this));
+        Bukkit.getServer().getPluginCommand("SummonMythicMob").setTabCompleter(new SummonMythicMob(this));
 
         Bukkit.getServer().getPluginManager().registerEvents(new LightningAxe(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new IdolsIncarnate(),this);
@@ -39,8 +41,8 @@ public final class Mythicrpg extends JavaPlugin {
         Bukkit.getServer().getPluginManager().registerEvents(new HealingSword(),this);
 
         Bukkit.getServer().getPluginManager().registerEvents(new WitherSpider(this),this);
+        Bukkit.getServer().getPluginManager().registerEvents(new Necromancer(this),this);
 
-        Bukkit.getServer().getPluginManager().registerEvents(new Events(), this);
 
         System.out.println("Plugin Enabled");
         

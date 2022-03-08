@@ -6,6 +6,7 @@ import org.bukkit.attribute.Attributable;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.attribute.AttributeModifier;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -20,16 +21,18 @@ import org.bukkit.scheduler.BukkitRunnable;
 public class WitherSpider implements Listener {
 
     static Mythicrpg main;
+    FileConfiguration config;
 
     public WitherSpider(Mythicrpg main)
     {
         this.main = main;
+        config = main.getConfig();
     }
 
-    public static void createLeapingSpider(Location location)
+    public void createLeapingSpider(Location location)
     {
         Spider spider = location.getWorld().spawn(location, Spider.class);
-        spider.setCustomName(ChatColor.DARK_GRAY + "Wither Spider");
+        spider.setCustomName(config.getString("WitherSpiderNametag"));
         spider.setCustomNameVisible(true);
         Attributable spiderAt = spider;
         AttributeInstance attribute = spiderAt.getAttribute(Attribute.GENERIC_MAX_HEALTH);
@@ -77,7 +80,7 @@ public class WitherSpider implements Listener {
     {
         if(event.getDamager() instanceof Spider)
         {
-            if(event.getDamager().getCustomName() != null && event.getDamager().getCustomName().equals(ChatColor.DARK_GRAY + "Wither Spider"))
+            if(event.getDamager().getCustomName() != null && event.getDamager().getCustomName().equals(config.getString("WitherSpiderNametag")))
             {
                 if(event.getEntity() instanceof Player)
                 {

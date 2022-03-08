@@ -2,6 +2,7 @@ lightingAxe: "§9Lighting Axe"
 healingSword: "§6Healing Axe"
 idolsIncarnate: "§cIdols Incarnate"
 terminator: "§dTerminator"
-destructiveBow: "§cDestructive Bow"
 terminatorAbilityRange: 15
 healingSwordCooldown: 3
+WitherSpiderNametag: "§8Wither Spider"
+NecromancerNametag: "§9Necromancer"

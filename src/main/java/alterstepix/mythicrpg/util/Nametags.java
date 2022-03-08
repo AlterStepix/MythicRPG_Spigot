@@ -21,7 +21,7 @@ public class Nametags implements Listener {
     @EventHandler
     public void onHit(EntityDamageByEntityEvent e)
     {
-        if(e.getEntity() instanceof LivingEntity)
+        if(e.getEntity() instanceof LivingEntity && e.getEntity().getCustomName() != null)
         {
             LivingEntity mob = (LivingEntity) e.getEntity();
             if(mob.getCustomName().startsWith(config.getString("WitherSpiderNametag")))

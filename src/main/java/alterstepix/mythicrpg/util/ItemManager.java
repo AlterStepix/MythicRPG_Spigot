@@ -56,7 +56,7 @@ public class ItemManager {
         meta.setDisplayName(this.config.getString("lightingAxe"));
         meta.setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
-        int cooldown = this.config.getInt("healingSwordCooldown");
+        int cooldown = this.config.getInt("lightningAxeCooldown");
         List<String> lore = new ArrayList<>();
         lore.add("");
         lore.add("§6RIGHT CLICK: §eThunderlord");

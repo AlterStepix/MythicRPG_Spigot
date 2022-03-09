@@ -44,7 +44,8 @@ public final class Mythicrpg extends JavaPlugin {
         Bukkit.getServer().getPluginManager().registerEvents(new Necromancer(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new InfectedZombie(this),this);
 
-        Bukkit.getServer().getPluginManager().registerEvents(new Nametags(this),this);
+        Nametags namtags = new Nametags(this);
+        namtags.Init();
 
 
         System.out.println("Plugin Enabled");

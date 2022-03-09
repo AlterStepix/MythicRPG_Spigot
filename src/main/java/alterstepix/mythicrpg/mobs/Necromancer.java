@@ -15,6 +15,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import java.util.List;
 import java.util.Random;
 
 public class Necromancer implements Listener {
@@ -88,18 +89,28 @@ public class Necromancer implements Listener {
                                 }
                             }.runTaskTimer(main,0L,2L);
                         }
-                        if(i % 10 == 0){
-                            Random r = new Random();
-                            skeleton.getWorld().playSound(skeleton.getLocation(),Sound.ENTITY_EVOKER_PREPARE_SUMMON,5,5);
-                            for(int x = 0; x < 4; x++)
+                            if(i % 10 == 0){
+                                Random r = new Random();
+                                skeleton.getWorld().playSound(skeleton.getLocation(),Sound.ENTITY_EVOKER_PREPARE_SUMMON,5,5);
+                                for(int x = 0; x < 3; x++)
+                                {
+                                    Skeleton summonedskeleton = skeleton.getWorld().spawn(skeleton.getLocation().add(r.nextInt(1 + 1) -1, 0, r.nextInt(1 + 1) -1),Skeleton.class);
+                                    summonedskeleton.getEquipment().setHelmet(new ItemStack(Material.IRON_HELMET));
+                                    summonedskeleton.getEquipment().setItemInMainHand(new ItemStack(Material.STONE_SWORD));
+                                    summonedskeleton.setTarget(skeleton.getTarget());
+                                    skeleton.getWorld().spawnParticle(Particle.SOUL_FIRE_FLAME,summonedskeleton.getLocation(),1);
+                                }
+                            if(i % 30 == 0)
                             {
-                                Skeleton summonedskeleton = skeleton.getWorld().spawn(skeleton.getLocation().add(r.nextInt(1 + 1) -1, 0, r.nextInt(1 + 1) -1),Skeleton.class);
-                                summonedskeleton.getEquipment().setHelmet(new ItemStack(Material.IRON_HELMET));
-                                summonedskeleton.getEquipment().setItemInMainHand(new ItemStack(Material.STONE_SWORD));
-                                summonedskeleton.setTarget(skeleton.getTarget());
-                                skeleton.getWorld().spawnParticle(Particle.SOUL_FIRE_FLAME,summonedskeleton.getLocation(),1);
+                                WitherSpider ws = new WitherSpider(main);
+                                ws.createLeapingSpider(skeleton.getLocation().add(r.nextInt(2+2) -2,0,r.nextInt(2+2)-2));
+
+                                InfectedZombie zombie = new InfectedZombie(main);
+                                zombie.createInfectedZombie(skeleton.getLocation().add(r.nextInt(2+2) -2,0,r.nextInt(2+2)-2));
                             }
                         }
+
+
                         i++;
                     }
                 }

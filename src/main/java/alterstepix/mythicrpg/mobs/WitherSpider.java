@@ -81,7 +81,8 @@ public class WitherSpider implements Listener {
     {
         if(event.getDamager() instanceof Spider)
         {
-            if(event.getDamager().getCustomName() != null && event.getDamager().getCustomName().equals(config.getString("WitherSpiderNametag")))
+            Spider s = (Spider) event.getDamager();
+            if(event.getDamager().getCustomName() != null && event.getDamager().getCustomName().startsWith(config.getString("WitherSpiderNametag")))
             {
                 if(event.getEntity() instanceof Player)
                 {

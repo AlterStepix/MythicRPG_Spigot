@@ -38,7 +38,7 @@ public class Nametags implements Listener {
                             LivingEntity trg = (LivingEntity) entity;
                             if(trg.getCustomName() != null) {
                                 String infectedZombieN = config.getString("InfectedZombieNametag");
-                                String necromancerN = config.getString("NecromancerNametag");
+                                String necromancerN = config.getString("ParasiteNametag");
                                 String witherSpider = config.getString("WitherSpiderNametag");
                                 if (trg.getCustomName().startsWith(infectedZombieN))
                                 {
@@ -46,7 +46,7 @@ public class Nametags implements Listener {
                                 }
                                 else if(trg.getCustomName().startsWith(necromancerN))
                                 {
-                                    trg.setCustomName(config.getString("NecromancerNametag") + " §7["+Math.round(trg.getHealth())+"/"+trg.getMaxHealth()+"]");
+                                    trg.setCustomName(config.getString("ParasiteNametag") + " §7["+Math.round(trg.getHealth())+"/"+trg.getMaxHealth()+"]");
                                 }
                                 else if(trg.getCustomName().startsWith(witherSpider))
                                 {

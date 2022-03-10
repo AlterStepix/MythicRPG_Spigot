@@ -42,7 +42,7 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                             WitherSpider mob1 = new WitherSpider(main);
                             mob1.createLeapingSpider(player.getLocation());
                             break;
-                        case "Necromancer":
+                        case "Parasite":
                             Necromancer mob2 = new Necromancer(main);
                             mob2.createNecromancer(player.getLocation());
                             break;
@@ -87,7 +87,7 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                     Location loc1 = new Location(wr,Integer.parseInt(args[1]),Integer.parseInt(args[2]),Integer.parseInt(args[3]));
                     mob1.createLeapingSpider(loc1);
                     break;
-                case "Necromancer":
+                case "Parasite":
                     Necromancer mob2 = new Necromancer(main);
 
                     Location loc2 = new Location(wr,Integer.parseInt(args[1]),Integer.parseInt(args[2]),Integer.parseInt(args[3]));
@@ -123,7 +123,7 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
         if(args.length == 1)
         {
             tab.add("WitherSpider");
-            tab.add("Necromancer");
+            tab.add("Parasite");
             tab.add("InfectedZombie");
         }
         else if(args.length == 5)

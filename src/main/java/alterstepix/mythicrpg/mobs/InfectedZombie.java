@@ -11,6 +11,7 @@ import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Mob;
 import org.bukkit.entity.Zombie;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -22,6 +23,7 @@ public class InfectedZombie implements Listener {
 
     Mythicrpg main;
     FileConfiguration config;
+    LivingEntity Zombietarget;
 
     public InfectedZombie(Mythicrpg main)
     {
@@ -29,10 +31,17 @@ public class InfectedZombie implements Listener {
         config = main.getConfig();
     }
 
+    public void setTarget(LivingEntity mob)
+    {
+        Zombietarget = mob;
+    }
+
     public void createInfectedZombie(Location location)
     {
         int hp = config.getInt("InfectedZombieHealth");
         Zombie infected = location.getWorld().spawn(location, Zombie.class);
+        if(Zombietarget != null)
+            infected.setTarget(Zombietarget);
         infected.setCustomName(config.getString("InfectedZombieNametag"));
         infected.setCustomNameVisible(true);
         Attributable infectedAt = infected;

@@ -6,11 +6,13 @@ import org.bukkit.attribute.Attributable;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityChangeBlockEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -29,10 +31,10 @@ public class Necromancer implements Listener {
     }
 
     public void createNecromancer(Location location){
-        int hp = config.getInt("NecromancerHealth");
-        WitherSkeleton skeleton = location.getWorld().spawn(location, WitherSkeleton.class);
+        int hp = config.getInt("ParasiteHealth");
+        Zombie skeleton = location.getWorld().spawn(location, Zombie.class);
 
-        skeleton.setCustomName(config.getString("NecromancerNametag"));
+        skeleton.setCustomName(config.getString("ParasiteNametag"));
         skeleton.setCustomNameVisible(true);
         Attributable skeletonAt = skeleton;
         AttributeInstance attributeHP = skeleton.getAttribute(Attribute.GENERIC_MAX_HEALTH);
@@ -41,14 +43,21 @@ public class Necromancer implements Listener {
         AttributeInstance attributeSpeed = skeleton.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED);
         attributeSpeed.setBaseValue(0.1);
 
-        skeleton.getEquipment().setItemInMainHand(new ItemStack(Material.DIAMOND_SHOVEL));
-        skeleton.getEquipment().setHelmet(new ItemStack(Material.NETHERITE_HELMET));
-        skeleton.getEquipment().setChestplate(new ItemStack(Material.NETHERITE_CHESTPLATE));
-        skeleton.getEquipment().setLeggings(new ItemStack(Material.NETHERITE_LEGGINGS));
-        skeleton.getEquipment().setBoots(new ItemStack(Material.NETHERITE_BOOTS));
-        skeleton.setCustomName(config.getString("NecromancerNametag") + " §7["+Math.round(skeleton.getHealth())+"/"+skeleton.getMaxHealth()+"]");
+        ItemStack cp = new ItemStack(Material.LEATHER_CHESTPLATE,1);
+        LeatherArmorMeta meta = (LeatherArmorMeta)cp.getItemMeta();
+        meta.setColor(Color.GREEN);
+        meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,7,true);
+        cp.setItemMeta(meta);
+
+        skeleton.getEquipment().setItemInMainHand(new ItemStack(Material.IRON_SWORD));
+        skeleton.getEquipment().setHelmet(new ItemStack(Material.LEATHER_HELMET));
+        skeleton.getEquipment().setChestplate(cp);
+        skeleton.getEquipment().setLeggings(new ItemStack(Material.LEATHER_LEGGINGS));
+        skeleton.getEquipment().setBoots(new ItemStack(Material.DIAMOND_BOOTS));
+        skeleton.setCustomName(config.getString("ParasiteNametag") + " §7["+Math.round(skeleton.getHealth())+"/"+skeleton.getMaxHealth()+"]");
         new BukkitRunnable(){
             int i = 0;
+            int k = 0;
             public void run()
             {
                 if(!skeleton.isDead())
@@ -56,11 +65,11 @@ public class Necromancer implements Listener {
                     if(skeleton.getTarget() != null){
                         if(i % 2 == 0)
                         {
-                            FallingBlock fallingBlock = skeleton.getWorld().spawnFallingBlock(skeleton.getLocation().add(0,2,0),Material.SNOW_BLOCK, (byte) 0);
-                            fallingBlock.setCustomName("Necromancer orb");
+                            FallingBlock fallingBlock = skeleton.getWorld().spawnFallingBlock(skeleton.getLocation().add(0,2,0),Material.JUNGLE_LEAVES, (byte) 0);
+                            fallingBlock.setCustomName("Parasite orb");
                             fallingBlock.setDropItem(false);
                             fallingBlock.setVelocity(skeleton.getTarget().getLocation().add(0,1,0).subtract(fallingBlock.getLocation()).toVector().multiply(0.5));
-                            fallingBlock.getWorld().playSound(fallingBlock.getLocation(), Sound.ENTITY_WITHER_SHOOT,5,5);
+                            fallingBlock.getWorld().playSound(fallingBlock.getLocation(), Sound.BLOCK_COMPOSTER_FILL_SUCCESS,5,5);
                             new BukkitRunnable(){
                                 public void run()
                                 {
@@ -73,8 +82,10 @@ public class Necromancer implements Listener {
                                                 if(fallingBlock.getLocation().distanceSquared(entity.getLocation()) < 1)
                                                 {
                                                     Player player = (Player) entity;
-                                                    PotionEffect effect = new PotionEffect(PotionEffectType.BLINDNESS, 20,1,false,false,false);
+                                                    PotionEffect effect = new PotionEffect(PotionEffectType.POISON, 40,1,false,false,false);
+                                                    PotionEffect effect1 = new PotionEffect(PotionEffectType.HUNGER, 200, 1,false,false,false);
                                                     player.addPotionEffect(effect);
+                                                    player.addPotionEffect(effect1);
                                                     player.damage(4,skeleton);
                                                     player.getWorld().spawnParticle(Particle.SPELL_WITCH,player.getLocation(),5);
                                                     fallingBlock.remove();
@@ -89,35 +100,51 @@ public class Necromancer implements Listener {
                                 }
                             }.runTaskTimer(main,0L,2L);
                         }
-                            if(i % 10 == 0){
+                            if(i % 10 == 0)
+                            {
                                 Random r = new Random();
                                 skeleton.getWorld().playSound(skeleton.getLocation(),Sound.ENTITY_EVOKER_PREPARE_SUMMON,5,5);
                                 for(int x = 0; x < 3; x++)
                                 {
-                                    Skeleton summonedskeleton = skeleton.getWorld().spawn(skeleton.getLocation().add(r.nextInt(1 + 1) -1, 0, r.nextInt(1 + 1) -1),Skeleton.class);
-                                    summonedskeleton.getEquipment().setHelmet(new ItemStack(Material.IRON_HELMET));
-                                    summonedskeleton.getEquipment().setItemInMainHand(new ItemStack(Material.STONE_SWORD));
-                                    summonedskeleton.setTarget(skeleton.getTarget());
-                                    skeleton.getWorld().spawnParticle(Particle.SOUL_FIRE_FLAME,summonedskeleton.getLocation(),1);
+                                    InfectedZombie summoned = new InfectedZombie(main);
+                                    summoned.createInfectedZombie(skeleton.getLocation().add(r.nextInt(1 + 1) -1, 0, r.nextInt(1 + 1) -1));
+                                    summoned.setTarget(skeleton.getTarget());
                                 }
-                            if(i % 30 == 0)
-                            {
-                                WitherSpider ws = new WitherSpider(main);
-                                ws.createLeapingSpider(skeleton.getLocation().add(r.nextInt(2+2) -2,0,r.nextInt(2+2)-2));
-
-                                InfectedZombie zombie = new InfectedZombie(main);
-                                zombie.createInfectedZombie(skeleton.getLocation().add(r.nextInt(2+2) -2,0,r.nextInt(2+2)-2));
                             }
                         }
+                    if(i % 30 == 0)
+                    {
+                        Bukkit.getLogger().info("Heal");
+                        skeleton.setAI(false);
+                        new BukkitRunnable()
+                        {
+                            int j = 0;
+                            public void run()
+                            {
+                                try
+                                {
+                                    skeleton.setHealth(skeleton.getHealth()+skeleton.getMaxHealth()*0.05);
+                                    skeleton.getWorld().spawnParticle(Particle.HEART,skeleton.getLocation().add(0,2,0),3);
+                                }
+                                catch (java.lang.IllegalArgumentException exep)
+                                {
+                                }
 
+                                j++;
+                                if(j >= 4)
+                                    cancel();
+                            }
+                        }.runTaskTimer(main,0L,20L);
+                        skeleton.setAI(true);
+                    }
 
                         i++;
                     }
-                }
-                else {
+                    else{
                     skeleton.getWorld().spawnParticle(Particle.ASH,skeleton.getLocation(),10);
                     cancel();
-                }
+                    }
+
             }
         }.runTaskTimer(main,0L,20L);
     }
@@ -127,7 +154,7 @@ public class Necromancer implements Listener {
     {
         if(event.getEntity() instanceof FallingBlock)
         {
-            if(event.getEntity().getCustomName() != null && event.getEntity().getCustomName().equals("Necromancer orb"))
+            if(event.getEntity().getCustomName() != null && event.getEntity().getCustomName().equals("Parasite orb"))
             {
                 event.setCancelled(true);
                 event.getEntity().remove();

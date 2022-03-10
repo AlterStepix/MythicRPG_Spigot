@@ -11,9 +11,9 @@ terminatorAbilityRange: 15
 lightningAxeCooldown: 3
 frozenWandCooldown: 7
 WitherSpiderNametag: "§8Wither Spider"
-NecromancerNametag: "§cMINI-BOSS §9Necromancer"
+ParasiteNametag: "§cMINI-BOSS §9Parasite"
 InfectedZombieNametag: "§2Infected Zombie"
 WitherSpiderHealth: 40
-NecromancerHealth: 50
+ParasiteHealth: 50
 InfectedZombieHealth: 30
 showCustomNametags: true

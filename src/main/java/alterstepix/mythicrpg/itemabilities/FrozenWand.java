@@ -2,6 +2,7 @@ package alterstepix.mythicrpg.itemabilities;
 
 import alterstepix.mythicrpg.Mythicrpg;
 import alterstepix.mythicrpg.util.Cooldown;
+import alterstepix.mythicrpg.util.ItemLoreLibrary;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
@@ -26,13 +27,16 @@ public class FrozenWand implements Listener {
 
     Mythicrpg main;
     FileConfiguration config;
-    Cooldown thiscd = new Cooldown();;
+    Cooldown thiscd = new Cooldown();
+    ItemLoreLibrary lib;
 
     public FrozenWand(Mythicrpg main)
     {
         this.main = main;
         this.config = main.getConfig();
         thiscd.init();
+        this.lib = new ItemLoreLibrary(main);
+        lib.Init();
     }
 
     @EventHandler
@@ -40,7 +44,7 @@ public class FrozenWand implements Listener {
     {
         if(e.getAction().equals(Action.RIGHT_CLICK_AIR) || e.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
             Player player = e.getPlayer();
-            if (player.getInventory().getItemInMainHand().getItemMeta() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore().contains("§6RIGHT CLICK: §eFrozen Breathe")) {
+            if (player.getInventory().getItemInMainHand().getItemMeta() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore().contains(lib.Lore.get("FrozenBreathe").get(1))) {
                 if (thiscd.checkCD(player)) {
 
                     int radius = config.getInt("frozenWandRadius");

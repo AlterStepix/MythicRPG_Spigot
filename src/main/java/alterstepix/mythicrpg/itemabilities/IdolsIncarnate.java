@@ -1,5 +1,7 @@
 package alterstepix.mythicrpg.itemabilities;
 
+import alterstepix.mythicrpg.Mythicrpg;
+import alterstepix.mythicrpg.util.ItemLoreLibrary;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -11,6 +13,17 @@ import org.bukkit.potion.PotionEffectType;
 
 
 public class IdolsIncarnate implements Listener {
+
+    Mythicrpg main;
+    ItemLoreLibrary lib;
+
+    public IdolsIncarnate(Mythicrpg main)
+    {
+        this.main = main;
+        lib = new ItemLoreLibrary(main);
+        lib.Init();
+    }
+
     @EventHandler
     public void onHit(EntityDamageByEntityEvent event)
     {
@@ -18,7 +31,7 @@ public class IdolsIncarnate implements Listener {
             Player player = (Player) event.getDamager();
             LivingEntity entity = (LivingEntity) event.getEntity();
 
-            if (player.getInventory().getItemInMainHand().getItemMeta() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore().contains("§6ITEM ABILITY: §eCurse"))
+            if (player.getInventory().getItemInMainHand().getItemMeta() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore().contains(lib.Lore.get("Curse").get(1)))
             {
                 PotionEffect WEff = new PotionEffect(PotionEffectType.WITHER, 100, 5, true, true, true);
                 PotionEffect CEff = new PotionEffect(PotionEffectType.CONFUSION, 400, 1, true, true, true);

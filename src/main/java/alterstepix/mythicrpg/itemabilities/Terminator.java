@@ -1,6 +1,7 @@
 package alterstepix.mythicrpg.itemabilities;
 
 import alterstepix.mythicrpg.Mythicrpg;
+import alterstepix.mythicrpg.util.ItemLoreLibrary;
 import com.sun.media.jfxmedia.events.BufferListener;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -19,18 +20,22 @@ public class Terminator implements Listener {
     Mythicrpg main;
     FileConfiguration config;
     int abilityRadius;
+    ItemLoreLibrary lib;
+
     public Terminator(Mythicrpg main)
     {
         this.main = main;
         this.config = main.getConfig();
         this.abilityRadius = this.config.getInt("terminatorAbilityRange");
+        lib = new ItemLoreLibrary(main);
+        lib.Init();
     }
 
     @EventHandler
     public void onInteract(PlayerInteractEvent e) {
         if ((e.getAction().equals(Action.LEFT_CLICK_AIR) || e.getAction().equals(Action.LEFT_CLICK_BLOCK)) && !e.getPlayer().isSneaking()) {
             Player p = e.getPlayer();
-            if (p.getInventory().getItemInMainHand().getItemMeta() != null && p.getInventory().getItemInMainHand().getItemMeta().getLore() != null && p.getInventory().getItemInMainHand().getItemMeta().getLore().contains("§6LEFT CLICK: §eTermination")) {
+            if (p.getInventory().getItemInMainHand().getItemMeta() != null && p.getInventory().getItemInMainHand().getItemMeta().getLore() != null && p.getInventory().getItemInMainHand().getItemMeta().getLore().contains(lib.Lore.get("Termination").get(1))) {
                 e.setCancelled(true);
                 Arrow arrow = p.getWorld().spawn(p.getEyeLocation(), Arrow.class);
                 arrow.setDamage(2);
@@ -55,18 +60,22 @@ public class Terminator implements Listener {
         {
             Player p = e.getPlayer();
 
-            if (p.getInventory().getItemInMainHand().getItemMeta() != null && p.getInventory().getItemInMainHand().getItemMeta().getLore() != null && p.getInventory().getItemInMainHand().getItemMeta().getLore().contains("§6SNEAK + LEFT CLICK: §eRecall")) {
+            if (p.getInventory().getItemInMainHand().getItemMeta() != null && p.getInventory().getItemInMainHand().getItemMeta().getLore() != null && p.getInventory().getItemInMainHand().getItemMeta().getLore().contains(lib.Lore.get("Recall").get(1))) {
                 e.setCancelled(true);
                 for(Entity en : p.getNearbyEntities(12,12,12))
                 {
-                    if(en instanceof Arrow)
-                    {
-                        Arrow arr = (Arrow)en;
-                        Firework f = arr.getWorld().spawn(arr.getLocation(), Firework.class);
-                        FireworkMeta meta = f.getFireworkMeta();
-                        meta.setPower(3);
-                        f.setFireworkMeta(meta);
-                        f.addPassenger(arr);
+                    if(en instanceof Arrow) {
+                        Arrow arr = (Arrow) en;
+                        if (arr.getVehicle() == null)
+                        {
+                            Firework f = arr.getWorld().spawn(arr.getLocation(), Firework.class);
+                            FireworkMeta meta = f.getFireworkMeta();
+                            meta.setPower(3);
+                            f.setFireworkMeta(meta);
+                            f.addPassenger(arr);
+                        }
+
+
                     }
                 }
             }
@@ -77,7 +86,7 @@ public class Terminator implements Listener {
         public void PlayerSwapHandItemsEvent(PlayerSwapHandItemsEvent e)
         {
             Player p = e.getPlayer();
-            if((e.getOffHandItem().getItemMeta() != null && e.getOffHandItem().getItemMeta().getLore() != null && e.getOffHandItem().getItemMeta().getLore().contains("§6KEYBOARD F: §eAnnihilation")))
+            if((e.getOffHandItem().getItemMeta() != null && e.getOffHandItem().getItemMeta().getLore() != null && e.getOffHandItem().getItemMeta().getLore().contains(lib.Lore.get("Annihilation").get(1))))
             {
                 e.setCancelled(true);
                 for(Entity en : p.getNearbyEntities(12,12,12))

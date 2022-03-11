@@ -12,13 +12,6 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.ArrayList;
 import java.util.List;
 
-//Item creation step by step:
-// 1. Add ItemStack to ItemManager
-// 2. Add settings to config
-// 3. Add ItemStack to GetMythicItems command
-// 4. Add item lore to AppendAbilityLore command
-// 5. Add new event handlers to itemabilities package
-
 
 public class ItemManager {
     public static ItemStack LightingAxe;
@@ -27,14 +20,18 @@ public class ItemManager {
     public static ItemStack HealingSword;
     public static ItemStack FrozenWand;
     public static ItemStack ImpulseSword;
+    public static ItemStack AmberScythe;
 
     Mythicrpg main;
     FileConfiguration config;
+    ItemLoreLibrary lib;
 
     public ItemManager(Mythicrpg main)
     {
         this.main = main;
         this.config = main.getConfiguration();
+        this.lib = new ItemLoreLibrary(main);
+        this.lib.Init();
     }
 
     public void init()
@@ -45,6 +42,7 @@ public class ItemManager {
         this.createHealingSword();
         this.createFrozenWand();
         this.createImpulseSword();
+        this.createAmberScythe();
     }
 
     public void createLightingAxe()
@@ -56,15 +54,12 @@ public class ItemManager {
         meta.setDisplayName(this.config.getString("lightingAxe"));
         meta.setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
-        int cooldown = this.config.getInt("lightningAxeCooldown");
         List<String> lore = new ArrayList<>();
-        lore.add("");
-        lore.add("§6RIGHT CLICK: §eThunderlord");
-        lore.add("§7Strikes all nearby enemies with lightning");
-        lore.add("§8Cooldown: "+ cooldown + "s");
-        lore.add("");
-        lore.add("§6ITEM ABILITY: §eLightning Power");
-        lore.add("§7Strikes your enemies with lightning on hit");
+
+        for(String l : lib.Lore.get("Thunderlord"))
+            lore.add(l);
+        for(String l : lib.Lore.get("LightningPower"))
+            lore.add(l);
 
         meta.setLore(lore);
         item.setItemMeta(meta);
@@ -79,10 +74,8 @@ public class ItemManager {
         meta.setDisplayName(this.config.getString("idolsIncarnate"));
         meta.setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
-        List<String> lore = new ArrayList<>();
-        lore.add("");
-        lore.add("§6ITEM ABILITY: §eCurse");
-        lore.add("§7Applies strong debuffs to your enemies on hit");
+
+        List<String> lore = lib.Lore.get("Curse");
 
         meta.setLore(lore);
         item.setItemMeta(meta);
@@ -95,20 +88,18 @@ public class ItemManager {
     {
         ItemStack item = new ItemStack(Material.BOW, 1);
         ItemMeta meta = item.getItemMeta();
-        int radius = this.config.getInt("terminatorAbilityRange");
         meta.setDisplayName(this.config.getString("terminator"));
         meta.setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
         List<String> lore = new ArrayList<>();
-        lore.add("");
-        lore.add("§6LEFT CLICK: §eTermination");
-        lore.add("§7Instantly shoots 3 arrow");
-        lore.add("");
-        lore.add("§6SNEAK + LEFT CLICK: §eRecall");
-        lore.add("§7Sends all arrows in a "+radius+" blocks radius to the sky");
-        lore.add("");
-        lore.add("§6KEYBOARD F: §eAnnihilation");
-        lore.add("§7Explodes all arrows in a "+radius+" blocks radius");
+
+        for(String l : lib.Lore.get("Termination"))
+            lore.add(l);
+        for(String l : lib.Lore.get("Recall"))
+            lore.add(l);
+        for(String l : lib.Lore.get("Annihilation"))
+            lore.add(l);
+
 
 
         meta.setLore(lore);
@@ -126,9 +117,10 @@ public class ItemManager {
         meta.setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
         List<String> lore = new ArrayList<>();
-        lore.add("");
-        lore.add("§6RIGHT CLICK: §eHealing");
-        lore.add("§7Heals you in exchange for hunger");
+
+        for(String l : lib.Lore.get("Healing"))
+            lore.add(l);
+
 
 
         meta.setLore(lore);
@@ -149,12 +141,9 @@ public class ItemManager {
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
         List<String> lore = new ArrayList<>();
 
-        int r = config.getInt("frozenWandRadius");
-        int cooldown = config.getInt("frozenWandCooldown");
-        lore.add("");
-        lore.add("§6RIGHT CLICK: §eFrozen Breathe");
-        lore.add("§7Debuffs your enemies in a "+r+" block radius");
-        lore.add("§8Cooldown: "+ cooldown + "s");
+        for(String l : lib.Lore.get("FrozenBreathe"))
+            lore.add(l);
+
 
         meta.setLore(lore);
         item.setItemMeta(meta);
@@ -173,21 +162,36 @@ public class ItemManager {
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
         List<String> lore = new ArrayList<>();
 
-        int r = config.getInt("impulseSwordRadius");
-        int cooldown = config.getInt("impulseSwordCooldown");
-        lore.add("");
-        lore.add("§6SNEAK + RIGHT CLICK: §ePush");
-        lore.add("§7Pushes your enemies from you in a "+r+" block radius");
-        lore.add("§8Cooldown: "+ cooldown + "s");
-        lore.add("");
-        lore.add("§6RIGHT CLICK: §ePull");
-        lore.add("§7Pulls your enemies towards you in a "+r+" block radius");
-        lore.add("§8Cooldown: "+ cooldown + "s");
+        for(String l : lib.Lore.get("Push"))
+            lore.add(l);
+        for(String l : lib.Lore.get("Pull"))
+            lore.add(l);
+
 
         meta.setLore(lore);
         item.setItemMeta(meta);
 
         ImpulseSword = item;
+    }
+    public void createAmberScythe()
+    {
+        ItemStack item = new ItemStack(Material.GOLDEN_HOE, 1);
+        ItemMeta meta = item.getItemMeta();
+
+
+        meta.setDisplayName(this.config.getString("amberScythe"));
+        meta.setUnbreakable(true);
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        List<String> lore = new ArrayList<>();
+
+        for(String l : lib.Lore.get("FireFury"))
+            lore.add(l);
+
+
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+
+        AmberScythe = item;
     }
 
 }

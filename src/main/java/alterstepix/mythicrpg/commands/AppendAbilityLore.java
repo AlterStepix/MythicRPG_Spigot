@@ -1,6 +1,7 @@
 package alterstepix.mythicrpg.commands;
 
 import alterstepix.mythicrpg.Mythicrpg;
+import alterstepix.mythicrpg.util.ItemLoreLibrary;
 import alterstepix.mythicrpg.util.ItemManager;
 import alterstepix.mythicrpg.util.Messages;
 import org.bukkit.Bukkit;
@@ -21,12 +22,15 @@ public class AppendAbilityLore implements CommandExecutor, TabCompleter {
     Mythicrpg main;
     ItemManager m;
     FileConfiguration config;
+    ItemLoreLibrary lib;
     public AppendAbilityLore(Mythicrpg main)
     {
         this.main = main;
         m = new ItemManager(main);
         m.init();
         this.config = main.getConfiguration();
+        this.lib = new ItemLoreLibrary(main);
+        this.lib.Init();
     }
 
     @Override
@@ -39,162 +43,32 @@ public class AppendAbilityLore implements CommandExecutor, TabCompleter {
                     ItemStack mainhand = p.getInventory().getItemInMainHand();
                     ItemMeta meta = mainhand.getItemMeta();
                     List<String> lore = new ArrayList<String>();
-                    int radius = this.config.getInt("terminatorAbilityRange");
-                    int r2 = 0, cooldown2 = 0;
-                    switch (args[0]) {
-                        case "Curse":
                             if (meta.hasLore())
                                 lore = meta.getLore();
 
-                            lore.add("");
-                            lore.add("§6ITEM ABILITY: §eCurse");
-                            lore.add("§7Applies strong debuffs to your enemies on hit");
-                            meta.setLore(lore);
-                            mainhand.setItemMeta(meta);
-                            p.getInventory().setItemInMainHand(mainhand);
-                            p.sendMessage(Messages.CommandSuccess);
-                            break;
-                        case "Thunderlord":
-                            if (meta.hasLore())
-                                lore = meta.getLore();
-                            int cooldown = this.config.getInt("healingSwordCooldown");
-                            lore.add("");
-                            lore.add("§6RIGHT CLICK: §eThunderlord");
-                            lore.add("§7Strikes all nearby enemies with lightning");
-                            lore.add("§8Cooldown: " + cooldown + "s");
-                            meta.setLore(lore);
-                            mainhand.setItemMeta(meta);
-                            p.getInventory().setItemInMainHand(mainhand);
-                            p.sendMessage(Messages.CommandSuccess);
-                            break;
-                        case "LightningPower":
-                            if (meta.hasLore())
-                                lore = meta.getLore();
+                    if(lib.Lore.get(args[0]) == null)
+                    {
+                        p.sendMessage("§c[mrpg] Unknown ability");
+                        return true;
+                    }
 
-                            lore.add("");
-                            lore.add("§6ITEM ABILITY: §eLightning Power");
-                            lore.add("§7Strikes your enemies with lightning on hit");
-                            meta.setLore(lore);
-                            mainhand.setItemMeta(meta);
-                            p.getInventory().setItemInMainHand(mainhand);
-                            p.sendMessage(Messages.CommandSuccess);
-                            break;
-                        case "Termination":
-                            if (meta.hasLore())
-                                lore = meta.getLore();
+                    for(String l : lib.Lore.get(args[0]))
+                        lore.add(l);
 
-                            lore.add("");
-                            lore.add("§6LEFT CLICK: §eTermination");
-                            lore.add("§7Instantly shoots 3 arrow");
-                            meta.setLore(lore);
-                            mainhand.setItemMeta(meta);
-                            p.getInventory().setItemInMainHand(mainhand);
-                            p.sendMessage(Messages.CommandSuccess);
-                            break;
-                        case "Recall":
-                            if (meta.hasLore())
-                                lore = meta.getLore();
+                    meta.setLore(lore);
+                    mainhand.setItemMeta(meta);
+                    p.getInventory().setItemInMainHand(mainhand);
+                    p.sendMessage(Messages.CommandSuccess);
 
-                            lore.add("");
-                            lore.add("§6SNEAK + LEFT CLICK: §eRecall");
-                            lore.add("§7Sends all arrows in a " + radius + " blocks radius to the sky");
-                            meta.setLore(lore);
-                            mainhand.setItemMeta(meta);
-                            p.getInventory().setItemInMainHand(mainhand);
-                            p.sendMessage(Messages.CommandSuccess);
-                            break;
-                        case "Annihilation":
-                            if (meta.hasLore())
-                                lore = meta.getLore();
-
-                            lore.add("");
-                            lore.add("§6KEYBOARD F: §eAnnihilation");
-                            lore.add("§7Explodes all arrows in a " + radius + " blocks radius");
-                            meta.setLore(lore);
-                            mainhand.setItemMeta(meta);
-                            p.getInventory().setItemInMainHand(mainhand);
-                            p.sendMessage(Messages.CommandSuccess);
-                            break;
-                        case "Healing":
-                            if (meta.hasLore())
-                                lore = meta.getLore();
-
-                            lore.add("");
-                            lore.add("§6RIGHT CLICK: §eHealing");
-                            lore.add("§7Heals you in exchange for hunger");
-                            meta.setLore(lore);
-                            mainhand.setItemMeta(meta);
-                            p.getInventory().setItemInMainHand(mainhand);
-                            p.sendMessage(Messages.CommandSuccess);
-                            break;
-
-                        case "FrozenBreathe":
-                            if (meta.hasLore())
-                                lore = meta.getLore();
-
-
-                            int r = config.getInt("frozenWandRadius");
-                            int cooldownFW = config.getInt("frozenWandCooldown");
-                            lore.add("");
-                            lore.add("§6RIGHT CLICK: §eFrozen Breathe");
-                            lore.add("§7Debuffs your enemies in a "+r+" block radius");
-                            lore.add("§8Cooldown: "+ cooldownFW + "s");
-
-                            meta.setLore(lore);
-                            mainhand.setItemMeta(meta);
-                            p.getInventory().setItemInMainHand(mainhand);
-                            p.sendMessage(Messages.CommandSuccess);
-                            break;
-                        case "Pull":
-                            if (meta.hasLore())
-                                lore = meta.getLore();
-
-                            r2 = config.getInt("impulseSwordRadius");
-                            cooldown2 = config.getInt("impulseSwordCooldown");
-                            lore.add("");
-                            lore.add("§6RIGHT CLICK: §ePull");
-                            lore.add("§7Pulls your enemies towards you in a "+r2+" block radius");
-                            lore.add("§8Cooldown: "+ cooldown2 + "s");
-
-                            meta.setLore(lore);
-                            mainhand.setItemMeta(meta);
-                            p.getInventory().setItemInMainHand(mainhand);
-                            p.sendMessage(Messages.CommandSuccess);
-                            break;
-                        case "Push":
-                            if (meta.hasLore())
-                                lore = meta.getLore();
-
-                            r2 = config.getInt("impulseSwordRadius");
-                            cooldown2 = config.getInt("impulseSwordCooldown");
-                            lore.add("");
-                            lore.add("§6SNEAK + RIGHT CLICK: §ePush");
-                            lore.add("§7Pushes your enemies from you in a "+r2+" block radius");
-                            lore.add("§8Cooldown: "+ cooldown2 + "s");
-
-                            meta.setLore(lore);
-                            mainhand.setItemMeta(meta);
-                            p.getInventory().setItemInMainHand(mainhand);
-                            p.sendMessage(Messages.CommandSuccess);
-                            break;
-
-
-                        default:
-                            p.sendMessage("§c[mrpg] Unknown ability name");
-                            break;
+                    }
+                    else
+                    {
+                        p.sendMessage(Messages.NotOperator);
                     }
 
                 }
-                else
-                {
-                    p.sendMessage(Messages.NotOperator);
-                }
+
             }
-            else
-            {
-                p.sendMessage("§c[mrpg] The ability name is missing");
-            }
-        }
         else{
             Bukkit.getLogger().info(Messages.NotPlayer);
         }
@@ -215,6 +89,7 @@ public class AppendAbilityLore implements CommandExecutor, TabCompleter {
         Abilities.add("Curse");
         Abilities.add("Pull");
         Abilities.add("Push");
+        Abilities.add("FireFury");
 
         return Abilities;
 

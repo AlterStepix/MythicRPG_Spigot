@@ -32,6 +32,7 @@ public class GetMythicItems implements CommandExecutor {
         gui.addItem(m.HealingSword);
         gui.addItem(m.FrozenWand);
         gui.addItem(m.ImpulseSword);
+        gui.addItem(m.AmberScythe);
         Player p = (Player)sender;
         p.openInventory(gui);
         p.sendMessage(Messages.CommandSuccess);

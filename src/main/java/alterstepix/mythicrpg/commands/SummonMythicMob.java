@@ -2,6 +2,7 @@ package alterstepix.mythicrpg.commands;
 
 import alterstepix.mythicrpg.Mythicrpg;
 import alterstepix.mythicrpg.mobs.InfectedZombie;
+import alterstepix.mythicrpg.mobs.MasterAssassin;
 import alterstepix.mythicrpg.mobs.Necromancer;
 import alterstepix.mythicrpg.mobs.WitherSpider;
 import alterstepix.mythicrpg.util.Messages;
@@ -49,6 +50,10 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                         case "InfectedZombie":
                             InfectedZombie mob3 = new InfectedZombie(main);
                             mob3.createInfectedZombie(player.getLocation());
+                            break;
+                        case "MasterAssassin":
+                            MasterAssassin mob4 = new MasterAssassin(main);
+                            mob4.createMasterAssassin(player.getLocation());
                             break;
                     }
                 }
@@ -99,6 +104,12 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                     Location loc3 = new Location(wr,Integer.parseInt(args[1]),Integer.parseInt(args[2]),Integer.parseInt(args[3]));
                     mob3.createInfectedZombie(loc3);
                     break;
+                case "MasterAssassin":
+                    MasterAssassin mob4 = new MasterAssassin(main);
+
+                    Location loc4 = new Location(wr,Integer.parseInt(args[1]),Integer.parseInt(args[2]),Integer.parseInt(args[3]));
+                    mob4.createMasterAssassin(loc4);
+                    break;
             }
         }
         else
@@ -125,6 +136,7 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
             tab.add("WitherSpider");
             tab.add("Parasite");
             tab.add("InfectedZombie");
+            tab.add("MasterAssassin");
         }
         else if(args.length == 5)
         {

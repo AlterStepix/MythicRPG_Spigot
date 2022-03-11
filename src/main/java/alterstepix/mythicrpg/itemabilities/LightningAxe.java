@@ -2,6 +2,7 @@ package alterstepix.mythicrpg.itemabilities;
 
 import alterstepix.mythicrpg.Mythicrpg;
 import alterstepix.mythicrpg.util.Cooldown;
+import alterstepix.mythicrpg.util.ItemLoreLibrary;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
@@ -18,6 +19,7 @@ public class LightningAxe implements Listener {
     Mythicrpg main;
     FileConfiguration config;
     Cooldown thiscd = new Cooldown();
+    ItemLoreLibrary lib;
 
     public LightningAxe(Mythicrpg main)
     {
@@ -25,6 +27,8 @@ public class LightningAxe implements Listener {
         this.config = main.getConfig();
         this.cd = this.config.getInt("lightningAxeCooldown");
         thiscd.init();
+        lib = new ItemLoreLibrary(main);
+        lib.Init();
     }
 
 
@@ -36,7 +40,7 @@ public class LightningAxe implements Listener {
             Player player = (Player) event.getDamager();
             LivingEntity trg = (LivingEntity) event.getEntity();
 
-            if(player.getInventory().getItemInMainHand().getItemMeta() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore().contains("§6ITEM ABILITY: §eLightning Power"))
+            if(player.getInventory().getItemInMainHand().getItemMeta() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore().contains(lib.Lore.get("LightningPower").get(1)))
             {
                 player.getWorld().strikeLightningEffect(event.getEntity().getLocation());
                 trg.damage(2);
@@ -50,7 +54,7 @@ public class LightningAxe implements Listener {
         if(e.getAction().equals(Action.RIGHT_CLICK_AIR) || e.getAction().equals(Action.RIGHT_CLICK_BLOCK))
         {
             Player player = e.getPlayer();
-            if(player.getInventory().getItemInMainHand().getItemMeta() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore().contains("§6RIGHT CLICK: §eThunderlord")) {
+            if(player.getInventory().getItemInMainHand().getItemMeta() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore().contains(lib.Lore.get("Thunderlord").get(1))) {
                 if (thiscd.checkCD(player)) {
                     for (Entity entity : e.getPlayer().getNearbyEntities(10, 10, 10)) {
                         if (entity instanceof LivingEntity) {

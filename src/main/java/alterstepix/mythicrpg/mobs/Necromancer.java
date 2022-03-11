@@ -12,6 +12,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityChangeBlockEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -46,8 +47,12 @@ public class Necromancer implements Listener {
         ItemStack cp = new ItemStack(Material.LEATHER_CHESTPLATE,1);
         LeatherArmorMeta meta = (LeatherArmorMeta)cp.getItemMeta();
         meta.setColor(Color.GREEN);
-        meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,7,true);
         cp.setItemMeta(meta);
+
+        ItemStack boots = new ItemStack(Material.DIAMOND_BOOTS,1);
+        ItemMeta meta2 = boots.getItemMeta();
+        meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,8,true);
+        boots.setItemMeta(meta2);
 
         skeleton.getEquipment().setItemInMainHand(new ItemStack(Material.IRON_SWORD));
         skeleton.getEquipment().setHelmet(new ItemStack(Material.LEATHER_HELMET));

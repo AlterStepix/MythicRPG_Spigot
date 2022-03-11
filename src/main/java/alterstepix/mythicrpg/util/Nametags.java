@@ -40,6 +40,7 @@ public class Nametags implements Listener {
                                 String infectedZombieN = config.getString("InfectedZombieNametag");
                                 String necromancerN = config.getString("ParasiteNametag");
                                 String witherSpider = config.getString("WitherSpiderNametag");
+                                String masterA = config.getString("MasterAssassinNametag");
                                 if (trg.getCustomName().startsWith(infectedZombieN))
                                 {
                                     trg.setCustomName(config.getString("InfectedZombieNametag") + " §7["+Math.round(trg.getHealth())+"/"+trg.getMaxHealth()+"]");
@@ -51,6 +52,10 @@ public class Nametags implements Listener {
                                 else if(trg.getCustomName().startsWith(witherSpider))
                                 {
                                     trg.setCustomName(config.getString("WitherSpiderNametag") + " §7["+Math.round(trg.getHealth())+"/"+trg.getMaxHealth()+"]");
+                                }
+                                else if(trg.getCustomName().startsWith(masterA))
+                                {
+                                    trg.setCustomName(config.getString("MasterAssassinNametag") + " §7["+Math.round(trg.getHealth())+"/"+trg.getMaxHealth()+"]");
                                 }
                             }
                         }

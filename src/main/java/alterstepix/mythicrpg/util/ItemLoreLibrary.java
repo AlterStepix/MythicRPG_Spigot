@@ -11,7 +11,7 @@ public class ItemLoreLibrary {
     FileConfiguration config;
     Mythicrpg main;
 
-    HashMap<String, ArrayList<String>> Lore;
+    public HashMap<String, ArrayList<String>> Lore;
 
     public ItemLoreLibrary(Mythicrpg main)
     {
@@ -135,6 +135,19 @@ public class ItemLoreLibrary {
 
 
         Lore.put("Push",PushDescription);
+
+        // FireFury
+
+        ArrayList<String> FireFuryDescription = new ArrayList<>();
+
+        cooldown = config.getInt("amberScytheCooldown");
+        FireFuryDescription.add("");
+        FireFuryDescription.add("§6RIGHT CLICK: §eFire Fury");
+        FireFuryDescription.add("§7Shoots 3 fireballs");
+        FireFuryDescription.add("§8Cooldown: "+ cooldown + "s");
+
+
+        Lore.put("FireFury",FireFuryDescription);
     }
 
 }

@@ -4,16 +4,20 @@ idolsIncarnate: "§cIdols Incarnate"
 terminator: "§dTerminator"
 frozenWand: "§bFrozen Wand"
 impulseSword: "§eImpulse Sword"
+amberScythe: "§6Amber Scythe"
 frozenWandRadius: 7
 impulseSwordRadius: 15
 impulseSwordCooldown: 5
 terminatorAbilityRange: 15
 lightningAxeCooldown: 3
 frozenWandCooldown: 7
+amberScytheCooldown: 7
 WitherSpiderNametag: "§8Wither Spider"
 ParasiteNametag: "§cMINI-BOSS §9Parasite"
 InfectedZombieNametag: "§2Infected Zombie"
+MasterAssassinNametag: "§7Master Assassin"
 WitherSpiderHealth: 40
 ParasiteHealth: 50
 InfectedZombieHealth: 30
+MasterAssassinHealth: 25
 showCustomNametags: true

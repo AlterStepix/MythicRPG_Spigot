@@ -22,6 +22,7 @@ public final class Mythicrpg extends JavaPlugin {
     @Override
     public void onEnable() {
 
+
         configuration.options().copyDefaults(true);
         saveConfig();
 
@@ -34,11 +35,12 @@ public final class Mythicrpg extends JavaPlugin {
         Bukkit.getServer().getPluginCommand("SummonMythicMob").setTabCompleter(new SummonMythicMob(this));
 
         Bukkit.getServer().getPluginManager().registerEvents(new LightningAxe(this),this);
-        Bukkit.getServer().getPluginManager().registerEvents(new IdolsIncarnate(),this);
+        Bukkit.getServer().getPluginManager().registerEvents(new IdolsIncarnate(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new Terminator(this),this);
-        Bukkit.getServer().getPluginManager().registerEvents(new HealingSword(),this);
+        Bukkit.getServer().getPluginManager().registerEvents(new HealingSword(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new FrozenWand(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new ImpulseSword(this),this);
+        Bukkit.getServer().getPluginManager().registerEvents(new AmberScythe(this),this);
 
         Bukkit.getServer().getPluginManager().registerEvents(new WitherSpider(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new Necromancer(this),this);

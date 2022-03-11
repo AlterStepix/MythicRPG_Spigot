@@ -13,7 +13,7 @@ lightningAxeCooldown: 3
 frozenWandCooldown: 7
 amberScytheCooldown: 7
 WitherSpiderNametag: "§8Wither Spider"
-ParasiteNametag: "§cMINI-BOSS §9Parasite"
+ParasiteNametag: "§c§lMINI-BOSS §9Parasite"
 InfectedZombieNametag: "§2Infected Zombie"
 MasterAssassinNametag: "§7Master Assassin"
 WitherSpiderHealth: 40

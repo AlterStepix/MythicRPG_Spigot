@@ -55,6 +55,14 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                             AirSpirit mob5 = new AirSpirit(main);
                             mob5.createAirSpirit(player.getLocation());
                             break;
+                        case "FireSpirit":
+                            FireSpirit mob6 = new FireSpirit(main);
+                            mob6.createFireSpirit(player.getLocation());
+                            break;
+                        case "IceSpirit":
+                            IceSpirit mob7 = new IceSpirit(main);
+                            mob7.createIceSpirit(player.getLocation());
+                            break;
                     }
                 }
                 else
@@ -116,6 +124,18 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                     Location loc5 = new Location(wr,Integer.parseInt(args[1]),Integer.parseInt(args[2]),Integer.parseInt(args[3]));
                     mob5.createAirSpirit(loc5);
                     break;
+                case "FireSpirit":
+                    FireSpirit mob6 = new FireSpirit(main);
+
+                    Location loc6 = new Location(wr,Integer.parseInt(args[1]),Integer.parseInt(args[2]),Integer.parseInt(args[3]));
+                    mob6.createFireSpirit(loc6);
+                    break;
+                case "IceSpirit":
+                    IceSpirit mob7 = new IceSpirit(main);
+
+                    Location loc7 = new Location(wr,Integer.parseInt(args[1]),Integer.parseInt(args[2]),Integer.parseInt(args[3]));
+                    mob7.createIceSpirit(loc7);
+                    break;
             }
         }
         else
@@ -144,6 +164,8 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
             tab.add("InfectedZombie");
             tab.add("MasterAssassin");
             tab.add("AirSpirit");
+            tab.add("FireSpirit");
+            tab.add("IceSpirit");
         }
         else if(args.length == 5)
         {

@@ -19,10 +19,14 @@ WitherSpiderNametag: "#5f5f5f!Wither Spider"
 ParasiteNametag: "#1a590a!Parasite"
 InfectedZombieNametag: "#2cb70b!Infected Zombie"
 MasterAssassinNametag: "#5a3d6d!Master Assassin"
-AirSpiritNametag: "#dfdfdf!Air Spirit"
+AirSpiritNametag: "#dfdfdf!Ethereal Spirit"
+FireSpiritNametag: "#ff8e66!Flaming Spirit"
+IceSpiritNametag: "#74dfff!Frozen Spirit"
 MiniBossPrefix: "#ff535c!MINI BOSS "
 WitherSpiderHealth: 40
 ParasiteHealth: 50
 InfectedZombieHealth: 30
 MasterAssassinHealth: 25
 AirSpiritHealth: 30
+FireSpiritHealth: 30
+IceSpiritHealth: 30

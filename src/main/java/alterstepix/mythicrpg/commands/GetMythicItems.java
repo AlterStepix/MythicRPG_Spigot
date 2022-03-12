@@ -27,22 +27,34 @@ public class GetMythicItems implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
-        Inventory gui = Bukkit.createInventory(null,InventoryType.CHEST);
-        ItemManager m = new ItemManager(main);
-        m.init();
-        gui.addItem(m.LightingAxe);
-        gui.addItem(m.IdolsIncarnate);
-        gui.addItem(m.Terminator);
-        gui.addItem(m.HealingSword);
-        gui.addItem(m.FrozenWand);
-        gui.addItem(m.ImpulseSword);
-        gui.addItem(m.AmberScythe);
-        gui.addItem(m.MilkPotion);
-        gui.addItem(m.GiantSword);
+        if(sender instanceof Player)
+        {
+            if(sender.isOp() || sender.hasPermission("mythicrpg.getmythicitems"))
+            {
+                Inventory gui = Bukkit.createInventory(null,InventoryType.CHEST);
+                ItemManager m = new ItemManager(main);
+                m.init();
+                gui.addItem(m.LightingAxe);
+                gui.addItem(m.IdolsIncarnate);
+                gui.addItem(m.Terminator);
+                gui.addItem(m.HealingSword);
+                gui.addItem(m.FrozenWand);
+                gui.addItem(m.ImpulseSword);
+                gui.addItem(m.AmberScythe);
+                gui.addItem(m.MilkPotion);
+                gui.addItem(m.GiantSword);
 
-        Player p = (Player)sender;
-        p.openInventory(gui);
-        p.sendMessage(Messages.CommandSuccess);
+                Player p = (Player)sender;
+                p.openInventory(gui);
+                p.sendMessage(Messages.CommandSuccess);
+            }
+
+
+        }
+        else
+        {
+            Bukkit.getLogger().info(Messages.NotPlayer);
+        }
         return true;
 
     }

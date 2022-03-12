@@ -31,7 +31,7 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
         {
             if(sender instanceof Player){
                 Player player = (Player)sender;
-                if(player.isOp())
+                if(player.isOp() || player.hasPermission("mythicrpg.summonmythicmobs"))
                 {
                     switch (args[0])
                     {
@@ -79,6 +79,11 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
         }
         else if(args.length == 5)
         {
+            if(!(sender.isOp() || sender.hasPermission("mythicrpg.summonmythicmobs")))
+            {
+                sender.sendMessage(Messages.NotOperator);
+                return true;
+            }
             World wr = Bukkit.getWorld(args[4]);
             if(wr == null)
             {

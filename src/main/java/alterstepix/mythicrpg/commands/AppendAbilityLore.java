@@ -40,7 +40,7 @@ public class AppendAbilityLore implements CommandExecutor, TabCompleter {
         if(sender instanceof Player) {
             Player p = (Player) sender;
             if (args.length == 1) {
-                if (p.isOp()) {
+                if (p.isOp() || p.hasPermission("mythicrpg.addabilitylore")) {
                     ItemStack mainhand = p.getInventory().getItemInMainHand();
                     ItemMeta meta = mainhand.getItemMeta();
                     List<String> lore = new ArrayList<String>();

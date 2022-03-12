@@ -15,7 +15,7 @@ public class ColorUtil {
             }
             else
             {
-                Bukkit.getLogger().info("Cannot read the custom name");
+                Bukkit.getLogger().info("[mrpg] Cannot read the custom name");
             }
 
         return finalText;

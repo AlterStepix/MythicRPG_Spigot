@@ -1,15 +1,19 @@
 package alterstepix.mythicrpg.commands;
 
 import alterstepix.mythicrpg.Mythicrpg;
+import alterstepix.mythicrpg.util.ColorUtil;
 import alterstepix.mythicrpg.util.ItemManager;
 import alterstepix.mythicrpg.util.Messages;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 public class GetMythicItems implements CommandExecutor {
 
@@ -34,6 +38,8 @@ public class GetMythicItems implements CommandExecutor {
         gui.addItem(m.ImpulseSword);
         gui.addItem(m.AmberScythe);
         gui.addItem(m.MilkPotion);
+
+
         Player p = (Player)sender;
         p.openInventory(gui);
         p.sendMessage(Messages.CommandSuccess);

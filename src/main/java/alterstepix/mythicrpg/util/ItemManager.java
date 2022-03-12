@@ -53,7 +53,7 @@ public class ItemManager {
         ItemMeta meta = item.getItemMeta();
 
 
-        meta.setDisplayName(this.config.getString("lightingAxe"));
+        meta.setDisplayName(ColorUtil.ConvertToCustom(this.config.getString("lightingAxe")));
         meta.setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
         List<String> lore = new ArrayList<>();
@@ -73,7 +73,7 @@ public class ItemManager {
         ItemStack item = new ItemStack(Material.NETHERITE_SWORD, 1);
         ItemMeta meta = item.getItemMeta();
 
-        meta.setDisplayName(this.config.getString("idolsIncarnate"));
+        meta.setDisplayName(ColorUtil.ConvertToCustom(this.config.getString("idolsIncarnate")));
         meta.setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
 
@@ -90,7 +90,7 @@ public class ItemManager {
     {
         ItemStack item = new ItemStack(Material.BOW, 1);
         ItemMeta meta = item.getItemMeta();
-        meta.setDisplayName(this.config.getString("terminator"));
+        meta.setDisplayName(ColorUtil.ConvertToCustom(this.config.getString("terminator")));
         meta.setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
         List<String> lore = new ArrayList<>();
@@ -115,7 +115,7 @@ public class ItemManager {
         ItemStack item = new ItemStack(Material.GOLDEN_AXE, 1);
         ItemMeta meta = item.getItemMeta();
 
-        meta.setDisplayName(this.config.getString("healingSword"));
+        meta.setDisplayName(ColorUtil.ConvertToCustom(this.config.getString("healingSword")));
         meta.setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
         List<String> lore = new ArrayList<>();
@@ -138,7 +138,7 @@ public class ItemManager {
         ItemMeta meta = item.getItemMeta();
 
 
-        meta.setDisplayName(this.config.getString("frozenWand"));
+        meta.setDisplayName(ColorUtil.ConvertToCustom(this.config.getString("frozenWand")));
         meta.setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
         List<String> lore = new ArrayList<>();
@@ -159,7 +159,7 @@ public class ItemManager {
         ItemMeta meta = item.getItemMeta();
 
 
-        meta.setDisplayName(this.config.getString("impulseSword"));
+        meta.setDisplayName(ColorUtil.ConvertToCustom(this.config.getString("impulseSword")));
         meta.setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
         List<String> lore = new ArrayList<>();
@@ -181,7 +181,7 @@ public class ItemManager {
         ItemMeta meta = item.getItemMeta();
 
 
-        meta.setDisplayName(this.config.getString("amberScythe"));
+        meta.setDisplayName(ColorUtil.ConvertToCustom(this.config.getString("amberScythe")));
         meta.setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
         List<String> lore = new ArrayList<>();
@@ -203,7 +203,7 @@ public class ItemManager {
         ItemMeta meta = item.getItemMeta();
 
 
-        meta.setDisplayName(this.config.getString("milkPotionName"));
+        meta.setDisplayName(ColorUtil.ConvertToCustom(this.config.getString("milkPotionName")));
         meta.setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
         List<String> lore = new ArrayList<>();

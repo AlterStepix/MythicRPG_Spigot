@@ -57,7 +57,7 @@ public class FuriousAxe implements Listener {
                         public void run()
                         {
                             EulerAngle rot = armorStand.getRightArmPose();
-                            armorStand.setRightArmPose(rot.add(5,0,0));
+                            armorStand.setRightArmPose(rot.add(1,0,0));
 
                             armorStand.teleport(armorStand.getLocation().add(vector.normalize()));
 

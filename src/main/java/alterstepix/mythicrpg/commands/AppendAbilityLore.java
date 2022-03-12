@@ -93,6 +93,7 @@ public class AppendAbilityLore implements CommandExecutor, TabCompleter {
         Abilities.add("FireFury");
         Abilities.add("Milk");
         Abilities.add("GiantHit");
+        Abilities.add("Throw");
 
         return Abilities;
 

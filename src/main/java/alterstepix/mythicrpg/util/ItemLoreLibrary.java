@@ -174,6 +174,18 @@ public class ItemLoreLibrary {
 
 
         Lore.put("GiantHit", GiantsHitDescription);
+
+        // Throwable
+
+        ArrayList<String> ThrowableDescription = new ArrayList<>();
+
+        cooldown = config.getInt("furiousAxeCooldown");
+        ThrowableDescription.add("");
+        ThrowableDescription.add("§6RIGHT CLICK: §eThrow");
+        ThrowableDescription.add("§7Throws your weapon in the air");
+        ThrowableDescription.add("§8Cooldown: "+ cooldown + "s");
+
+        Lore.put("Throw",ThrowableDescription);
     }
 
 }

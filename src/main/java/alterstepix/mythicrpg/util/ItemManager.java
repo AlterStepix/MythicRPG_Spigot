@@ -23,6 +23,7 @@ public class ItemManager {
     public ItemStack AmberScythe;
     public ItemStack MilkPotion;
     public ItemStack GiantSword;
+    public ItemStack FuriousAxe;
 
     Mythicrpg main;
     FileConfiguration config;
@@ -47,6 +48,7 @@ public class ItemManager {
         this.createAmberScythe();
         this.createMilkPotion();
         this.createGiantSword();
+        this.createFuriousAxe();
     }
 
     public void createLightingAxe()
@@ -239,6 +241,27 @@ public class ItemManager {
         item.setItemMeta(meta);
 
         GiantSword = item;
+    }
+    public void createFuriousAxe()
+    {
+        ItemStack item = new ItemStack(Material.DIAMOND_AXE, 1);
+
+        ItemMeta meta = item.getItemMeta();
+
+
+        meta.setDisplayName(ColorUtil.ConvertToCustom(this.config.getString("furiousAxe")));
+        meta.setUnbreakable(true);
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        List<String> lore = new ArrayList<>();
+
+        for(String l : lib.Lore.get("Throw"))
+            lore.add(l);
+
+
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+
+        FuriousAxe = item;
     }
 
 

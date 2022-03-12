@@ -159,6 +159,20 @@ public class ItemLoreLibrary {
 
 
         Lore.put("Milk",MilkDescription);
+
+        // Giant's Hit
+
+        ArrayList<String> GiantsHitDescription = new ArrayList<>();
+
+
+        cooldown = config.getInt("giantSwordCooldown");
+        GiantsHitDescription.add("");
+        GiantsHitDescription.add("§6ITEM ABILITY: §eGiant's Hit");
+        GiantsHitDescription.add("§7Deals a lot of damage and knockback");
+        GiantsHitDescription.add("§8Cooldown: "+ cooldown + "s");
+
+
+        Lore.put("GiantHit", GiantsHitDescription);
     }
 
 }

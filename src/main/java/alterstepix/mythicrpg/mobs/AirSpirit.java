@@ -5,10 +5,7 @@ import alterstepix.mythicrpg.util.ColorUtil;
 import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.enchantments.Enchantment;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Skeleton;
-import org.bukkit.entity.Zombie;
+import org.bukkit.entity.*;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
@@ -67,9 +64,9 @@ public class AirSpirit {
                     {
                         for(Entity entity : spirit.getNearbyEntities(10,10,10))
                         {
-                            if(entity instanceof LivingEntity)
+                            if(entity instanceof Player)
                             {
-                                LivingEntity trg = (LivingEntity) entity;
+                                Player trg = (Player) entity;
                                 trg.setVelocity(spirit.getLocation().add(0,2,0).subtract(trg.getLocation()).toVector().normalize().setY(0.1));
                                 spirit.getWorld().spawnParticle(Particle.CLOUD,spirit.getLocation(),5);
                                 spirit.getWorld().playSound(spirit.getLocation(),Sound.ENTITY_PLAYER_ATTACK_CRIT,8,5);

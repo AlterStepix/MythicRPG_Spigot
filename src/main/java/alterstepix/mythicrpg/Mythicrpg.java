@@ -6,11 +6,8 @@ import alterstepix.mythicrpg.commands.SummonMythicMob;
 import alterstepix.mythicrpg.itemabilities.*;
 
 import alterstepix.mythicrpg.mobs.InfectedZombie;
-import alterstepix.mythicrpg.mobs.Necromancer;
+import alterstepix.mythicrpg.mobs.Parasite;
 import alterstepix.mythicrpg.mobs.WitherSpider;
-import alterstepix.mythicrpg.util.Cooldown;
-import alterstepix.mythicrpg.util.ItemManager;
-import alterstepix.mythicrpg.util.Nametags;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -41,13 +38,14 @@ public final class Mythicrpg extends JavaPlugin {
         Bukkit.getServer().getPluginManager().registerEvents(new FrozenWand(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new ImpulseSword(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new AmberScythe(this),this);
+        Bukkit.getServer().getPluginManager().registerEvents(new MilkPotion(this),this);
 
         Bukkit.getServer().getPluginManager().registerEvents(new WitherSpider(this),this);
-        Bukkit.getServer().getPluginManager().registerEvents(new Necromancer(this),this);
+        Bukkit.getServer().getPluginManager().registerEvents(new Parasite(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new InfectedZombie(this),this);
 
-        Nametags namtags = new Nametags(this);
-        namtags.Init();
+        //Nametags namtags = new Nametags(this);
+        //namtags.Init();
 
 
         System.out.println("Plugin Enabled");

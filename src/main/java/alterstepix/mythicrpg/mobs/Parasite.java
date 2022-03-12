@@ -1,6 +1,7 @@
 package alterstepix.mythicrpg.mobs;
 
 import alterstepix.mythicrpg.Mythicrpg;
+import alterstepix.mythicrpg.util.ColorUtil;
 import org.bukkit.*;
 import org.bukkit.attribute.Attributable;
 import org.bukkit.attribute.Attribute;
@@ -18,14 +19,13 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import java.util.List;
 import java.util.Random;
 
-public class Necromancer implements Listener {
+public class Parasite implements Listener {
     static Mythicrpg main;
     FileConfiguration config;
 
-    public Necromancer(Mythicrpg main)
+    public Parasite(Mythicrpg main)
     {
         this.main = main;
         config = main.getConfig();
@@ -35,7 +35,7 @@ public class Necromancer implements Listener {
         int hp = config.getInt("ParasiteHealth");
         Zombie skeleton = location.getWorld().spawn(location, Zombie.class);
 
-        skeleton.setCustomName(config.getString("ParasiteNametag"));
+        skeleton.setCustomName(ColorUtil.ConvertToCustom(config.getString("MiniBossPrefix")) + ColorUtil.ConvertToCustom(config.getString("ParasiteNametag")));
         skeleton.setCustomNameVisible(true);
         Attributable skeletonAt = skeleton;
         AttributeInstance attributeHP = skeleton.getAttribute(Attribute.GENERIC_MAX_HEALTH);
@@ -59,7 +59,7 @@ public class Necromancer implements Listener {
         skeleton.getEquipment().setChestplate(cp);
         skeleton.getEquipment().setLeggings(new ItemStack(Material.LEATHER_LEGGINGS));
         skeleton.getEquipment().setBoots(new ItemStack(Material.DIAMOND_BOOTS));
-        skeleton.setCustomName(config.getString("ParasiteNametag") + " §7["+Math.round(skeleton.getHealth())+"/"+skeleton.getMaxHealth()+"]");
+        skeleton.setCustomName(ColorUtil.ConvertToCustom(config.getString("MiniBossPrefix")) + ColorUtil.ConvertToCustom(config.getString("ParasiteNametag")) + " §7["+Math.round(skeleton.getHealth())+"/"+skeleton.getMaxHealth()+"]");
         new BukkitRunnable(){
             int i = 0;
             int k = 0;
@@ -67,6 +67,9 @@ public class Necromancer implements Listener {
             {
                 if(!skeleton.isDead())
                 {
+
+                    skeleton.setCustomName(ColorUtil.ConvertToCustom(config.getString("MiniBossPrefix")) + ColorUtil.ConvertToCustom(config.getString("ParasiteNametag")) + " §7["+Math.round(skeleton.getHealth())+"/"+skeleton.getMaxHealth()+"]");
+
                     if(skeleton.getTarget() != null){
                         if(i % 2 == 0)
                         {

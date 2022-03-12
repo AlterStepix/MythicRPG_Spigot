@@ -1,6 +1,7 @@
 package alterstepix.mythicrpg.mobs;
 
 import alterstepix.mythicrpg.Mythicrpg;
+import alterstepix.mythicrpg.util.ColorUtil;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
@@ -17,6 +18,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.scheduler.BukkitRunnable;
 
 
 public class InfectedZombie implements Listener {
@@ -42,7 +44,7 @@ public class InfectedZombie implements Listener {
         Zombie infected = location.getWorld().spawn(location, Zombie.class);
         if(Zombietarget != null)
             infected.setTarget(Zombietarget);
-        infected.setCustomName(config.getString("InfectedZombieNametag"));
+        infected.setCustomName(ColorUtil.ConvertToCustom(config.getString("InfectedZombieNametag")));
         infected.setCustomNameVisible(true);
         Attributable infectedAt = infected;
         AttributeInstance attributeHP = infectedAt.getAttribute(Attribute.GENERIC_MAX_HEALTH);
@@ -56,7 +58,22 @@ public class InfectedZombie implements Listener {
         infected.getEquipment().setBoots(new ItemStack(Material.LEATHER_BOOTS));
         infected.getEquipment().setLeggings(new ItemStack(Material.LEATHER_LEGGINGS));
 
-        infected.setCustomName(config.getString("InfectedZombieNametag") + " §7["+Math.round(infected.getHealth())+"/"+infected.getMaxHealth()+"]");
+        infected.setCustomName(ColorUtil.ConvertToCustom(config.getString("InfectedZombieNametag")) + " §7["+Math.round(infected.getHealth())+"/"+infected.getMaxHealth()+"]");
+
+        new BukkitRunnable()
+        {
+            public void run()
+            {
+                if(!infected.isDead())
+                {
+                    infected.setCustomName(ColorUtil.ConvertToCustom(config.getString("InfectedZombieNametag")) + " §7["+Math.round(infected.getHealth())+"/"+infected.getMaxHealth()+"]");
+                }
+                else
+                {
+                    cancel();
+                }
+            }
+        }.runTaskTimer(main,0L,20L);
     }
 
     @EventHandler
@@ -66,17 +83,20 @@ public class InfectedZombie implements Listener {
         {
             if(event.getEntity() instanceof LivingEntity) {
                 LivingEntity trg = (LivingEntity) event.getEntity();
-                if(event.getDamager().getCustomName().startsWith(config.getString("InfectedZombieNametag")))
-                {
-                        LivingEntity zombie = (LivingEntity) event.getDamager();
-                        trg.damage(2);
+                if(event.getDamager().getCustomName().contains(config.getString("InfectedZombieNametag").split("!")[1])) {
+                    LivingEntity zombie = (LivingEntity) event.getDamager();
+                    trg.damage(2);
 
-                        if (zombie.getMaxHealth() - zombie.getHealth() > 4)
-                        {
-                            zombie.setHealth(zombie.getHealth() + 4);
-                        }
-                        zombie.getWorld().spawnParticle(Particle.VILLAGER_HAPPY, zombie.getEyeLocation().getX(),zombie.getEyeLocation().getY()+1, zombie.getEyeLocation().getZ(),3);
-                        zombie.getWorld().playSound(zombie.getLocation(),Sound.ENTITY_WITCH_DRINK,5,5);
+                    if (zombie.getMaxHealth() - zombie.getHealth() > 4) {
+                        zombie.setHealth(zombie.getHealth() + 4);
+                    }
+                    else
+                    {
+                        zombie.setHealth(zombie.getMaxHealth());
+                    }
+
+                    zombie.getWorld().spawnParticle(Particle.VILLAGER_HAPPY, zombie.getEyeLocation().getX(),zombie.getEyeLocation().getY()+1, zombie.getEyeLocation().getZ(),3);
+                    zombie.getWorld().playSound(zombie.getLocation(),Sound.ENTITY_WITCH_DRINK,5,5);
 
                     }
                 }

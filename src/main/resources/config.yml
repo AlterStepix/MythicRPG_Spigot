@@ -5,6 +5,7 @@ terminator: "§dTerminator"
 frozenWand: "§bFrozen Wand"
 impulseSword: "§eImpulse Sword"
 amberScythe: "§6Amber Scythe"
+milkPotionName: "§aMilk Potion"
 frozenWandRadius: 7
 impulseSwordRadius: 15
 impulseSwordCooldown: 5
@@ -12,10 +13,11 @@ terminatorAbilityRange: 15
 lightningAxeCooldown: 3
 frozenWandCooldown: 7
 amberScytheCooldown: 7
-WitherSpiderNametag: "§8Wither Spider"
-ParasiteNametag: "§c§lMINI-BOSS §9Parasite"
-InfectedZombieNametag: "§2Infected Zombie"
-MasterAssassinNametag: "§7Master Assassin"
+WitherSpiderNametag: "#5f5f5f!Wither Spider"
+ParasiteNametag: "#1a590a!Parasite"
+InfectedZombieNametag: "#2cb70b!Infected Zombie"
+MasterAssassinNametag: "#5a3d6d!Master Assassin"
+MiniBossPrefix: "#ff535c!MINI BOSS "
 WitherSpiderHealth: 40
 ParasiteHealth: 50
 InfectedZombieHealth: 30

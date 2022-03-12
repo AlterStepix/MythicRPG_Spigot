@@ -1,6 +1,7 @@
 package alterstepix.mythicrpg.mobs;
 
 import alterstepix.mythicrpg.Mythicrpg;
+import alterstepix.mythicrpg.util.ColorUtil;
 import org.bukkit.*;
 import org.bukkit.attribute.Attributable;
 import org.bukkit.attribute.Attribute;
@@ -31,7 +32,7 @@ public class MasterAssassin {
         int hp = config.getInt("MasterAssassinHealth");
 
         Skeleton skeleton = loc.getWorld().spawn(loc,Skeleton.class);
-        skeleton.setCustomName(config.getString("MasterAssassinNametag"));
+        skeleton.setCustomName(ColorUtil.ConvertToCustom(config.getString("MasterAssassinNametag")));
         skeleton.setCustomNameVisible(true);
 
         Attributable skeletonAt = skeleton;
@@ -58,7 +59,7 @@ public class MasterAssassin {
         skeleton.getEquipment().setChestplate(chestplate);
         skeleton.getEquipment().setItemInMainHand(sword);
 
-        skeleton.setCustomName(config.getString("MasterAssassinNametag") + " §7["+Math.round(skeleton.getHealth())+"/"+skeleton.getMaxHealth()+"]");
+        skeleton.setCustomName(ColorUtil.ConvertToCustom(config.getString("MasterAssassinNametag")) + " §7["+Math.round(skeleton.getHealth())+"/"+skeleton.getMaxHealth()+"]");
 
         new BukkitRunnable() {
             public void run()
@@ -66,6 +67,9 @@ public class MasterAssassin {
                 int i = 0;
                 if(!skeleton.isDead())
                 {
+
+                    skeleton.setCustomName(ColorUtil.ConvertToCustom(config.getString("MasterAssassinNametag")) + " §7["+Math.round(skeleton.getHealth())+"/"+skeleton.getMaxHealth()+"]");
+
                     if(skeleton.getTarget() != null)
                     {
                         if(i % 10 == 0)

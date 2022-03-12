@@ -21,6 +21,7 @@ public class ItemManager {
     public static ItemStack FrozenWand;
     public static ItemStack ImpulseSword;
     public static ItemStack AmberScythe;
+    public static ItemStack MilkPotion;
 
     Mythicrpg main;
     FileConfiguration config;
@@ -43,6 +44,7 @@ public class ItemManager {
         this.createFrozenWand();
         this.createImpulseSword();
         this.createAmberScythe();
+        this.createMilkPotion();
     }
 
     public void createLightingAxe()
@@ -192,6 +194,28 @@ public class ItemManager {
         item.setItemMeta(meta);
 
         AmberScythe = item;
+    }
+
+    public void createMilkPotion()
+    {
+        ItemStack item = new ItemStack(Material.SPLASH_POTION, 1);
+
+        ItemMeta meta = item.getItemMeta();
+
+
+        meta.setDisplayName(this.config.getString("milkPotionName"));
+        meta.setUnbreakable(true);
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        List<String> lore = new ArrayList<>();
+
+        for(String l : lib.Lore.get("Milk"))
+            lore.add(l);
+
+
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+
+        MilkPotion = item;
     }
 
 }

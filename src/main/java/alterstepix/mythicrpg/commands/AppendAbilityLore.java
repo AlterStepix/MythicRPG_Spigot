@@ -4,6 +4,7 @@ import alterstepix.mythicrpg.Mythicrpg;
 import alterstepix.mythicrpg.util.ItemLoreLibrary;
 import alterstepix.mythicrpg.util.ItemManager;
 import alterstepix.mythicrpg.util.Messages;
+import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -48,7 +49,7 @@ public class AppendAbilityLore implements CommandExecutor, TabCompleter {
 
                     if(lib.Lore.get(args[0]) == null)
                     {
-                        p.sendMessage("§c[mrpg] Unknown ability");
+                        p.sendMessage("§c[mrpg] Unknown ability" + ChatColor.of("#cd87ff") + "Ok");
                         return true;
                     }
 
@@ -90,6 +91,7 @@ public class AppendAbilityLore implements CommandExecutor, TabCompleter {
         Abilities.add("Pull");
         Abilities.add("Push");
         Abilities.add("FireFury");
+        Abilities.add("Milk");
 
         return Abilities;
 

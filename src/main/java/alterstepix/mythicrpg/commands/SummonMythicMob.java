@@ -3,7 +3,7 @@ package alterstepix.mythicrpg.commands;
 import alterstepix.mythicrpg.Mythicrpg;
 import alterstepix.mythicrpg.mobs.InfectedZombie;
 import alterstepix.mythicrpg.mobs.MasterAssassin;
-import alterstepix.mythicrpg.mobs.Necromancer;
+import alterstepix.mythicrpg.mobs.Parasite;
 import alterstepix.mythicrpg.mobs.WitherSpider;
 import alterstepix.mythicrpg.util.Messages;
 import org.bukkit.Bukkit;
@@ -13,7 +13,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
@@ -44,7 +43,7 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                             mob1.createLeapingSpider(player.getLocation());
                             break;
                         case "Parasite":
-                            Necromancer mob2 = new Necromancer(main);
+                            Parasite mob2 = new Parasite(main);
                             mob2.createNecromancer(player.getLocation());
                             break;
                         case "InfectedZombie":
@@ -93,7 +92,7 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                     mob1.createLeapingSpider(loc1);
                     break;
                 case "Parasite":
-                    Necromancer mob2 = new Necromancer(main);
+                    Parasite mob2 = new Parasite(main);
 
                     Location loc2 = new Location(wr,Integer.parseInt(args[1]),Integer.parseInt(args[2]),Integer.parseInt(args[3]));
                     mob2.createNecromancer(loc2);

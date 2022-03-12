@@ -148,6 +148,17 @@ public class ItemLoreLibrary {
 
 
         Lore.put("FireFury",FireFuryDescription);
+
+        // Milk
+
+        ArrayList<String> MilkDescription = new ArrayList<>();
+
+        MilkDescription.add("");
+        MilkDescription.add("§6ITEM ABILITY: §eMilk");
+        MilkDescription.add("§7Removes all potion effects on use");
+
+
+        Lore.put("Milk",MilkDescription);
     }
 
 }

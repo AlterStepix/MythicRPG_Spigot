@@ -31,7 +31,7 @@ public class Parasite implements Listener {
         config = main.getConfig();
     }
 
-    public void createNecromancer(Location location){
+    public void createParasite(Location location){
         int hp = config.getInt("ParasiteHealth");
         Zombie skeleton = location.getWorld().spawn(location, Zombie.class);
 
@@ -122,7 +122,6 @@ public class Parasite implements Listener {
                         }
                     if(i % 30 == 0)
                     {
-                        Bukkit.getLogger().info("Heal");
                         skeleton.setAI(false);
                         new BukkitRunnable()
                         {

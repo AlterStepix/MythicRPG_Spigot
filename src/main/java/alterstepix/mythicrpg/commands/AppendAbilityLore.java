@@ -49,7 +49,7 @@ public class AppendAbilityLore implements CommandExecutor, TabCompleter {
 
                     if(lib.Lore.get(args[0]) == null)
                     {
-                        p.sendMessage("§c[mrpg] Unknown ability" + ChatColor.of("#cd87ff") + "Ok");
+                        p.sendMessage("§c[mrpg] Unknown ability");
                         return true;
                     }
 
@@ -92,6 +92,7 @@ public class AppendAbilityLore implements CommandExecutor, TabCompleter {
         Abilities.add("Push");
         Abilities.add("FireFury");
         Abilities.add("Milk");
+        Abilities.add("GiantHit");
 
         return Abilities;
 

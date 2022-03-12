@@ -5,7 +5,8 @@ terminator: "#c545ff!Terminator"
 frozenWand: "#74dfff!Frozen Wand"
 impulseSword: "#d3d3d3!Impulse Sword"
 amberScythe: "#ffb959!Amber Scythe"
-milkPotionName: "#cfcfcf!Milk Potion"
+milkPotion: "#cfcfcf!Milk Potion"
+giantSword: "#ffd4d4!Giant Sword"
 frozenWandRadius: 7
 impulseSwordRadius: 15
 impulseSwordCooldown: 5
@@ -23,4 +24,3 @@ WitherSpiderHealth: 40
 ParasiteHealth: 50
 InfectedZombieHealth: 30
 MasterAssassinHealth: 25
-showCustomNametags: true

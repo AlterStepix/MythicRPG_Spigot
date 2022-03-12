@@ -14,14 +14,15 @@ import java.util.List;
 
 
 public class ItemManager {
-    public static ItemStack LightingAxe;
-    public static ItemStack IdolsIncarnate;
-    public static ItemStack Terminator;
-    public static ItemStack HealingSword;
-    public static ItemStack FrozenWand;
-    public static ItemStack ImpulseSword;
-    public static ItemStack AmberScythe;
-    public static ItemStack MilkPotion;
+    public ItemStack LightingAxe;
+    public ItemStack IdolsIncarnate;
+    public ItemStack Terminator;
+    public ItemStack HealingSword;
+    public ItemStack FrozenWand;
+    public ItemStack ImpulseSword;
+    public ItemStack AmberScythe;
+    public ItemStack MilkPotion;
+    public ItemStack GiantSword;
 
     Mythicrpg main;
     FileConfiguration config;
@@ -45,6 +46,7 @@ public class ItemManager {
         this.createImpulseSword();
         this.createAmberScythe();
         this.createMilkPotion();
+        this.createGiantSword();
     }
 
     public void createLightingAxe()
@@ -203,7 +205,7 @@ public class ItemManager {
         ItemMeta meta = item.getItemMeta();
 
 
-        meta.setDisplayName(ColorUtil.ConvertToCustom(this.config.getString("milkPotionName")));
+        meta.setDisplayName(ColorUtil.ConvertToCustom(this.config.getString("milkPotion")));
         meta.setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
         List<String> lore = new ArrayList<>();
@@ -217,5 +219,27 @@ public class ItemManager {
 
         MilkPotion = item;
     }
+    public void createGiantSword()
+    {
+        ItemStack item = new ItemStack(Material.DIAMOND_SWORD, 1);
+
+        ItemMeta meta = item.getItemMeta();
+
+
+        meta.setDisplayName(ColorUtil.ConvertToCustom(this.config.getString("giantSword")));
+        meta.setUnbreakable(true);
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        List<String> lore = new ArrayList<>();
+
+        for(String l : lib.Lore.get("GiantHit"))
+            lore.add(l);
+
+
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+
+        GiantSword = item;
+    }
+
 
 }

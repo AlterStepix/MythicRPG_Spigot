@@ -44,7 +44,7 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                             break;
                         case "Parasite":
                             Parasite mob2 = new Parasite(main);
-                            mob2.createNecromancer(player.getLocation());
+                            mob2.createParasite(player.getLocation());
                             break;
                         case "InfectedZombie":
                             InfectedZombie mob3 = new InfectedZombie(main);
@@ -95,7 +95,7 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                     Parasite mob2 = new Parasite(main);
 
                     Location loc2 = new Location(wr,Integer.parseInt(args[1]),Integer.parseInt(args[2]),Integer.parseInt(args[3]));
-                    mob2.createNecromancer(loc2);
+                    mob2.createParasite(loc2);
                     break;
                 case "InfectedZombie":
                     InfectedZombie mob3 = new InfectedZombie(main);

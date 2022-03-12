@@ -30,7 +30,7 @@ public class ItemLoreLibrary {
         cooldown = this.config.getInt("lightningAxeCooldown");
         ThunderlordDescription.add("");
         ThunderlordDescription.add("§6RIGHT CLICK: §eThunderlord");
-        ThunderlordDescription.add("§7Strikes all nearby enemies with lightning");
+        ThunderlordDescription.add("§7Strikes all nearby enemies with lightnings");
         ThunderlordDescription.add("§8Cooldown: "+ cooldown + "s");
 
         Lore.put("Thunderlord",ThunderlordDescription);
@@ -41,6 +41,7 @@ public class ItemLoreLibrary {
         LightningPowerDescription.add("");
         LightningPowerDescription.add("§6ITEM ABILITY: §eLightning Power");
         LightningPowerDescription.add("§7Strikes your enemies with lightning on hit");
+        LightningPowerDescription.add("§7Deals extra damage to undead mobs");
 
 
         Lore.put("LightningPower",LightningPowerDescription);

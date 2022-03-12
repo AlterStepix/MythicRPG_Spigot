@@ -37,9 +37,9 @@ public class GiantSword implements Listener {
             if (player.getInventory().getItemInMainHand().getItemMeta() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore().contains(lib.Lore.get("GiantHit").get(1))) {
                 if (thiscd.checkCD(player)) {
 
-                    target.damage(8+target.getMaxHealth()*0.05);
+                    target.damage(12+target.getMaxHealth()*0.07);
                     target.setVelocity(target.getLocation().add(0,2,0).subtract(player.getLocation()).toVector().setY(0.5).normalize().multiply(2));
-                    target.getWorld().playSound(target.getLocation(), Sound.BLOCK_ANVIL_DESTROY,5,5);
+                    target.getWorld().playSound(target.getLocation(), Sound.ENTITY_PLAYER_ATTACK_STRONG,5,5);
                     this.thiscd.putCooldown(player,config.getInt("giantSwordCooldown"));
                 }
                 else

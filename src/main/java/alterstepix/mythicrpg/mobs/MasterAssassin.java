@@ -11,13 +11,17 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Skeleton;
 import org.bukkit.entity.WitherSkull;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
-public class MasterAssassin {
+public class MasterAssassin implements Listener {
     Mythicrpg main;
     FileConfiguration config;
 
@@ -103,4 +107,5 @@ public class MasterAssassin {
             }
         }.runTaskTimer(main,0L,20L);
     }
+
 }

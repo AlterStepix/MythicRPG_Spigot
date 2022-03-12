@@ -6,6 +6,7 @@ import alterstepix.mythicrpg.commands.SummonMythicMob;
 import alterstepix.mythicrpg.itemabilities.*;
 
 import alterstepix.mythicrpg.mobs.InfectedZombie;
+import alterstepix.mythicrpg.mobs.MasterAssassin;
 import alterstepix.mythicrpg.mobs.Parasite;
 import alterstepix.mythicrpg.mobs.WitherSpider;
 import org.bukkit.Bukkit;
@@ -44,9 +45,8 @@ public final class Mythicrpg extends JavaPlugin {
         Bukkit.getServer().getPluginManager().registerEvents(new WitherSpider(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new Parasite(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new InfectedZombie(this),this);
+        Bukkit.getServer().getPluginManager().registerEvents(new MasterAssassin(this),this);
 
-        //Nametags namtags = new Nametags(this);
-        //namtags.Init();
 
 
         System.out.println("Plugin Enabled");

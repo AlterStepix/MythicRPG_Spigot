@@ -1,10 +1,7 @@
 package alterstepix.mythicrpg.commands;
 
 import alterstepix.mythicrpg.Mythicrpg;
-import alterstepix.mythicrpg.mobs.InfectedZombie;
-import alterstepix.mythicrpg.mobs.MasterAssassin;
-import alterstepix.mythicrpg.mobs.Parasite;
-import alterstepix.mythicrpg.mobs.WitherSpider;
+import alterstepix.mythicrpg.mobs.*;
 import alterstepix.mythicrpg.util.Messages;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -53,6 +50,10 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                         case "MasterAssassin":
                             MasterAssassin mob4 = new MasterAssassin(main);
                             mob4.createMasterAssassin(player.getLocation());
+                            break;
+                        case "AirSpirit":
+                            AirSpirit mob5 = new AirSpirit(main);
+                            mob5.createAirSpirit(player.getLocation());
                             break;
                     }
                 }
@@ -109,6 +110,12 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                     Location loc4 = new Location(wr,Integer.parseInt(args[1]),Integer.parseInt(args[2]),Integer.parseInt(args[3]));
                     mob4.createMasterAssassin(loc4);
                     break;
+                case "AirSpirit":
+                    AirSpirit mob5 = new AirSpirit(main);
+
+                    Location loc5 = new Location(wr,Integer.parseInt(args[1]),Integer.parseInt(args[2]),Integer.parseInt(args[3]));
+                    mob5.createAirSpirit(loc5);
+                    break;
             }
         }
         else
@@ -136,6 +143,7 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
             tab.add("Parasite");
             tab.add("InfectedZombie");
             tab.add("MasterAssassin");
+            tab.add("AirSpirit");
         }
         else if(args.length == 5)
         {

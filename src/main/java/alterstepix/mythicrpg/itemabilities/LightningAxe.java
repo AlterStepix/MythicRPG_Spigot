@@ -3,15 +3,15 @@ package alterstepix.mythicrpg.itemabilities;
 import alterstepix.mythicrpg.Mythicrpg;
 import alterstepix.mythicrpg.util.Cooldown;
 import alterstepix.mythicrpg.util.ItemLoreLibrary;
+import org.bukkit.Particle;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.scheduler.BukkitRunnable;
 
 public class LightningAxe implements Listener {
 
@@ -44,6 +44,11 @@ public class LightningAxe implements Listener {
             {
                 player.getWorld().strikeLightningEffect(event.getEntity().getLocation());
                 trg.damage(2);
+                if(trg instanceof Zombie || trg instanceof Skeleton || trg instanceof PigZombie || trg instanceof WitherSkeleton)
+                {
+                    trg.damage(2);
+                    trg.getWorld().spawnParticle(Particle.VILLAGER_ANGRY,trg.getEyeLocation().add(0,1,0),3);
+                }
             }
 
         }
@@ -58,9 +63,21 @@ public class LightningAxe implements Listener {
                 if (thiscd.checkCD(player)) {
                     for (Entity entity : e.getPlayer().getNearbyEntities(10, 10, 10)) {
                         if (entity instanceof LivingEntity) {
-                            LivingEntity trg = (LivingEntity) entity;
-                            player.getWorld().strikeLightningEffect(trg.getLocation());
-                            trg.damage(6);
+                            new BukkitRunnable()
+                            {
+                                int i = 0;
+                                public void run()
+                                {
+                                    LivingEntity trg = (LivingEntity) entity;
+                                    player.getWorld().strikeLightningEffect(trg.getLocation());
+                                    trg.getWorld().spawnParticle(Particle.ELECTRIC_SPARK,trg.getLocation(),5);
+                                    trg.damage(2);
+                                        if(i > 3)
+                                            cancel();
+                                    i++;
+                                }
+                            }.runTaskTimer(main,0L,20L);
+
                             thiscd.putCooldown(player, cd);
                         }
                     }

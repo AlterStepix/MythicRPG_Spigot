@@ -3,7 +3,9 @@ package alterstepix.mythicrpg.itemabilities;
 import alterstepix.mythicrpg.Mythicrpg;
 import alterstepix.mythicrpg.util.Cooldown;
 import alterstepix.mythicrpg.util.ItemLoreLibrary;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
@@ -61,15 +63,7 @@ public class FuriousAxe implements Listener {
 
                             armorStand.teleport(armorStand.getLocation().add(vector.normalize()));
 
-                            if(armorStand.getTargetBlockExact(1) != null && !armorStand.getTargetBlockExact(1).isPassable())
-                            {
-                                if(!armorStand.isDead())
-                                {
-                                    armorStand.remove();
-                                    cancel();
 
-                                }
-                            }
                             for(Entity entity : armorStand.getLocation().getChunk().getEntities()) {
                                 if (!armorStand.isDead())
                                 {
@@ -90,6 +84,7 @@ public class FuriousAxe implements Listener {
                             if(i > distance)
                             {
                                 armorStand.remove();
+                                cancel();
                             }
                             i++;
                         }

@@ -186,6 +186,17 @@ public class ItemLoreLibrary {
         ThrowableDescription.add("§8Cooldown: "+ cooldown + "s");
 
         Lore.put("Throw",ThrowableDescription);
+
+        // AirBurner
+
+        ArrayList<String> AirBurnerDescription = new ArrayList<>();
+
+        AirBurnerDescription.add("");
+        AirBurnerDescription.add("§6ITEM ABILITY: §eAirBurner");
+        AirBurnerDescription.add("§7Burning all living entities around 10x10x10 blocks");
+
+
+        Lore.put("AirBurner",AirBurnerDescription);
     }
 
 }

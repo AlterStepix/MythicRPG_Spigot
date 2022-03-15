@@ -24,6 +24,7 @@ public class ItemManager {
     public ItemStack MilkPotion;
     public ItemStack GiantSword;
     public ItemStack FuriousAxe;
+    public ItemStack AirBurner;
 
     Mythicrpg main;
     FileConfiguration config;
@@ -49,6 +50,7 @@ public class ItemManager {
         this.createMilkPotion();
         this.createGiantSword();
         this.createFuriousAxe();
+        this.createAirBurner();
     }
 
     public void createLightingAxe()
@@ -262,6 +264,27 @@ public class ItemManager {
         item.setItemMeta(meta);
 
         FuriousAxe = item;
+    }
+    public void createAirBurner()
+    {
+        ItemStack item = new ItemStack(Material.FLINT_AND_STEEL, 1);
+
+        ItemMeta meta = item.getItemMeta();
+
+
+        meta.setDisplayName(ColorUtil.ConvertToCustom(this.config.getString("airBurner")));
+        meta.setUnbreakable(true);
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        List<String> lore = new ArrayList<>();
+
+        for(String l : lib.Lore.get("AirBurner"))
+            lore.add(l);
+
+
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+
+        AirBurner = item;
     }
 
 

@@ -1,5 +1,5 @@
 # MythicRPG
-Simple minecraft plugin made for rpg servers
+Simple minecraft plugin made for minecraft rpg servers
 
 
 ## About

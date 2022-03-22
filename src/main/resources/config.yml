@@ -24,6 +24,7 @@ frozenWandCooldown: 7
 amberScytheCooldown: 7
 giantSwordCooldown: 15
 furiousAxeCooldown: 1
+terminatorCooldown: 1
 
 # --- Mobs Nametags ---
 
@@ -34,6 +35,7 @@ MasterAssassinNametag: "#5a3d6d!Master Assassin"
 AirSpiritNametag: "#dfdfdf!Ethereal Spirit"
 FireSpiritNametag: "#ff8e66!Flaming Spirit"
 IceSpiritNametag: "#74dfff!Frozen Spirit"
+SemiIdolNametag: "#0ab7ff!Semi Idol"
 
 MiniBossPrefix: "#ff535c!MINI BOSS " # --- Miniboss prefix
 BossPrefix: "#7d2222!BOSS " # --- Boss prefix
@@ -47,3 +49,8 @@ MasterAssassinHealth: 25
 AirSpiritHealth: 30
 FireSpiritHealth: 30
 IceSpiritHealth: 30
+SemiIdolHealth: 130
+
+# --- Mob Drops ---
+
+AmberShardName: "#ff9402!Amber Shard"

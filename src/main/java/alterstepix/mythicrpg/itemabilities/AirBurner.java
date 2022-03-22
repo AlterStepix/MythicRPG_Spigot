@@ -2,11 +2,16 @@ package alterstepix.mythicrpg.itemabilities;
 
 import alterstepix.mythicrpg.Mythicrpg;
 import alterstepix.mythicrpg.util.ItemLoreLibrary;
+import org.bukkit.Particle;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 public class AirBurner implements Listener {
 
@@ -27,12 +32,13 @@ public class AirBurner implements Listener {
         {
             Player player = e.getPlayer();
 
-
             if(player.getInventory().getItemInMainHand().getItemMeta() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore().contains(lib.Lore.get("AirBurner").get(1))) {
-
-
-
-
+                for (Entity entity : player.getNearbyEntities(10, 10, 10)) {
+                    if (entity instanceof LivingEntity) {
+                        LivingEntity le = (LivingEntity) entity;
+                        le.setFireTicks(le.getFireTicks()+120);
+                    }
+                }
             }
         }
     }

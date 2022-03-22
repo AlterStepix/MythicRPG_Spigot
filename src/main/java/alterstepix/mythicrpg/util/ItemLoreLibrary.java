@@ -59,10 +59,12 @@ public class ItemLoreLibrary {
         //  Recall
         ArrayList<String> RecallDescription = new ArrayList<>();
 
+        cooldown = this.config.getInt("terminatorCooldown");
         radius = this.config.getInt("terminatorAbilityRange");
         RecallDescription.add("");
         RecallDescription.add("§6SNEAK + LEFT CLICK: §eRecall");
         RecallDescription.add("§7Sends all arrows in a " + radius + " blocks radius to the sky");
+        RecallDescription.add("§8Cooldown: "+ cooldown + "s");
 
 
         Lore.put("Recall",RecallDescription);

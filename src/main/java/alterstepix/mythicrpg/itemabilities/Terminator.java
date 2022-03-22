@@ -1,6 +1,7 @@
 package alterstepix.mythicrpg.itemabilities;
 
 import alterstepix.mythicrpg.Mythicrpg;
+import alterstepix.mythicrpg.util.Cooldown;
 import alterstepix.mythicrpg.util.ItemLoreLibrary;
 import com.sun.media.jfxmedia.events.BufferListener;
 import org.bukkit.Bukkit;
@@ -21,6 +22,7 @@ public class Terminator implements Listener {
     FileConfiguration config;
     int abilityRadius;
     ItemLoreLibrary lib;
+    Cooldown thiscd = new Cooldown();
 
     public Terminator(Mythicrpg main)
     {
@@ -29,6 +31,7 @@ public class Terminator implements Listener {
         this.abilityRadius = this.config.getInt("terminatorAbilityRange");
         lib = new ItemLoreLibrary(main);
         lib.Init();
+        thiscd.init();
     }
 
     @EventHandler
@@ -61,23 +64,32 @@ public class Terminator implements Listener {
             Player p = e.getPlayer();
 
             if (p.getInventory().getItemInMainHand().getItemMeta() != null && p.getInventory().getItemInMainHand().getItemMeta().getLore() != null && p.getInventory().getItemInMainHand().getItemMeta().getLore().contains(lib.Lore.get("Recall").get(1))) {
-                e.setCancelled(true);
-                for(Entity en : p.getNearbyEntities(12,12,12))
+                if(thiscd.checkCD(p))
                 {
-                    if(en instanceof Arrow) {
-                        Arrow arr = (Arrow) en;
-                        if (arr.getVehicle() == null)
-                        {
-                            Firework f = arr.getWorld().spawn(arr.getLocation(), Firework.class);
-                            FireworkMeta meta = f.getFireworkMeta();
-                            meta.setPower(3);
-                            f.setFireworkMeta(meta);
-                            f.addPassenger(arr);
+                    e.setCancelled(true);
+                    for(Entity en : p.getNearbyEntities(12,12,12))
+                    {
+                        if(en instanceof Arrow) {
+                            Arrow arr = (Arrow) en;
+                            if (arr.getVehicle() == null)
+                            {
+                                Firework f = arr.getWorld().spawn(arr.getLocation(), Firework.class);
+                                FireworkMeta meta = f.getFireworkMeta();
+                                meta.setPower(3);
+                                f.setFireworkMeta(meta);
+                                f.addPassenger(arr);
+                            }
+
                         }
-
-
                     }
+                    //
+                    thiscd.putCooldown(p,config.getInt("lightningAxeCooldown"));
                 }
+                else
+                {
+                    p.sendMessage("§c[Mythic RPG] This item is on cooldown for " + (thiscd.getCooldownTime(p)+1));
+                }
+
             }
         }
 

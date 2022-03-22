@@ -81,7 +81,6 @@ public class SemiIdol implements Listener {
                         }
                     }
 
-
                     i++;
                 }
                 else
@@ -106,7 +105,7 @@ public class SemiIdol implements Listener {
                 e.setCancelled(true);
             }
         }
-        if(e.getEntity() != null && e.getTarget().getCustomName()!= null && e.getTarget().getCustomName().contains(config.getString("SemiIdolNametag").split("!")[1]))
+        if(e.getTarget() != null && e.getTarget().getCustomName()!= null && e.getTarget().getCustomName().contains(config.getString("SemiIdolNametag").split("!")[1]))
         {
             e.setCancelled(true);
         }

@@ -4,6 +4,9 @@ import alterstepix.mythicrpg.Mythicrpg;
 import alterstepix.mythicrpg.util.ColorUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.attribute.Attributable;
+import org.bukkit.attribute.Attribute;
+import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.IronGolem;
@@ -31,8 +34,13 @@ public class SemiIdol implements Listener {
     {
 
         IronGolem golem = location.getWorld().spawn(location,IronGolem.class);
-        golem.setMaxHealth(config.getInt("SemiIdolHealth"));
-        Bukkit.getLogger().info(config.getInt("SemiIdolHealth")+"");
+
+        Attributable mAt = golem;
+        AttributeInstance attribute = mAt.getAttribute(Attribute.GENERIC_MAX_HEALTH);
+        attribute.setBaseValue(config.getInt("SemiIdolHealth"));
+
+        golem.setHealth(config.getInt("SemiIdolHealth"));
+
         golem.setCustomName(ColorUtil.ConvertToCustom(config.getString("SemiIdolNametag")) + " §7["+Math.round(golem.getHealth())+"/"+golem.getMaxHealth()+"]");
         golem.setCustomNameVisible(true);
 
@@ -46,7 +54,7 @@ public class SemiIdol implements Listener {
                 {
                     golem.setCustomName(ColorUtil.ConvertToCustom(config.getString("SemiIdolNametag")) + " §7["+Math.round(golem.getHealth())+"/"+golem.getMaxHealth()+"]");
                     if(golem.getTarget() != null) {
-                        if (i % 10 == 0) {
+                        if (i % 20 == 0) {
                             Random r = new Random();
                             AirSpirit summoned1 = new AirSpirit(main);
                             summoned1.createAirSpirit(golem.getLocation().add(r.nextInt(1 + 1) - 1, 0, r.nextInt(1 + 1) - 1));
@@ -87,7 +95,7 @@ public class SemiIdol implements Listener {
     @EventHandler
     public void onTarget(EntityTargetEvent e)
     {
-        if(e.getEntity().getCustomName()!= null && e.getEntity().getCustomName().contains(config.getString("SemiIdolNametag").split("!")[1]))
+        if(e.getEntity() != null && e.getEntity().getCustomName()!= null && e.getEntity().getCustomName().contains(config.getString("SemiIdolNametag").split("!")[1]))
         {
             if(e.getTarget() instanceof Player)
             {
@@ -98,7 +106,7 @@ public class SemiIdol implements Listener {
                 e.setCancelled(true);
             }
         }
-        else if(e.getTarget().getCustomName()!= null && e.getTarget().getCustomName().contains(config.getString("SemiIdolNametag").split("!")[1]))
+        if(e.getEntity() != null && e.getTarget().getCustomName()!= null && e.getTarget().getCustomName().contains(config.getString("SemiIdolNametag").split("!")[1]))
         {
             e.setCancelled(true);
         }

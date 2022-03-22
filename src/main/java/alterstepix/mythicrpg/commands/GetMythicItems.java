@@ -44,6 +44,7 @@ public class GetMythicItems implements CommandExecutor {
                 gui.addItem(m.MilkPotion);
                 gui.addItem(m.GiantSword);
                 gui.addItem(m.FuriousAxe);
+                gui.addItem(m.AirBurner);
 
                 Player p = (Player)sender;
                 p.openInventory(gui);

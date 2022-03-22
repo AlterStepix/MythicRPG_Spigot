@@ -5,10 +5,8 @@ import alterstepix.mythicrpg.commands.GetMythicItems;
 import alterstepix.mythicrpg.commands.SummonMythicMob;
 import alterstepix.mythicrpg.itemabilities.*;
 
-import alterstepix.mythicrpg.mobs.InfectedZombie;
-import alterstepix.mythicrpg.mobs.MasterAssassin;
-import alterstepix.mythicrpg.mobs.Parasite;
-import alterstepix.mythicrpg.mobs.WitherSpider;
+import alterstepix.mythicrpg.misc.MobDropManager;
+import alterstepix.mythicrpg.mobs.*;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -48,7 +46,9 @@ public final class Mythicrpg extends JavaPlugin {
         Bukkit.getServer().getPluginManager().registerEvents(new Parasite(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new InfectedZombie(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new MasterAssassin(this),this);
+        Bukkit.getServer().getPluginManager().registerEvents(new SemiIdol(this), this);
 
+        Bukkit.getServer().getPluginManager().registerEvents(new MobDropManager(this),this);
 
 
         System.out.println("Plugin Enabled");

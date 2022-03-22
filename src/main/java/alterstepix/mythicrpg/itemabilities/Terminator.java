@@ -83,7 +83,7 @@ public class Terminator implements Listener {
                         }
                     }
                     //
-                    thiscd.putCooldown(p,config.getInt("lightningAxeCooldown"));
+                    thiscd.putCooldown(p,config.getInt("terminatorCooldown"));
                 }
                 else
                 {

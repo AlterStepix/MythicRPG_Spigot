@@ -63,6 +63,9 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                             IceSpirit mob7 = new IceSpirit(main);
                             mob7.createIceSpirit(player.getLocation());
                             break;
+                        case "SemiIdol":
+                            SemiIdol mob8 = new SemiIdol(main);
+                            mob8.createSemiIdol(player.getLocation());
                     }
                 }
                 else
@@ -141,6 +144,11 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                     Location loc7 = new Location(wr,Integer.parseInt(args[1]),Integer.parseInt(args[2]),Integer.parseInt(args[3]));
                     mob7.createIceSpirit(loc7);
                     break;
+                case "SemiIdol":
+                    SemiIdol mob8 = new SemiIdol(main);
+
+                    Location loc8 = new Location(wr,Integer.parseInt(args[1]),Integer.parseInt(args[2]),Integer.parseInt(args[3]));
+                    mob8.createSemiIdol(loc8);
             }
         }
         else
@@ -171,6 +179,7 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
             tab.add("AirSpirit");
             tab.add("FireSpirit");
             tab.add("IceSpirit");
+            tab.add("SemiIdol");
         }
         else if(args.length == 5)
         {

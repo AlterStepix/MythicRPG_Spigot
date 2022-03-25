@@ -26,7 +26,7 @@ public class MobDropManager implements Listener {
         double EpicChance = config.getInt("EpicChance")*0.01;
 
         DropTable Drops = new DropTable(main);
-        Drops.Init();
+        Drops.init();
 
         if(e.getEntity().getCustomName() != null && e.getEntity().getCustomName().contains(config.getString("WitherSpiderNametag").split("!")[1]))
         {

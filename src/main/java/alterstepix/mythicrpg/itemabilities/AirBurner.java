@@ -1,8 +1,10 @@
 package alterstepix.mythicrpg.itemabilities;
 
 import alterstepix.mythicrpg.Mythicrpg;
+import alterstepix.mythicrpg.util.Cooldown;
 import alterstepix.mythicrpg.util.ItemLoreLibrary;
 import org.bukkit.Particle;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -16,7 +18,9 @@ import org.bukkit.potion.PotionEffectType;
 public class AirBurner implements Listener {
 
     Mythicrpg main;
+    FileConfiguration config;
     ItemLoreLibrary lib;
+    Cooldown thiscd = new Cooldown();
 
     public AirBurner(Mythicrpg main)
     {
@@ -33,12 +37,23 @@ public class AirBurner implements Listener {
             Player player = e.getPlayer();
 
             if(player.getInventory().getItemInMainHand().getItemMeta() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore().contains(lib.Lore.get("AirBurner").get(1))) {
-                for (Entity entity : player.getNearbyEntities(10, 10, 10)) {
-                    if (entity instanceof LivingEntity) {
-                        LivingEntity le = (LivingEntity) entity;
-                        le.setFireTicks(le.getFireTicks()+120);
+                if (thiscd.checkCD(player))
+                {
+                    int radius = config.getInt("airBurnerRadius");
+                    for (Entity entity : player.getNearbyEntities(radius, radius, radius)) {
+                        if (entity instanceof LivingEntity) {
+                            LivingEntity le = (LivingEntity) entity;
+                            le.setFireTicks(le.getFireTicks()+120);
+
+                            thiscd.putCooldown(player,config.getInt("airBurnerCooldown"));
+                        }
                     }
                 }
+                else
+                {
+                    player.sendMessage("§c[Mythic RPG] This item is on cooldown for " + (thiscd.getCooldownTime(player)+1));
+                }
+
             }
         }
     }

@@ -9,6 +9,9 @@ commands:
   MythicItemGui:
     description: Opens the item gui
     usage: Use /<command>
+  MythicDropsGui:
+    description: Opens the drops gui
+    usage: Use /<command>
   AddItemAbility:
     description: Appends the existing item ability to current item in mainhand
     usage: Use /<command> + ablility

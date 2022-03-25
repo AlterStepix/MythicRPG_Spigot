@@ -1,6 +1,7 @@
 package alterstepix.mythicrpg;
 
 import alterstepix.mythicrpg.commands.AppendAbilityLore;
+import alterstepix.mythicrpg.commands.GetMythicDrops;
 import alterstepix.mythicrpg.commands.GetMythicItems;
 import alterstepix.mythicrpg.commands.SummonMythicMob;
 import alterstepix.mythicrpg.itemabilities.*;
@@ -25,6 +26,7 @@ public final class Mythicrpg extends JavaPlugin {
 
 
         Bukkit.getServer().getPluginCommand("MythicItemGui").setExecutor(new GetMythicItems(this));
+        Bukkit.getServer().getPluginCommand("MythicDropsGui").setExecutor(new GetMythicDrops(this));
         Bukkit.getServer().getPluginCommand("AddItemAbility").setExecutor(new AppendAbilityLore(this));
         Bukkit.getServer().getPluginCommand("SummonMythicMob").setExecutor(new SummonMythicMob(this));
 

@@ -79,3 +79,17 @@ EpicChance: 10
 LegendaryChance: 5
 MythicChance: 3
 DivineChance: 1
+
+# --- Recipes ---
+
+EnableTerminatorRecipe: 1
+EnableMilkPotionRecipe: 1
+EnableLightningAxeRecipe: 1
+EnableImpulseSwordRecipe: 1
+EnableIdolsIncarnateRecipe: 1
+EnableHealingSwordRecipe: 1
+EnableGiantSwordRecipe: 1
+EnableFuriousRecipe: 1
+EnableFrozenWandRecipe: 1
+EnableAmberScytheRecipe: 1
+EnableAirBurnerRecipe: 1

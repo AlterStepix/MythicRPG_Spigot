@@ -5,6 +5,7 @@ import alterstepix.mythicrpg.commands.GetMythicItems;
 import alterstepix.mythicrpg.commands.SummonMythicMob;
 import alterstepix.mythicrpg.itemabilities.*;
 
+import alterstepix.mythicrpg.misc.CustomRecipes;
 import alterstepix.mythicrpg.misc.MobDropManager;
 import alterstepix.mythicrpg.mobs.*;
 import org.bukkit.Bukkit;
@@ -49,6 +50,31 @@ public final class Mythicrpg extends JavaPlugin {
         Bukkit.getServer().getPluginManager().registerEvents(new SemiIdol(this), this);
 
         Bukkit.getServer().getPluginManager().registerEvents(new MobDropManager(this),this);
+
+        CustomRecipes recipes = new CustomRecipes(this);
+
+        if(configuration.getInt("EnableTerminatorRecipe") == 1)
+            recipes.RegisterTerminatorRecipe();
+        if(configuration.getInt("EnableMilkPotionRecipe") == 1)
+            recipes.RegisterMilkPotionRecipe();
+        if(configuration.getInt("EnableLightningAxeRecipe") == 1)
+            recipes.RegisterLightingAxeRecipe();
+        if(configuration.getInt("EnableImpulseSwordRecipe") == 1)
+            recipes.RegisterImpulseSwordRecipe();
+        if(configuration.getInt("EnableIdolsIncarnateRecipe") == 1)
+            recipes.RegisterIdolsIncarnateRecipe();
+        if(configuration.getInt("EnableHealingSwordRecipe") == 1)
+            recipes.RegisterHealingSwordRecipe();
+        if(configuration.getInt("EnableGiantSwordRecipe") == 1)
+            recipes.RegisterGiantSwordRecipe();
+        if(configuration.getInt("EnableFuriousRecipe") == 1)
+            recipes.RegisterFuriousAxeRecipe();
+        if(configuration.getInt("EnableFrozenWandRecipe") == 1)
+            recipes.RegisterFrozenWandRecipe();
+        if(configuration.getInt("EnableAmberScytheRecipe") == 1)
+            recipes.RegisterAmberScytheRecipe();
+        if(configuration.getInt("EnableAirBurnerRecipe") == 1)
+            recipes.RegisterAirBurnerRecipe();
 
 
         System.out.println("Plugin Enabled");

@@ -30,7 +30,7 @@ public class DropTable {
         this.config = main.getConfig();
     }
 
-    public void Init()
+    public void init()
     {
         CreateAmberShard();
         CreateImpulseShard();

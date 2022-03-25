@@ -2,7 +2,6 @@ package alterstepix.mythicrpg.commands;
 
 import alterstepix.mythicrpg.Mythicrpg;
 import alterstepix.mythicrpg.util.DropTable;
-import alterstepix.mythicrpg.util.ItemManager;
 import alterstepix.mythicrpg.util.Messages;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -28,7 +27,7 @@ public class GetMythicDrops implements CommandExecutor {
             {
                 Inventory gui = Bukkit.createInventory(null, InventoryType.CHEST);
                 DropTable m = new DropTable(main);
-                m.Init();
+                m.init();
                 gui.addItem(m.amberShard);
                 gui.addItem(m.frozenShard);
                 gui.addItem(m.impulseShard);

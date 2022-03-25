@@ -54,3 +54,28 @@ SemiIdolHealth: 200
 # --- Mob Drops ---
 
 AmberShardName: "#ff9402!Amber Shard"
+ImpulseShardName: "#a485ff!Impulse Shard"
+FrozenShardName: "#74dfff!Frozen Shard"
+InfectedFleshName: "#006d04!Infected Flesh"
+InfectedHeartName: "#6e0019!Infected Heart"
+ParasiteHeartName: "#25d929!Parasite Heart"
+LightningShardName: "#88aedf!Lightning Shard"
+WitheredEyeName: "#434343!Withered Eye"
+
+# --- Mob Drop Lore ---
+
+CommonRarity: "#c3c3c3!Common Drop"
+RareRarity: "#5a6eff!Rare Drop"
+EpicRarity: "#5c00ac!Epic Drop"
+LegendaryRarity: "#ff9e29!Legendary Drop"
+MythicRarity: "#ff3e3e!Mythic Drop"
+DivineRarity: "#ff96f5!Divine Drop"
+
+# --- Mob Drop Chance ---
+
+CommonChance: 80
+RareChance: 30
+EpicChance: 10
+LegendaryChance: 5
+MythicChance: 3
+DivineChance: 1

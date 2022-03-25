@@ -17,6 +17,7 @@ airBurner: "#ff8d00!Air Burner"
 
 frozenWandRadius: 7
 impulseSwordRadius: 15
+airBurnerRadius: 10
 impulseSwordCooldown: 5
 terminatorAbilityRange: 15
 lightningAxeCooldown: 3
@@ -25,6 +26,7 @@ amberScytheCooldown: 7
 giantSwordCooldown: 15
 furiousAxeCooldown: 1
 terminatorCooldown: 1
+airBurnerCooldown: 7
 
 # --- Mobs Nametags ---
 

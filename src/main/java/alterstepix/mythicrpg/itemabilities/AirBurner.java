@@ -48,7 +48,7 @@ public class AirBurner implements Listener {
                             LivingEntity le = (LivingEntity) entity;
                             le.setFireTicks(le.getFireTicks()+120);
                             player.getWorld().spawnParticle(Particle.LAVA, player.getLocation(), 15);
-                            player.getWorld().playSound(player.getLocation(), Sound.BLOCK_FIRE_AMBIENT, 8, 5);
+                            player.getWorld().playSound(player.getLocation(), Sound.BLOCK_FIRE_AMBIENT, 15, 5);
                             this.thiscd.putCooldown(player,config.getInt("airBurnerCooldown"));
                         }
                     }

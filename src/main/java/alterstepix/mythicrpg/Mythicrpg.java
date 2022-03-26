@@ -1,14 +1,12 @@
 package alterstepix.mythicrpg;
 
-import alterstepix.mythicrpg.commands.AppendAbilityLore;
-import alterstepix.mythicrpg.commands.GetMythicDrops;
-import alterstepix.mythicrpg.commands.GetMythicItems;
-import alterstepix.mythicrpg.commands.SummonMythicMob;
+import alterstepix.mythicrpg.commands.*;
 import alterstepix.mythicrpg.itemabilities.*;
 
 import alterstepix.mythicrpg.misc.CustomRecipes;
 import alterstepix.mythicrpg.misc.MobDropManager;
 import alterstepix.mythicrpg.mobs.*;
+import alterstepix.mythicrpg.scrolls.ArrowStorm;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -20,13 +18,12 @@ public final class Mythicrpg extends JavaPlugin {
     @Override
     public void onEnable() {
 
-
         configuration.options().copyDefaults(true);
         saveConfig();
 
-
-        Bukkit.getServer().getPluginCommand("MythicItemGui").setExecutor(new GetMythicItems(this));
+        Bukkit.getServer().getPluginCommand("MythicItemsGui").setExecutor(new GetMythicItems(this));
         Bukkit.getServer().getPluginCommand("MythicDropsGui").setExecutor(new GetMythicDrops(this));
+        Bukkit.getServer().getPluginCommand("MythicScrollsGui").setExecutor(new GetMythicScrolls(this));
         Bukkit.getServer().getPluginCommand("AddItemAbility").setExecutor(new AppendAbilityLore(this));
         Bukkit.getServer().getPluginCommand("SummonMythicMob").setExecutor(new SummonMythicMob(this));
 
@@ -50,6 +47,8 @@ public final class Mythicrpg extends JavaPlugin {
         Bukkit.getServer().getPluginManager().registerEvents(new InfectedZombie(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new MasterAssassin(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new SemiIdol(this), this);
+
+        Bukkit.getServer().getPluginManager().registerEvents(new ArrowStorm(this),this);
 
         Bukkit.getServer().getPluginManager().registerEvents(new MobDropManager(this),this);
 

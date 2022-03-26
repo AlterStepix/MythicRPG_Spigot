@@ -199,6 +199,24 @@ public class ItemLoreLibrary {
 
 
         Lore.put("AirBurner",AirBurnerDescription);
+
+
+        /* ===========================================
+           ==============| Scrolls |==================
+           ===========================================
+         */
+
+        // Array List
+
+        ArrayList<String> ArrowStormScrollDescription = new ArrayList<>();
+
+        ArrowStormScrollDescription.add("");
+        ArrowStormScrollDescription.add("§6SCROLL: §eArrow Storm");
+        ArrowStormScrollDescription.add("§7Shoots an arrow storm");
+        ArrowStormScrollDescription.add("§8Consumed on use");
+
+        Lore.put("ArrowStorm",ArrowStormScrollDescription);
+
     }
 
 }

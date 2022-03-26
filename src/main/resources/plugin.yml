@@ -6,11 +6,14 @@ prefix: mrpg
 authors: [ AlterStepix, Emeraldofcourse ]
 description: Just a simple rpg plugin
 commands:
-  MythicItemGui:
+  MythicItemsGui:
     description: Opens the item gui
     usage: Use /<command>
   MythicDropsGui:
     description: Opens the drops gui
+    usage: Use /<command>
+  MythicScrollsGui:
+    description: Opens the scrolls gui
     usage: Use /<command>
   AddItemAbility:
     description: Appends the existing item ability to current item in mainhand

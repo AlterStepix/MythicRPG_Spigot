@@ -49,7 +49,7 @@ public class AirBurner implements Listener {
                             le.setFireTicks(le.getFireTicks()+120);
                             player.getWorld().spawnParticle(Particle.LAVA, player.getLocation(), 15);
                             player.getWorld().playSound(player.getLocation(), Sound.BLOCK_FIRE_AMBIENT, 8, 5);
-                            thiscd.putCooldown(player,config.getInt("airBurnerCooldown"));
+                            this.thiscd.putCooldown(player,config.getInt("airBurnerCooldown"));
                         }
                     }
                 }

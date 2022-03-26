@@ -4,6 +4,7 @@ import alterstepix.mythicrpg.Mythicrpg;
 import alterstepix.mythicrpg.util.Cooldown;
 import alterstepix.mythicrpg.util.ItemLoreLibrary;
 import org.bukkit.Particle;
+import org.bukkit.Sound;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
@@ -25,6 +26,7 @@ public class AirBurner implements Listener {
     public AirBurner(Mythicrpg main)
     {
         this.main = main;
+        this.config = main.getConfig();
         lib = new ItemLoreLibrary(main);
         lib.Init();
     }
@@ -44,7 +46,8 @@ public class AirBurner implements Listener {
                         if (entity instanceof LivingEntity) {
                             LivingEntity le = (LivingEntity) entity;
                             le.setFireTicks(le.getFireTicks()+120);
-
+                            player.getWorld().spawnParticle(Particle.LAVA, player.getLocation(), 15);
+                            player.getWorld().playSound(player.getLocation(), Sound.BLOCK_FIRE_AMBIENT, 8, 5);
                             thiscd.putCooldown(player,config.getInt("airBurnerCooldown"));
                         }
                     }

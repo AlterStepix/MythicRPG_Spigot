@@ -29,6 +29,7 @@ public class AirBurner implements Listener {
         this.config = main.getConfig();
         lib = new ItemLoreLibrary(main);
         lib.Init();
+        thiscd.init();
     }
 
     @EventHandler

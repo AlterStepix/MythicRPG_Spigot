@@ -72,6 +72,10 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                             AncientZombie mob9 = new AncientZombie(main);
                             mob9.createAncientZombie(player.getLocation());
                             break;
+                        case "WitherusNetherlord":
+                            NetherLord mob10 = new NetherLord(main);
+                            mob10.createNetherLord(player.getLocation());
+                            break;
                     }
                 }
                 else
@@ -162,6 +166,12 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                     Location loc9 = new Location(wr,Integer.parseInt(args[1]),Integer.parseInt(args[2]),Integer.parseInt(args[3]));
                     mob9.createAncientZombie(loc9);
                     break;
+                case "WitherusNetherlord":
+                    NetherLord mob10 = new NetherLord(main);
+
+                    Location loc10 = new Location(wr,Integer.parseInt(args[1]),Integer.parseInt(args[2]),Integer.parseInt(args[3]));
+                    mob10.createNetherLord(loc10);
+                    break;
             }
         }
         else
@@ -194,6 +204,7 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
             tab.add("IceSpirit");
             tab.add("SemiIdol");
             tab.add("AncientZombie");
+            tab.add("WitherusNetherlord");
         }
         else if(args.length == 5)
         {

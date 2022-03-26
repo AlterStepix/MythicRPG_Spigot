@@ -49,6 +49,8 @@ public final class Mythicrpg extends JavaPlugin {
         Bukkit.getServer().getPluginManager().registerEvents(new SemiIdol(this), this);
         Bukkit.getServer().getPluginManager().registerEvents(new AncientZombie(this),this);
 
+        Bukkit.getServer().getPluginManager().registerEvents(new NetherLord(this),this);
+
         Bukkit.getServer().getPluginManager().registerEvents(new ArrowStorm(this),this);
 
         Bukkit.getServer().getPluginManager().registerEvents(new MobDropManager(this),this);

@@ -64,6 +64,9 @@ public class Parasite implements Listener {
         skeleton.getEquipment().setBoots(new ItemStack(Material.DIAMOND_BOOTS));
         skeleton.setCustomName(ColorUtil.ConvertToCustom(config.getString("MiniBossPrefix")) + ColorUtil.ConvertToCustom(config.getString("ParasiteNametag")) + " §7["+Math.round(skeleton.getHealth())+"/"+skeleton.getMaxHealth()+"]");
 
+        AttributeInstance KbAt = skeletonAt.getAttribute(Attribute.GENERIC_KNOCKBACK_RESISTANCE);
+        KbAt.setBaseValue(100);
+
         Random r = new Random();
         skeleton.getWorld().playSound(skeleton.getLocation(),Sound.ENTITY_EVOKER_PREPARE_SUMMON,5,5);
         for(int x = 0; x < 7; x++)

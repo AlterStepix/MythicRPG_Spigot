@@ -71,7 +71,7 @@ public class NetherLord implements Listener {
         SkeletonHorse horse = loc.getWorld().spawn(loc,SkeletonHorse.class);
         Attributable hAt = horse;
         AttributeInstance KbHaT = hAt.getAttribute(Attribute.GENERIC_KNOCKBACK_RESISTANCE);
-        KbAt.setBaseValue(100);
+        KbHaT.setBaseValue(100);
 
         horse.setInvulnerable(true);
         horse.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE,9999999,10,false,false,false));

@@ -41,7 +41,7 @@ public class IceSpirit {
         ItemStack boots = new ItemStack(Material.LEATHER_BOOTS);
         LeatherArmorMeta armormeta = (LeatherArmorMeta)helmet.getItemMeta();
         armormeta.setColor(Color.fromRGB(119,181 ,255));
-        armormeta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,8,true);
+        armormeta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,9,true);
         helmet.setItemMeta(armormeta);
         chestplate.setItemMeta(armormeta);
         leggings.setItemMeta(armormeta);
@@ -71,6 +71,7 @@ public class IceSpirit {
                             {
                                 Player trg = (Player) entity;
                                 trg.addPotionEffect(new PotionEffect(PotionEffectType.SLOW,100,3,false,false,false));
+                                trg.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS,100,1,true,true,true));
                                 trg.damage(2);
                                 spirit.getWorld().spawnParticle(Particle.SNOWBALL,spirit.getLocation(),5);
                                 spirit.getWorld().playSound(spirit.getLocation(),Sound.ENTITY_SNOW_GOLEM_SHOOT,8,5);

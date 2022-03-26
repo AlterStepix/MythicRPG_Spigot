@@ -20,6 +20,8 @@ public class DropTable {
     public ItemStack parasiteHeart; // Parasite
     public ItemStack lightningShard; // SemiIdol
     public ItemStack witheredEye; // Wither Spider
+    public ItemStack ancientShard; // Ancient Zombie
+    public ItemStack decayedHeart; // Ancient Zombie
 
     Mythicrpg main;
     FileConfiguration config;
@@ -40,6 +42,8 @@ public class DropTable {
         CreateParasiteHeart();
         CreateLightingShard();
         CreateWitheredEye();
+        CreateAncientShard();
+        CreateDecayedHeart();
     }
 
     private void CreateAmberShard()
@@ -145,6 +149,32 @@ public class DropTable {
 
         item.setItemMeta(meta);
         witheredEye = item;
+    }
+    private void CreateAncientShard()
+    {
+        ItemStack item = new ItemStack(Material.FLINT, 1);
+        ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName(ColorUtil.ConvertToCustom(config.getString("AncientShardName")));
+
+        List<String> lore = new ArrayList<>();
+        lore.add(ColorUtil.ConvertToCustom(config.getString("CommonRarity")));
+        meta.setLore(lore);
+
+        item.setItemMeta(meta);
+        ancientShard = item;
+    }
+    private void CreateDecayedHeart()
+    {
+        ItemStack item = new ItemStack(Material.FIREWORK_STAR, 1);
+        ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName(ColorUtil.ConvertToCustom(config.getString("DecayedHeartName")));
+
+        List<String> lore = new ArrayList<>();
+        lore.add(ColorUtil.ConvertToCustom(config.getString("RareRarity")));
+        meta.setLore(lore);
+
+        item.setItemMeta(meta);
+        decayedHeart = item;
     }
 
 }

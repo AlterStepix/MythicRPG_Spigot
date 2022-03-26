@@ -41,6 +41,7 @@ AirSpiritNametag: "#dfdfdf!Ethereal Spirit"
 FireSpiritNametag: "#ff8e66!Flaming Spirit"
 IceSpiritNametag: "#74dfff!Frozen Spirit"
 SemiIdolNametag: "#0ab7ff!Semi Idol"
+AncientZombieNametag: "#5b5b5b!Ancient Zombie"
 
 MiniBossPrefix: "#ff535c!MINI BOSS " # --- Miniboss prefix
 BossPrefix: "#7d2222!BOSS " # --- Boss prefix
@@ -55,6 +56,7 @@ AirSpiritHealth: 30
 FireSpiritHealth: 30
 IceSpiritHealth: 30
 SemiIdolHealth: 200
+AncientZombie: 30
 
 # --- Mob Drops ---
 
@@ -66,6 +68,8 @@ InfectedHeartName: "#6e0019!Infected Heart"
 ParasiteHeartName: "#25d929!Parasite Heart"
 LightningShardName: "#88aedf!Lightning Shard"
 WitheredEyeName: "#434343!Withered Eye"
+AncientShardName: "#5b5b5b!Ancient Shard"
+DecayedHeartName: "#242331!Decayed Heart"
 
 # --- Mob Drop Lore ---
 

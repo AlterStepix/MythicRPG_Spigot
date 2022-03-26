@@ -11,6 +11,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
+import org.checkerframework.checker.units.qual.A;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,6 +67,11 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                         case "SemiIdol":
                             SemiIdol mob8 = new SemiIdol(main);
                             mob8.createSemiIdol(player.getLocation());
+                            break;
+                        case "AncientZombie":
+                            AncientZombie mob9 = new AncientZombie(main);
+                            mob9.createAncientZombie(player.getLocation());
+                            break;
                     }
                 }
                 else
@@ -149,6 +155,13 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
 
                     Location loc8 = new Location(wr,Integer.parseInt(args[1]),Integer.parseInt(args[2]),Integer.parseInt(args[3]));
                     mob8.createSemiIdol(loc8);
+                    break;
+                case "AncientZombie":
+                    AncientZombie mob9 = new AncientZombie(main);
+
+                    Location loc9 = new Location(wr,Integer.parseInt(args[1]),Integer.parseInt(args[2]),Integer.parseInt(args[3]));
+                    mob9.createAncientZombie(loc9);
+                    break;
             }
         }
         else
@@ -180,6 +193,7 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
             tab.add("FireSpirit");
             tab.add("IceSpirit");
             tab.add("SemiIdol");
+            tab.add("AncientZombie");
         }
         else if(args.length == 5)
         {

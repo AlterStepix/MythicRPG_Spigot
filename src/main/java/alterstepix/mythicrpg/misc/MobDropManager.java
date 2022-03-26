@@ -76,6 +76,14 @@ public class MobDropManager implements Listener {
             if(Math.random() < EpicChance)
                 e.getDrops().add(Drops.lightningShard);
         }
+        else if(e.getEntity().getCustomName() != null && e.getEntity().getCustomName().contains(config.getString("AncientZombieNametag").split("!")[1]))
+        {
+            e.getDrops().clear();
+            if(Math.random() < CommonChance)
+                e.getDrops().add(Drops.ancientShard);
+            if(Math.random() < RareChance)
+                e.getDrops().add(Drops.decayedHeart);
+        }
 
     }
 }

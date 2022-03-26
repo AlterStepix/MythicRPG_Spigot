@@ -94,6 +94,7 @@ public class WitherSpider implements Listener {
                 {
                     Player player = (Player) event.getEntity();
                     player.addPotionEffect(new PotionEffect(PotionEffectType.WITHER,60,1));
+                    player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW,60,2));
 
                 }
             }

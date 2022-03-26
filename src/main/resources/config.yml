@@ -13,11 +13,14 @@ giantSword: "#ffd4d4!Giant Sword"
 furiousAxe: "#53227d!Furious Axe"
 airBurner: "#ff8d00!Air Burner"
 
-# --- Item Cooldown ---
+# --- Item Settings
 
 frozenWandRadius: 7
 impulseSwordRadius: 15
 airBurnerRadius: 10
+
+# --- Item Cooldown ---
+
 impulseSwordCooldown: 5
 terminatorAbilityRange: 15
 lightningAxeCooldown: 3
@@ -45,7 +48,7 @@ BossPrefix: "#7d2222!BOSS " # --- Boss prefix
 # --- Mobs HP ---
 
 WitherSpiderHealth: 40
-ParasiteHealth: 50
+ParasiteHealth: 150
 InfectedZombieHealth: 30
 MasterAssassinHealth: 25
 AirSpiritHealth: 30
@@ -95,3 +98,7 @@ EnableFuriousRecipe: 1
 EnableFrozenWandRecipe: 1
 EnableAmberScytheRecipe: 1
 EnableAirBurnerRecipe: 1
+
+# --- Scrolls Names
+
+ArrowStormName: "#d47dff!Arrow Storm Scroll"

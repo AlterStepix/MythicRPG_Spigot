@@ -53,7 +53,8 @@ public class Parasite implements Listener {
 
         ItemStack boots = new ItemStack(Material.DIAMOND_BOOTS,1);
         ItemMeta meta2 = boots.getItemMeta();
-        meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,8,true);
+        meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,10,true);
+        meta.addEnchant(Enchantment.THORNS,10,true);
         boots.setItemMeta(meta2);
 
         skeleton.getEquipment().setItemInMainHand(new ItemStack(Material.IRON_SWORD));
@@ -62,6 +63,16 @@ public class Parasite implements Listener {
         skeleton.getEquipment().setLeggings(new ItemStack(Material.LEATHER_LEGGINGS));
         skeleton.getEquipment().setBoots(new ItemStack(Material.DIAMOND_BOOTS));
         skeleton.setCustomName(ColorUtil.ConvertToCustom(config.getString("MiniBossPrefix")) + ColorUtil.ConvertToCustom(config.getString("ParasiteNametag")) + " §7["+Math.round(skeleton.getHealth())+"/"+skeleton.getMaxHealth()+"]");
+
+        Random r = new Random();
+        skeleton.getWorld().playSound(skeleton.getLocation(),Sound.ENTITY_EVOKER_PREPARE_SUMMON,5,5);
+        for(int x = 0; x < 7; x++)
+        {
+            InfectedZombie summoned = new InfectedZombie(main);
+            summoned.createInfectedZombie(skeleton.getLocation().add(r.nextInt(1 + 1) -1, 0, r.nextInt(1 + 1) -1));
+            summoned.setTarget(skeleton.getTarget());
+        }
+
         new BukkitRunnable(){
             int i = 0;
             int k = 0;
@@ -73,7 +84,7 @@ public class Parasite implements Listener {
                     skeleton.setCustomName(ColorUtil.ConvertToCustom(config.getString("MiniBossPrefix")) + ColorUtil.ConvertToCustom(config.getString("ParasiteNametag")) + " §7["+Math.round(skeleton.getHealth())+"/"+skeleton.getMaxHealth()+"]");
 
                     if(skeleton.getTarget() != null){
-                        if(i % 2 == 0)
+                        if(i % 1 == 0)
                         {
                             FallingBlock fallingBlock = skeleton.getWorld().spawnFallingBlock(skeleton.getLocation().add(0,2,0),Material.JUNGLE_LEAVES, (byte) 0);
                             fallingBlock.setCustomName("Parasite orb");
@@ -92,7 +103,7 @@ public class Parasite implements Listener {
                                                 if(fallingBlock.getLocation().distanceSquared(entity.getLocation()) < 1)
                                                 {
                                                     Player player = (Player) entity;
-                                                    PotionEffect effect = new PotionEffect(PotionEffectType.POISON, 40,1,false,false,false);
+                                                    PotionEffect effect = new PotionEffect(PotionEffectType.POISON, 60,3,false,false,false);
                                                     PotionEffect effect1 = new PotionEffect(PotionEffectType.HUNGER, 200, 1,false,false,false);
                                                     player.addPotionEffect(effect);
                                                     player.addPotionEffect(effect1);
@@ -110,7 +121,7 @@ public class Parasite implements Listener {
                                 }
                             }.runTaskTimer(main,0L,2L);
                         }
-                            if(i % 10 == 0)
+                            if(i % 14 == 0)
                             {
                                 Random r = new Random();
                                 skeleton.getWorld().playSound(skeleton.getLocation(),Sound.ENTITY_EVOKER_PREPARE_SUMMON,5,5);
@@ -122,7 +133,7 @@ public class Parasite implements Listener {
                                 }
                             }
                         }
-                    if(i % 30 == 0)
+                    if(i % 12 == 0)
                     {
                         skeleton.setAI(false);
                         new BukkitRunnable()

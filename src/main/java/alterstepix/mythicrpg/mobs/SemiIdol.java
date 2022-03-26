@@ -38,11 +38,26 @@ public class SemiIdol implements Listener {
         Attributable mAt = golem;
         AttributeInstance attribute = mAt.getAttribute(Attribute.GENERIC_MAX_HEALTH);
         attribute.setBaseValue(config.getInt("SemiIdolHealth"));
+        AttributeInstance attribueDef = mAt.getAttribute(Attribute.GENERIC_ARMOR);
+        attribueDef.setBaseValue(10);
+        AttributeInstance attributeSpeed = mAt.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED);
+        attributeSpeed.setBaseValue(0.25);
 
         golem.setHealth(config.getInt("SemiIdolHealth"));
 
         golem.setCustomName(ColorUtil.ConvertToCustom(config.getString("SemiIdolNametag")) + " §7["+Math.round(golem.getHealth())+"/"+golem.getMaxHealth()+"]");
         golem.setCustomNameVisible(true);
+
+
+        Random r = new Random();
+        AirSpirit summoned1 = new AirSpirit(main);
+        summoned1.createAirSpirit(golem.getLocation().add(r.nextInt(1 + 1) - 1, 0, r.nextInt(1 + 1) - 1));
+
+        FireSpirit summoned2 = new FireSpirit(main);
+        summoned2.createFireSpirit(golem.getLocation().add(r.nextInt(1 + 1) - 1, 0, r.nextInt(1 + 1) - 1));
+
+        IceSpirit summoned3 = new IceSpirit(main);
+        summoned3.createIceSpirit(golem.getLocation().add(r.nextInt(1 + 1) - 1, 0, r.nextInt(1 + 1) - 1));
 
         new BukkitRunnable()
         {
@@ -52,6 +67,15 @@ public class SemiIdol implements Listener {
 
                 if(!golem.isDead())
                 {
+                    if (i % 5 == 0)
+                    {
+                        for(Entity e : golem.getNearbyEntities(10,10,10)){
+                            if(e instanceof Player)
+                            {
+                                golem.setTarget((Player)e);
+                            }
+                        }
+                    }
                     golem.setCustomName(ColorUtil.ConvertToCustom(config.getString("SemiIdolNametag")) + " §7["+Math.round(golem.getHealth())+"/"+golem.getMaxHealth()+"]");
                     if(golem.getTarget() != null) {
                         if (i % 20 == 0) {
@@ -65,19 +89,10 @@ public class SemiIdol implements Listener {
                             IceSpirit summoned3 = new IceSpirit(main);
                             summoned3.createIceSpirit(golem.getLocation().add(r.nextInt(1 + 1) - 1, 0, r.nextInt(1 + 1) - 1));
                         }
-                        if (i % 5 == 2) {
+                        if (i % 2 == 1) {
                             LivingEntity trg = golem.getTarget();
                             trg.getWorld().strikeLightningEffect(trg.getLocation());
                             trg.damage(4);
-                        }
-                        if (i % 5 == 0)
-                        {
-                            for(Entity e : golem.getNearbyEntities(10,10,10)){
-                                if(e instanceof Player)
-                                {
-                                    golem.setTarget((Player)e);
-                                }
-                            }
                         }
                     }
 

@@ -18,6 +18,8 @@ import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
@@ -57,6 +59,8 @@ public class MasterAssassin implements Listener {
         meta.setColor(Color.BLACK);
         leggings.setItemMeta(meta);
         boots.setItemMeta(meta);
+
+        skeleton.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE,999999,1,false,false,false));
 
         skeleton.getEquipment().setBoots(boots);
         skeleton.getEquipment().setLeggings(leggings);

@@ -24,7 +24,7 @@ public class CustomRecipes {
         this.items = new ItemManager(main);
         this.items.init();
         this.drops = new DropTable(main);
-        this.drops.Init();
+        this.drops.init();
     }
 
     // Example

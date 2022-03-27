@@ -2,6 +2,8 @@ package alterstepix.mythicrpg.itemabilities;
 
 import alterstepix.mythicrpg.Mythicrpg;
 import alterstepix.mythicrpg.util.ItemLoreLibrary;
+import org.bukkit.Particle;
+import org.bukkit.Sound;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -44,32 +46,59 @@ public class IdolsIncarnate implements Listener {
                 if (a<0.3)
                 {
                     entity.addPotionEffect(WEff); //WITHER
+                    entity.getWorld().spawnParticle(Particle.SOUL, player.getLocation(), 15);
+                    entity.getWorld().spawnParticle(Particle.DRAGON_BREATH, player.getLocation(), 15);
+                    entity.getWorld().playSound(player.getLocation(), Sound.AMBIENT_CAVE,15,5);
                 }
                 a = Math.random();
                 if (a<0.4)
                 {
                     entity.addPotionEffect(CEff); //CONFUSION
+                    entity.getWorld().spawnParticle(Particle.SOUL, player.getLocation(), 15);
+                    entity.getWorld().spawnParticle(Particle.SLIME, player.getLocation(), 15);
+                    entity.getWorld().playSound(player.getLocation(), Sound.AMBIENT_CAVE,15,5);
                 }
                 a = Math.random();
                 if (a<0.6)
                 {
                     entity.addPotionEffect(SEff); //SLOW
+                    entity.getWorld().spawnParticle(Particle.SOUL, player.getLocation(), 15);
+                    entity.getWorld().spawnParticle(Particle.ITEM_CRACK, player.getLocation(), 15);
+                    entity.getWorld().playSound(player.getLocation(), Sound.AMBIENT_CAVE,15,5);
                 }
                 a = Math.random();
                 if (a<0.4)
                 {
                     entity.addPotionEffect(SDEff); //SLOW_DIGGING
+                    entity.getWorld().spawnParticle(Particle.SOUL, player.getLocation(), 15);
+                    entity.getWorld().spawnParticle(Particle.END_ROD, player.getLocation(), 15);
+                    entity.getWorld().playSound(player.getLocation(), Sound.AMBIENT_CAVE,15,5);
                 }
                 a = Math.random();
                 if (a<0.7)
                 {
                     entity.addPotionEffect(HEff); //HUNGER
+                    entity.getWorld().spawnParticle(Particle.SOUL, player.getLocation(), 15);
+                    entity.getWorld().spawnParticle(Particle.SLIME, player.getLocation(), 15);
+                    entity.getWorld().playSound(player.getLocation(), Sound.AMBIENT_CAVE,15,5);
                 }
                 a = Math.random();
                 if (a<0.3)
                 {
                     entity.addPotionEffect(PEff); //POISON
+                    entity.getWorld().spawnParticle(Particle.SOUL, player.getLocation(), 15);
+                    entity.getWorld().spawnParticle(Particle.SLIME, player.getLocation(), 15);
+                    entity.getWorld().playSound(player.getLocation(), Sound.AMBIENT_CAVE,15,5);
                 }
+                a = Math.random();
+                if (a<0.3)
+                {
+                    entity.setFireTicks(entity.getFireTicks()+80); //FIRE
+                    entity.getWorld().spawnParticle(Particle.SOUL, player.getLocation(), 15);
+                    entity.getWorld().spawnParticle(Particle.LAVA, player.getLocation(), 15);
+                    entity.getWorld().playSound(player.getLocation(), Sound.AMBIENT_CAVE,15,5);
+                }
+
 
             }
 

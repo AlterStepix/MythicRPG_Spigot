@@ -55,6 +55,9 @@ public class AirBurner implements Listener {
                 }
                 else
                 {
+                    player.getWorld().spawnParticle(Particle.CAMPFIRE_SIGNAL_SMOKE, player.getLocation(), 15);
+                    player.getWorld().playSound(player.getLocation(), Sound.BLOCK_FIRE_EXTINGUISH, 15, 5);
+
                     player.sendMessage("§c[Mythic RPG] This item is on cooldown for " + (thiscd.getCooldownTime(player)+1));
                 }
 

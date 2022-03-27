@@ -2,6 +2,8 @@ package alterstepix.mythicrpg.itemabilities;
 
 import alterstepix.mythicrpg.Mythicrpg;
 import alterstepix.mythicrpg.util.ItemLoreLibrary;
+import org.bukkit.Particle;
+import org.bukkit.Sound;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -38,8 +40,12 @@ public class HealingSword implements Listener {
                     if(hunger>6)
                     {
                         player.setFoodLevel(hunger-6);
+                        player.getWorld().spawnParticle(Particle.TOTEM, player.getLocation(), 5);
+                        player.getWorld().playSound(player.getLocation(), Sound.BLOCK_HONEY_BLOCK_BREAK, 15, 5);
                     }else{
                         player.setFoodLevel(0);
+                        player.getWorld().spawnParticle(Particle.SLIME, player.getLocation(), 15);
+                        player.getWorld().playSound(player.getLocation(), Sound.BLOCK_GLASS_BREAK, 15, 10);
                     }
 
                 }

@@ -63,7 +63,7 @@ public class IdolsIncarnate implements Listener {
                 {
                     entity.addPotionEffect(SEff); //SLOW
                     entity.getWorld().spawnParticle(Particle.SOUL, player.getLocation(), 15);
-                    entity.getWorld().spawnParticle(Particle.ITEM_CRACK, player.getLocation(), 15);
+                    entity.getWorld().spawnParticle(Particle.END_ROD, player.getLocation(), 15);
                     entity.getWorld().playSound(player.getLocation(), Sound.AMBIENT_CAVE,15,5);
                 }
                 a = Math.random();

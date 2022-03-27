@@ -40,7 +40,7 @@ public class HealingSword implements Listener {
                     if(hunger>6)
                     {
                         player.setFoodLevel(hunger-6);
-                        player.getWorld().spawnParticle(Particle.TOTEM, player.getLocation(), 5);
+                        player.getWorld().spawnParticle(Particle.LANDING_HONEY, player.getLocation(), 20);
                         player.getWorld().playSound(player.getLocation(), Sound.BLOCK_HONEY_BLOCK_BREAK, 15, 5);
                     }else{
                         player.setFoodLevel(0);

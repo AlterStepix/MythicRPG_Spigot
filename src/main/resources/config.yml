@@ -12,6 +12,8 @@ milkPotion: "#cfcfcf!Milk Potion"
 giantSword: "#ffd4d4!Giant Sword"
 furiousAxe: "#53227d!Furious Axe"
 airBurner: "#ff8d00!Air Burner"
+runicDaggerFrozen: "#6afff9!Runic Dagger"
+runicDaggerMolten: "#ea5d00!Runic Dagger"
 
 # --- Item Settings
 
@@ -58,6 +60,7 @@ FireSpiritHealth: 30
 IceSpiritHealth: 30
 SemiIdolHealth: 200
 AncientZombieHealth: 30
+OverworldInvaderHealth: 125
 
 
 # --- Mob Drops ---

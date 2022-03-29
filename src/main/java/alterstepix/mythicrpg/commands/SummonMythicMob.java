@@ -11,7 +11,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
-import org.checkerframework.checker.units.qual.A;
+import org.bukkit.event.entity.CreatureSpawnEvent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +32,7 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
         {
             if(sender instanceof Player){
                 Player player = (Player)sender;
+
                 if(player.isOp() || player.hasPermission("mythicrpg.summonmythicmobs"))
                 {
                     switch (args[0])
@@ -75,6 +76,10 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                         case "WitherusNetherlord":
                             NetherLord mob10 = new NetherLord(main);
                             mob10.createNetherLord(player.getLocation());
+                            break;
+                        case "OverworldInvader":
+                            OverworldInvader mob11 = new OverworldInvader(main);
+                            mob11.CreateOverworldInvader(player.getLocation());
                             break;
                     }
                 }
@@ -172,6 +177,12 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                     Location loc10 = new Location(wr,Integer.parseInt(args[1]),Integer.parseInt(args[2]),Integer.parseInt(args[3]));
                     mob10.createNetherLord(loc10);
                     break;
+                case "OverworldInvader":
+                    OverworldInvader mob11 = new OverworldInvader(main);
+
+                    Location loc11 = new Location(wr,Integer.parseInt(args[1]),Integer.parseInt(args[2]),Integer.parseInt(args[3]));
+                    mob11.CreateOverworldInvader(loc11);
+                    break;
             }
         }
         else
@@ -205,6 +216,7 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
             tab.add("SemiIdol");
             tab.add("AncientZombie");
             tab.add("WitherusNetherlord");
+            tab.add("OverworldInvader");
         }
         else if(args.length == 5)
         {

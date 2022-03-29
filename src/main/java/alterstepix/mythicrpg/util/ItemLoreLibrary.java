@@ -197,9 +197,39 @@ public class ItemLoreLibrary {
         AirBurnerDescription.add("§6ITEM ABILITY: §eAirBurner");
         AirBurnerDescription.add("§7Burning all living entities around 10x10x10 blocks");
 
-
         Lore.put("AirBurner",AirBurnerDescription);
 
+        // RunicSwap
+
+        ArrayList<String> RunicSwap = new ArrayList<>();
+
+        RunicSwap.add("");
+        RunicSwap.add("§6RIGHT CLICK: §eSwap");
+        RunicSwap.add("§7Changes your weapons mode");
+
+        Lore.put("RunicSwap",RunicSwap);
+
+        // Runic Frozen
+
+        ArrayList<String> RunicFrozen = new ArrayList<>();
+
+        RunicFrozen.add("");
+        RunicFrozen.add("§6ITEM ABILITY: §eFrozen Runes");
+        RunicFrozen.add("§7Freezes your enemies");
+        RunicFrozen.add("§7Deals extra damage to flaming spirits");
+
+        Lore.put("RunicFrozen",RunicFrozen);
+
+        // Runic Molten
+
+        ArrayList<String> RunicMolten = new ArrayList<>();
+
+        RunicMolten.add("");
+        RunicMolten.add("§6ITEM ABILITY: §eMolten Runes");
+        RunicMolten.add("§7Ignites your enemies");
+        RunicMolten.add("§7Deals extra damage to frozen spirits");
+
+        Lore.put("RunicMolten",RunicMolten);
 
         /* ===========================================
            ==============| Scrolls |==================

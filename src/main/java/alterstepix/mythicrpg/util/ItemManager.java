@@ -3,6 +3,7 @@ package alterstepix.mythicrpg.util;
 import alterstepix.mythicrpg.Mythicrpg;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.attribute.Attribute;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Item;
 import org.bukkit.inventory.ItemFlag;
@@ -25,6 +26,7 @@ public class ItemManager {
     public ItemStack GiantSword;
     public ItemStack FuriousAxe;
     public ItemStack AirBurner;
+    public ItemStack[] RuinicDagger;
 
     Mythicrpg main;
     FileConfiguration config;
@@ -51,6 +53,7 @@ public class ItemManager {
         this.createGiantSword();
         this.createFuriousAxe();
         this.createAirBurner();
+        this.createRunicDagger();
     }
 
     public void createLightingAxe()
@@ -286,6 +289,48 @@ public class ItemManager {
 
         AirBurner = item;
     }
+    public void createRunicDagger()
+    {
+        ItemStack item = new ItemStack(Material.DIAMOND_SWORD, 1);
 
+        ItemMeta meta = item.getItemMeta();
+
+
+        meta.setDisplayName(ColorUtil.ConvertToCustom(this.config.getString("runicDaggerFrozen")));
+        meta.setUnbreakable(true);
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        List<String> lore = new ArrayList<>();
+
+        for(String l : lib.Lore.get("RunicSwap"))
+            lore.add(l);
+        for(String l : lib.Lore.get("RunicFrozen"))
+            lore.add(l);
+
+
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+
+
+
+        ItemStack item2 = new ItemStack(Material.GOLDEN_SWORD, 1);
+
+        ItemMeta meta2 = item.getItemMeta();
+
+        meta2.setDisplayName(ColorUtil.ConvertToCustom(this.config.getString("runicDaggerMolten")));
+        meta2.setUnbreakable(true);
+        meta2.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        List<String> lore2 = new ArrayList<>();
+
+        for(String l : lib.Lore.get("RunicSwap"))
+            lore2.add(l);
+        for(String l : lib.Lore.get("RunicMolten"))
+            lore2.add(l);
+
+
+        meta2.setLore(lore2);
+        item2.setItemMeta(meta2);
+
+        RuinicDagger = new ItemStack[]{item,item2};
+    }
 
 }

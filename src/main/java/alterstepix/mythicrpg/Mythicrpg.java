@@ -9,9 +9,13 @@ import alterstepix.mythicrpg.mobs.*;
 import alterstepix.mythicrpg.scrolls.ArrowStorm;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class Mythicrpg extends JavaPlugin {
+public final class Mythicrpg extends JavaPlugin{
 
     FileConfiguration configuration = getConfig();
 
@@ -20,6 +24,7 @@ public final class Mythicrpg extends JavaPlugin {
 
         configuration.options().copyDefaults(true);
         saveConfig();
+
 
         Bukkit.getServer().getPluginCommand("MythicItemsGui").setExecutor(new GetMythicItems(this));
         Bukkit.getServer().getPluginCommand("MythicDropsGui").setExecutor(new GetMythicDrops(this));
@@ -41,6 +46,7 @@ public final class Mythicrpg extends JavaPlugin {
         Bukkit.getServer().getPluginManager().registerEvents(new GiantSword(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new FuriousAxe(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new AirBurner(this),this);
+        Bukkit.getServer().getPluginManager().registerEvents(new RunicDagger(this),this);
 
         Bukkit.getServer().getPluginManager().registerEvents(new WitherSpider(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new Parasite(this),this);
@@ -95,6 +101,7 @@ public final class Mythicrpg extends JavaPlugin {
     {
         return configuration;
     }
+
 
 
 }

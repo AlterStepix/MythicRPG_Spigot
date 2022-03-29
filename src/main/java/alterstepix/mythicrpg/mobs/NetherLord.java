@@ -362,7 +362,7 @@ public class NetherLord implements Listener {
                 e.setCancelled(true);
             }
         }
-        if(e.getCause() == EntityDamageEvent.DamageCause.PROJECTILE && Phase!=3)
+        if(e.getCause() == EntityDamageEvent.DamageCause.PROJECTILE && Phase!=3 &&  e.getEntity().getCustomName().contains(config.getString("NetherLordBossNametag").split("!")[1]))
         {
             e.setCancelled(true);
         }

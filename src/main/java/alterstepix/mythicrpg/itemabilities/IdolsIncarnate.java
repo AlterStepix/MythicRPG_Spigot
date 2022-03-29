@@ -41,6 +41,8 @@ public class IdolsIncarnate implements Listener {
                 PotionEffect SDEff = new PotionEffect(PotionEffectType.SLOW_DIGGING, 100, 2, true, true, true);
                 PotionEffect HEff = new PotionEffect(PotionEffectType.HUNGER, 200, 4, true, true, true);
                 PotionEffect PEff = new PotionEffect(PotionEffectType.POISON, 100, 3, true, true, true);
+                PotionEffect BEff = new PotionEffect(PotionEffectType.BLINDNESS, 100, 1, true, true, true);
+                PotionEffect WEEff = new PotionEffect(PotionEffectType.WEAKNESS, 100, 1, true, true, true);
 
                 double a = Math.random();
                 if (a<0.3)
@@ -63,7 +65,7 @@ public class IdolsIncarnate implements Listener {
                 {
                     entity.addPotionEffect(SEff); //SLOW
                     entity.getWorld().spawnParticle(Particle.SOUL, player.getLocation(), 15);
-                    entity.getWorld().spawnParticle(Particle.ITEM_CRACK, player.getLocation(), 15);
+                    entity.getWorld().spawnParticle(Particle.END_ROD, player.getLocation(), 15);
                     entity.getWorld().playSound(player.getLocation(), Sound.AMBIENT_CAVE,15,5);
                 }
                 a = Math.random();
@@ -98,7 +100,30 @@ public class IdolsIncarnate implements Listener {
                     entity.getWorld().spawnParticle(Particle.LAVA, player.getLocation(), 15);
                     entity.getWorld().playSound(player.getLocation(), Sound.AMBIENT_CAVE,15,5);
                 }
-
+                a = Math.random();
+                if (a<0.6)
+                {
+                    entity.addPotionEffect(BEff); //BLINDNESS
+                    entity.getWorld().spawnParticle(Particle.SOUL, player.getLocation(), 15);
+                    entity.getWorld().spawnParticle(Particle.END_ROD, player.getLocation(), 15);
+                    entity.getWorld().playSound(player.getLocation(), Sound.AMBIENT_CAVE,15,5);
+                }
+                a = Math.random();
+                if (a<0.2)
+                {
+                    entity.getWorld().strikeLightningEffect(entity.getLocation());
+                    entity.damage(6);
+                    entity.getWorld().spawnParticle(Particle.SOUL, player.getLocation(), 15);
+                    entity.getWorld().playSound(player.getLocation(), Sound.AMBIENT_CAVE,15,5);
+                }
+                a = Math.random();
+                if (a<0.3)
+                {
+                    entity.addPotionEffect(WEEff); //WEAKNESS
+                    entity.getWorld().spawnParticle(Particle.SOUL, player.getLocation(), 15);
+                    entity.getWorld().spawnParticle(Particle.SLIME, player.getLocation(), 15);
+                    entity.getWorld().playSound(player.getLocation(), Sound.AMBIENT_CAVE,15,5);
+                }
 
             }
 

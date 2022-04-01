@@ -38,6 +38,11 @@ public class GetMythicArmor implements CommandExecutor {
                 gui.addItem(m.GrandmasterArmorSet[2]);
                 gui.addItem(m.GrandmasterArmorSet[3]);
 
+                gui.addItem(m.MasterAssasinArmorSet[0]);
+                gui.addItem(m.MasterAssasinArmorSet[1]);
+                gui.addItem(m.MasterAssasinArmorSet[2]);
+
+
                 Player p = (Player)sender;
                 p.openInventory(gui);
                 p.sendMessage(Messages.CommandSuccess);

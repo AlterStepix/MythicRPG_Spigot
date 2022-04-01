@@ -75,6 +75,9 @@ LightningShardName: "#88aedf!Lightning Shard"
 WitheredEyeName: "#434343!Withered Eye"
 AncientShardName: "#5b5b5b!Ancient Shard"
 DecayedHeartName: "#242331!Decayed Heart"
+WitheredShardName: "#443439!Withered Shard"
+NetherCatalystName: "#8a8a8a!Nether Catalyst"
+NetherEssenceName: "#640000!Nether Essence"
 
 # --- Mob Drop Lore ---
 
@@ -111,11 +114,30 @@ EnableAirBurnerRecipe: 1
 # --- Scrolls Names
 
 ArrowStormName: "#d47dff!Arrow Storm Scroll"
+NetherStormScroll: ""
+HealingTotemScroll: ""
+
 
 # --- Bosses ---
 
-#--Witherus Netherlord
+#Witherus Netherlord
 NetherLordBossNametag: "#d60e00!Witherus Netherlord"
 NetherLordBossHealth: 500
-NetherHealerNametag: "#f56138!Infernal Totem of Eternal Healing"
+NetherHealerNametag: "#f56138!Infernal totem of healing"
 NetherHealerHealth: 20
+
+
+# --- Armor sets ---
+
+#Grandmaster Armorset
+
+GrandmasterBootsName: "#ffc455!Grandmaster's Boots"
+GrandmasterLeggingsName: "#ffc455!Grandmaster's Leggings"
+GrandmasterChestplateName: "#ffc455!Grandmaster's Chestplate"
+GrandmasterHelmetName: "#ffc455!Grandmaster's Helmet"
+
+#Master Assassin Armorset
+
+MasterAssassinBootsName: "#260047!Master Assassin Boots"
+MasterAssassinLeggingsName: "#260047!Master Assassin Leggings"
+MasterAssassinChestplateName: "#00056b!Master Assassin Chestplate"

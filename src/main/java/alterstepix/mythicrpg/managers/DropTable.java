@@ -1,6 +1,7 @@
-package alterstepix.mythicrpg.util;
+package alterstepix.mythicrpg.managers;
 
 import alterstepix.mythicrpg.Mythicrpg;
+import alterstepix.mythicrpg.util.ColorUtil;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.inventory.ItemStack;
@@ -22,6 +23,9 @@ public class DropTable {
     public ItemStack witheredEye; // Wither Spider
     public ItemStack ancientShard; // Ancient Zombie
     public ItemStack decayedHeart; // Ancient Zombie
+    public ItemStack witheredShard; // Netherlord
+    public ItemStack netherCatalyst; //Netherlord
+    public ItemStack netherEssence; //Netherlord
 
     Mythicrpg main;
     FileConfiguration config;
@@ -44,6 +48,9 @@ public class DropTable {
         CreateWitheredEye();
         CreateAncientShard();
         CreateDecayedHeart();
+        CreateNetherCatalyst();
+        CreateNetherEssence();
+        CreateWitheredShard();
     }
 
     private void CreateAmberShard()
@@ -175,6 +182,45 @@ public class DropTable {
 
         item.setItemMeta(meta);
         decayedHeart = item;
+    }
+    public void CreateWitheredShard()
+    {
+        ItemStack item = new ItemStack(Material.COAL, 1);
+        ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName(ColorUtil.ConvertToCustom(config.getString("WitheredShardName")));
+
+        List<String> lore = new ArrayList<>();
+        lore.add(ColorUtil.ConvertToCustom(config.getString("CommonRarity")));
+        meta.setLore(lore);
+
+        item.setItemMeta(meta);
+        witheredShard = item;
+    }
+    public void CreateNetherCatalyst()
+    {
+        ItemStack item = new ItemStack(Material.DRIED_KELP, 1);
+        ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName(ColorUtil.ConvertToCustom(config.getString("NetherCatalystName")));
+
+        List<String> lore = new ArrayList<>();
+        lore.add(ColorUtil.ConvertToCustom(config.getString("EpicRarity")));
+        meta.setLore(lore);
+
+        item.setItemMeta(meta);
+        netherCatalyst = item;
+    }
+    public void CreateNetherEssence()
+    {
+        ItemStack item = new ItemStack(Material.NETHER_BRICK, 1);
+        ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName(ColorUtil.ConvertToCustom(config.getString("NetherEssenceName")));
+
+        List<String> lore = new ArrayList<>();
+        lore.add(ColorUtil.ConvertToCustom(config.getString("RareRarity")));
+        meta.setLore(lore);
+
+        item.setItemMeta(meta);
+        netherEssence = item;
     }
 
 }

@@ -1,5 +1,6 @@
 package alterstepix.mythicrpg;
 
+import alterstepix.mythicrpg.armorsets.GrandmasterArmor;
 import alterstepix.mythicrpg.commands.*;
 import alterstepix.mythicrpg.itemabilities.*;
 
@@ -31,6 +32,7 @@ public final class Mythicrpg extends JavaPlugin{
         Bukkit.getServer().getPluginCommand("MythicScrollsGui").setExecutor(new GetMythicScrolls(this));
         Bukkit.getServer().getPluginCommand("AddItemAbility").setExecutor(new AppendAbilityLore(this));
         Bukkit.getServer().getPluginCommand("SummonMythicMob").setExecutor(new SummonMythicMob(this));
+        Bukkit.getServer().getPluginCommand("MythicArmorGui").setExecutor(new GetMythicArmor(this));
 
         Bukkit.getServer().getPluginCommand("AddItemAbility").setTabCompleter(new AppendAbilityLore(this));
         Bukkit.getServer().getPluginCommand("SummonMythicMob").setTabCompleter(new SummonMythicMob(this));
@@ -54,10 +56,11 @@ public final class Mythicrpg extends JavaPlugin{
         Bukkit.getServer().getPluginManager().registerEvents(new MasterAssassin(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new SemiIdol(this), this);
         Bukkit.getServer().getPluginManager().registerEvents(new AncientZombie(this),this);
-
         Bukkit.getServer().getPluginManager().registerEvents(new NetherLord(this),this);
 
         Bukkit.getServer().getPluginManager().registerEvents(new ArrowStorm(this),this);
+
+        Bukkit.getServer().getPluginManager().registerEvents(new GrandmasterArmor(this),this);
 
         Bukkit.getServer().getPluginManager().registerEvents(new MobDropManager(this),this);
 

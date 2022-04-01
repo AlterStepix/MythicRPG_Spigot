@@ -2,7 +2,7 @@ package alterstepix.mythicrpg.itemabilities;
 
 import alterstepix.mythicrpg.Mythicrpg;
 import alterstepix.mythicrpg.util.ItemLoreLibrary;
-import alterstepix.mythicrpg.util.ItemManager;
+import alterstepix.mythicrpg.managers.ItemManager;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -11,7 +11,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
@@ -67,7 +66,7 @@ public class RunicDagger implements Listener {
                 if(e.getEntity() instanceof LivingEntity)
                 {
                     LivingEntity trg = (LivingEntity) e.getEntity();
-                    trg.addPotionEffect(new PotionEffect(PotionEffectType.SLOW,60,1,false,false,false));
+                    trg.addPotionEffect(new PotionEffect(PotionEffectType.SLOW,60,2,false,false,false));
                     if(trg.getCustomName() != null && trg.getCustomName().contains(config.getString("FireSpiritNametag").split("!")[1]))
                     {
                         trg.damage(10);

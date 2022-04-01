@@ -1,6 +1,8 @@
-package alterstepix.mythicrpg.util;
+package alterstepix.mythicrpg.managers;
 
 import alterstepix.mythicrpg.Mythicrpg;
+import alterstepix.mythicrpg.util.ColorUtil;
+import alterstepix.mythicrpg.util.ItemLoreLibrary;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.inventory.ItemStack;

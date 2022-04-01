@@ -2,9 +2,8 @@ package alterstepix.mythicrpg.commands;
 
 import alterstepix.mythicrpg.Mythicrpg;
 import alterstepix.mythicrpg.util.ItemLoreLibrary;
-import alterstepix.mythicrpg.util.ItemManager;
+import alterstepix.mythicrpg.managers.ItemManager;
 import alterstepix.mythicrpg.util.Messages;
-import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -80,20 +79,14 @@ public class AppendAbilityLore implements CommandExecutor, TabCompleter {
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
         List<String> Abilities = new ArrayList<>();
-        Abilities.add("Annihilation");
-        Abilities.add("Healing");
-        Abilities.add("Recall");
-        Abilities.add("Termination");
-        Abilities.add("LightningPower");
-        Abilities.add("Thunderlord");
-        Abilities.add("FrozenBreathe");
-        Abilities.add("Curse");
-        Abilities.add("Pull");
-        Abilities.add("Push");
-        Abilities.add("FireFury");
-        Abilities.add("Milk");
-        Abilities.add("GiantHit");
-        Abilities.add("Throw");
+
+        ItemLoreLibrary ill = new ItemLoreLibrary(main);
+        ill.Init();
+        for(String key : ill.Lore.keySet())
+        {
+            Abilities.add(key);
+        }
+
 
         return Abilities;
 

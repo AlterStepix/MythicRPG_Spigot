@@ -15,9 +15,12 @@ commands:
   MythicScrollsGui:
     description: Opens the scrolls gui
     usage: Use /<command>
+  MythicArmorGui:
+    description: Opens the armor gui
+    usage: use /<command>
   AddItemAbility:
     description: Appends the existing item ability to current item in mainhand
-    usage: Use /<command> + ablility
+    usage: Use /<command> ablility
   SummonMythicMob:
     description: Summons custom mobs from this plugin
-    usage: Use /<command> + mob + x + y + z + world
+    usage: Use /<command> mob x y z world

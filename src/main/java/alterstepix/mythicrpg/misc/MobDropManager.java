@@ -1,7 +1,7 @@
 package alterstepix.mythicrpg.misc;
 
 import alterstepix.mythicrpg.Mythicrpg;
-import alterstepix.mythicrpg.util.DropTable;
+import alterstepix.mythicrpg.managers.DropTable;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

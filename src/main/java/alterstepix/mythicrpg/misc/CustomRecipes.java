@@ -1,8 +1,8 @@
 package alterstepix.mythicrpg.misc;
 
 import alterstepix.mythicrpg.Mythicrpg;
-import alterstepix.mythicrpg.util.DropTable;
-import alterstepix.mythicrpg.util.ItemManager;
+import alterstepix.mythicrpg.managers.DropTable;
+import alterstepix.mythicrpg.managers.ItemManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;

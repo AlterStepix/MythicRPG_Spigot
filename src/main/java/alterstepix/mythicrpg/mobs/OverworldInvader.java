@@ -65,7 +65,7 @@ public class OverworldInvader {
                 mob.setCustomName((ColorUtil.ConvertToCustom(config.getString("MiniBossPrefix")) + ColorUtil.ConvertToCustom(config.getString("OverworldInvaderNamtetag")) + " §7["+Math.round(mob.getHealth())+"/"+mob.getMaxHealth()+"]"));
                 if(!mob.isDead())
                 {
-                    if(i % 10 == 0)
+                    if(i % 5 == 0)
                     {
                         for(Entity entity : mob.getNearbyEntities(10,10,10))
                         {
@@ -78,7 +78,7 @@ public class OverworldInvader {
                             }
                         }
                     }
-                    if(i % 15 == 0)
+                    if(i % 7 == 0)
                     {
                         Fireball fire = mob.getWorld().spawn(mob.getLocation().add(mob.getLocation().getDirection().normalize().multiply(1.5)),Fireball.class);
                         fire.setVelocity(mob.getLocation().getDirection());

@@ -247,6 +247,20 @@ public class ItemLoreLibrary {
 
         Lore.put("ArrowStorm",ArrowStormScrollDescription);
 
+        /* ===========================================
+           ==============| Armor |==================
+           ===========================================
+         */
+
+        ArrayList<String> GMADescription = new ArrayList<>();
+
+        GMADescription.add("");
+        GMADescription.add("§6Full set bonus: §eThe Grandmaster");
+        GMADescription.add("§7You can fully ignore the damage");
+        GMADescription.add("§7you get with a 30% chance");
+
+        Lore.put("GMA",GMADescription);
+
     }
 
 }

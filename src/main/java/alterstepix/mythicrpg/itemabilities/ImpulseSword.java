@@ -43,7 +43,7 @@ public class ImpulseSword implements Listener {
                         {
                             LivingEntity target = (LivingEntity) entity;
                             target.getWorld().playSound(target.getLocation(), Sound.BLOCK_ANVIL_BREAK,5,5);
-                            target.getWorld().spawnParticle(Particle.END_ROD,target.getLocation(),5);
+                            target.getWorld().spawnParticle(Particle.END_ROD,target.getLocation(),5,0,0,0,1);
                             target.setVelocity(player.getLocation().add(0,2,0).subtract(target.getLocation()).toVector().normalize());
 
                             thiscd.putCooldown(player,config.getInt("impulseSwordCooldown"));

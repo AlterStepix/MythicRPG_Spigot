@@ -93,7 +93,7 @@ public class MasterAssassin implements Listener {
                                 if (i % 40 == 0)
                                 {
                                     skeleton.getTarget().setVelocity((skeleton.getLocation().add(0,2,0).subtract(skeleton.getTarget().getLocation()).toVector().multiply(0.275)));
-                                    skeleton.getWorld().spawnParticle(Particle.SPELL_WITCH, skeleton.getLocation(),5);
+                                    skeleton.getWorld().spawnParticle(Particle.SPELL_WITCH, skeleton.getLocation(),5,0,0,0,0.2);
                                     skeleton.getWorld().playSound(skeleton.getLocation(),Sound.BLOCK_ANVIL_BREAK,5,5);
                                 }
                             }

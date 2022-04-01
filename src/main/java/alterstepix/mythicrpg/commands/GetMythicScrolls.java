@@ -1,9 +1,8 @@
 package alterstepix.mythicrpg.commands;
 
 import alterstepix.mythicrpg.Mythicrpg;
-import alterstepix.mythicrpg.util.ItemManager;
 import alterstepix.mythicrpg.util.Messages;
-import alterstepix.mythicrpg.util.ScrollManager;
+import alterstepix.mythicrpg.managers.ScrollManager;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

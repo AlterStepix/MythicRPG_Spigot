@@ -42,6 +42,11 @@ public class GetMythicArmor implements CommandExecutor {
                 gui.addItem(m.MasterAssasinArmorSet[1]);
                 gui.addItem(m.MasterAssasinArmorSet[2]);
 
+                gui.addItem(m.FrozenWarriorArmorSet[0]);
+                gui.addItem(m.FrozenWarriorArmorSet[1]);
+                gui.addItem(m.FrozenWarriorArmorSet[2]);
+                gui.addItem(m.FrozenWarriorArmorSet[3]);
+
 
                 Player p = (Player)sender;
                 p.openInventory(gui);

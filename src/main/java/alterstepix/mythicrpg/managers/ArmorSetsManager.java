@@ -23,6 +23,7 @@ public class ArmorSetsManager {
 
     public ItemStack[] GrandmasterArmorSet = new ItemStack[4];
     public ItemStack[] MasterAssasinArmorSet = new ItemStack[3];
+    public ItemStack[] FrozenWarriorArmorSet = new ItemStack[4];
 
     public ArmorSetsManager(Mythicrpg main)
     {
@@ -36,6 +37,7 @@ public class ArmorSetsManager {
     {
         createGrandmasterArmorSet();
         createMasterAssasinArmorSet();
+        createFrozenWarriorArmorSet();
     }
 
     public void createGrandmasterArmorSet()
@@ -164,6 +166,83 @@ public class ArmorSetsManager {
         MasterAssasinArmorSet[0] = boots;
         MasterAssasinArmorSet[1] = leggings;
         MasterAssasinArmorSet[2] = chestplate;
+
+    }
+
+    public void createFrozenWarriorArmorSet()
+    {
+        List<String> lore = new ArrayList<String>();
+
+        ItemStack boots = new ItemStack(Material.LEATHER_BOOTS);
+        ItemMeta metaB = boots.getItemMeta();
+        LeatherArmorMeta colmetaB = (LeatherArmorMeta) boots.getItemMeta();
+
+        colmetaB.setColor(Color.fromRGB(119,181 ,255));
+
+        metaB.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,10,true);
+
+        metaB.setDisplayName(ColorUtil.ConvertToCustom(config.getString("FrozenWarriorBootsName")));
+
+        metaB.setLore(lore);
+        metaB.setUnbreakable(true);
+
+        boots.setItemMeta(metaB);
+
+        //
+
+        ItemStack leggings = new ItemStack(Material.LEATHER_LEGGINGS);
+        ItemMeta metaL = leggings.getItemMeta();
+        LeatherArmorMeta colmetaL = (LeatherArmorMeta) leggings.getItemMeta();
+
+        colmetaL.setColor(Color.fromRGB(119,181 ,255));
+
+        metaL.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,10,true);
+
+        metaL.setDisplayName(ColorUtil.ConvertToCustom(config.getString("FrozenWarriorLeggingsName")));
+
+        metaL.setLore(lore);
+        metaL.setUnbreakable(true);
+
+        leggings.setItemMeta(metaL);
+
+        //
+
+        ItemStack chestplate = new ItemStack(Material.LEATHER_CHESTPLATE);
+        ItemMeta metaC = chestplate.getItemMeta();
+        LeatherArmorMeta colmetaC = (LeatherArmorMeta) chestplate.getItemMeta();
+
+        colmetaC.setColor(Color.fromRGB(119,181 ,255));
+
+        metaC.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,10,true);
+
+        metaC.setDisplayName(ColorUtil.ConvertToCustom(config.getString("FrozenWarriorChestplateName")));
+
+        metaC.setLore(lore);
+        metaC.setUnbreakable(true);
+
+        chestplate.setItemMeta(metaC);
+
+        //
+
+        ItemStack helmet = new ItemStack(Material.LEATHER_HELMET);
+        ItemMeta metaH = helmet.getItemMeta();
+        LeatherArmorMeta colmetaH = (LeatherArmorMeta) helmet.getItemMeta();
+
+        colmetaH.setColor(Color.fromRGB(119,181 ,255));
+
+        metaH.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,10,true);
+
+        metaH.setDisplayName(ColorUtil.ConvertToCustom(config.getString("FrozenWarriorHelmetName")));
+
+        metaH.setLore(lore);
+        metaH.setUnbreakable(true);
+
+        helmet.setItemMeta(metaH);
+
+        FrozenWarriorArmorSet[0] = boots;
+        FrozenWarriorArmorSet[1] = leggings;
+        FrozenWarriorArmorSet[2] = chestplate;
+        FrozenWarriorArmorSet[3] = helmet;
 
     }
 }

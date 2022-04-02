@@ -45,6 +45,7 @@ IceSpiritNametag: "#74dfff!Frozen Spirit"
 SemiIdolNametag: "#0ab7ff!Semi Idol"
 AncientZombieNametag: "#5b5b5b!Ancient Zombie"
 OverworldInvaderNamtetag: "#ff7829!Overworld Invader"
+GhostNametag: "#082759!Ghost"
 
 MiniBossPrefix: "#ff535c!MINI BOSS " # --- Miniboss prefix
 BossPrefix: "#7d2222!BOSS " # --- Boss prefix
@@ -61,6 +62,7 @@ IceSpiritHealth: 30
 SemiIdolHealth: 200
 AncientZombieHealth: 30
 OverworldInvaderHealth: 125
+GhostHealth: 50
 
 
 # --- Mob Drops ---
@@ -143,3 +145,11 @@ MasterAssassinLeggingsName: "#260047!Master Assassin Leggings"
 MasterAssassinChestplateName: "#00056b!Master Assassin Chestplate"
 
 MasterAssassinArmorCooldown: 5
+
+#Frozen Warrior Armorset
+
+FrozenWarriorBootsName: ""
+FrozenWarriorLeggingsName: ""
+FrozenWarriorChestplateName: ""
+FrozenWarriorHelmetName: ""
+

@@ -81,6 +81,9 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                             OverworldInvader mob11 = new OverworldInvader(main);
                             mob11.CreateOverworldInvader(player.getLocation());
                             break;
+                        case "Ghost":
+                            Ghost mob12 = new Ghost(main);
+                            mob12.createGhost(player.getLocation());
                     }
                 }
                 else
@@ -183,6 +186,12 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                     Location loc11 = new Location(wr,Integer.parseInt(args[1]),Integer.parseInt(args[2]),Integer.parseInt(args[3]));
                     mob11.CreateOverworldInvader(loc11);
                     break;
+                case "Ghost":
+                    Ghost mob12 = new Ghost(main);
+
+                    Location loc12 = new Location(wr,Integer.parseInt(args[1]),Integer.parseInt(args[2]),Integer.parseInt(args[3]));
+                    mob12.createGhost(loc12);
+
             }
         }
         else
@@ -217,6 +226,7 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
             tab.add("AncientZombie");
             tab.add("WitherusNetherlord");
             tab.add("OverworldInvader");
+            tab.add("Ghost");
         }
         else if(args.length == 5)
         {

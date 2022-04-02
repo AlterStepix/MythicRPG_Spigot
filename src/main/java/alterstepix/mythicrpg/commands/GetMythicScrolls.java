@@ -30,6 +30,8 @@ public class GetMythicScrolls implements CommandExecutor {
                 m.init();
 
                 gui.addItem(m.ArrowStormScroll);
+                gui.addItem(m.NetherStormScroll);
+                gui.addItem(m.HealingTotemScroll);
 
                 Player p = (Player)sender;
                 p.openInventory(gui);

@@ -1,6 +1,7 @@
 package alterstepix.mythicrpg.managers;
 
 import alterstepix.mythicrpg.Mythicrpg;
+import alterstepix.mythicrpg.mobs.NetherLord;
 import alterstepix.mythicrpg.util.ColorUtil;
 import alterstepix.mythicrpg.util.ItemLoreLibrary;
 import org.bukkit.Material;
@@ -15,6 +16,8 @@ public class ScrollManager {
     ItemLoreLibrary ILL;
 
     public ItemStack ArrowStormScroll;
+    public ItemStack NetherStormScroll;
+    public ItemStack HealingTotemScroll;
 
     public ScrollManager(Mythicrpg main)
     {
@@ -27,6 +30,8 @@ public class ScrollManager {
     public void init()
     {
         createArrowStormScroll();
+        createNetherStormScroll();
+        createHealingTotemScroll();
     }
 
     public void createArrowStormScroll()
@@ -39,5 +44,27 @@ public class ScrollManager {
 
         ArrowStormScroll = scroll;
     }
+    public void createNetherStormScroll()
+    {
+        ItemStack scroll = new ItemStack(Material.MOJANG_BANNER_PATTERN,1);
+        ItemMeta meta = scroll.getItemMeta();
+        meta.setDisplayName(ColorUtil.ConvertToCustom(config.getString("NetherStormScroll")));
+        meta.setLore(ILL.Lore.get("NetherStorm"));
+        scroll.setItemMeta(meta);
+
+        NetherStormScroll = scroll;
+    }
+    public void createHealingTotemScroll()
+    {
+        ItemStack scroll = new ItemStack(Material.MOJANG_BANNER_PATTERN,1);
+        ItemMeta meta = scroll.getItemMeta();
+        meta.setDisplayName(ColorUtil.ConvertToCustom(config.getString("HealingTotemScroll")));
+        meta.setLore(ILL.Lore.get("HealingTotem"));
+        scroll.setItemMeta(meta);
+
+        HealingTotemScroll = scroll;
+    }
+
+
 
 }

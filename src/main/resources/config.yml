@@ -114,8 +114,8 @@ EnableAirBurnerRecipe: 1
 # --- Scrolls Names
 
 ArrowStormName: "#d47dff!Arrow Storm Scroll"
-NetherStormScroll: ""
-HealingTotemScroll: ""
+NetherStormScroll: "#460000!Nether Storm Scroll"
+HealingTotemScroll: "#ffff69!Healing Totem Scroll"
 
 
 # --- Bosses ---

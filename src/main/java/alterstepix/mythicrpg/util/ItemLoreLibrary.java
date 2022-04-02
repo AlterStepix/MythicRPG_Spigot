@@ -236,7 +236,7 @@ public class ItemLoreLibrary {
            ===========================================
          */
 
-        // Array List
+        // Arrow Storm
 
         ArrayList<String> ArrowStormScrollDescription = new ArrayList<>();
 
@@ -245,7 +245,31 @@ public class ItemLoreLibrary {
         ArrowStormScrollDescription.add("§7Shoots an arrow storm");
         ArrowStormScrollDescription.add("§8Consumed on use");
 
+        // Nether Storm
+
         Lore.put("ArrowStorm",ArrowStormScrollDescription);
+
+        ArrayList<String> NetherStormScrollDescription = new ArrayList<>();
+
+        NetherStormScrollDescription.add("");
+        NetherStormScrollDescription.add("§6SCROLL: §eNether Storm");
+        NetherStormScrollDescription.add("§7Creates a nether storm");
+        NetherStormScrollDescription.add("§8Consumed on use");
+
+        Lore.put("NetherStorm",NetherStormScrollDescription);
+
+        //
+
+        Lore.put("HealingTotem",ArrowStormScrollDescription);
+
+        ArrayList<String> HealingTotemScrollDescription = new ArrayList<>();
+
+        HealingTotemScrollDescription.add("");
+        HealingTotemScrollDescription.add("§6SCROLL: §eHealing Totem");
+        HealingTotemScrollDescription.add("§7Creates a healing totem");
+        HealingTotemScrollDescription.add("§8Consumed on use");
+
+        Lore.put("HealingTotem",HealingTotemScrollDescription);
 
         /* ===========================================
            ==============| Armor |==================

@@ -245,9 +245,9 @@ public class ItemLoreLibrary {
         ArrowStormScrollDescription.add("§7Shoots an arrow storm");
         ArrowStormScrollDescription.add("§8Consumed on use");
 
-        // Nether Storm
-
         Lore.put("ArrowStorm",ArrowStormScrollDescription);
+
+        // Nether Storm
 
         ArrayList<String> NetherStormScrollDescription = new ArrayList<>();
 
@@ -258,9 +258,8 @@ public class ItemLoreLibrary {
 
         Lore.put("NetherStorm",NetherStormScrollDescription);
 
-        //
+        // Healing Totem
 
-        Lore.put("HealingTotem",ArrowStormScrollDescription);
 
         ArrayList<String> HealingTotemScrollDescription = new ArrayList<>();
 
@@ -270,6 +269,17 @@ public class ItemLoreLibrary {
         HealingTotemScrollDescription.add("§8Consumed on use");
 
         Lore.put("HealingTotem",HealingTotemScrollDescription);
+
+        // Infernal Aura
+
+        ArrayList<String> InferalAuraScrollDescription = new ArrayList<>();
+
+        InferalAuraScrollDescription.add("");
+        InferalAuraScrollDescription.add("§6SCROLL: §eInfernal Aura");
+        InferalAuraScrollDescription.add("§7Creates an infernal aura around you");
+        InferalAuraScrollDescription.add("§8Consumed on use");
+
+        Lore.put("InfernalAura",InferalAuraScrollDescription);
 
         /* ===========================================
            ==============| Armor |==================

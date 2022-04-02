@@ -82,11 +82,11 @@ public class HealingTotemScroll implements Listener {
                             healer.setCustomName(ColorUtil.ConvertToCustom(config.getString("NetherHealerNametag"))+" ["+healer.getHealth()+"/"+healer.getMaxHealth()+"]");
                             laser.setTarget(player);
                             laser.setLaser(true);
-                            if(player.getMaxHealth() - player.getHealth() < 2)
+                            if(player.getMaxHealth() - player.getHealth() > 2)
                             {
                                 player.setHealth(player.getHealth()+2);
                             }
-                            healer.damage(4);
+                            healer.damage(1);
                             healer.getWorld().spawnParticle(Particle.VILLAGER_ANGRY,healer.getLocation(),5,0,0,0,0.3);
                         }
                         else

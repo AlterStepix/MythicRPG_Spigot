@@ -10,6 +10,7 @@ import alterstepix.mythicrpg.misc.MobDropManager;
 import alterstepix.mythicrpg.mobs.*;
 import alterstepix.mythicrpg.scrolls.ArrowStorm;
 import alterstepix.mythicrpg.scrolls.HealingTotemScroll;
+import alterstepix.mythicrpg.scrolls.InfernalAuraScroll;
 import alterstepix.mythicrpg.scrolls.NetherScroll;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -64,6 +65,7 @@ public final class Mythicrpg extends JavaPlugin{
         Bukkit.getServer().getPluginManager().registerEvents(new ArrowStorm(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new NetherScroll(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new HealingTotemScroll(this),this);
+        Bukkit.getServer().getPluginManager().registerEvents(new InfernalAuraScroll(this),this);
 
         Bukkit.getServer().getPluginManager().registerEvents(new GrandmasterArmor(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new MasterAssassinArmor(this),this);

@@ -53,7 +53,7 @@ public class Parasite implements Listener {
 
         ItemStack boots = new ItemStack(Material.DIAMOND_BOOTS,1);
         ItemMeta meta2 = boots.getItemMeta();
-        meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,10,true);
+        meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,20,true);
         meta.addEnchant(Enchantment.THORNS,10,true);
         boots.setItemMeta(meta2);
 

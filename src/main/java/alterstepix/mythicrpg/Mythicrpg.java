@@ -1,6 +1,7 @@
 package alterstepix.mythicrpg;
 
 import alterstepix.mythicrpg.armorsets.GrandmasterArmor;
+import alterstepix.mythicrpg.armorsets.MasterAssassinArmor;
 import alterstepix.mythicrpg.commands.*;
 import alterstepix.mythicrpg.itemabilities.*;
 
@@ -65,6 +66,7 @@ public final class Mythicrpg extends JavaPlugin{
         Bukkit.getServer().getPluginManager().registerEvents(new HealingTotemScroll(this),this);
 
         Bukkit.getServer().getPluginManager().registerEvents(new GrandmasterArmor(this),this);
+        Bukkit.getServer().getPluginManager().registerEvents(new MasterAssassinArmor(this),this);
 
         Bukkit.getServer().getPluginManager().registerEvents(new MobDropManager(this),this);
 

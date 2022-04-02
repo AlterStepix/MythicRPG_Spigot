@@ -276,14 +276,30 @@ public class ItemLoreLibrary {
            ===========================================
          */
 
+        // Grandmaster Armor
+
         ArrayList<String> GMADescription = new ArrayList<>();
 
         GMADescription.add("");
-        GMADescription.add("§6Full set bonus: §eThe Grandmaster");
+        GMADescription.add("§6Full Set Bonus: §eThe Grandmaster");
         GMADescription.add("§7You can fully ignore the damage");
         GMADescription.add("§7you get with a 30% chance");
 
         Lore.put("GMA",GMADescription);
+
+        // Master Assassin Armor
+
+        ArrayList<String> MADescription = new ArrayList<>();
+
+        cooldown = config.getInt("MasterAssassinArmorCooldown");
+        MADescription.add("");
+        MADescription.add("§6Full Set Bonus: §eThe Master Assassin");
+        MADescription.add("§7Sneak to teleport behind closest");
+        MADescription.add("§7entity within 7 block radius");
+        MADescription.add("§7and get Strength 6 for 3s");
+        MADescription.add("§8Cooldown: "+ cooldown + "s");
+
+        Lore.put("MAA",MADescription);
 
     }
 

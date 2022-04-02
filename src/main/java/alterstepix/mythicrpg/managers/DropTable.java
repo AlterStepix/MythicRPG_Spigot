@@ -2,6 +2,7 @@ package alterstepix.mythicrpg.managers;
 
 import alterstepix.mythicrpg.Mythicrpg;
 import alterstepix.mythicrpg.util.ColorUtil;
+import alterstepix.mythicrpg.util.GetPlayerHead;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.inventory.ItemStack;
@@ -198,7 +199,7 @@ public class DropTable {
     }
     public void CreateNetherCatalyst()
     {
-        ItemStack item = new ItemStack(Material.DRIED_KELP, 1);
+        ItemStack item = GetPlayerHead.GetCustomHead(GetPlayerHead.NetherCatalyst);
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName(ColorUtil.ConvertToCustom(config.getString("NetherCatalystName")));
 

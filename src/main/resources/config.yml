@@ -77,7 +77,7 @@ AncientShardName: "#5b5b5b!Ancient Shard"
 DecayedHeartName: "#242331!Decayed Heart"
 WitheredShardName: "#443439!Withered Shard"
 NetherCatalystName: "#8a8a8a!Nether Catalyst"
-NetherEssenceName: "#640000!Nether Essence"
+NetherEssenceName: "#e35f17Nether Essence"
 
 # --- Mob Drop Lore ---
 
@@ -141,3 +141,5 @@ GrandmasterHelmetName: "#ffc455!Grandmaster's Helmet"
 MasterAssassinBootsName: "#260047!Master Assassin Boots"
 MasterAssassinLeggingsName: "#260047!Master Assassin Leggings"
 MasterAssassinChestplateName: "#00056b!Master Assassin Chestplate"
+
+MasterAssassinArmorCooldown: 5

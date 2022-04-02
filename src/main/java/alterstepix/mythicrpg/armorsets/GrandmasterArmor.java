@@ -26,7 +26,6 @@ public class GrandmasterArmor implements Listener {
     @EventHandler
     public void onPlayerDamage(EntityDamageEvent e)
     {
-        Bukkit.getLogger().info("Event");
         if(e.getEntity() instanceof Player player)
         {
             if(player.getInventory().getHelmet() != null && player.getInventory().getChestplate() != null && player.getInventory().getLeggings() != null && player.getInventory().getBoots() != null)

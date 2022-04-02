@@ -2,6 +2,7 @@ package alterstepix.mythicrpg.managers;
 
 import alterstepix.mythicrpg.Mythicrpg;
 import alterstepix.mythicrpg.util.ColorUtil;
+import alterstepix.mythicrpg.util.GetPlayerHead;
 import alterstepix.mythicrpg.util.ItemLoreLibrary;
 import org.bukkit.Color;
 import org.bukkit.Material;
@@ -87,7 +88,7 @@ public class ArmorSetsManager {
 
         //
 
-        ItemStack helmet = new ItemStack(Material.CHAINMAIL_HELMET);
+        ItemStack helmet = GetPlayerHead.GetCustomHead(GetPlayerHead.GrandmasterHelmet);
         ItemMeta metaH = helmet.getItemMeta();
 
         metaH.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,7,true);
@@ -97,7 +98,7 @@ public class ArmorSetsManager {
         metaH.setLore(lore);
         metaH.setUnbreakable(true);
 
-        helmet.setItemMeta(metaL);
+        helmet.setItemMeta(metaH);
 
         GrandmasterArmorSet[0] = boots;
         GrandmasterArmorSet[1] = leggings;
@@ -109,48 +110,46 @@ public class ArmorSetsManager {
     public void createMasterAssasinArmorSet()
     {
         List<String> lore = new ArrayList<String>();
+        for(String l : lib.Lore.get("MAA"))
+            lore.add(l);
 
         ItemStack boots = new ItemStack(Material.LEATHER_BOOTS);
-        ItemMeta metaB = boots.getItemMeta();
         LeatherArmorMeta colmetaB = (LeatherArmorMeta) boots.getItemMeta();
 
         colmetaB.setColor(Color.BLACK);
 
-        metaB.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,6,true);
+        colmetaB.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,6,true);
 
-        metaB.setDisplayName(ColorUtil.ConvertToCustom(config.getString("MasterAssassinBootsName")));
+        colmetaB.setDisplayName(ColorUtil.ConvertToCustom(config.getString("MasterAssassinBootsName")));
 
-        metaB.setLore(lore);
-        metaB.setUnbreakable(true);
+        colmetaB.setLore(lore);
+        colmetaB.setUnbreakable(true);
 
-        boots.setItemMeta(metaB);
+        boots.setItemMeta(colmetaB);
 
         //
 
         ItemStack leggings = new ItemStack(Material.LEATHER_LEGGINGS);
-        ItemMeta metaL = leggings.getItemMeta();
         LeatherArmorMeta colmetaL = (LeatherArmorMeta) leggings.getItemMeta();
 
         colmetaL.setColor(Color.BLACK);
 
-        metaL.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,6,true);
+        colmetaL.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,6,true);
 
-        metaL.setDisplayName(ColorUtil.ConvertToCustom(config.getString("MasterAssassinLeggingsName")));
+        colmetaL.setDisplayName(ColorUtil.ConvertToCustom(config.getString("MasterAssassinLeggingsName")));
 
-        metaL.setLore(lore);
-        metaL.setUnbreakable(true);
+        colmetaL.setLore(lore);
+        colmetaL.setUnbreakable(true);
 
-        leggings.setItemMeta(metaL);
+        leggings.setItemMeta(colmetaL);
 
         //
 
-        ItemStack chestplate = new ItemStack(Material.LEATHER_CHESTPLATE);
+        ItemStack chestplate = new ItemStack(Material.DIAMOND_CHESTPLATE);
         ItemMeta metaC = chestplate.getItemMeta();
-        LeatherArmorMeta colmetaC = (LeatherArmorMeta) chestplate.getItemMeta();
 
-        colmetaC.setColor(Color.BLACK);
-        metaC.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,6,true);
-
+        metaC.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,5,true);
+        metaC.addEnchant(Enchantment.PROTECTION_PROJECTILE,5,true);
 
 
         metaC.setDisplayName(ColorUtil.ConvertToCustom(config.getString("MasterAssassinChestplateName")));

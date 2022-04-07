@@ -194,7 +194,7 @@ public class ItemLoreLibrary {
         ArrayList<String> AirBurnerDescription = new ArrayList<>();
 
         AirBurnerDescription.add("");
-        AirBurnerDescription.add("§6ITEM ABILITY: §eAirBurner");
+        AirBurnerDescription.add("§6RIGHT CLICK: §eAir Burner");
         AirBurnerDescription.add("§7Burning all living entities around 10x10x10 blocks");
 
         Lore.put("AirBurner",AirBurnerDescription);
@@ -230,6 +230,36 @@ public class ItemLoreLibrary {
         RunicMolten.add("§7Deals extra damage to frozen spirits");
 
         Lore.put("RunicMolten",RunicMolten);
+
+        // Mythic Weapon
+
+        ArrayList<String> MythicWeapon = new ArrayList<>();
+
+        cooldown = config.getInt("mythicSwordOfLegendsCooldown");
+        MythicWeapon.add("");
+        MythicWeapon.add("§6ITEM ABILITY: §eMythic Weapon");
+        MythicWeapon.add("§7You can only use this weapon");
+        MythicWeapon.add("§7if you are wearing mythic warrior armor");
+        MythicWeapon.add("");
+        MythicWeapon.add("§6RIGHT CLICK: §eSlam");
+        MythicWeapon.add("§7Right click to slam your sword");
+        MythicWeapon.add("§7into the ground creating a mythic aura");
+        MythicWeapon.add("§8Cooldown: "+ cooldown + "s");
+
+        Lore.put("MythicWeapon",MythicWeapon);
+
+        // Flaming Arc
+
+        ArrayList<String> FlamingArc = new ArrayList<>();
+
+        cooldown = config.getInt("flamingWhipCooldown");
+        FlamingArc.add("");
+        FlamingArc.add("§6RIGHT CLICK: §eFlaming Arc");
+        FlamingArc.add("§7Creates a flaming arc");
+        FlamingArc.add("§7that burns your enemies");
+        FlamingArc.add("§8Cooldown: "+ cooldown + "s");
+
+        Lore.put("FlamingArc",FlamingArc);
 
         /* ===========================================
            ==============| Scrolls |==================
@@ -310,6 +340,34 @@ public class ItemLoreLibrary {
         MADescription.add("§8Cooldown: "+ cooldown + "s");
 
         Lore.put("MAA",MADescription);
+
+        // Frozen Warrior Armor
+
+        ArrayList<String> FADescription = new ArrayList<>();
+
+        FADescription.add("");
+        FADescription.add("§6Full Set Bonus: §eThe Frozen Warrior");
+        FADescription.add("§7You will deal +6 extra damage");
+        FADescription.add("§7on melee hit and get");
+        FADescription.add("§7Strength 2 for 3s");
+        FADescription.add("§7if you will get damaged");
+
+        Lore.put("FWA",FADescription);
+
+        // Mythic Warrior Armor
+
+        ArrayList<String> MWADescription = new ArrayList<>();
+
+        MWADescription.add("");
+        MWADescription.add("§6Full Set Bonus: §eThe Mythic Warrior");
+        MWADescription.add("§7I: You will deal +10 extra damage");
+        MWADescription.add("§7on each melee hit");
+        MWADescription.add("§7II: You will get Strength 2");
+        MWADescription.add("§7and Speed 2 for 3s if you will get damaged");
+        MWADescription.add("§7III: You can ignore any damage you get");
+        MWADescription.add("§7with 40% chance");
+
+        Lore.put("MWA",MWADescription);
 
     }
 

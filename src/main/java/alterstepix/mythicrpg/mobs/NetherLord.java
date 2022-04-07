@@ -252,31 +252,34 @@ public class NetherLord implements Listener {
                                 int k =0;
                                 public void run()
                                 {
-                                    for(int j = 0; j < 7; j++)
+                                    if(boss.getTarget() != null)
                                     {
-                                        Double rotation = ThreadLocalRandom.current().nextDouble(-3, 3);
-                                        WitherSkull proj = boss.getWorld().spawn(boss.getLocation().add(boss.getLocation().getDirection().normalize().multiply(1.5).add(new Vector(0,1,0))),WitherSkull.class);
-                                        proj.setVelocity(boss.getTarget().getLocation().subtract(proj.getLocation()).toVector().normalize().multiply(7));
-                                        proj.setVelocity(proj.getDirection().rotateAroundY(rotation));
-                                        boss.getWorld().spawnParticle(Particle.SMOKE_NORMAL,boss.getEyeLocation(),1);
+                                        for(int j = 0; j < 7; j++)
+                                        {
+                                            Double rotation = ThreadLocalRandom.current().nextDouble(-3, 3);
+                                            WitherSkull proj = boss.getWorld().spawn(boss.getLocation().add(boss.getLocation().getDirection().normalize().multiply(1.5).add(new Vector(0,1,0))),WitherSkull.class);
+                                            proj.setVelocity(boss.getTarget().getLocation().subtract(proj.getLocation()).toVector().normalize().multiply(7));
+                                            proj.setVelocity(proj.getDirection().rotateAroundY(rotation));
+                                            boss.getWorld().spawnParticle(Particle.SMOKE_NORMAL,boss.getEyeLocation(),1);
+                                        }
+                                        for(int j = 0; j < 7; j++)
+                                        {
+                                            Double rotation = ThreadLocalRandom.current().nextDouble(-2, 2);
+                                            Fireball proj = boss.getWorld().spawn(boss.getLocation().add(boss.getLocation().getDirection().normalize().multiply(1.5).add(new Vector(0,1,0))),Fireball.class);
+                                            proj.setVelocity(boss.getTarget().getLocation().subtract(proj.getLocation()).toVector().normalize().multiply(7));
+                                            proj.setVelocity(proj.getDirection().rotateAroundY(rotation));
+                                            boss.getWorld().spawnParticle(Particle.SMOKE_NORMAL,boss.getEyeLocation(),1);
+                                        }
+                                        for(int j = 0; j < 7; j++)
+                                        {
+                                            Double rotation = ThreadLocalRandom.current().nextDouble(-1, 1);
+                                            Arrow proj = boss.getWorld().spawn(boss.getLocation().add(boss.getLocation().getDirection().normalize().multiply(1.5).add(new Vector(0,1,0))),Arrow.class);
+                                            proj.setVelocity(boss.getTarget().getLocation().subtract(proj.getLocation()).toVector().normalize().multiply(3).rotateAroundY(rotation));
+                                            boss.getWorld().spawnParticle(Particle.SMOKE_NORMAL,boss.getEyeLocation(),1);
+                                        }
+                                        if(k > 5)
+                                            cancel();
                                     }
-                                    for(int j = 0; j < 7; j++)
-                                    {
-                                        Double rotation = ThreadLocalRandom.current().nextDouble(-2, 2);
-                                        Fireball proj = boss.getWorld().spawn(boss.getLocation().add(boss.getLocation().getDirection().normalize().multiply(1.5).add(new Vector(0,1,0))),Fireball.class);
-                                        proj.setVelocity(boss.getTarget().getLocation().subtract(proj.getLocation()).toVector().normalize().multiply(7));
-                                        proj.setVelocity(proj.getDirection().rotateAroundY(rotation));
-                                        boss.getWorld().spawnParticle(Particle.SMOKE_NORMAL,boss.getEyeLocation(),1);
-                                    }
-                                    for(int j = 0; j < 7; j++)
-                                    {
-                                        Double rotation = ThreadLocalRandom.current().nextDouble(-1, 1);
-                                        Arrow proj = boss.getWorld().spawn(boss.getLocation().add(boss.getLocation().getDirection().normalize().multiply(1.5).add(new Vector(0,1,0))),Arrow.class);
-                                        proj.setVelocity(boss.getTarget().getLocation().subtract(proj.getLocation()).toVector().normalize().multiply(3).rotateAroundY(rotation));
-                                        boss.getWorld().spawnParticle(Particle.SMOKE_NORMAL,boss.getEyeLocation(),1);
-                                    }
-                                    if(k > 5)
-                                        cancel();
                                     k++;
                                 }
                             }.runTaskTimer(main,0L,2L);

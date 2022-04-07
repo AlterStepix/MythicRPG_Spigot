@@ -1,7 +1,9 @@
 package alterstepix.mythicrpg;
 
+import alterstepix.mythicrpg.armorsets.FrozenWarriorArmor;
 import alterstepix.mythicrpg.armorsets.GrandmasterArmor;
 import alterstepix.mythicrpg.armorsets.MasterAssassinArmor;
+import alterstepix.mythicrpg.armorsets.MythicWarriorArmor;
 import alterstepix.mythicrpg.commands.*;
 import alterstepix.mythicrpg.itemabilities.*;
 
@@ -37,6 +39,7 @@ public final class Mythicrpg extends JavaPlugin{
         Bukkit.getServer().getPluginCommand("AddItemAbility").setExecutor(new AppendAbilityLore(this));
         Bukkit.getServer().getPluginCommand("SummonMythicMob").setExecutor(new SummonMythicMob(this));
         Bukkit.getServer().getPluginCommand("MythicArmorGui").setExecutor(new GetMythicArmor(this));
+        Bukkit.getServer().getPluginCommand("GetMythicLoot").setExecutor(new GetRandomLoot());
 
         Bukkit.getServer().getPluginCommand("AddItemAbility").setTabCompleter(new AppendAbilityLore(this));
         Bukkit.getServer().getPluginCommand("SummonMythicMob").setTabCompleter(new SummonMythicMob(this));
@@ -53,6 +56,8 @@ public final class Mythicrpg extends JavaPlugin{
         Bukkit.getServer().getPluginManager().registerEvents(new FuriousAxe(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new AirBurner(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new RunicDagger(this),this);
+        Bukkit.getServer().getPluginManager().registerEvents(new MythicSwordOfLegends(this),this);
+        Bukkit.getServer().getPluginManager().registerEvents(new FlamingWhip(this),this);
 
         Bukkit.getServer().getPluginManager().registerEvents(new WitherSpider(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new Parasite(this),this);
@@ -69,6 +74,8 @@ public final class Mythicrpg extends JavaPlugin{
 
         Bukkit.getServer().getPluginManager().registerEvents(new GrandmasterArmor(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new MasterAssassinArmor(this),this);
+        Bukkit.getServer().getPluginManager().registerEvents(new FrozenWarriorArmor(this),this);
+        Bukkit.getServer().getPluginManager().registerEvents(new MythicWarriorArmor(this),this);
 
         Bukkit.getServer().getPluginManager().registerEvents(new MobDropManager(this),this);
 

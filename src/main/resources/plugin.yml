@@ -18,6 +18,9 @@ commands:
   MythicArmorGui:
     description: Opens the armor gui
     usage: use /<command>
+  GetMythicLoot:
+    description: Gives you a random loot
+    usage: use /<command> loottype level
   AddItemAbility:
     description: Appends the existing item ability to current item in mainhand
     usage: Use /<command> ablility

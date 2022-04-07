@@ -144,18 +144,21 @@ public class Parasite implements Listener {
                             int j = 0;
                             public void run()
                             {
-                                try
+                                if(!skeleton.isDead())
                                 {
-                                    skeleton.setHealth(skeleton.getHealth()+skeleton.getMaxHealth()*0.05);
-                                    skeleton.getWorld().spawnParticle(Particle.HEART,skeleton.getLocation().add(0,2,0),3);
+                                    try
+                                    {
+                                        skeleton.setHealth(skeleton.getHealth()+skeleton.getMaxHealth()*0.05);
+                                        skeleton.getWorld().spawnParticle(Particle.HEART,skeleton.getLocation().add(0,2,0),3);
+                                    }
+                                    catch (java.lang.IllegalArgumentException exep)
+                                    {
+                                    }
                                 }
-                                catch (java.lang.IllegalArgumentException exep)
-                                {
-                                }
-
                                 j++;
                                 if(j >= 4)
                                     cancel();
+
                             }
                         }.runTaskTimer(main,0L,20L);
                         skeleton.setAI(true);

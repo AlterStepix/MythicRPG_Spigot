@@ -7,6 +7,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Item;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -29,6 +30,8 @@ public class ItemManager {
     public ItemStack FuriousAxe;
     public ItemStack AirBurner;
     public ItemStack[] RuinicDagger;
+    public ItemStack MythicSwordofLegends;
+    public ItemStack FlamingWhip;
 
     Mythicrpg main;
     FileConfiguration config;
@@ -56,6 +59,8 @@ public class ItemManager {
         this.createFuriousAxe();
         this.createAirBurner();
         this.createRunicDagger();
+        this.createMythicSwordOfLegends();
+        this.createFlamingWhip();
     }
 
     public void createLightingAxe()
@@ -333,6 +338,56 @@ public class ItemManager {
         item2.setItemMeta(meta2);
 
         RuinicDagger = new ItemStack[]{item,item2};
+    }
+
+    public void createMythicSwordOfLegends()
+    {
+        ItemStack item = new ItemStack(Material.GOLDEN_SWORD, 1);
+
+        ItemMeta meta = item.getItemMeta();
+
+        meta.addEnchant(Enchantment.DAMAGE_ALL,25,true);
+        meta.addEnchant(Enchantment.FIRE_ASPECT,10,true);
+
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+
+        meta.setDisplayName(ColorUtil.ConvertToCustom(this.config.getString("mythicSwordOfLegends")));
+        meta.setUnbreakable(true);
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        List<String> lore = new ArrayList<>();
+
+        for(String l : lib.Lore.get("MythicWeapon"))
+            lore.add(l);
+
+
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+
+        MythicSwordofLegends = item;
+    }
+    public void createFlamingWhip()
+    {
+        ItemStack item = new ItemStack(Material.FISHING_ROD, 1);
+
+        ItemMeta meta = item.getItemMeta();
+
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+
+        meta.setDisplayName(ColorUtil.ConvertToCustom(this.config.getString("flamingWhip")));
+        meta.setUnbreakable(true);
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        List<String> lore = new ArrayList<>();
+
+        for(String l : lib.Lore.get("FlamingArc"))
+            lore.add(l);
+
+
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+
+        FlamingWhip = item;
     }
 
 }

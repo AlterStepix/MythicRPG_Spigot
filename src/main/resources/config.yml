@@ -14,17 +14,19 @@ furiousAxe: "#53227d!Furious Axe"
 airBurner: "#ff8d00!Air Burner"
 runicDaggerFrozen: "#6afff9!Runic Dagger"
 runicDaggerMolten: "#ea5d00!Runic Dagger"
+mythicSwordOfLegends: "#f97aff!Mythic Sword of Legends"
+flamingWhip: "#ed794c!Flaming Whip"
 
 # --- Item Settings
 
 frozenWandRadius: 7
 impulseSwordRadius: 15
 airBurnerRadius: 10
+terminatorAbilityRange: 15
 
 # --- Item Cooldown ---
 
 impulseSwordCooldown: 5
-terminatorAbilityRange: 15
 lightningAxeCooldown: 3
 frozenWandCooldown: 7
 amberScytheCooldown: 7
@@ -32,6 +34,8 @@ giantSwordCooldown: 15
 furiousAxeCooldown: 1
 terminatorCooldown: 1
 airBurnerCooldown: 7
+mythicSwordOfLegendsCooldown: 15
+flamingWhipCooldown: 1
 
 # --- Mobs Nametags ---
 
@@ -79,7 +83,7 @@ AncientShardName: "#5b5b5b!Ancient Shard"
 DecayedHeartName: "#242331!Decayed Heart"
 WitheredShardName: "#443439!Withered Shard"
 NetherCatalystName: "#8a8a8a!Nether Catalyst"
-NetherEssenceName: "#e35f17Nether Essence"
+NetherEssenceName: "#e35f17!Nether Essence"
 
 # --- Mob Drop Lore ---
 
@@ -149,8 +153,14 @@ MasterAssassinArmorCooldown: 5
 
 #Frozen Warrior Armorset
 
-FrozenWarriorBootsName: ""
-FrozenWarriorLeggingsName: ""
-FrozenWarriorChestplateName: ""
-FrozenWarriorHelmetName: ""
+FrozenWarriorBootsName: "#619dff!Frozen Warrior Boots"
+FrozenWarriorLeggingsName: "#619dff!Frozen Warrior Leggings"
+FrozenWarriorChestplateName: "#619dff!Frozen Warrior Chestplate"
+FrozenWarriorHelmetName: "#619dff!Frozen Warrior Helmet"
 
+#Mythic Warrior Armorset
+
+MythicWarriorBootsName: "#f97aff!Mythic Warrior Boots"
+MythicWarriorLeggingsName: "#f97aff!Mythic Warrior Leggings"
+MythicWarriorChestplateName: "#f97aff!Mythic Warrior Chestplate"
+MythicWarriorHelmetName: "#f97aff!Mythic Warrior Helmet"

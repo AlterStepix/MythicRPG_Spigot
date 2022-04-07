@@ -41,19 +41,16 @@ public class Terminator implements Listener {
                 e.setCancelled(true);
                 Arrow arrow = p.getWorld().spawn(p.getEyeLocation(), Arrow.class);
                 arrow.setDamage(2);
-                arrow.setShooter(p);
                 arrow.setPierceLevel(120);
                 arrow.setVelocity(p.getLocation().getDirection().multiply(2));
 
                 Arrow arrow2 = p.getWorld().spawn(p.getEyeLocation(), Arrow.class);
                 arrow2.setDamage(2);
-                arrow2.setShooter(p);
                 arrow2.setPierceLevel(120);
                 arrow2.setVelocity((p.getLocation().getDirection().multiply(2)).rotateAroundY(Math.toRadians(-10)));
 
                 Arrow arrow3 = p.getWorld().spawn(p.getEyeLocation(), Arrow.class);
                 arrow3.setDamage(2);
-                arrow3.setShooter(p);
                 arrow3.setPierceLevel(120);
                 arrow3.setVelocity((p.getLocation().getDirection().multiply(2)).rotateAroundY(Math.toRadians(10)));
             }

@@ -39,7 +39,7 @@ public class AncientZombie implements Listener {
 
     public void createAncientZombie(Location location)
     {
-        int hp = config.getInt("AncientZombie");
+        int hp = config.getInt("AncientZombieHealth");
         Zombie zombie = location.getWorld().spawn(location, Zombie.class);
         if(Zombietarget != null)
             zombie.setTarget(Zombietarget);

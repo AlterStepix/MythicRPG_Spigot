@@ -78,7 +78,7 @@ public class SemiIdol implements Listener {
                     }
                     golem.setCustomName(ColorUtil.ConvertToCustom(config.getString("SemiIdolNametag")) + " §7["+Math.round(golem.getHealth())+"/"+golem.getMaxHealth()+"]");
                     if(golem.getTarget() != null) {
-                        if (i % 20 == 0) {
+                        if (i % 20 == 19) {
                             Random r = new Random();
                             AirSpirit summoned1 = new AirSpirit(main);
                             summoned1.createAirSpirit(golem.getLocation().add(r.nextInt(1 + 1) - 1, 0, r.nextInt(1 + 1) - 1));

@@ -133,7 +133,7 @@ public class WitherSpider implements Listener {
     public void onDeath(EntityDeathEvent e)
     {
         if(e.getEntity().getCustomName()!=null && e.getEntity().getCustomName().contains(config.getString("WitherSpiderNametag").split("!")[1])) {
-            for (int i = 0; i < 15; i++)
+            for (int i = 0; i < 3; i++)
             {
                 ItemStack item = new ItemStack(Material.COBWEB);
                 ItemMeta meta = item.getItemMeta();

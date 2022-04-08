@@ -133,6 +133,14 @@ NetherLordBossHealth: 500
 NetherHealerNametag: "#f56138!Infernal totem of healing"
 NetherHealerHealth: 20
 
+#Cursed Emperor
+CursedEmperorBossNametag: "#75b7a4!Cursed Emperor"
+CursedEmperorBossHealth: 650
+RatNametag: "#425f6f!Rat"
+RatHealth: 7
+LegionaryNametag: "#3c5664!Emperor's Legionary"
+LegionaryHealth: 20
+
 
 # --- Armor sets ---
 

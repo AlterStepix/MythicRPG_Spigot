@@ -84,6 +84,9 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                         case "Ghost":
                             Ghost mob12 = new Ghost(main);
                             mob12.createGhost(player.getLocation());
+                        case "CursedEmperor":
+                            CursedEmperor mob13 = new CursedEmperor(main);
+                            mob13.createCursedEmperor(player.getLocation());
                     }
                 }
                 else
@@ -191,6 +194,12 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
 
                     Location loc12 = new Location(wr,Integer.parseInt(args[1]),Integer.parseInt(args[2]),Integer.parseInt(args[3]));
                     mob12.createGhost(loc12);
+                    break;
+                case "CursedEmperor":
+                    CursedEmperor mob13 = new CursedEmperor(main);
+
+                    Location loc13 = new Location(wr,Integer.parseInt(args[1]),Integer.parseInt(args[2]),Integer.parseInt(args[3]));
+                    mob13.createCursedEmperor(loc13);
 
             }
         }
@@ -227,6 +236,7 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
             tab.add("WitherusNetherlord");
             tab.add("OverworldInvader");
             tab.add("Ghost");
+            tab.add("CursedEmperor");
         }
         else if(args.length == 5)
         {

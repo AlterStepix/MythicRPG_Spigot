@@ -74,7 +74,7 @@ public class FuriousAxe implements Listener {
                                             if(entity instanceof LivingEntity)
                                             {
                                                 LivingEntity trg = (LivingEntity) entity;
-                                                trg.damage(2,player);
+                                                trg.damage(4,player);
                                                 armorStand.remove();
                                             }
                                         }

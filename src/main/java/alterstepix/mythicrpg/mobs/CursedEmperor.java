@@ -75,6 +75,8 @@ public class CursedEmperor implements Listener {
         emperor.setCustomNameVisible(true);
         BossBar bar = Bukkit.createBossBar(ColorUtil.ConvertToCustom(config.getString("BossPrefix"))+ColorUtil.ConvertToCustom(config.getString("NetherLordBossNametag")), BarColor.RED, BarStyle.SEGMENTED_10);
 
+        for(int i = 0; i <3; i++)
+            createHealer(emperor.getLocation());
         new BukkitRunnable()
         {
             int i = 0;
@@ -119,6 +121,7 @@ public class CursedEmperor implements Listener {
                                 rat.setCustomName(ColorUtil.ConvertToCustom(config.getString("RatNametag")));
                                 rat.setCustomNameVisible(true);
                                 rat.setMaxHealth(config.getInt("RatHealth"));
+                                rat.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE,999999,4,false,false,false));
                                 AttributeInstance speedRat = rat.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED);
                                 speedRat.setBaseValue(0.5);
 
@@ -141,7 +144,7 @@ public class CursedEmperor implements Listener {
                                 lg.getEquipment().setChestplate(new ItemStack(Material.IRON_CHESTPLATE));
                                 lg.getEquipment().setItemInMainHand(new ItemStack(Material.STONE_SWORD));
                                 lg.setVelocity(emperor.getTarget().getLocation().add(0,1,0).subtract(lg.getLocation()).toVector().multiply(0.2));
-                                lg.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE,99999,5,false,false,false));
+                                lg.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE,99999,6,false,false,false));
                             }
                         }
                         if(i % 8 == 0)
@@ -157,12 +160,19 @@ public class CursedEmperor implements Listener {
                                 web.setCustomName("§3CursedGold");
                             }
                         }
+                        if(i % 18 == 0)
+                        {
+                            createHealer(emperor.getLocation());
+                        }
 
                     }
 
                 }
                 else
                 {
+                    emperor.getWorld().playSound(emperor.getLocation(),Sound.ENTITY_WITHER_DEATH,5,5);
+                    for(int i = 0; i < 3; i++)
+                        emperor.getWorld().strikeLightningEffect(emperor.getLocation());
                     bar.removeAll();
                     emperor.remove();
                     cancel();
@@ -217,5 +227,55 @@ public class CursedEmperor implements Listener {
                 trg.setVelocity(new Vector(0,0.6,0));
             }
         }
+    }
+
+    public void createHealer(Location loc)
+    {
+        Zombie healer = loc.getWorld().spawn(loc, Zombie.class);
+        healer.getEquipment().setHelmet(new ItemStack(Material.DIAMOND_HELMET));
+        healer.getEquipment().setChestplate(new ItemStack(Material.IRON_CHESTPLATE));
+        healer.getEquipment().setItemInMainHand(new ItemStack(Material.GOLDEN_SWORD));
+        healer.setMaxHealth(config.getInt("AncientPriestHealth"));
+
+        AttributeInstance def = healer.getAttribute(Attribute.GENERIC_ARMOR);
+        def.setBaseValue(35);
+
+        healer.setCustomNameVisible(true);
+
+        new BukkitRunnable()
+        {
+            int i =0;
+            public void run()
+            {
+                if(!healer.isDead())
+                {
+                    healer.setCustomName(ColorUtil.ConvertToCustom(config.getString("AncientPriestName")) + " §7["+Math.round(healer.getHealth())+"/"+healer.getMaxHealth()+"]");
+
+                    if(i % 2 == 0)
+                    {
+                        for (Entity e : healer.getNearbyEntities(10,10,10))
+                        {
+                            if(e instanceof Player player)
+                            {
+                                player.damage(6);
+                                player.getWorld().spawnParticle(Particle.VILLAGER_ANGRY,player.getLocation(),10,0,0,0);
+                            }
+                            else if(e instanceof LivingEntity trg)
+                            {
+                                if(trg.getMaxHealth() - trg.getHealth() > 2 && trg.getHealth() > 0)
+                                    trg.setHealth(trg.getHealth()+1);
+                                trg.getWorld().spawnParticle(Particle.VILLAGER_HAPPY,trg.getEyeLocation(),10,0,0,0);
+                            }
+                        }
+                    }
+
+                    i++;
+                }
+                else {
+                    healer.remove();
+                    cancel();
+                }
+            }
+        }.runTaskTimer(main,0L,20L);
     }
 }

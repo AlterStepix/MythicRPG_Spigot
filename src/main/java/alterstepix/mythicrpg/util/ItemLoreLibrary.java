@@ -261,6 +261,26 @@ public class ItemLoreLibrary {
 
         Lore.put("FlamingArc",FlamingArc);
 
+        ArrayList<String> DarknessBeam = new ArrayList<>();
+
+        cooldown = config.getInt("darknessConcentratorCooldown");
+        DarknessBeam.add("");
+        DarknessBeam.add("§6RIGHT CLICK: §eDarkness Beam");
+        DarknessBeam.add("§7Creates a darkness arc");
+        DarknessBeam.add("§7that hurt your enemies");
+        DarknessBeam.add("§8Cooldown: "+ cooldown + "s");
+
+        Lore.put("DarknessBeam",DarknessBeam);
+
+
+        ArrayList<String> InfectedBlade = new ArrayList<>();
+
+        InfectedBlade.add("");
+        InfectedBlade.add("§6RIGHT CLICK: §eInfected blade");
+        InfectedBlade.add("§7Infect your enemies on hit");
+
+        Lore.put("InfectedBlade",InfectedBlade);
+
         /* ===========================================
            ==============| Scrolls |==================
            ===========================================

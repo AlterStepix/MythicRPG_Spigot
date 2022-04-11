@@ -64,7 +64,7 @@ public class FlamingWhip implements Listener {
                                     if(trg.getLocation().distanceSquared(s.getLocation()) < 3)
                                     {
                                         trg.setFireTicks(trg.getFreezeTicks() + 60);
-                                        trg.damage(5);
+                                        trg.damage(5,player);
                                         trg.getWorld().spawnParticle(Particle.LAVA,trg.getLocation(),10);
                                         s.remove();
                                         cancel();

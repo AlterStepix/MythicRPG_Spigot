@@ -44,6 +44,8 @@ public class GetMythicItems implements CommandExecutor {
                 gui.addItem(m.RuinicDagger[0]);
                 gui.addItem(m.MythicSwordofLegends);
                 gui.addItem(m.FlamingWhip);
+                gui.addItem(m.DarknessConcentrator);
+                gui.addItem(m.InfectedSword);
 
                 Player p = (Player)sender;
                 p.openInventory(gui);

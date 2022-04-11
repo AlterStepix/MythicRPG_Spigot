@@ -16,6 +16,8 @@ runicDaggerFrozen: "#6afff9!Runic Dagger"
 runicDaggerMolten: "#ea5d00!Runic Dagger"
 mythicSwordOfLegends: "#f97aff!Mythic Sword of Legends"
 flamingWhip: "#ed794c!Flaming Whip"
+darknessConcentrator: "#5e197d!Darkness Concentrator"
+infectedSword: "#114e19!Infected Sword"
 
 # --- Item Settings
 
@@ -36,6 +38,7 @@ terminatorCooldown: 1
 airBurnerCooldown: 7
 mythicSwordOfLegendsCooldown: 15
 flamingWhipCooldown: 1
+darknessConcentratorCooldown: 2
 
 # --- Mobs Nametags ---
 
@@ -84,6 +87,7 @@ DecayedHeartName: "#242331!Decayed Heart"
 WitheredShardName: "#443439!Withered Shard"
 NetherCatalystName: "#8a8a8a!Nether Catalyst"
 NetherEssenceName: "#e35f17!Nether Essence"
+CursedCrownName: "#d6a20d!Cursed Crown"
 
 # --- Mob Drop Lore ---
 
@@ -140,7 +144,8 @@ RatNametag: "#425f6f!Rat"
 RatHealth: 7
 LegionaryNametag: "#3c5664!Emperor's Legionary"
 LegionaryHealth: 20
-
+AncientPriestName: "#873eed!Ancient Priest"
+AncientPriestHealth: 40
 
 # --- Armor sets ---
 

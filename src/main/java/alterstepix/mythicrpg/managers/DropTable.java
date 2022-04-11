@@ -27,6 +27,7 @@ public class DropTable {
     public ItemStack witheredShard; // Netherlord
     public ItemStack netherCatalyst; //Netherlord
     public ItemStack netherEssence; //Netherlord
+    public ItemStack cursedCrown; //Cursed Emperor
 
     Mythicrpg main;
     FileConfiguration config;
@@ -52,6 +53,7 @@ public class DropTable {
         CreateNetherCatalyst();
         CreateNetherEssence();
         CreateWitheredShard();
+        CreateCursedCrown();
     }
 
     private void CreateAmberShard()
@@ -223,5 +225,17 @@ public class DropTable {
         item.setItemMeta(meta);
         netherEssence = item;
     }
+    public void CreateCursedCrown()
+    {
+        ItemStack item = new ItemStack(Material.GOLDEN_HELMET, 1);
+        ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName(ColorUtil.ConvertToCustom(config.getString("CursedCrownName")));
 
+        List<String> lore = new ArrayList<>();
+        lore.add(ColorUtil.ConvertToCustom(config.getString("LegendaryRarity")));
+        meta.setLore(lore);
+
+        item.setItemMeta(meta);
+        cursedCrown = item;
+    }
 }

@@ -32,6 +32,8 @@ public class ItemManager {
     public ItemStack[] RuinicDagger;
     public ItemStack MythicSwordofLegends;
     public ItemStack FlamingWhip;
+    public ItemStack DarknessConcentrator;
+    public ItemStack InfectedSword;
 
     Mythicrpg main;
     FileConfiguration config;
@@ -61,6 +63,8 @@ public class ItemManager {
         this.createRunicDagger();
         this.createMythicSwordOfLegends();
         this.createFlamingWhip();
+        this.createDarknessConcentrator();
+        this.createInfectedSword();
     }
 
     public void createLightingAxe()
@@ -388,6 +392,52 @@ public class ItemManager {
         item.setItemMeta(meta);
 
         FlamingWhip = item;
+    }
+    public void createDarknessConcentrator()
+    {
+        ItemStack item = new ItemStack(Material.FISHING_ROD, 1);
+
+        ItemMeta meta = item.getItemMeta();
+
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+
+        meta.setDisplayName(ColorUtil.ConvertToCustom(this.config.getString("darknessConcentrator")));
+        meta.setUnbreakable(true);
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        List<String> lore = new ArrayList<>();
+
+        for(String l : lib.Lore.get("DarknessBeam"))
+            lore.add(l);
+
+
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+
+        DarknessConcentrator = item;
+    }
+    public void createInfectedSword()
+    {
+        ItemStack item = new ItemStack(Material.STONE_SWORD, 1);
+
+        ItemMeta meta = item.getItemMeta();
+
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+
+        meta.setDisplayName(ColorUtil.ConvertToCustom(this.config.getString("infectedSword")));
+        meta.setUnbreakable(true);
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        List<String> lore = new ArrayList<>();
+
+        for(String l : lib.Lore.get("InfectedBlade"))
+            lore.add(l);
+
+
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+
+        InfectedSword = item;
     }
 
 }

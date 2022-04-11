@@ -41,6 +41,7 @@ public class GetMythicDrops implements CommandExecutor {
                 gui.addItem(m.netherEssence);
                 gui.addItem(m.lightningShard);
                 gui.addItem(m.netherCatalyst);
+                gui.addItem(m.cursedCrown);
 
                 Player p = (Player)sender;
                 p.openInventory(gui);

@@ -31,26 +31,24 @@ public class HealingSword implements Listener {
         {
             Player player = e.getPlayer();
 
-
             if(player.getInventory().getItemInMainHand().getItemMeta() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore().contains(lib.Lore.get("Healing").get(1))) {
                 int hunger = player.getFoodLevel();
-                if(hunger>0) //Hunger > 0
+                if(hunger>0)
                 {
-                    player.setHealth(20);
-                    if(hunger>6)
+                    if(hunger>8)
                     {
-                        player.setFoodLevel(hunger-6);
+                        player.setFoodLevel(hunger-8);
                         player.getWorld().spawnParticle(Particle.TOTEM, player.getLocation(), 5);
                         player.getWorld().playSound(player.getLocation(), Sound.BLOCK_HONEY_BLOCK_BREAK, 15, 5);
-                    }else{
-                        player.setFoodLevel(0);
+                        player.setHealth(20);
+                    }
+                    else
+                    {
                         player.getWorld().spawnParticle(Particle.SLIME, player.getLocation(), 15);
                         player.getWorld().playSound(player.getLocation(), Sound.BLOCK_GLASS_BREAK, 15, 10);
                     }
 
                 }
-
-
 
             }
         }

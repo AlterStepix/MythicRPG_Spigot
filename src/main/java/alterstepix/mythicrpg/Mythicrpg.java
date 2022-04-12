@@ -112,22 +112,22 @@ public final class Mythicrpg extends JavaPlugin{
             recipes.RegisterRunicDaggerRecipe();
         if(configuration.getInt("FlamingWhipRecipe") == 1)
             recipes.RegisterFlamingWhipRecipe();
-        if(configuration.getInt("FlamingWhipRecipe") == 1)
-            recipes.RegisterFlamingWhipRecipe();
+        if(configuration.getInt("MythicSwordOfLegendsRecipe") == 1)
+            recipes.RegisterMythicSwordOfLegendsRecipe();
         if(configuration.getInt("DarknessConcentratorRecipe") == 1)
             recipes.RegisterDarknessConcentratorRecipe();
         if(configuration.getInt("InfectedSwordRecipe") == 1)
             recipes.RegisterInfectedSwordRecipe();
 
 
-        System.out.println("Plugin Enabled");
+        System.out.println("[mrpg] Plugin Enabled");
         
         this.saveDefaultConfig();
     }
 
     @Override
     public void onDisable() {
-        System.out.println("Plugin Disabled");
+        System.out.println("[mrpg] Plugin Disabled");
     }
 
     public FileConfiguration getConfiguration()

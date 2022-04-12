@@ -1,8 +1,10 @@
 package alterstepix.mythicrpg.misc;
 
 import alterstepix.mythicrpg.Mythicrpg;
+import alterstepix.mythicrpg.commands.GetRandomLoot;
 import alterstepix.mythicrpg.managers.DropTable;
 import alterstepix.mythicrpg.managers.ScrollManager;
+import alterstepix.mythicrpg.util.RandomLootGenerator;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -22,7 +24,10 @@ public class MobDropManager implements Listener {
         this.config = main.getConfig();
 
         Drops = new DropTable(main);
+        Drops.init();
         Scrolls = new ScrollManager(main);
+        Scrolls.init();
+
     }
 
     @EventHandler
@@ -46,6 +51,10 @@ public class MobDropManager implements Listener {
             e.getDrops().clear();
             if(Math.random() < RareChance)
                 e.getDrops().add(Drops.parasiteHeart);
+            if(Math.random() < 0.5)
+                e.getDrops().add(RandomLootGenerator.getLootArmor(30));
+            if(Math.random() < 0.5)
+                e.getDrops().add(RandomLootGenerator.getLootSword(30));
         }
         else if(e.getEntity().getCustomName() != null && e.getEntity().getCustomName().contains(config.getString("InfectedZombieNametag").split("!")[1]))
         {
@@ -84,6 +93,10 @@ public class MobDropManager implements Listener {
             e.getDrops().clear();
             if(Math.random() < EpicChance)
                 e.getDrops().add(Drops.lightningShard);
+            if(Math.random() < 0.5)
+                e.getDrops().add(RandomLootGenerator.getLootArmor(40));
+            if(Math.random() < 0.5)
+                e.getDrops().add(RandomLootGenerator.getLootSword(40));
         }
         else if(e.getEntity().getCustomName() != null && e.getEntity().getCustomName().contains(config.getString("AncientZombieNametag").split("!")[1]))
         {
@@ -98,6 +111,10 @@ public class MobDropManager implements Listener {
             e.getDrops().clear();
             if(Math.random() < RareChance)
                 e.getDrops().add(Drops.destructiveShard);
+            if(Math.random() < 0.5)
+                e.getDrops().add(RandomLootGenerator.getLootArmor(35));
+            if(Math.random() < 0.5)
+                e.getDrops().add(RandomLootGenerator.getLootSword(35));
         }
         else if(e.getEntity().getCustomName() != null && e.getEntity().getCustomName().contains(config.getString("GhostNametag").split("!")[1]))
         {
@@ -121,6 +138,11 @@ public class MobDropManager implements Listener {
             for(int i = 0; i<2; i++)
                 e.getDrops().add(Scrolls.HealingTotemScroll);
             e.getDrops().add(Drops.netherCatalyst);
+
+            for(int i = 0; i < 3; i++)
+                e.getDrops().add(RandomLootGenerator.getLootArmor(70));
+            for(int i = 0; i < 3; i++)
+                e.getDrops().add(RandomLootGenerator.getLootSword(70));
         }
         else if(e.getEntity().getCustomName() != null && e.getEntity().getCustomName().contains(config.getString("NetherHealerNametag").split("!")[1]))
         {
@@ -135,6 +157,11 @@ public class MobDropManager implements Listener {
                 e.getDrops().add(Drops.cursedHeart);
             for(int i = 0; i < 5; i++)
                 e.getDrops().add(Drops.cursedBone);
+
+            for(int i = 0; i < 3; i++)
+                e.getDrops().add(RandomLootGenerator.getLootArmor(70));
+            for(int i = 0; i < 3; i++)
+                e.getDrops().add(RandomLootGenerator.getLootSword(80));
         }
         else if(e.getEntity().getCustomName() != null && e.getEntity().getCustomName().contains(config.getString("RatNametag").split("!")[1]))
         {

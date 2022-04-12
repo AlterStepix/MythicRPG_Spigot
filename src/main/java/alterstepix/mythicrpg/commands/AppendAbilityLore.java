@@ -16,6 +16,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class AppendAbilityLore implements CommandExecutor, TabCompleter {
 
@@ -84,6 +85,7 @@ public class AppendAbilityLore implements CommandExecutor, TabCompleter {
         ill.Init();
         for(String key : ill.Lore.keySet())
         {
+            if((key.toLowerCase(Locale.ROOT)).startsWith(args[0].toLowerCase(Locale.ROOT)))
             Abilities.add(key);
         }
 

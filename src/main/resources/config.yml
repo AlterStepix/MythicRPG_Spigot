@@ -125,6 +125,10 @@ EnableFuriousRecipe: 1
 EnableFrozenWandRecipe: 1
 EnableAmberScytheRecipe: 1
 EnableAirBurnerRecipe: 1
+EnableRunicSwordRecipe: 1
+FlamingWhipRecipe: 1
+DarknessConcentratorRecipe: 1
+InfectedSwordRecipe: 1
 
 # --- Scrolls Names
 

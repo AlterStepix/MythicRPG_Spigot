@@ -15,6 +15,7 @@ import org.bukkit.event.entity.CreatureSpawnEvent;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class SummonMythicMob implements CommandExecutor, TabCompleter {
 
@@ -221,22 +222,28 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
 
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
+        List<String> list = new ArrayList<String>();
+        list.add("WitherSpider");
+        list.add("Parasite");
+        list.add("InfectedZombie");
+        list.add("MasterAssassin");
+        list.add("AirSpirit");
+        list.add("FireSpirit");
+        list.add("IceSpirit");
+        list.add("SemiIdol");
+        list.add("AncientZombie");
+        list.add("WitherusNetherlord");
+        list.add("OverworldInvader");
+        list.add("Ghost");
+        list.add("CursedEmperor");
         List<String> tab = new ArrayList<String>();
         if(args.length == 1)
         {
-            tab.add("WitherSpider");
-            tab.add("Parasite");
-            tab.add("InfectedZombie");
-            tab.add("MasterAssassin");
-            tab.add("AirSpirit");
-            tab.add("FireSpirit");
-            tab.add("IceSpirit");
-            tab.add("SemiIdol");
-            tab.add("AncientZombie");
-            tab.add("WitherusNetherlord");
-            tab.add("OverworldInvader");
-            tab.add("Ghost");
-            tab.add("CursedEmperor");
+            for (String var : list)
+            {
+                if(var.toLowerCase(Locale.ROOT).startsWith(args[0].toLowerCase(Locale.ROOT)))
+                    tab.add(var);
+            }
         }
         else if(args.length == 5)
         {

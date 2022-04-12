@@ -106,6 +106,18 @@ public final class Mythicrpg extends JavaPlugin{
             recipes.RegisterAmberScytheRecipe();
         if(configuration.getInt("EnableAirBurnerRecipe") == 1)
             recipes.RegisterAirBurnerRecipe();
+        if(configuration.getInt("EnableRunicSword") == 1)
+            recipes.RegisterRunicDaggerRecipe();
+        if(configuration.getInt("EnableRunicSwordRecipe") == 1)
+            recipes.RegisterRunicDaggerRecipe();
+        if(configuration.getInt("FlamingWhipRecipe") == 1)
+            recipes.RegisterFlamingWhipRecipe();
+        if(configuration.getInt("FlamingWhipRecipe") == 1)
+            recipes.RegisterFlamingWhipRecipe();
+        if(configuration.getInt("DarknessConcentratorRecipe") == 1)
+            recipes.RegisterDarknessConcentratorRecipe();
+        if(configuration.getInt("InfectedSwordRecipe") == 1)
+            recipes.RegisterInfectedSwordRecipe();
 
 
         System.out.println("Plugin Enabled");

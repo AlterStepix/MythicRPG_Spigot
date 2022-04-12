@@ -193,6 +193,65 @@ public class CustomRecipes {
 
         Bukkit.addRecipe(recipe);
     }
+    public void RegisterRunicDaggerRecipe()
+    {
+        ItemStack item = items.RuinicDagger[0];
+        NamespacedKey key = new NamespacedKey(main,"runic_dagger");
 
+        ShapedRecipe recipe = new ShapedRecipe(key,item);
+        recipe.shape(
+                " F ",
+                " A",
+                " S "
+        );
+
+        recipe.setIngredient('F', new RecipeChoice.ExactChoice(drops.frozenShard));
+        recipe.setIngredient('A', new RecipeChoice.ExactChoice(drops.amberShard));
+
+        Bukkit.addRecipe(recipe);
+    }
+    public void RegisterMythicSwordOfLegendsRecipe()
+    {
+
+    }
+    public void RegisterFlamingWhipRecipe()
+    {
+        ItemStack item = items.FlamingWhip;
+        NamespacedKey key = new NamespacedKey(main,"flaming_whip");
+
+        ShapedRecipe recipe = new ShapedRecipe(key,item);
+        recipe.shape(
+                "NAN",
+                "AFA",
+                "NAN"
+        );
+
+        recipe.setIngredient('F', Material.FISHING_ROD);
+        recipe.setIngredient('A', new RecipeChoice.ExactChoice(drops.amberShard));
+        recipe.setIngredient('N', new RecipeChoice.ExactChoice(drops.netherEssence));
+
+        Bukkit.addRecipe(recipe);
+    }
+    public void RegisterDarknessConcentratorRecipe()
+    {
+
+    }
+    public void RegisterInfectedSwordRecipe()
+    {
+        ItemStack item = items.InfectedSword;
+        NamespacedKey key = new NamespacedKey(main,"infected_sword");
+
+        ShapedRecipe recipe = new ShapedRecipe(key,item);
+        recipe.shape(
+                " F ",
+                " F ",
+                " S "
+        );
+
+        recipe.setIngredient('S', new RecipeChoice.ExactChoice(drops.infectedHeart));
+        recipe.setIngredient('F', new RecipeChoice.ExactChoice(drops.infectedFlesh));
+
+        Bukkit.addRecipe(recipe);
+    }
 
 }

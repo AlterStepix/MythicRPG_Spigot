@@ -13,10 +13,16 @@ public class MobDropManager implements Listener {
     FileConfiguration config;
     Mythicrpg main;
 
+    DropTable Drops;
+    ScrollManager Scrolls;
+
     public MobDropManager(Mythicrpg main)
     {
         this.main = main;
         this.config = main.getConfig();
+
+        Drops = new DropTable(main);
+        Scrolls = new ScrollManager(main);
     }
 
     @EventHandler
@@ -26,12 +32,8 @@ public class MobDropManager implements Listener {
         double RareChance = config.getInt("RareChance")*0.01;
         double EpicChance = config.getInt("EpicChance")*0.01;
         double LegendaryChance = config.getInt("LegendaryChance")*0.01;
-
-        DropTable Drops = new DropTable(main);
-        Drops.init();
-
-        ScrollManager Scrolls = new ScrollManager(main);
-        Scrolls.init();
+        double MythicChance = config.getInt("MythicChance")*0.01;
+        double DivineChance = config.getInt("DivineChance")*0.01;
 
         if(e.getEntity().getCustomName() != null && e.getEntity().getCustomName().contains(config.getString("WitherSpiderNametag").split("!")[1]))
         {
@@ -56,6 +58,8 @@ public class MobDropManager implements Listener {
         else if(e.getEntity().getCustomName() != null && e.getEntity().getCustomName().contains(config.getString("MasterAssassinNametag").split("!")[1]))
         {
             e.getDrops().clear();
+            if(Math.random() < LegendaryChance)
+                e.getDrops().add(Drops.shadyAura);
         }
         else if(e.getEntity().getCustomName() != null && e.getEntity().getCustomName().contains(config.getString("AirSpiritNametag").split("!")[1]))
         {
@@ -92,10 +96,14 @@ public class MobDropManager implements Listener {
         else if(e.getEntity().getCustomName() != null && e.getEntity().getCustomName().contains(config.getString("OverworldInvaderNamtetag").split("!")[1]))
         {
             e.getDrops().clear();
+            if(Math.random() < RareChance)
+                e.getDrops().add(Drops.destructiveShard);
         }
         else if(e.getEntity().getCustomName() != null && e.getEntity().getCustomName().contains(config.getString("GhostNametag").split("!")[1]))
         {
             e.getDrops().clear();
+            if(Math.random() < CommonChance)
+                e.getDrops().add(Drops.ghostEssence);
         }
         else if(e.getEntity().getCustomName() != null && e.getEntity().getCustomName().contains(config.getString("NetherLordBossNametag").split("!")[1]))
         {
@@ -122,15 +130,21 @@ public class MobDropManager implements Listener {
         {
             e.getDrops().clear();
             if(Math.random() < LegendaryChance)
-            {
                 e.getDrops().add(Drops.cursedCrown);
-            }
+            if(Math.random() < LegendaryChance)
+                e.getDrops().add(Drops.cursedHeart);
+            for(int i = 0; i < 5; i++)
+                e.getDrops().add(Drops.cursedBone);
         }
         else if(e.getEntity().getCustomName() != null && e.getEntity().getCustomName().contains(config.getString("RatNametag").split("!")[1]))
         {
             e.getDrops().clear();
         }
         else if(e.getEntity().getCustomName() != null && e.getEntity().getCustomName().contains(config.getString("LegionaryNametag").split("!")[1]))
+        {
+            e.getDrops().clear();
+        }
+        else if(e.getEntity().getCustomName() != null && e.getEntity().getCustomName().contains(config.getString("AncientPriestName").split("!")[1]))
         {
             e.getDrops().clear();
         }

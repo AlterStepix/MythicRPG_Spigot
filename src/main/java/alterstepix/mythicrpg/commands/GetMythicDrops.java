@@ -35,13 +35,19 @@ public class GetMythicDrops implements CommandExecutor {
                 gui.addItem(m.witheredEye);
                 gui.addItem(m.ancientShard);
                 gui.addItem(m.witheredShard);
+                gui.addItem(m.cursedBone);
+                gui.addItem(m.ghostEssence);
                 gui.addItem(m.infectedHeart);
                 gui.addItem(m.decayedHeart);
+                gui.addItem(m.destructiveShard);
                 gui.addItem(m.parasiteHeart);
                 gui.addItem(m.netherEssence);
                 gui.addItem(m.lightningShard);
                 gui.addItem(m.netherCatalyst);
                 gui.addItem(m.cursedCrown);
+                gui.addItem(m.cursedHeart);
+                gui.addItem(m.shadyAura);
+
 
                 Player p = (Player)sender;
                 p.openInventory(gui);

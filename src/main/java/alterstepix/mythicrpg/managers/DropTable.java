@@ -18,7 +18,7 @@ public class DropTable {
     public ItemStack frozenShard; // Ice Spirit
     public ItemStack infectedFlesh; // Infected Zombie
     public ItemStack infectedHeart; // Infected Zombie
-    public ItemStack NONE_1; // Master Assassin
+    public ItemStack shadyAura; // Master Assassin
     public ItemStack parasiteHeart; // Parasite
     public ItemStack lightningShard; // SemiIdol
     public ItemStack witheredEye; // Wither Spider
@@ -28,6 +28,10 @@ public class DropTable {
     public ItemStack netherCatalyst; //Netherlord
     public ItemStack netherEssence; //Netherlord
     public ItemStack cursedCrown; //Cursed Emperor
+    public ItemStack ghostEssence; // Ghost
+    public ItemStack destructiveShard; // Overworld Invader
+    public ItemStack cursedHeart; // Cursed Emperor
+    public ItemStack cursedBone; // Cursed Emperor
 
     Mythicrpg main;
     FileConfiguration config;
@@ -54,6 +58,11 @@ public class DropTable {
         CreateNetherEssence();
         CreateWitheredShard();
         CreateCursedCrown();
+        CreateCursedBone();
+        CreateCursedHeart();
+        CreateDestructiveShard();
+        CreateGhostEssence();
+        CreateShadyAura();
     }
 
     private void CreateAmberShard()
@@ -237,5 +246,70 @@ public class DropTable {
 
         item.setItemMeta(meta);
         cursedCrown = item;
+    }
+    public void CreateCursedHeart()
+    {
+        ItemStack item = new ItemStack(Material.BONE_MEAL, 1);
+        ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName(ColorUtil.ConvertToCustom(config.getString("CursedHeartName")));
+
+        List<String> lore = new ArrayList<>();
+        lore.add(ColorUtil.ConvertToCustom(config.getString("LegendaryRarity")));
+        meta.setLore(lore);
+
+        item.setItemMeta(meta);
+        cursedHeart = item;
+    }
+    public void CreateCursedBone()
+    {
+        ItemStack item = new ItemStack(Material.BONE, 1);
+        ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName(ColorUtil.ConvertToCustom(config.getString("CursedBoneName")));
+
+        List<String> lore = new ArrayList<>();
+        lore.add(ColorUtil.ConvertToCustom(config.getString("CommonRarity")));
+        meta.setLore(lore);
+
+        item.setItemMeta(meta);
+        cursedBone = item;
+    }
+    public void CreateDestructiveShard()
+    {
+        ItemStack item = new ItemStack(Material.RED_DYE, 1);
+        ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName(ColorUtil.ConvertToCustom(config.getString("DestructiveShard")));
+
+        List<String> lore = new ArrayList<>();
+        lore.add(ColorUtil.ConvertToCustom(config.getString("RareRarity")));
+        meta.setLore(lore);
+
+        item.setItemMeta(meta);
+        destructiveShard = item;
+    }
+    public void CreateGhostEssence()
+    {
+        ItemStack item = new ItemStack(Material.GRAY_DYE, 1);
+        ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName(ColorUtil.ConvertToCustom(config.getString("GhostEssence")));
+
+        List<String> lore = new ArrayList<>();
+        lore.add(ColorUtil.ConvertToCustom(config.getString("CommonRarity")));
+        meta.setLore(lore);
+
+        item.setItemMeta(meta);
+        ghostEssence = item;
+    }
+    public void CreateShadyAura()
+    {
+        ItemStack item = new ItemStack(Material.INK_SAC, 1);
+        ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName(ColorUtil.ConvertToCustom(config.getString("ShadyAura")));
+
+        List<String> lore = new ArrayList<>();
+        lore.add(ColorUtil.ConvertToCustom(config.getString("LegendaryRarity")));
+        meta.setLore(lore);
+
+        item.setItemMeta(meta);
+        shadyAura = item;
     }
 }

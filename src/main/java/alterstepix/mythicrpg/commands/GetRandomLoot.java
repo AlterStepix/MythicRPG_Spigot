@@ -20,6 +20,14 @@ public class GetRandomLoot implements CommandExecutor {
                     p.getInventory().addItem(i);
                 }
             }
+            if(args[0].equals("armor"))
+            {
+                ItemStack i = RandomLootGenerator.getLootArmor(Integer.parseInt(args[1]));
+                if(sender instanceof Player p)
+                {
+                    p.getInventory().addItem(i);
+                }
+            }
 
             return true;
         }

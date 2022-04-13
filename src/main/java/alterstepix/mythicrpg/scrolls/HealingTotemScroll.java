@@ -86,6 +86,10 @@ public class HealingTotemScroll implements Listener {
                             {
                                 player.setHealth(player.getHealth()+2);
                             }
+                            else
+                            {
+                                player.setHealth(player.getMaxHealth());
+                            }
                             healer.damage(1);
                             healer.getWorld().spawnParticle(Particle.VILLAGER_ANGRY,healer.getLocation(),5,0,0,0,0.3);
                         }

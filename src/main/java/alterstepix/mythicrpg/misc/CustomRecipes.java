@@ -201,7 +201,7 @@ public class CustomRecipes {
         ShapedRecipe recipe = new ShapedRecipe(key,item);
         recipe.shape(
                 " F ",
-                " A",
+                " A ",
                 " S "
         );
 

@@ -5,6 +5,7 @@ import alterstepix.mythicrpg.armorsets.GrandmasterArmor;
 import alterstepix.mythicrpg.armorsets.MasterAssassinArmor;
 import alterstepix.mythicrpg.armorsets.MythicWarriorArmor;
 import alterstepix.mythicrpg.commands.*;
+import alterstepix.mythicrpg.guis.BestiaryGui;
 import alterstepix.mythicrpg.itemabilities.*;
 
 import alterstepix.mythicrpg.misc.CustomRecipes;
@@ -16,10 +17,6 @@ import alterstepix.mythicrpg.scrolls.InfernalAuraScroll;
 import alterstepix.mythicrpg.scrolls.NetherScroll;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Mythicrpg extends JavaPlugin{
@@ -40,6 +37,7 @@ public final class Mythicrpg extends JavaPlugin{
         Bukkit.getServer().getPluginCommand("SummonMythicMob").setExecutor(new SummonMythicMob(this));
         Bukkit.getServer().getPluginCommand("MythicArmorGui").setExecutor(new GetMythicArmor(this));
         Bukkit.getServer().getPluginCommand("GetMythicLoot").setExecutor(new GetRandomLoot());
+        Bukkit.getServer().getPluginCommand("MythicBestiary").setExecutor(new MythicBestiary());
 
         Bukkit.getServer().getPluginCommand("AddItemAbility").setTabCompleter(new AppendAbilityLore(this));
         Bukkit.getServer().getPluginCommand("SummonMythicMob").setTabCompleter(new SummonMythicMob(this));
@@ -81,6 +79,8 @@ public final class Mythicrpg extends JavaPlugin{
         Bukkit.getServer().getPluginManager().registerEvents(new MythicWarriorArmor(this),this);
 
         Bukkit.getServer().getPluginManager().registerEvents(new MobDropManager(this),this);
+
+        Bukkit.getServer().getPluginManager().registerEvents(new BestiaryGui(this),this);
 
         CustomRecipes recipes = new CustomRecipes(this);
 

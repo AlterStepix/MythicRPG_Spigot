@@ -67,7 +67,7 @@ public class MasterAssassinArmor implements Listener {
                                 }
                                 if(closest != null)
                                 {
-                                    if(player.getWorld().getBlockAt(closest.getLocation().add(closest.getLocation().getDirection().setY(0).normalize().multiply(-1))).getType() == Material.AIR)
+                                    if(player.getWorld().getBlockAt(closest.getLocation().add(closest.getLocation().getDirection().setY(0).normalize().multiply(-1))).getType() == Material.AIR || player.getWorld().getBlockAt(closest.getLocation().add(closest.getLocation().getDirection().setY(0).normalize().multiply(-1))).isPassable())
                                     {
                                         player.teleport(closest.getLocation().add(closest.getLocation().getDirection().setY(0).normalize().multiply(-1)));
                                         thiscd.putCooldown(player,config.getInt("MasterAssassinArmorCooldown"));

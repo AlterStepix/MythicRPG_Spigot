@@ -27,3 +27,6 @@ commands:
   SummonMythicMob:
     description: Summons custom mobs from this plugin
     usage: Use /<command> mob x y z world
+  MythicBestiary:
+    description: Shows the bestiary
+    usage: Use /<command>

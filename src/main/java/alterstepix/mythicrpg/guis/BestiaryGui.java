@@ -45,7 +45,7 @@ public class BestiaryGui implements Listener {
 
         //Parasite
         ArrayList<String> ParasiteDesc = new ArrayList<>();
-        ParasiteDesc.add("§7This is a ver dangerous mob that summons mobs like "+config.getString("InfectedZombieNametag")+"s.");
+        ParasiteDesc.add("§7This is a very dangerous mob that summons mobs "+config.getString("InfectedZombieNametag")+"s.");
         ParasiteDesc.add("§7It also trows its orbs at the opponent.");
         ArrayList<String> ParasiteDrops = new ArrayList<>();
         ParasiteDrops.add(config.getString("RareRarity")+": "+config.getString("ParasiteHeartName")+" with "+config.getInt("RareChance")+"%"+" chance");
@@ -70,10 +70,19 @@ public class BestiaryGui implements Listener {
         MasterAssassinDrops.add(config.getString("LegendaryRarity")+": "+config.getString("ShadyAura")+" with "+config.getInt("LegendaryChance")+"%"+" chance");
         ItemStack MasterAssassinPage = builder.create(config.getString("MasterAssassinNametag"),4,config.getInt("MasterAssassinHealth"),MasterAssassinDesc,MasterAssassinDrops);
 
+        // Air Spirit
+        ArrayList<String> AirSpiritDesc = new ArrayList<>();
+        WitherSpiderDesc.add("§7This is dangerous mob summoned by a "+config.getString("SemiIdolNametag")+".");
+        AirSpiritDesc.add("§7This is a very .");
+        ArrayList<String> AirSpiritDrops = new ArrayList<>();
+        AirSpiritDrops.add(config.getString("CommonRarity")+": "+config.getString("ImpulseShardName")+" with "+config.getInt("CommonChance")+"%"+" chance");
+        ItemStack AirSpiritPage = builder.create(config.getString("AirSpiritNametag"),5,config.getInt("AirSpiritHealth"),AirSpiritDesc,AirSpiritDrops);
+
         gui.addItem(WitherSpiderPage);
         gui.addItem(ParasitePage);
         gui.addItem(InfectedZombiePage);
         gui.addItem(MasterAssassinPage);
+        gui.addItem(AirSpiritPage);
         player.openInventory(gui);
     }
 

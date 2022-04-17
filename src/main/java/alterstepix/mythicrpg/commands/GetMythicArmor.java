@@ -2,7 +2,6 @@ package alterstepix.mythicrpg.commands;
 
 import alterstepix.mythicrpg.Mythicrpg;
 import alterstepix.mythicrpg.managers.ArmorSetsManager;
-import alterstepix.mythicrpg.managers.ItemManager;
 import alterstepix.mythicrpg.util.Messages;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -51,6 +50,11 @@ public class GetMythicArmor implements CommandExecutor {
                 gui.addItem(m.MythicWarriorArmorset[1]);
                 gui.addItem(m.MythicWarriorArmorset[2]);
                 gui.addItem(m.MythicWarriorArmorset[3]);
+
+                gui.addItem(m.ThiefArmorset[0]);
+                gui.addItem(m.ThiefArmorset[1]);
+                gui.addItem(m.ThiefArmorset[2]);
+                gui.addItem(m.ThiefArmorset[3]);
 
                 Player p = (Player)sender;
                 p.openInventory(gui);

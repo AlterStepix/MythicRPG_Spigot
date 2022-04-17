@@ -53,6 +53,9 @@ SemiIdolNametag: "#0ab7ff!Semi Idol"
 AncientZombieNametag: "#5b5b5b!Ancient Zombie"
 OverworldInvaderNamtetag: "#ff7829!Overworld Invader"
 GhostNametag: "#082759!Ghost"
+PhantomRiderNametag: "#2b0089!Phantom Rider"
+FrozenSoulNametag: "#1283fc!Frozen Soul"
+DesertGuardianNametag: "#b3743d!Desert Guardian"
 
 MiniBossPrefix: "#ff535c!MINI BOSS " # --- Miniboss prefix
 BossPrefix: "#7d2222!BOSS " # --- Boss prefix
@@ -70,6 +73,9 @@ SemiIdolHealth: 200
 AncientZombieHealth: 30
 OverworldInvaderHealth: 125
 GhostHealth: 50
+PhantomRiderHealth: 30
+FrozenSoulHealth: 90
+DesertGuardianHealth: 30
 
 
 # --- Mob Drops ---

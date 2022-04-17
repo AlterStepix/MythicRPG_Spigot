@@ -90,6 +90,18 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                             CursedEmperor mob13 = new CursedEmperor(main);
                             mob13.createCursedEmperor(player.getLocation());
                             break;
+                        case "PhantomRider":
+                            PhantomRider mob14 = new PhantomRider(main);
+                            mob14.createPhantom(player.getLocation());
+                            break;
+                        case "FrozenSoul":
+                            FrozenSoul mob15 = new FrozenSoul(main);
+                            mob15.createFrozenSoul(player.getLocation());
+                            break;
+                        case "DesertGuardian":
+                            DesertGuardian mob16 = new DesertGuardian(main);
+                            mob16.createDesertGuardian(player.getLocation());
+                            break;
                     }
                 }
                 else
@@ -204,6 +216,24 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                     Location loc13 = new Location(wr,Integer.parseInt(args[1]),Integer.parseInt(args[2]),Integer.parseInt(args[3]));
                     mob13.createCursedEmperor(loc13);
                     break;
+                case "PhantomRider":
+                    PhantomRider mob14 = new PhantomRider(main);
+
+                    Location loc14 = new Location(wr,Integer.parseInt(args[1]),Integer.parseInt(args[2]),Integer.parseInt(args[3]));
+                    mob14.createPhantom(loc14);
+                    break;
+                case "FrozenSoul":
+                    FrozenSoul mob15 = new FrozenSoul(main);
+
+                    Location loc15 = new Location(wr,Integer.parseInt(args[1]),Integer.parseInt(args[2]),Integer.parseInt(args[3]));
+                    mob15.createFrozenSoul(loc15);
+                    break;
+                case "DesertGuardian":
+                    DesertGuardian mob16 = new DesertGuardian(main);
+
+                    Location loc16 = new Location(wr,Integer.parseInt(args[1]),Integer.parseInt(args[2]),Integer.parseInt(args[3]));
+                    mob16.createDesertGuardian(loc16);
+                    break;
 
             }
         }
@@ -239,6 +269,9 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
         list.add("OverworldInvader");
         list.add("Ghost");
         list.add("CursedEmperor");
+        list.add("PhantomRider");
+        list.add("FrozenSoul");
+        list.add("DesertGuardian");
         List<String> tab = new ArrayList<String>();
         if(args.length == 1)
         {

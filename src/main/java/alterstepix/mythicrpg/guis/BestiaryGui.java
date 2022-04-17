@@ -37,45 +37,45 @@ public class BestiaryGui implements Listener {
 
         // Wither Spider
         ArrayList<String> WitherSpiderDesc = new ArrayList<>();
-        WitherSpiderDesc.add("§7This is dangerous mob summoned by a "+config.getString("NetherLordBossNametag")+".");
+        WitherSpiderDesc.add("§7This is dangerous mob summoned by a "+config.getString("NetherLordBossNametag").split("!")[1]+".");
         WitherSpiderDesc.add("§7It jumps on you, withers you and slows you down with its webs.");
         ArrayList<String> WitherSpiderDrops = new ArrayList<>();
-        WitherSpiderDrops.add(config.getString("CommonRarity")+": "+config.getString("WitheredEyeName")+" with "+config.getInt("CommonChance")+"%"+" chance");
+        WitherSpiderDrops.add(ColorUtil.ConvertToCustom(config.getString("CommonRarity"))+": "+ColorUtil.ConvertToCustom(config.getString("WitheredEyeName"))+" with "+config.getInt("CommonChance")+"%"+" chance");
         ItemStack WitherSpiderPage = builder.create(config.getString("WitherSpiderNametag"),3,config.getInt("WitherSpiderHealth"),WitherSpiderDesc,WitherSpiderDrops);
 
         //Parasite
         ArrayList<String> ParasiteDesc = new ArrayList<>();
-        ParasiteDesc.add("§7This is a very dangerous mob that summons mobs "+config.getString("InfectedZombieNametag")+"s.");
+        ParasiteDesc.add("§7This is a very dangerous mob that summons mobs "+(config.getString("InfectedZombieNametag").split("!"))[1]+"s.");
         ParasiteDesc.add("§7It also trows its orbs at the opponent.");
         ArrayList<String> ParasiteDrops = new ArrayList<>();
-        ParasiteDrops.add(config.getString("RareRarity")+": "+config.getString("ParasiteHeartName")+" with "+config.getInt("RareChance")+"%"+" chance");
-        ParasiteDrops.add("Other:");
+        ParasiteDrops.add(ColorUtil.ConvertToCustom(config.getString("RareRarity"))+": "+ColorUtil.ConvertToCustom(config.getString("ParasiteHeartName"))+" with "+config.getInt("RareChance")+"%"+" chance");
+        ParasiteDrops.add("§7Other:");
         ParasiteDrops.add("§730-th level armor with 30% chance");
         ParasiteDrops.add("§730-th level sword with 30% chance");
-        ItemStack ParasitePage = builder.create(ColorUtil.ConvertToCustom(config.getString("MiniBossPrefix")) + ColorUtil.ConvertToCustom(config.getString("ParasiteNametag")),10,config.getInt("ParasiteHealth"),ParasiteDesc,ParasiteDrops);
+        ItemStack ParasitePage = builder.create(config.getString("ParasiteNametag"),10,config.getInt("ParasiteHealth"),ParasiteDesc,ParasiteDrops);
 
         // Infected Zombie
         ArrayList<String> InfectedZombieDesc = new ArrayList<>();
-        InfectedZombieDesc.add("§7This is dangerous mob summoned by a "+config.getString("ParasiteNametag")+".");
+        InfectedZombieDesc.add("§7This is dangerous mob summoned by a "+config.getString("ParasiteNametag").split("!")[1]+".");
         InfectedZombieDesc.add("§7It also can heal from heating you.");
         ArrayList<String> InfectedZombieDrops = new ArrayList<>();
-        InfectedZombieDrops.add(config.getString("CommonRarity")+": "+config.getString("InfectedFleshName")+" with "+config.getInt("CommonChance")+"%"+" chance");
-        InfectedZombieDrops.add(config.getString("RareRarity")+": "+config.getString("InfectedHeartName")+" with "+config.getInt("RareChance")+"%"+" chance");
+        InfectedZombieDrops.add(ColorUtil.ConvertToCustom(config.getString("CommonRarity"))+": "+ColorUtil.ConvertToCustom(config.getString("InfectedFleshName"))+" with "+config.getInt("CommonChance")+"%"+" chance");
+        InfectedZombieDrops.add(ColorUtil.ConvertToCustom(config.getString("RareRarity"))+": "+ColorUtil.ConvertToCustom(config.getString("InfectedHeartName"))+" with "+config.getInt("RareChance")+"%"+" chance");
         ItemStack InfectedZombiePage = builder.create(config.getString("InfectedZombieNametag"),2,config.getInt("InfectedZombieHealth"),InfectedZombieDesc,InfectedZombieDrops);
 
         // Master Assassin
         ArrayList<String> MasterAssassinDesc = new ArrayList<>();
         MasterAssassinDesc.add("§7This is a very dangerous mob that can teleport behind your back.");
         ArrayList<String> MasterAssassinDrops = new ArrayList<>();
-        MasterAssassinDrops.add(config.getString("LegendaryRarity")+": "+config.getString("ShadyAura")+" with "+config.getInt("LegendaryChance")+"%"+" chance");
+        MasterAssassinDrops.add(ColorUtil.ConvertToCustom(config.getString("LegendaryRarity"))+": "+ColorUtil.ConvertToCustom(config.getString("ShadyAura"))+" with "+config.getInt("LegendaryChance")+"%"+" chance");
         ItemStack MasterAssassinPage = builder.create(config.getString("MasterAssassinNametag"),4,config.getInt("MasterAssassinHealth"),MasterAssassinDesc,MasterAssassinDrops);
 
         // Air Spirit
         ArrayList<String> AirSpiritDesc = new ArrayList<>();
-        WitherSpiderDesc.add("§7This is dangerous mob summoned by a "+config.getString("SemiIdolNametag")+".");
+        WitherSpiderDesc.add("§7This is dangerous mob summoned by a "+config.getString("SemiIdolNametag").split("!")[1]+".");
         AirSpiritDesc.add("§7This is a very .");
         ArrayList<String> AirSpiritDrops = new ArrayList<>();
-        AirSpiritDrops.add(config.getString("CommonRarity")+": "+config.getString("ImpulseShardName")+" with "+config.getInt("CommonChance")+"%"+" chance");
+        AirSpiritDrops.add(ColorUtil.ConvertToCustom(config.getString("CommonRarity"))+": "+ColorUtil.ConvertToCustom(config.getString("ImpulseShardName"))+" with "+config.getInt("CommonChance")+"%"+" chance");
         ItemStack AirSpiritPage = builder.create(config.getString("AirSpiritNametag"),5,config.getInt("AirSpiritHealth"),AirSpiritDesc,AirSpiritDrops);
 
         gui.addItem(WitherSpiderPage);

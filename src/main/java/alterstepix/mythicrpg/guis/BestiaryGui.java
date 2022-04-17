@@ -73,7 +73,7 @@ public class BestiaryGui implements Listener {
         // Air Spirit
         ArrayList<String> AirSpiritDesc = new ArrayList<>();
         WitherSpiderDesc.add("§7This is dangerous mob summoned by a "+config.getString("SemiIdolNametag").split("!")[1]+".");
-        AirSpiritDesc.add("§7This is a very .");
+        AirSpiritDesc.add("§7It also can pull towards itself.");
         ArrayList<String> AirSpiritDrops = new ArrayList<>();
         AirSpiritDrops.add(ColorUtil.ConvertToCustom(config.getString("CommonRarity"))+": "+ColorUtil.ConvertToCustom(config.getString("ImpulseShardName"))+" with "+config.getInt("CommonChance")+"%"+" chance");
         ItemStack AirSpiritPage = builder.create(config.getString("AirSpiritNametag"),5,config.getInt("AirSpiritHealth"),AirSpiritDesc,AirSpiritDrops);

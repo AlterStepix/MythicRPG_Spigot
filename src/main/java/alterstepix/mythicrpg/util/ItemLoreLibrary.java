@@ -389,6 +389,17 @@ public class ItemLoreLibrary {
 
         Lore.put("MWA",MWADescription);
 
+        // Thief Armor
+
+        ArrayList<String> TADescription = new ArrayList<>();
+
+        TADescription.add("");
+        TADescription.add("§6Full Set Bonus: §eThe Thief");
+        TADescription.add("§7You can ignore any fall damage you take");
+        TADescription.add("§7You can dodge projectiles with 20% chance");
+
+        Lore.put("TA",TADescription);
+
     }
 
 }

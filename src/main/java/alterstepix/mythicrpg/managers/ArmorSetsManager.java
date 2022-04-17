@@ -6,14 +6,18 @@ import alterstepix.mythicrpg.util.GetPlayerHead;
 import alterstepix.mythicrpg.util.ItemLoreLibrary;
 import org.bukkit.Color;
 import org.bukkit.Material;
+import org.bukkit.attribute.Attribute;
+import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class ArmorSetsManager {
 
@@ -25,6 +29,7 @@ public class ArmorSetsManager {
     public ItemStack[] MasterAssasinArmorSet = new ItemStack[3];
     public ItemStack[] FrozenWarriorArmorSet = new ItemStack[4];
     public ItemStack[] MythicWarriorArmorset = new ItemStack[4];
+    public ItemStack[] ThiefArmorset = new ItemStack[4];
 
     public ArmorSetsManager(Mythicrpg main)
     {
@@ -40,6 +45,7 @@ public class ArmorSetsManager {
         createMasterAssasinArmorSet();
         createFrozenWarriorArmorSet();
         createMythicWarriorArmorset();
+        createThiefArmorset();
     }
 
     public void createGrandmasterArmorSet()
@@ -313,6 +319,85 @@ public class ArmorSetsManager {
         MythicWarriorArmorset[1] = leggings;
         MythicWarriorArmorset[2] = chestplate;
         MythicWarriorArmorset[3] = helmet;
+
+    }
+
+
+    public void createThiefArmorset()
+    {
+        List<String> lore = new ArrayList<String>();
+        for(String l : lib.Lore.get("TA"))
+            lore.add(l);
+
+
+        ItemStack boots = new ItemStack(Material.LEATHER_BOOTS);
+        ItemMeta metaB = boots.getItemMeta();
+
+        AttributeModifier modifierB = new AttributeModifier(UUID.randomUUID(),"mrpg",0.04, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.FEET);
+
+        metaB.addAttributeModifier(Attribute.GENERIC_MOVEMENT_SPEED,modifierB);
+
+        metaB.setDisplayName(ColorUtil.ConvertToCustom(config.getString("ThiefBootsName")));
+
+        metaB.setLore(lore);
+        metaB.setUnbreakable(true);
+
+        boots.setItemMeta(metaB);
+
+        //
+
+        ItemStack leggings = new ItemStack(Material.LEATHER_LEGGINGS);
+        ItemMeta metaL = leggings.getItemMeta();
+
+        AttributeModifier modifierL = new AttributeModifier(UUID.randomUUID(),"mrpg",0.04, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.LEGS);
+
+        metaL.addAttributeModifier(Attribute.GENERIC_MOVEMENT_SPEED,modifierL);
+
+        metaL.setDisplayName(ColorUtil.ConvertToCustom(config.getString("ThiefLeggingsName")));
+
+        metaL.setLore(lore);
+        metaL.setUnbreakable(true);
+
+        leggings.setItemMeta(metaL);
+
+        //
+
+        ItemStack chestplate = new ItemStack(Material.LEATHER_CHESTPLATE);
+        ItemMeta metaC = chestplate.getItemMeta();
+
+        AttributeModifier modifierC = new AttributeModifier(UUID.randomUUID(),"mrpg",0.04, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.CHEST);
+
+        metaC.addAttributeModifier(Attribute.GENERIC_MOVEMENT_SPEED,modifierC);
+
+        metaC.setDisplayName(ColorUtil.ConvertToCustom(config.getString("ThiefChestplateName")));
+
+        metaC.setLore(lore);
+        metaC.setUnbreakable(true);
+
+        chestplate.setItemMeta(metaC);
+
+        //
+
+        ItemStack helmet = GetPlayerHead.GetCustomHead(GetPlayerHead.ThiefHood);
+        ItemMeta metaH = helmet.getItemMeta();
+
+        metaH.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,10,true);
+
+        metaH.setDisplayName(ColorUtil.ConvertToCustom(config.getString("ThiefHelmetName")));
+
+        AttributeModifier modifierH = new AttributeModifier(UUID.randomUUID(),"mrpg",0.04, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.HEAD);
+
+        metaH.addAttributeModifier(Attribute.GENERIC_MOVEMENT_SPEED,modifierH);
+
+        metaH.setLore(lore);
+        metaH.setUnbreakable(true);
+
+        helmet.setItemMeta(metaH);
+
+        ThiefArmorset[0] = boots;
+        ThiefArmorset[1] = leggings;
+        ThiefArmorset[2] = chestplate;
+        ThiefArmorset[3] = helmet;
 
     }
 }

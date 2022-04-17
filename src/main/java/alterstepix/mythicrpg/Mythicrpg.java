@@ -1,9 +1,6 @@
 package alterstepix.mythicrpg;
 
-import alterstepix.mythicrpg.armorsets.FrozenWarriorArmor;
-import alterstepix.mythicrpg.armorsets.GrandmasterArmor;
-import alterstepix.mythicrpg.armorsets.MasterAssassinArmor;
-import alterstepix.mythicrpg.armorsets.MythicWarriorArmor;
+import alterstepix.mythicrpg.armorsets.*;
 import alterstepix.mythicrpg.commands.*;
 import alterstepix.mythicrpg.guis.BestiaryGui;
 import alterstepix.mythicrpg.itemabilities.*;
@@ -79,6 +76,7 @@ public final class Mythicrpg extends JavaPlugin{
         Bukkit.getServer().getPluginManager().registerEvents(new MasterAssassinArmor(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new FrozenWarriorArmor(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new MythicWarriorArmor(this),this);
+        Bukkit.getServer().getPluginManager().registerEvents(new ThiefArmor(this),this);
 
         Bukkit.getServer().getPluginManager().registerEvents(new MobDropManager(this),this);
 

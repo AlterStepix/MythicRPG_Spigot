@@ -56,6 +56,7 @@ GhostNametag: "#082759!Ghost"
 PhantomRiderNametag: "#2b0089!Phantom Rider"
 FrozenSoulNametag: "#1283fc!Frozen Soul"
 DesertGuardianNametag: "#b3743d!Desert Guardian"
+RevenantArcherNametag: "#5e218f!Revenant Archer"
 
 MiniBossPrefix: "#ff535c!MINI BOSS " # --- Miniboss prefix
 BossPrefix: "#7d2222!BOSS " # --- Boss prefix
@@ -76,6 +77,7 @@ GhostHealth: 50
 PhantomRiderHealth: 30
 FrozenSoulHealth: 90
 DesertGuardianHealth: 30
+RevenantArcherHealth: 125
 
 
 # --- Mob Drops ---

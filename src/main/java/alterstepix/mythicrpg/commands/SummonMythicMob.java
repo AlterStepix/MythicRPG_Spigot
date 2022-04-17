@@ -102,6 +102,10 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                             DesertGuardian mob16 = new DesertGuardian(main);
                             mob16.createDesertGuardian(player.getLocation());
                             break;
+                        case "RevenantArcher":
+                            RevenantArcher mob17 = new RevenantArcher(main);
+                            mob17.createRevenantArcher(player.getLocation());
+                            break;
                     }
                 }
                 else
@@ -234,6 +238,12 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                     Location loc16 = new Location(wr,Integer.parseInt(args[1]),Integer.parseInt(args[2]),Integer.parseInt(args[3]));
                     mob16.createDesertGuardian(loc16);
                     break;
+                case "RevenantArcher":
+                    RevenantArcher mob17 = new RevenantArcher(main);
+
+                    Location loc17 = new Location(wr,Integer.parseInt(args[1]),Integer.parseInt(args[2]),Integer.parseInt(args[3]));
+                    mob17.createRevenantArcher(loc17);
+                    break;
 
             }
         }
@@ -272,6 +282,7 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
         list.add("PhantomRider");
         list.add("FrozenSoul");
         list.add("DesertGuardian");
+        list.add("RevenantArcher");
         List<String> tab = new ArrayList<String>();
         if(args.length == 1)
         {

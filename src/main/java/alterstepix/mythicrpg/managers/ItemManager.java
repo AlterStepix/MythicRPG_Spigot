@@ -34,6 +34,8 @@ public class ItemManager {
     public ItemStack FlamingWhip;
     public ItemStack DarknessConcentrator;
     public ItemStack InfectedSword;
+    public ItemStack SwordOfGrowth;
+    public ItemStack Singularity;
 
     Mythicrpg main;
     FileConfiguration config;
@@ -65,6 +67,8 @@ public class ItemManager {
         this.createFlamingWhip();
         this.createDarknessConcentrator();
         this.createInfectedSword();
+        this.createSwordOfGrowth();
+        this.createSingularity();
     }
 
     public void createLightingAxe()
@@ -438,6 +442,52 @@ public class ItemManager {
         item.setItemMeta(meta);
 
         InfectedSword = item;
+    }
+    public void createSwordOfGrowth()
+    {
+        ItemStack item = new ItemStack(Material.STONE_SWORD, 1);
+
+        ItemMeta meta = item.getItemMeta();
+
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+
+        meta.setDisplayName(ColorUtil.ConvertToCustom(this.config.getString("swordOfGrowth")));
+        meta.setUnbreakable(true);
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        List<String> lore = new ArrayList<>();
+
+        for(String l : lib.Lore.get("Growth"))
+            lore.add(l);
+
+
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+
+        SwordOfGrowth = item;
+    }
+    public void createSingularity()
+    {
+        ItemStack item = new ItemStack(Material.CROSSBOW, 1);
+
+        ItemMeta meta = item.getItemMeta();
+
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+
+        meta.setDisplayName(ColorUtil.ConvertToCustom(this.config.getString("singularity")));
+        meta.setUnbreakable(true);
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        List<String> lore = new ArrayList<>();
+
+        for(String l : lib.Lore.get("Singularity"))
+            lore.add(l);
+
+
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+
+        Singularity = item;
     }
 
 }

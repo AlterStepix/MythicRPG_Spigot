@@ -281,6 +281,27 @@ public class ItemLoreLibrary {
 
         Lore.put("InfectedBlade",InfectedBlade);
 
+
+        ArrayList<String> Growth = new ArrayList<>();
+
+        Growth.add("");
+        Growth.add("§6RIGHT CLICK: §eGrowth");
+        Growth.add("§7Regenerates you on hit");
+
+
+        Lore.put("Growth",Growth);
+
+
+        ArrayList<String> Singularity = new ArrayList<>();
+
+        Singularity.add("");
+        Singularity.add("§6ITEM ABILITY: §eGravity Trap");
+        Singularity.add("§7Shoots a special gravity trap");
+        Singularity.add("§7that pulls you opponents into it");
+        Singularity.add("§7and explodes");
+
+        Lore.put("Singularity",Singularity);
+
         /* ===========================================
            ==============| Scrolls |==================
            ===========================================

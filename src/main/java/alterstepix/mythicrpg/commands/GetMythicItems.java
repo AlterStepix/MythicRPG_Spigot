@@ -46,6 +46,8 @@ public class GetMythicItems implements CommandExecutor {
                 gui.addItem(m.FlamingWhip);
                 gui.addItem(m.DarknessConcentrator);
                 gui.addItem(m.InfectedSword);
+                gui.addItem(m.SwordOfGrowth);
+                gui.addItem(m.Singularity);
 
                 Player p = (Player)sender;
                 p.openInventory(gui);

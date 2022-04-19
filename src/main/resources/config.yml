@@ -204,3 +204,15 @@ ThiefBootsName: "#28272b!Thief's Boots"
 ThiefLeggingsName: "#28272b!Thief's Pants"
 ThiefChestplateName: "#28272b!Thief's Coat"
 ThiefHelmetName: "#28272b!Thief's Hood"
+
+# Natural Spawn
+SpawnWitherSpiders: 1
+SpawnInfectedZombies: 1
+SpawnParasite: 1
+SpawnMasterAssassins: 1
+SpawnAncientZombies: 1
+SpawnSemiIdols: 1
+SpawnOverworldInvaders: 1
+SpawnGhosts: 1
+SpawnPhantomRiders: 1
+SpawnDesertGuardians: 1

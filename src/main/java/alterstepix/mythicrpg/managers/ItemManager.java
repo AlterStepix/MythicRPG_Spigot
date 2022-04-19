@@ -75,7 +75,7 @@ public class ItemManager {
     {
         ItemStack item = new ItemStack(Material.IRON_AXE, 1);
         ItemMeta meta = item.getItemMeta();
-
+        meta.setCustomModelData(1234568);
 
         meta.setDisplayName(ColorUtil.ConvertToCustom(this.config.getString("lightingAxe")));
         meta.setUnbreakable(true);
@@ -267,7 +267,7 @@ public class ItemManager {
         ItemStack item = new ItemStack(Material.DIAMOND_AXE, 1);
 
         ItemMeta meta = item.getItemMeta();
-
+        meta.setCustomModelData(1234567);
 
         meta.setDisplayName(ColorUtil.ConvertToCustom(this.config.getString("furiousAxe")));
         meta.setUnbreakable(true);

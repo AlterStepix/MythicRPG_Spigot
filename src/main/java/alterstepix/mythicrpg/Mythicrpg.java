@@ -7,6 +7,8 @@ import alterstepix.mythicrpg.itemabilities.*;
 
 import alterstepix.mythicrpg.misc.CustomRecipes;
 import alterstepix.mythicrpg.misc.MobDropManager;
+import alterstepix.mythicrpg.misc.NaturalSpawn;
+import alterstepix.mythicrpg.misc.ResourcePackLoader;
 import alterstepix.mythicrpg.mobs.*;
 import alterstepix.mythicrpg.scrolls.ArrowStorm;
 import alterstepix.mythicrpg.scrolls.HealingTotemScroll;
@@ -83,6 +85,10 @@ public final class Mythicrpg extends JavaPlugin{
         Bukkit.getServer().getPluginManager().registerEvents(new MobDropManager(this),this);
 
         Bukkit.getServer().getPluginManager().registerEvents(new BestiaryGui(this),this);
+
+        Bukkit.getServer().getPluginManager().registerEvents(new ResourcePackLoader(),this);
+
+        Bukkit.getServer().getPluginManager().registerEvents(new NaturalSpawn(this),this);
 
         CustomRecipes recipes = new CustomRecipes(this);
 

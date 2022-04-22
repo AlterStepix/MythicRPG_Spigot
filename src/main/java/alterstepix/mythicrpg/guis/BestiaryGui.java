@@ -72,8 +72,8 @@ public class BestiaryGui implements Listener {
 
         // Air Spirit
         ArrayList<String> AirSpiritDesc = new ArrayList<>();
-        WitherSpiderDesc.add("§7This is dangerous mob summoned by a "+config.getString("SemiIdolNametag").split("!")[1]+".");
-        AirSpiritDesc.add("§7It also can pull towards itself.");
+        AirSpiritDesc.add("§7This is dangerous mob summoned by a "+config.getString("SemiIdolNametag").split("!")[1]+".");
+        AirSpiritDesc.add("§7It also can pull opponent towards itself.");
         ArrayList<String> AirSpiritDrops = new ArrayList<>();
         AirSpiritDrops.add(ColorUtil.ConvertToCustom(config.getString("CommonRarity"))+": "+ColorUtil.ConvertToCustom(config.getString("ImpulseShardName"))+" with "+config.getInt("CommonChance")+"%"+" chance");
         ItemStack AirSpiritPage = builder.create(config.getString("AirSpiritNametag"),5,config.getInt("AirSpiritHealth"),AirSpiritDesc,AirSpiritDrops);
@@ -114,6 +114,17 @@ public class BestiaryGui implements Listener {
         AncientZombieDrops.add(ColorUtil.ConvertToCustom(config.getString("RareRarity"))+": "+ColorUtil.ConvertToCustom(config.getString("DecayedHeartName"))+" with "+config.getInt("RareChance")+"%"+" chance");
         ItemStack AncientZombiePage = builder.create(config.getString("AncientZombieNametag"),3,config.getInt("AncientZombieHealth"),AncientZombieDesc,AncientZombieDrops);
 
+        //Overworld Invader
+        ArrayList<String> OverworldInvaderDesc = new ArrayList<>();
+        OverworldInvaderDesc.add("§7It can pull opponent towards itself.");
+        OverworldInvaderDesc.add("§7It can also shoot fireballs.");
+        ArrayList<String> OverworldInvaderDrops = new ArrayList<>();
+        OverworldInvaderDrops.add(ColorUtil.ConvertToCustom(config.getString("RareRarity"))+": "+ColorUtil.ConvertToCustom(config.getString("DestructiveShard"))+" with "+config.getInt("RareChance")+"%"+" chance");
+        OverworldInvaderDrops.add("§7Other:");
+        OverworldInvaderDrops.add("§735-th level armor with 50% chance");
+        OverworldInvaderDrops.add("§735-th level sword with 50% chance");
+        ItemStack OverworldInvaderPage = builder.create(config.getString("OverworldInvaderNamtetag"),9,config.getInt("AncientZombieHealth"),OverworldInvaderDesc,OverworldInvaderDrops);
+
         gui.addItem(WitherSpiderPage);
         gui.addItem(ParasitePage);
         gui.addItem(InfectedZombiePage);
@@ -123,7 +134,7 @@ public class BestiaryGui implements Listener {
         gui.addItem(IceSpiritPage);
         gui.addItem(SemiIdolPage);
         gui.addItem(AncientZombiePage);
-
+        gui.addItem(OverworldInvaderPage);
 
         player.openInventory(gui);
     }

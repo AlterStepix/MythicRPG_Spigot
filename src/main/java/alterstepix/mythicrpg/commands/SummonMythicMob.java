@@ -106,6 +106,9 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                             RevenantArcher mob17 = new RevenantArcher(main);
                             mob17.createRevenantArcher(player.getLocation());
                             break;
+                        case "MushroomMonster":
+                            MushroomMonster mob18 = new MushroomMonster(main);
+                            mob18.createMushroomMonster(player.getLocation());
                     }
                 }
                 else
@@ -243,6 +246,12 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
 
                     Location loc17 = new Location(wr,Integer.parseInt(args[1]),Integer.parseInt(args[2]),Integer.parseInt(args[3]));
                     mob17.createRevenantArcher(loc17);
+                    break;
+                case "MushroomMonster":
+                    MushroomMonster mob18 = new MushroomMonster(main);
+
+                    Location loc18 = new Location(wr,Integer.parseInt(args[1]),Integer.parseInt(args[2]),Integer.parseInt(args[3]));
+                    mob18.createMushroomMonster(loc18);
                     break;
 
             }

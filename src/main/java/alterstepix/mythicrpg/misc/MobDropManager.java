@@ -175,6 +175,25 @@ public class MobDropManager implements Listener {
         {
             e.getDrops().clear();
         }
-
+        else if(e.getEntity().getCustomName() != null && e.getEntity().getCustomName().contains(config.getString("PhantomRiderNametag").split("!")[1]))
+        {
+            e.getDrops().clear();
+        }
+        else if(e.getEntity().getCustomName() != null && e.getEntity().getCustomName().contains(config.getString("FrozenSoulNametag").split("!")[1]))
+        {
+            e.getDrops().clear();
+        }
+        else if(e.getEntity().getCustomName() != null && e.getEntity().getCustomName().contains(config.getString("DesertGuardianNametag").split("!")[1]))
+        {
+            e.getDrops().clear();
+        }
+        else if(e.getEntity().getCustomName() != null && e.getEntity().getCustomName().contains(config.getString("RevenantArcherNametag").split("!")[1]))
+        {
+            e.getDrops().clear();
+        }
+        else if(e.getEntity().getCustomName() != null && e.getEntity().getCustomName().contains(config.getString("MushroomMonsterNamatag").split("!")[1]))
+        {
+            e.getDrops().clear();
+        }
     }
 }

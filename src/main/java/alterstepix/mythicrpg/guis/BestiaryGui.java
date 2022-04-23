@@ -108,7 +108,7 @@ public class BestiaryGui implements Listener {
 
         // Ancient Zombie
         ArrayList<String> AncientZombieDesc = new ArrayList<>();
-        AncientZombieDesc.add("§7It also gives the opponent a weakness.");
+        AncientZombieDesc.add("§7It gives the opponent a weakness.");
         ArrayList<String> AncientZombieDrops = new ArrayList<>();
         AncientZombieDrops.add(ColorUtil.ConvertToCustom(config.getString("CommonRarity"))+": "+ColorUtil.ConvertToCustom(config.getString("AncientShardName"))+" with "+config.getInt("CommonChance")+"%"+" chance");
         AncientZombieDrops.add(ColorUtil.ConvertToCustom(config.getString("RareRarity"))+": "+ColorUtil.ConvertToCustom(config.getString("DecayedHeartName"))+" with "+config.getInt("RareChance")+"%"+" chance");
@@ -125,6 +125,41 @@ public class BestiaryGui implements Listener {
         OverworldInvaderDrops.add("§735-th level sword with 50% chance");
         ItemStack OverworldInvaderPage = builder.create(config.getString("OverworldInvaderNamtetag"),9,config.getInt("AncientZombieHealth"),OverworldInvaderDesc,OverworldInvaderDrops);
 
+        // Ghost
+        ArrayList<String> GhostDesc = new ArrayList<>();
+        GhostDesc.add("§7It gives the opponent blindness and a slow.");
+        ArrayList<String> GhostDrops = new ArrayList<>();
+        GhostDrops.add(ColorUtil.ConvertToCustom(config.getString("CommonRarity"))+": "+ColorUtil.ConvertToCustom(config.getString("GhostEssence"))+" with "+config.getInt("CommonChance")+"%"+" chance");
+        ItemStack GhostPage = builder.create(config.getString("GhostNametag"),4,config.getInt("GhostHealth"),GhostDesc,GhostDrops);
+
+        //Witherus Netherlord
+        ArrayList<String> WitherusNetherlordDesc = new ArrayList<>();
+        WitherusNetherlordDesc.add("§7This is a very dangerous boss that can do many different things.");
+        WitherusNetherlordDesc.add("§7It also has three phases.");
+        WitherusNetherlordDesc.add("§7In order to kill this boss you need to do hard teamwork.");
+        ArrayList<String> WitherusNetherlordDrops = new ArrayList<>();
+        WitherusNetherlordDrops.add(ColorUtil.ConvertToCustom(config.getString("NetherEssenceName"))+" in the amount of three pieces");
+        WitherusNetherlordDrops.add(ColorUtil.ConvertToCustom(config.getString("WitheredShardName"))+" in the amount of fife pieces");
+        WitherusNetherlordDrops.add(ColorUtil.ConvertToCustom(config.getString("ArrowStormName"))+" in the amount of two pieces");
+        WitherusNetherlordDrops.add(ColorUtil.ConvertToCustom(config.getString("NetherStormScroll"))+" in the amount of two pieces");
+        WitherusNetherlordDrops.add(ColorUtil.ConvertToCustom(config.getString("InfernalAuraScroll"))+" in the amount of two pieces");
+        WitherusNetherlordDrops.add(ColorUtil.ConvertToCustom(config.getString("HealingTotemScroll"))+" in the amount of two pieces");
+        WitherusNetherlordDrops.add(ColorUtil.ConvertToCustom(config.getString("NetherCatalystName")));
+        WitherusNetherlordDrops.add("§7Other:");
+        WitherusNetherlordDrops.add("§770-th level armor in the amount of three pieces");
+        WitherusNetherlordDrops.add("§770-th level sword in the amount of three pieces");
+        ItemStack WitherusNetherlordPage = builder.create(config.getString("NetherLordBossNametag"),25,config.getInt("NetherLordBossHealth"),WitherusNetherlordDesc,WitherusNetherlordDrops);
+
+        //Cursed Emperor
+        ArrayList<String> CursedEmperorDesc = new ArrayList<>();
+        CursedEmperorDesc.add("§7This is a very dangerous boss that summons many different mobs.");
+        CursedEmperorDesc.add("§7In order to kill this boss you need to do hard teamwork.");
+        ArrayList<String> CursedEmperorDrops = new ArrayList<>();
+        CursedEmperorDrops.add(ColorUtil.ConvertToCustom(config.getString("LegendaryRarity"))+": "+ColorUtil.ConvertToCustom(config.getString("CursedCrownName"))+" with "+config.getInt("LegendaryChance")+"%"+" chance");
+        CursedEmperorDrops.add(ColorUtil.ConvertToCustom(config.getString("LegendaryRarity"))+": "+ColorUtil.ConvertToCustom(config.getString("CursedHeartName"))+" with "+config.getInt("LegendaryChance")+"%"+" chance");
+        CursedEmperorDrops.add(ColorUtil.ConvertToCustom(config.getString("CursedBoneName"))+" in the amount of fife pieces");
+        ItemStack CursedEmperorPage = builder.create(config.getString("CursedEmperorBossNametag"),20,config.getInt("CursedEmperorBossHealth"),CursedEmperorDesc,CursedEmperorDrops);
+
         gui.addItem(WitherSpiderPage);
         gui.addItem(ParasitePage);
         gui.addItem(InfectedZombiePage);
@@ -135,6 +170,9 @@ public class BestiaryGui implements Listener {
         gui.addItem(SemiIdolPage);
         gui.addItem(AncientZombiePage);
         gui.addItem(OverworldInvaderPage);
+        gui.addItem(GhostPage);
+        gui.addItem(WitherusNetherlordPage);
+        gui.addItem(CursedEmperorPage);
 
         player.openInventory(gui);
     }

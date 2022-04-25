@@ -144,7 +144,7 @@ public class BestiaryGui implements Listener {
         WitherusNetherlordDrops.add(ColorUtil.ConvertToCustom(config.getString("NetherStormScroll"))+" in the amount of two pieces");
         WitherusNetherlordDrops.add(ColorUtil.ConvertToCustom(config.getString("InfernalAuraScroll"))+" in the amount of two pieces");
         WitherusNetherlordDrops.add(ColorUtil.ConvertToCustom(config.getString("HealingTotemScroll"))+" in the amount of two pieces");
-        WitherusNetherlordDrops.add(ColorUtil.ConvertToCustom(config.getString("NetherCatalystName")));
+        WitherusNetherlordDrops.add(ColorUtil.ConvertToCustom(config.getString("NetherCatalystName"))+" x1");
         WitherusNetherlordDrops.add("§7Other:");
         WitherusNetherlordDrops.add("§770-th level armor in the amount of three pieces");
         WitherusNetherlordDrops.add("§770-th level sword in the amount of three pieces");
@@ -160,6 +160,43 @@ public class BestiaryGui implements Listener {
         CursedEmperorDrops.add(ColorUtil.ConvertToCustom(config.getString("CursedBoneName"))+" in the amount of fife pieces");
         ItemStack CursedEmperorPage = builder.create(config.getString("CursedEmperorBossNametag"),20,config.getInt("CursedEmperorBossHealth"),CursedEmperorDesc,CursedEmperorDrops);
 
+        // Phantom Rider
+        ArrayList<String> PhantomRiderDesc = new ArrayList<>();
+        PhantomRiderDesc.add("§7This is a dangerous mob that can fly.");
+        ArrayList<String> PhantomRiderDrops = new ArrayList<>();
+        PhantomRiderDrops.add("Not now");
+        ItemStack PhantomRiderPage = builder.create(config.getString("PhantomRiderNametag"),3,config.getInt("PhantomRiderHealth"),PhantomRiderDesc,PhantomRiderDrops);
+
+        // Frozen Soul
+        ArrayList<String> FrozenSoulDesc = new ArrayList<>();
+        FrozenSoulDesc.add("§7This is a very dangerous mini boss.");
+        FrozenSoulDesc.add("§7It summons frozen orbs that debuff the opponent.");
+        ArrayList<String> FrozenSoulDrops = new ArrayList<>();
+        FrozenSoulDrops.add("Not now");
+        ItemStack FrozenSoulPage = builder.create(config.getString("FrozenSoulNametag"),9,config.getInt("FrozenSoulHealth"),FrozenSoulDesc,FrozenSoulDrops);
+
+        // Desert Guardian
+        ArrayList<String> DesertGuardianDesc = new ArrayList<>();
+        DesertGuardianDesc.add("§7This is a dangerous mob that poisons the opponent.");
+        ArrayList<String> DesertGuardianDrops = new ArrayList<>();
+        FrozenSoulDrops.add("Not now");
+        ItemStack DesertGuardianPage = builder.create(config.getString("DesertGuardianNametag"),2,config.getInt("DesertGuardianHealth"),DesertGuardianDesc,DesertGuardianDrops);
+
+        // Revenant Archer
+        ArrayList<String> RevenantArcherDesc = new ArrayList<>();
+        RevenantArcherDesc.add("§7This is a very dangerous mini boss that can teleports from opponent.");
+        ArrayList<String> RevenantArcherDrops = new ArrayList<>();
+        RevenantArcherDrops.add("Not now");
+        ItemStack RevenantArcherPage = builder.create(config.getString("RevenantArcherNametag"),8,config.getInt("RevenantArcherHealth"),RevenantArcherDesc,RevenantArcherDrops);
+
+        // Mushroom Monster
+        ArrayList<String> MushroomMonsterDesc = new ArrayList<>();
+        MushroomMonsterDesc.add("§7This is a very dangerous mini boss that applies nausea on an opponent.");
+        MushroomMonsterDesc.add("§7It also scatters mushrooms.");
+        ArrayList<String> MushroomMonsterDrops = new ArrayList<>();
+        MushroomMonsterDrops.add("Not now");
+        ItemStack MushroomMonsterPage = builder.create(config.getString("MushroomMonsterNamatag"),9,config.getInt("MushroomMonsterHealth"),MushroomMonsterDesc,MushroomMonsterDrops);
+
         gui.addItem(WitherSpiderPage);
         gui.addItem(ParasitePage);
         gui.addItem(InfectedZombiePage);
@@ -173,6 +210,11 @@ public class BestiaryGui implements Listener {
         gui.addItem(GhostPage);
         gui.addItem(WitherusNetherlordPage);
         gui.addItem(CursedEmperorPage);
+        gui.addItem(PhantomRiderPage);
+        gui.addItem(FrozenSoulPage);
+        gui.addItem(DesertGuardianPage);
+        gui.addItem(RevenantArcherPage);
+        gui.addItem(MushroomMonsterPage);
 
         player.openInventory(gui);
     }

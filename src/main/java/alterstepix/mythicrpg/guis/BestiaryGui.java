@@ -97,7 +97,7 @@ public class BestiaryGui implements Listener {
         //Semi Idol
         ArrayList<String> SemiIdolDesc = new ArrayList<>();
         SemiIdolDesc.add("§7This is mob that summons: ");
-        SemiIdolDesc.add((config.getString("AirSpiritNametag").split("!"))[1]+"s, "+(config.getString("FireSpiritNametag").split("!"))[1]+"s and "+(config.getString("IceSpiritNametag").split("!"))[1]+"s.");
+        SemiIdolDesc.add("§7"+(config.getString("AirSpiritNametag").split("!"))[1]+"s, "+(config.getString("FireSpiritNametag").split("!"))[1]+"s and "+(config.getString("IceSpiritNametag").split("!"))[1]+"s.");
         SemiIdolDesc.add("§7It also summons lighting bolts at the opponent.");
         ArrayList<String> SemiIdolDrops = new ArrayList<>();
         SemiIdolDrops.add(ColorUtil.ConvertToCustom(config.getString("EpicRarity"))+": "+ColorUtil.ConvertToCustom(config.getString("LightningShardName"))+" with "+config.getInt("EpicChance")+"%"+" chance");
@@ -164,7 +164,7 @@ public class BestiaryGui implements Listener {
         ArrayList<String> PhantomRiderDesc = new ArrayList<>();
         PhantomRiderDesc.add("§7This is a dangerous mob that can fly.");
         ArrayList<String> PhantomRiderDrops = new ArrayList<>();
-        PhantomRiderDrops.add("Not now");
+        PhantomRiderDrops.add("§7Not now");
         ItemStack PhantomRiderPage = builder.create(config.getString("PhantomRiderNametag"),3,config.getInt("PhantomRiderHealth"),PhantomRiderDesc,PhantomRiderDrops);
 
         // Frozen Soul
@@ -172,21 +172,21 @@ public class BestiaryGui implements Listener {
         FrozenSoulDesc.add("§7This is a very dangerous mini boss.");
         FrozenSoulDesc.add("§7It summons frozen orbs that debuff the opponent.");
         ArrayList<String> FrozenSoulDrops = new ArrayList<>();
-        FrozenSoulDrops.add("Not now");
+        FrozenSoulDrops.add("§7Not now");
         ItemStack FrozenSoulPage = builder.create(config.getString("FrozenSoulNametag"),9,config.getInt("FrozenSoulHealth"),FrozenSoulDesc,FrozenSoulDrops);
 
         // Desert Guardian
         ArrayList<String> DesertGuardianDesc = new ArrayList<>();
         DesertGuardianDesc.add("§7This is a dangerous mob that poisons the opponent.");
         ArrayList<String> DesertGuardianDrops = new ArrayList<>();
-        FrozenSoulDrops.add("Not now");
+        DesertGuardianDrops.add("§7Not now");
         ItemStack DesertGuardianPage = builder.create(config.getString("DesertGuardianNametag"),2,config.getInt("DesertGuardianHealth"),DesertGuardianDesc,DesertGuardianDrops);
 
         // Revenant Archer
         ArrayList<String> RevenantArcherDesc = new ArrayList<>();
         RevenantArcherDesc.add("§7This is a very dangerous mini boss that can teleports from opponent.");
         ArrayList<String> RevenantArcherDrops = new ArrayList<>();
-        RevenantArcherDrops.add("Not now");
+        RevenantArcherDrops.add("§7Not now");
         ItemStack RevenantArcherPage = builder.create(config.getString("RevenantArcherNametag"),8,config.getInt("RevenantArcherHealth"),RevenantArcherDesc,RevenantArcherDrops);
 
         // Mushroom Monster
@@ -194,7 +194,7 @@ public class BestiaryGui implements Listener {
         MushroomMonsterDesc.add("§7This is a very dangerous mini boss that applies nausea on an opponent.");
         MushroomMonsterDesc.add("§7It also scatters mushrooms.");
         ArrayList<String> MushroomMonsterDrops = new ArrayList<>();
-        MushroomMonsterDrops.add("Not now");
+        MushroomMonsterDrops.add("§7Not now");
         ItemStack MushroomMonsterPage = builder.create(config.getString("MushroomMonsterNamatag"),9,config.getInt("MushroomMonsterHealth"),MushroomMonsterDesc,MushroomMonsterDrops);
 
         gui.addItem(WitherSpiderPage);

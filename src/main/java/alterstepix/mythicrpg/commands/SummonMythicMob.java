@@ -272,6 +272,7 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
         list.add("FrozenSoul");
         list.add("DesertGuardian");
         list.add("RevenantArcher");
+        list.add("MushroomMonster");
         List<String> tab = new ArrayList<String>();
         if(args.length == 1)
         {

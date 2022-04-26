@@ -56,8 +56,10 @@ public class Singularity implements Listener {
 
                     new BukkitRunnable()
                     {
+                        int i = 0;
                         @Override
                         public void run() {
+                            i++;
                             if(!web.isDead())
                             {
                                 web.getWorld().spawnParticle(Particle.SQUID_INK,web.getLocation(),2);
@@ -73,6 +75,11 @@ public class Singularity implements Listener {
                                             web.remove();
                                         }
                                     }
+                                }
+                                if(i % 50 == 0)
+                                {
+                                    web.getWorld().createExplosion(web.getLocation(),2,false,false);
+                                    web.remove();
                                 }
                             }
                             else

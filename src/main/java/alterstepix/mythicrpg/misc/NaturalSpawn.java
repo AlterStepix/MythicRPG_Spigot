@@ -24,6 +24,10 @@ public class NaturalSpawn implements Listener {
     @EventHandler
     public void onEntitySpawnEvent(EntitySpawnEvent e)
     {
+        if(e.getEntity().getCustomName() == null)
+            return;
+        if(e.getEntity().getCustomName().equals(""))
+            return;
         if(e.getEntityType() == EntityType.SPIDER && config.getInt("SpawnWitherSpiders") == 1 && Math.random() < 0.1)
         {
             WitherSpider mob = new WitherSpider(main);

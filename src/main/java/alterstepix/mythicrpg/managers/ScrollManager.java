@@ -19,6 +19,7 @@ public class ScrollManager {
     public ItemStack NetherStormScroll;
     public ItemStack HealingTotemScroll;
     public ItemStack InfernalAuraScroll;
+    public ItemStack FrozenStormScroll;
 
     public ScrollManager(Mythicrpg main)
     {
@@ -34,6 +35,7 @@ public class ScrollManager {
         createNetherStormScroll();
         createHealingTotemScroll();
         createInfernalAuraScroll();
+        createFrozenStormScroll();
     }
 
     public void createArrowStormScroll()
@@ -76,6 +78,16 @@ public class ScrollManager {
         scroll.setItemMeta(meta);
 
         InfernalAuraScroll = scroll;
+    }
+    public void createFrozenStormScroll()
+    {
+        ItemStack scroll = new ItemStack(Material.MOJANG_BANNER_PATTERN,1);
+        ItemMeta meta = scroll.getItemMeta();
+        meta.setDisplayName(ColorUtil.ConvertToCustom(config.getString("FrozenStormScroll")));
+        meta.setLore(ILL.Lore.get("FrozenStorm"));
+        scroll.setItemMeta(meta);
+
+        FrozenStormScroll = scroll;
     }
 
 

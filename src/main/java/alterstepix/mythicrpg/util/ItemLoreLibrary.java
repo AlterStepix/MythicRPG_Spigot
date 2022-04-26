@@ -341,6 +341,18 @@ public class ItemLoreLibrary {
 
         Lore.put("HealingTotem",HealingTotemScrollDescription);
 
+        // Healing Totem
+
+
+        ArrayList<String> FrozenStormScrollDescription = new ArrayList<>();
+
+        FrozenStormScrollDescription.add("");
+        FrozenStormScrollDescription.add("§6SCROLL: §eFrozen Storm");
+        FrozenStormScrollDescription.add("§7Creates a frozen storm");
+        FrozenStormScrollDescription.add("§8Consumed on use");
+
+        Lore.put("FrozenStorm",FrozenStormScrollDescription);
+
         // Infernal Aura
 
         ArrayList<String> InferalAuraScrollDescription = new ArrayList<>();

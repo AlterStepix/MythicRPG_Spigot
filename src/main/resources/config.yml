@@ -61,6 +61,7 @@ DesertGuardianNametag: "#b3743d!Desert Guardian"
 RevenantArcherNametag: "#5e218f!Revenant Archer"
 MushroomMonsterNamatag: "#630606!Mushroom Monster"
 CyclopsNametag: "#9191a5!Cyclops"
+WatchingEyeNametag: "#28538d!Watching Eye"
 
 MiniBossPrefix: "#ff535c!MINI BOSS " # --- Miniboss prefix
 BossPrefix: "#7d2222!BOSS " # --- Boss prefix
@@ -84,6 +85,7 @@ DesertGuardianHealth: 30
 RevenantArcherHealth: 125
 MushroomMonsterHealth: 100
 CyclopsHealth: 145
+WatchingEyeHealth: 20
 
 # --- Mob Drops ---
 

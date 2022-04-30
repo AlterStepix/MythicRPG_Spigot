@@ -113,6 +113,10 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                             Cyclops mob19 = new Cyclops(main);
                             mob19.summon(player.getLocation());
                         }
+                        case "WatchingEye" -> {
+                            WatchingEye mob19 = new WatchingEye(main);
+                            mob19.summon(player.getLocation());
+                        }
                     }
                 }
                 else
@@ -243,6 +247,11 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                     Location loc19 = new Location(wr, Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]));
                     mob19.summon(loc19);
                 }
+                case "WatchingEye" -> {
+                    WatchingEye mob19 = new WatchingEye(main);
+                    Location loc19 = new Location(wr, Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]));
+                    mob19.summon(loc19);
+                }
             }
         }
         else
@@ -283,6 +292,7 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
         list.add("RevenantArcher");
         list.add("MushroomMonster");
         list.add("Cyclops");
+        list.add("WatchingEye");
         List<String> tab = new ArrayList<String>();
         if(args.length == 1)
         {

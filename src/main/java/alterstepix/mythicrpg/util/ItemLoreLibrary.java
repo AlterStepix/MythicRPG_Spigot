@@ -433,6 +433,22 @@ public class ItemLoreLibrary {
 
         Lore.put("TA",TADescription);
 
+        /* ===========================================
+           ==============| Misc |==================
+           ===========================================
+         */
+
+        ArrayList<String> BestiaryBookDesc = new ArrayList<>();
+
+        BestiaryBookDesc.add("");
+        BestiaryBookDesc.add("§eBestiary: ");
+        BestiaryBookDesc.add("§7This old book contains");
+        BestiaryBookDesc.add("§7a lot of information about ");
+        BestiaryBookDesc.add("§7different mobs, minibosses, bosses.");
+        BestiaryBookDesc.add("§8Right Click to open.");
+
+        Lore.put("Bestiary",BestiaryBookDesc);
+
     }
 
 }

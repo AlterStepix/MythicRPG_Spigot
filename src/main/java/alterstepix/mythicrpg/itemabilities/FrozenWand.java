@@ -16,6 +16,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityChangeBlockEvent;
+import org.bukkit.event.entity.EntityDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -48,16 +49,16 @@ public class FrozenWand implements Listener {
             if (player.getInventory().getItemInMainHand().getItemMeta() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore().contains(lib.Lore.get("FrozenBreathe").get(1))) {
                 if (thiscd.checkCD(player)) {
 
-                    FallingBlock ice = player.getWorld().spawnFallingBlock(player.getLocation(), Material.PACKED_ICE, (byte)0);
-                    ice.setCustomName("ice1");
+                    FallingBlock ice = player.getWorld().spawnFallingBlock(player.getLocation(), Material.BLUE_ICE, (byte)0);
+                    ice.setCustomName("FW_ice");
                     ice.setVelocity(player.getLocation().getDirection().multiply(2));
 
                     FallingBlock ice2 = player.getWorld().spawnFallingBlock(player.getLocation(), Material.PACKED_ICE, (byte)0);
-                    ice2.setCustomName("ice2");
+                    ice2.setCustomName("FW_ice");
                     ice2.setVelocity((player.getLocation().getDirection().multiply(2)).rotateAroundY(Math.toRadians(-10)));
 
                     FallingBlock ice3 = player.getWorld().spawnFallingBlock(player.getLocation(), Material.PACKED_ICE, (byte)0);
-                    ice3.setCustomName("ice3");
+                    ice3.setCustomName("FW_ice");
                     ice3.setVelocity((player.getLocation().getDirection().multiply(2)).rotateAroundY(Math.toRadians(10)));
 
                     new BukkitRunnable(){
@@ -65,48 +66,52 @@ public class FrozenWand implements Listener {
                         {
                             if(!ice.isDead())
                             {
-                                ice.getWorld().spawnParticle(Particle.SOUL_FIRE_FLAME,ice.getLocation(),1);
+                                ice.getWorld().spawnParticle(Particle.SNOWBALL,ice.getLocation(),1);
                                 for(Entity entity : ice.getNearbyEntities(2,2,2))
                                 {
-                                    if(entity instanceof LivingEntity trg){
+                                    if(entity instanceof LivingEntity trg && entity != player){
                                         if(ice.getLocation().distanceSquared(trg.getLocation()) < 6){
-                                            PotionEffect potionEffect = new PotionEffect(PotionEffectType.WEAKNESS, 120, 2, true, true, true);
-                                            PotionEffect potionEffect2 = new PotionEffect(PotionEffectType.SLOW, 80, 3, true, true, true);
+                                            PotionEffect potionEffect = new PotionEffect(PotionEffectType.WEAKNESS, 200, 2, true, true, true);
+                                            PotionEffect potionEffect2 = new PotionEffect(PotionEffectType.SLOW, 120, 3, true, true, true);
+                                            trg.damage(2);
                                             trg.addPotionEffect(potionEffect);
                                             trg.addPotionEffect(potionEffect2);
                                             trg.getWorld().spawnParticle(Particle.WATER_SPLASH, trg.getLocation(), 10);
+                                            ice.remove();
                                         }
                                     }
                                 }
                             }
                             if(!ice2.isDead())
                             {
-                                ice2.getWorld().spawnParticle(Particle.SOUL_FIRE_FLAME,ice2.getLocation(),1);
+                                ice2.getWorld().spawnParticle(Particle.SNOWBALL,ice2.getLocation(),1);
                                 for(Entity entity : ice2.getNearbyEntities(2,2,2))
                                 {
-                                    if(entity instanceof LivingEntity trg){
+                                    if(entity instanceof LivingEntity trg && entity != player){
                                         if(ice2.getLocation().distanceSquared(trg.getLocation()) < 6){
                                             PotionEffect potionEffect = new PotionEffect(PotionEffectType.WEAKNESS, 120, 2, true, true, true);
                                             PotionEffect potionEffect2 = new PotionEffect(PotionEffectType.SLOW, 80, 3, true, true, true);
                                             trg.addPotionEffect(potionEffect);
                                             trg.addPotionEffect(potionEffect2);
                                             trg.getWorld().spawnParticle(Particle.WATER_SPLASH, trg.getLocation(), 10);
+                                            ice2.remove();
                                         }
                                     }
                                 }
                             }
                             if(!ice3.isDead())
                             {
-                                ice3.getWorld().spawnParticle(Particle.SOUL_FIRE_FLAME,ice3.getLocation(),1);
+                                ice3.getWorld().spawnParticle(Particle.SNOWBALL,ice3.getLocation(),1);
                                 for(Entity entity : ice3.getNearbyEntities(2,2,2))
                                 {
-                                    if(entity instanceof LivingEntity trg){
+                                    if(entity instanceof LivingEntity trg && entity != player){
                                         if(ice3.getLocation().distanceSquared(trg.getLocation()) < 6){
                                             PotionEffect potionEffect = new PotionEffect(PotionEffectType.WEAKNESS, 120, 2, true, true, true);
                                             PotionEffect potionEffect2 = new PotionEffect(PotionEffectType.SLOW, 80, 3, true, true, true);
                                             trg.addPotionEffect(potionEffect);
                                             trg.addPotionEffect(potionEffect2);
                                             trg.getWorld().spawnParticle(Particle.WATER_SPLASH, trg.getLocation(), 10);
+                                            ice3.remove();
                                         }
                                     }
                                 }
@@ -117,7 +122,6 @@ public class FrozenWand implements Listener {
                         }
                     }.runTaskTimer(main,0L,2L);
 
-                    Location loc = new Location(player.getWorld(), player.getLocation().getX(), player.getLocation().getY() + 3.5, player.getLocation().getZ());
                     player.getWorld().spawnParticle(Particle.SNOWBALL, player.getLocation(), 5);
                     player.getWorld().playSound(player.getLocation(), Sound.ENTITY_SNOW_GOLEM_SHOOT, 8, 5);
                     thiscd.putCooldown(player,config.getInt("frozenWandCooldown"));
@@ -127,6 +131,32 @@ public class FrozenWand implements Listener {
                 {
                     player.sendMessage("§c[Mythic RPG] This item is on cooldown for " + (thiscd.getCooldownTime(player)+1));
                 }
+            }
+        }
+    }
+    @EventHandler
+    public void onChange(EntityChangeBlockEvent event)
+    {
+        if(event.getEntity() instanceof FallingBlock)
+        {
+            if(event.getEntity().getCustomName() != null && event.getEntity().getCustomName().equals("FW_ice"))
+            {
+                event.getEntity().getWorld().spawnParticle(Particle.CRIT_MAGIC,event.getEntity().getLocation(),12,0,0,0,1);
+                event.setCancelled(true);
+                event.getEntity().remove();
+            }
+        }
+    }
+
+    @EventHandler
+    public void onDrop(EntityDropItemEvent event)
+    {
+        if(event.getEntity() instanceof FallingBlock)
+        {
+            if(event.getEntity().getCustomName() != null && event.getEntity().getCustomName().equals("FW_ice"))
+            {
+                event.setCancelled(true);
+                event.getItemDrop().remove();
             }
         }
     }

@@ -109,6 +109,10 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                             MushroomMonster mob18 = new MushroomMonster(main);
                             mob18.createMushroomMonster(player.getLocation());
                         }
+                        case "Cyclops" -> {
+                            Cyclops mob19 = new Cyclops(main);
+                            mob19.summon(player.getLocation());
+                        }
                     }
                 }
                 else
@@ -234,6 +238,11 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                     Location loc18 = new Location(wr, Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]));
                     mob18.createMushroomMonster(loc18);
                 }
+                case "Cyclops" -> {
+                    Cyclops mob19 = new Cyclops(main);
+                    Location loc19 = new Location(wr, Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]));
+                    mob19.summon(loc19);
+                }
             }
         }
         else
@@ -273,6 +282,7 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
         list.add("DesertGuardian");
         list.add("RevenantArcher");
         list.add("MushroomMonster");
+        list.add("Cyclops");
         List<String> tab = new ArrayList<String>();
         if(args.length == 1)
         {

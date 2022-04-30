@@ -38,6 +38,7 @@ public final class Mythicrpg extends JavaPlugin{
         Bukkit.getServer().getPluginCommand("AddItemAbility").setTabCompleter(new AppendAbilityLore(this));
         Bukkit.getServer().getPluginCommand("SummonMythicMob").setTabCompleter(new SummonMythicMob(this));
 
+        Bukkit.getServer().getPluginManager().registerEvents(new BestiaryBook(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new LightningAxe(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new IdolsIncarnate(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new Terminator(this),this);

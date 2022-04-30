@@ -60,6 +60,7 @@ FrozenSoulNametag: "#1283fc!Frozen Soul"
 DesertGuardianNametag: "#b3743d!Desert Guardian"
 RevenantArcherNametag: "#5e218f!Revenant Archer"
 MushroomMonsterNamatag: "#630606!Mushroom Monster"
+CyclopsNametag: "#9191a5!Cyclops"
 
 MiniBossPrefix: "#ff535c!MINI BOSS " # --- Miniboss prefix
 BossPrefix: "#7d2222!BOSS " # --- Boss prefix
@@ -82,6 +83,7 @@ FrozenSoulHealth: 90
 DesertGuardianHealth: 30
 RevenantArcherHealth: 125
 MushroomMonsterHealth: 100
+CyclopsHealth: 145
 
 # --- Mob Drops ---
 

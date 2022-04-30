@@ -6,7 +6,7 @@
 
     <groupId>alterstepix</groupId>
     <artifactId>mythicrpg</artifactId>
-    <version>0.2-BETA</version>
+    <version>0.2-EXPERIMENTAL</version>
     <packaging>jar</packaging>
 
     <name>Mythicrpg</name>

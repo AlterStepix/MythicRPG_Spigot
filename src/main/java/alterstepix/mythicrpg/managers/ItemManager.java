@@ -18,6 +18,7 @@ import java.util.List;
 
 
 public class ItemManager {
+    public ItemStack BestiaryBook;
     public ItemStack LightingAxe;
     public ItemStack IdolsIncarnate;
     public ItemStack Terminator;
@@ -51,6 +52,7 @@ public class ItemManager {
 
     public void init()
     {
+        this.createBestiaryBook();
         this.createLightingAxe();
         this.createIdolsIncarnate();
         this.createTerminator();
@@ -488,6 +490,29 @@ public class ItemManager {
         item.setItemMeta(meta);
 
         Singularity = item;
+    }
+    public void createBestiaryBook()
+    {
+        ItemStack item = new ItemStack(Material.BOOK, 1);
+
+        ItemMeta meta = item.getItemMeta();
+
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+
+        meta.setDisplayName("§6Bestiary");
+        meta.setUnbreakable(true);
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        List<String> lore = new ArrayList<>();
+
+        for(String l : lib.Lore.get("Bestiary"))
+            lore.add(l);
+
+
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+
+        BestiaryBook = item;
     }
 
 }

@@ -30,6 +30,7 @@ public class GetMythicItems implements CommandExecutor {
                 Inventory gui = Bukkit.createInventory(null,InventoryType.CHEST);
                 ItemManager m = new ItemManager(main);
                 m.init();
+                gui.addItem(m.BestiaryBook);
                 gui.addItem(m.LightingAxe);
                 gui.addItem(m.IdolsIncarnate);
                 gui.addItem(m.Terminator);

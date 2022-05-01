@@ -10,6 +10,7 @@ import org.bukkit.attribute.Attributable;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Ageable;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Zombie;
 import org.bukkit.event.EventHandler;
@@ -37,12 +38,16 @@ public class AncientZombie implements Listener {
         Zombietarget = mob;
     }
 
-    public void createAncientZombie(Location location)
+    public LivingEntity createAncientZombie(Location location)
     {
         int hp = config.getInt("AncientZombieHealth");
         Zombie zombie = location.getWorld().spawn(location, Zombie.class);
         if(Zombietarget != null)
             zombie.setTarget(Zombietarget);
+
+        Ageable AntiBaby = (Ageable)zombie;
+        AntiBaby.setAdult();
+
         zombie.setCustomName(ColorUtil.ConvertToCustom(config.getString("AncientZombieNametag")));
         zombie.setCustomNameVisible(true);
         Attributable infectedAt = zombie;
@@ -74,6 +79,7 @@ public class AncientZombie implements Listener {
                 }
             }
         }.runTaskTimer(main,0L,20L);
+        return zombie;
     }
 
     @EventHandler

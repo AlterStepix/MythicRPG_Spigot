@@ -69,6 +69,7 @@ public final class Mythicrpg extends JavaPlugin{
         Bukkit.getServer().getPluginManager().registerEvents(new FrozenSoul(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new RevenantArcher(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new MushroomMonster(this),this);
+        Bukkit.getServer().getPluginManager().registerEvents(new mGiant(this),this);
 
         Bukkit.getServer().getPluginManager().registerEvents(new ArrowStorm(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new NetherScroll(this),this);

@@ -173,6 +173,13 @@ LegionaryHealth: 20
 AncientPriestName: "#873eed!Ancient Priest"
 AncientPriestHealth: 40
 
+
+# --- MegaBossess ---
+
+#Giant
+GiantNametag: "#e83838!Giant"
+GiantHealth: 2000
+
 # --- Armor sets ---
 
 #Grandmaster Armorset

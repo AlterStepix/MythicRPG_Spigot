@@ -11,7 +11,6 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
-import org.bukkit.event.entity.CreatureSpawnEvent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -115,6 +114,10 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                         }
                         case "WatchingEye" -> {
                             WatchingEye mob19 = new WatchingEye(main);
+                            mob19.summon(player.getLocation());
+                        }
+                        case "Giant" -> {
+                            mGiant mob19 = new mGiant(main);
                             mob19.summon(player.getLocation());
                         }
                     }
@@ -252,6 +255,11 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                     Location loc19 = new Location(wr, Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]));
                     mob19.summon(loc19);
                 }
+                case "Giant" -> {
+                    mGiant mob19 = new mGiant(main);
+                    Location loc19 = new Location(wr, Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]));
+                    mob19.summon(loc19);
+                }
             }
         }
         else
@@ -293,6 +301,7 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
         list.add("MushroomMonster");
         list.add("Cyclops");
         list.add("WatchingEye");
+        list.add("Giant");
         List<String> tab = new ArrayList<String>();
         if(args.length == 1)
         {

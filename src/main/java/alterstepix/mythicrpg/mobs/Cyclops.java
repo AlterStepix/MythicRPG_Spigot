@@ -88,7 +88,7 @@ public class Cyclops {
                                 }
                                 if(skeleton.getTarget() != null)
                                 {
-                                    skeleton.getTarget().damage(1,skeleton);
+                                    skeleton.getTarget().damage(7,skeleton);
                                     lasser.teleport(skeleton.getEyeLocation());
                                 }
                                 if(k > 20)

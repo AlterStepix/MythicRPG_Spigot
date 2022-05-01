@@ -2,7 +2,10 @@ package alterstepix.mythicrpg.mobs;
 
 import alterstepix.mythicrpg.Mythicrpg;
 import alterstepix.mythicrpg.util.ColorUtil;
+import alterstepix.mythicrpg.util.GetPlayerHead;
+import alterstepix.mythicrpg.util.MobItemCreator;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.attribute.Attributable;
@@ -41,6 +44,9 @@ public class OverworldInvader {
         mob.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 999999, 3,false,false,false));
 
         Attributable bAt = mob;
+
+        mob.getEquipment().setHelmet(GetPlayerHead.GetCustomHead(GetPlayerHead.OverworldInvaderHead));
+        mob.getEquipment().setItemInMainHand(MobItemCreator.weapon(Material.NETHERITE_AXE,7));
 
         AttributeInstance hpDef = bAt.getAttribute(Attribute.GENERIC_ARMOR);
         hpDef.setBaseValue(50);

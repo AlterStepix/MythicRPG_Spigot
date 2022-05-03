@@ -41,7 +41,7 @@ public class OPBestiaryPageMenu extends AbstractMenu {
         switch (event.getSlot())
         {
             case 3 -> {
-                ItemStack newpage = page;
+                ItemStack newpage = page.clone();
                 ItemMeta meta = newpage.getItemMeta();
                 List<String> nm = meta.getLore();
                 nm.remove(nm.size()-1);

@@ -109,6 +109,7 @@ public class ItemsMenu extends AbstractPaginatedMenu {
         m.init();
         content.addAll(List.of(
                 m.BestiaryBook,
+                m.LightingAxe,
                 m.IdolsIncarnate,
                 m.Terminator,
                 m.HealingSword,

@@ -27,6 +27,8 @@ public class BestiaryPageBuilder {
         lore.add("");
         lore.add("§6Drops: ");
         lore.addAll(drops);
+        lore.add("");
+        lore.add("§cClick for more options.");
 
         meta.setLore(lore);
         page.setItemMeta(meta);

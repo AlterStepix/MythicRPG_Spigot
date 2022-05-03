@@ -1,6 +1,7 @@
 package alterstepix.mythicrpg.commands;
 
 import alterstepix.mythicrpg.Mythicrpg;
+import alterstepix.mythicrpg.guis.ArmorMenu;
 import alterstepix.mythicrpg.managers.ArmorSetsManager;
 import alterstepix.mythicrpg.util.Messages;
 import org.bukkit.Bukkit;
@@ -24,41 +25,15 @@ public class GetMythicArmor implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
-        if(sender instanceof Player)
+        if(sender instanceof Player player)
         {
             if(sender.isOp() || sender.hasPermission("mythicrpg.getmythicarmor"))
             {
-                Inventory gui = Bukkit.createInventory(null, InventoryType.CHEST);
-                ArmorSetsManager m = new ArmorSetsManager(main);
-                m.init();
 
-                gui.addItem(m.GrandmasterArmorSet[0]);
-                gui.addItem(m.GrandmasterArmorSet[1]);
-                gui.addItem(m.GrandmasterArmorSet[2]);
-                gui.addItem(m.GrandmasterArmorSet[3]);
+                ArmorMenu menu = new ArmorMenu(Mythicrpg.getPMU(player));
+                menu.open();
 
-                gui.addItem(m.MasterAssasinArmorSet[0]);
-                gui.addItem(m.MasterAssasinArmorSet[1]);
-                gui.addItem(m.MasterAssasinArmorSet[2]);
-
-                gui.addItem(m.FrozenWarriorArmorSet[0]);
-                gui.addItem(m.FrozenWarriorArmorSet[1]);
-                gui.addItem(m.FrozenWarriorArmorSet[2]);
-                gui.addItem(m.FrozenWarriorArmorSet[3]);
-
-                gui.addItem(m.MythicWarriorArmorset[0]);
-                gui.addItem(m.MythicWarriorArmorset[1]);
-                gui.addItem(m.MythicWarriorArmorset[2]);
-                gui.addItem(m.MythicWarriorArmorset[3]);
-
-                gui.addItem(m.ThiefArmorset[0]);
-                gui.addItem(m.ThiefArmorset[1]);
-                gui.addItem(m.ThiefArmorset[2]);
-                gui.addItem(m.ThiefArmorset[3]);
-
-                Player p = (Player)sender;
-                p.openInventory(gui);
-                p.sendMessage(Messages.CommandSuccess);
+                player.sendMessage(Messages.CommandSuccess);
             }
 
 

@@ -1,6 +1,7 @@
 package alterstepix.mythicrpg.commands;
 
 import alterstepix.mythicrpg.Mythicrpg;
+import alterstepix.mythicrpg.guis.DropsMenu;
 import alterstepix.mythicrpg.managers.DropTable;
 import alterstepix.mythicrpg.util.Messages;
 import org.bukkit.Bukkit;
@@ -21,39 +22,14 @@ public class GetMythicDrops implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if(sender instanceof Player)
+        if(sender instanceof Player player)
         {
             if(sender.isOp() || sender.hasPermission("mythicrpg.getmythicdrops"))
             {
-                Inventory gui = Bukkit.createInventory(null, InventoryType.CHEST);
-                DropTable m = new DropTable(main);
-                m.init();
-                gui.addItem(m.amberShard);
-                gui.addItem(m.frozenShard);
-                gui.addItem(m.impulseShard);
-                gui.addItem(m.infectedFlesh);
-                gui.addItem(m.witheredEye);
-                gui.addItem(m.ancientShard);
-                gui.addItem(m.witheredShard);
-                gui.addItem(m.cursedBone);
-                gui.addItem(m.ghostEssence);
-                gui.addItem(m.infectedHeart);
-                gui.addItem(m.decayedHeart);
-                gui.addItem(m.destructiveShard);
-                gui.addItem(m.parasiteHeart);
-                gui.addItem(m.netherEssence);
-                gui.addItem(m.lightningShard);
-                gui.addItem(m.netherCatalyst);
-                gui.addItem(m.cursedCrown);
-                gui.addItem(m.cursedHeart);
-                gui.addItem(m.shadyAura);
-
-
-                Player p = (Player)sender;
-                p.openInventory(gui);
-                p.sendMessage(Messages.CommandSuccess);
+                DropsMenu menu = new DropsMenu(Mythicrpg.getPMU(player));
+                menu.open();
+                player.sendMessage(Messages.CommandSuccess);
             }
-
 
         }
         else

@@ -1,8 +1,7 @@
 package alterstepix.mythicrpg.commands;
 
-import alterstepix.mythicrpg.guis.BestiaryEvent;
-import alterstepix.mythicrpg.guis.BestiaryGui;
-import org.bukkit.Bukkit;
+import alterstepix.mythicrpg.Mythicrpg;
+import alterstepix.mythicrpg.guis.BestiaryMenu;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -14,7 +13,8 @@ public class MythicBestiary implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(sender instanceof Player p)
         {
-            Bukkit.getServer().getPluginManager().callEvent(new BestiaryEvent(p));
+            BestiaryMenu menu = new BestiaryMenu(Mythicrpg.getPMU(p));
+            menu.open();
         }
         else
         {

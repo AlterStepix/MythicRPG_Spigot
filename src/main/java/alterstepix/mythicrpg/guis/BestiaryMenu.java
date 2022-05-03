@@ -1,41 +1,115 @@
 package alterstepix.mythicrpg.guis;
 
 import alterstepix.mythicrpg.Mythicrpg;
+import alterstepix.mythicrpg.managers.ArmorSetsManager;
+import alterstepix.mythicrpg.menusystem.AbstractPaginatedMenu;
 import alterstepix.mythicrpg.util.BestiaryPageBuilder;
 import alterstepix.mythicrpg.util.ColorUtil;
-import org.bukkit.Bukkit;
-import org.bukkit.Material;
+import alterstepix.mythicrpg.util.PMU;
+import net.md_5.bungee.api.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryType;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
+import java.util.List;
 
-
-public class BestiaryGui implements Listener {
-
-    FileConfiguration config;
-
-    public BestiaryGui(Mythicrpg main)
-    {
-        this.config = main.getConfig();
+public class BestiaryMenu extends AbstractPaginatedMenu {
+    ArrayList<ItemStack> content = new ArrayList<>();
+    public BestiaryMenu(PMU pmu) {
+        super(pmu);
     }
 
-    private Inventory gui;
+    @Override
+    public String getMenuName() {
+        return "Bestiary";
+    }
 
-    public void createGui(Player player)
-    {
-        gui = Bukkit.createInventory(null, InventoryType.CHEST);
+    @Override
+    public int getSlots() {
+        return 54;
+    }
 
+    @Override
+    public void handleMenu(InventoryClickEvent event) {
+
+        Player player = (Player) event.getWhoClicked();
+        createContent();
+
+        if (event.getCurrentItem().getType() != FILLER_GLASS.getType()) {
+            switch (event.getCurrentItem().getType()) {
+                case ARROW -> {
+                    if (ChatColor.stripColor(event.getCurrentItem().getItemMeta().getDisplayName()).equals("Right")) {
+                        if (!((index + 1) >= content.size())) {
+                            page = page + 1;
+                            super.open();
+                        } else {
+                            player.sendMessage(ChatColor.GRAY + "You are already on the last page.");
+                        }
+
+                    } else if (ChatColor.stripColor(event.getCurrentItem().getItemMeta().getDisplayName()).equals("Left")) {
+                        if (page == 0) {
+                            player.sendMessage(ChatColor.GRAY + "You are already on the first page.");
+                        } else {
+                            page = page - 1;
+                            super.open();
+                        }
+
+                    }
+
+                    setMenuItems();
+                }
+                case BARRIER -> {
+                    player.closeInventory();
+                }
+                default -> {
+                    if(player.isOp())
+                    {
+                        OPBestiaryPageMenu menu = new OPBestiaryPageMenu(pmu, event.getCurrentItem());
+                        menu.open();
+                    }
+                    else
+                    {
+                        NonOPBestiaryPageMenu menu = new NonOPBestiaryPageMenu(pmu, event.getCurrentItem());
+                        menu.open();
+                    }
+                }
+            }
+        }
+    }
+
+    @Override
+    public void setMenuItems() {
+        inventory.clear();
+        addMenuBorder();
+
+        createContent();
+        ArmorSetsManager m = new ArmorSetsManager(Mythicrpg.INSTANCE);
+        m.init();
+        //The thing you will be looping through to place items
+        ///////////////////////////////////// Pagination loop template
+        if(content != null && !content.isEmpty()) {
+            for(int i = 0; i < getMaxItemsPerPage(); i++) {
+                index = getMaxItemsPerPage() * page + i;
+                if(index >= content.size()) break;
+                if (content.get(index) != null){
+                    ///////////////////////////
+
+                    ItemStack item = content.get(index);
+
+                    inventory.addItem(item);
+
+                    ////////////////////////
+                }
+            }
+        }
+    }
+
+    private void createContent() {
         BestiaryPageBuilder builder = new BestiaryPageBuilder();
+        FileConfiguration config = Mythicrpg.INSTANCE.getConfig();
 
-
-        // Wither Spider
         ArrayList<String> WitherSpiderDesc = new ArrayList<>();
         WitherSpiderDesc.add("§7This is a special type of spider summoned by a "+config.getString("NetherLordBossNametag").split("!")[1]+".");
         WitherSpiderDesc.add("§7This spider is very agile and can jump on you. When it hits you it withers you.");
@@ -207,47 +281,42 @@ public class BestiaryGui implements Listener {
         MushroomMonsterDesc.add("§7can seriously hurt the player.");
         ArrayList<String> MushroomMonsterDrops = new ArrayList<>();
         MushroomMonsterDrops.add("§7None");
-        ItemStack MushroomMonsterPage = builder.create(config.getString("MushroomMonsterNamatag"),9,config.getInt("MushroomMonsterHealth"),MushroomMonsterDesc,MushroomMonsterDrops);
+        ItemStack MushroomMonsterPage = builder.create(config.getString("MushroomMonsterNametag"),9,config.getInt("MushroomMonsterHealth"),MushroomMonsterDesc,MushroomMonsterDrops);
 
-        gui.addItem(WitherSpiderPage);
-        gui.addItem(ParasitePage);
-        gui.addItem(InfectedZombiePage);
-        gui.addItem(MasterAssassinPage);
-        gui.addItem(AirSpiritPage);
-        gui.addItem(FireSpiritPage);
-        gui.addItem(IceSpiritPage);
-        gui.addItem(SemiIdolPage);
-        gui.addItem(AncientZombiePage);
-        gui.addItem(OverworldInvaderPage);
-        gui.addItem(GhostPage);
-        gui.addItem(WitherusNetherlordPage);
-        gui.addItem(CursedEmperorPage);
-        gui.addItem(PhantomRiderPage);
-        gui.addItem(FrozenSoulPage);
-        gui.addItem(DesertGuardianPage);
-        gui.addItem(RevenantArcherPage);
-        gui.addItem(MushroomMonsterPage);
+        // Cyclops
+        ArrayList<String> CyclopsDesc = new ArrayList<>();
+        CyclopsDesc.add("§7This is an ancient warlike creature.");
+        CyclopsDesc.add("§7It can shoot powerful lasers or kill");
+        CyclopsDesc.add("§7its opponent using strong melee attacks.");
+        ArrayList<String> CyclopsDrops = new ArrayList<>();
+        CyclopsDrops.add("§7None");
+        ItemStack CyclopsPage = builder.create(config.getString("CyclopsNametag"),10,config.getInt("CyclopsHealth"),CyclopsDesc,CyclopsDrops);
 
-        player.openInventory(gui);
-    }
+        // Watching Eye
+        ArrayList<String> WatchingEyeDesc = new ArrayList<>();
+        WatchingEyeDesc.add("§7This is a very obscure creature,");
+        WatchingEyeDesc.add("§7that can fly and shoot lasers.");
+        WatchingEyeDesc.add("§7Might be annoying.");
+        ArrayList<String> WatchingEyeDrops = new ArrayList<>();
+        WatchingEyeDrops.add("§7None");
+        ItemStack WatchingEyePage = builder.create(config.getString("WatchingEyeNametag"),3,config.getInt("WatchingEyeHealth"),WatchingEyeDesc,WatchingEyeDrops);
 
-    @EventHandler
-    public void guiClick(InventoryClickEvent e)
-    {
-        if(!e.getInventory().equals(gui))
-            return;
 
-        e.setCancelled(true);
+        // Giant
+        ArrayList<String> GiantDesc = new ArrayList<>();
+        GiantDesc.add("§7The relic of the prehistoric era, now beeing.");
+        GiantDesc.add("§7an extremely rare creature that has been growing");
+        GiantDesc.add("§7its strength since the ancient times.");
+        GiantDesc.add("§7There is no hero that can defeat one of those.");
+        ArrayList<String> GiantDrops = new ArrayList<>();
+        GiantDrops.add("§7None");
+        ItemStack GiantPage = builder.create(config.getString("GiantNametag"),50,config.getInt("GiantHealth"),GiantDesc,GiantDrops);
 
-        Player p = (Player)e.getWhoClicked();
 
-        if(e.getSlot() == 0)
-            p.sendMessage("ok");
-    }
-
-    @EventHandler
-    public void openGuiEvent(BestiaryEvent e)
-    {
-        createGui(e.getPlayer());
+        content.addAll(List.of(
+                WitherSpiderPage, ParasitePage, InfectedZombiePage, MasterAssassinPage, AirSpiritPage, FireSpiritPage, IceSpiritPage, SemiIdolPage, AncientZombiePage, OverworldInvaderPage,
+                GhostPage, WitherusNetherlordPage, CursedEmperorPage, PhantomRiderPage, FrozenSoulPage, DesertGuardianPage, RevenantArcherPage, MushroomMonsterPage, CyclopsPage, WatchingEyePage,
+                GiantPage
+        ));
     }
 }

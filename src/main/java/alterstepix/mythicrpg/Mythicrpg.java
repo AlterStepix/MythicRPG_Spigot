@@ -2,26 +2,34 @@ package alterstepix.mythicrpg;
 
 import alterstepix.mythicrpg.armorsets.*;
 import alterstepix.mythicrpg.commands.*;
-import alterstepix.mythicrpg.guis.BestiaryGui;
 import alterstepix.mythicrpg.itemabilities.*;
 
+import alterstepix.mythicrpg.menusystem.MenuListener;
 import alterstepix.mythicrpg.misc.CustomRecipes;
 import alterstepix.mythicrpg.misc.MobDropManager;
 import alterstepix.mythicrpg.misc.NaturalSpawn;
 import alterstepix.mythicrpg.misc.ResourcePackLoader;
 import alterstepix.mythicrpg.mobs.*;
 import alterstepix.mythicrpg.scrolls.*;
+import alterstepix.mythicrpg.util.PMU;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.HashMap;
+
 public final class Mythicrpg extends JavaPlugin{
+
+    public static Mythicrpg INSTANCE;
+
+    private static final HashMap<Player, PMU> PMU_Map = new HashMap<>();
 
     FileConfiguration configuration = getConfig();
 
     @Override
     public void onEnable() {
-
+        INSTANCE = this;
         configuration.options().copyDefaults(true);
         saveConfig();
 
@@ -57,6 +65,7 @@ public final class Mythicrpg extends JavaPlugin{
         Bukkit.getServer().getPluginManager().registerEvents(new InfectedSword(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new SwordOfGrowth(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new Singularity(this),this);
+        Bukkit.getServer().getPluginManager().registerEvents(new CorruptedMythicIdolsIncarnate(this),this);
 
         Bukkit.getServer().getPluginManager().registerEvents(new WitherSpider(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new Parasite(this),this);
@@ -82,14 +91,18 @@ public final class Mythicrpg extends JavaPlugin{
         Bukkit.getServer().getPluginManager().registerEvents(new FrozenWarriorArmor(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new MythicWarriorArmor(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new ThiefArmor(this),this);
+        Bukkit.getServer().getPluginManager().registerEvents(new BeastArmor(this),this);
+        Bukkit.getServer().getPluginManager().registerEvents(new CorruptedMythicWarriorArmor(this),this);
+        Bukkit.getServer().getPluginManager().registerEvents(new GlacialMythicWarriorArmor(this),this);
 
         Bukkit.getServer().getPluginManager().registerEvents(new MobDropManager(this),this);
 
-        Bukkit.getServer().getPluginManager().registerEvents(new BestiaryGui(this),this);
 
         Bukkit.getServer().getPluginManager().registerEvents(new ResourcePackLoader(),this);
 
         Bukkit.getServer().getPluginManager().registerEvents(new NaturalSpawn(this),this);
+
+        Bukkit.getServer().getPluginManager().registerEvents(new MenuListener(),this);
 
         CustomRecipes recipes = new CustomRecipes(this);
 
@@ -144,6 +157,21 @@ public final class Mythicrpg extends JavaPlugin{
         return configuration;
     }
 
+    public static PMU getPMU(Player player)
+    {
+        PMU pmu;
 
+        if(PMU_Map.containsKey(player))
+        {
+            return PMU_Map.get(player);
+        }
+        else
+        {
+            pmu = new PMU(player);
+            PMU_Map.put(player,pmu);
+            return pmu;
+        }
+
+    }
 
 }

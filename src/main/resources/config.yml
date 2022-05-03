@@ -20,6 +20,7 @@ darknessConcentrator: "#5e197d!Darkness Concentrator"
 infectedSword: "#114e19!Infected Sword"
 swordOfGrowth: "#009209!Sword Of Growth"
 singularity: "#44007e!Singularity"
+corruptedMythicIdolIncarnate: "#4a008e!Corrupted Mythic Idol Incarnate"
 
 # --- Item Settings
 
@@ -59,7 +60,7 @@ PhantomRiderNametag: "#2b0089!Phantom Rider"
 FrozenSoulNametag: "#1283fc!Frozen Soul"
 DesertGuardianNametag: "#b3743d!Desert Guardian"
 RevenantArcherNametag: "#5e218f!Revenant Archer"
-MushroomMonsterNamatag: "#630606!Mushroom Monster"
+MushroomMonsterNametag: "#630606!Mushroom Monster"
 CyclopsNametag: "#9191a5!Cyclops"
 WatchingEyeNametag: "#28538d!Watching Eye"
 
@@ -217,6 +218,25 @@ ThiefBootsName: "#28272b!Thief's Boots"
 ThiefLeggingsName: "#28272b!Thief's Pants"
 ThiefChestplateName: "#28272b!Thief's Coat"
 ThiefHelmetName: "#28272b!Thief's Hood"
+
+#Beast Armorset
+
+BeastChestplateName: "#d6d6d6!Chestplate of the Beast"
+BeastHelmetName: "#d6d6d6!Helmet of the Beast"
+
+#Corrupted Mythic Warrior Armorset
+
+CorruptedMythicWarriorBootsName: "#622aa3!Corrupted Mythic Warrior Boots"
+CorruptedMythicWarriorLeggingsName: "#622aa3!Corrupted Mythic Warrior Leggings"
+CorruptedMythicWarriorChestplateName: "#622aa3!Corrupted Mythic Warrior Chestplate"
+CorruptedMythicWarriorHelmetName: "#622aa3!Corrupted Mythic Warrior Helmet"
+
+#Glacial Mythic Warrior Armorset
+
+GlacialMythicWarriorBootsName: "#73e5ff!Glacial Mythic Warrior Boots"
+GlacialMythicWarriorLeggingsName: "#73e5ff!Glacial Mythic Warrior Leggings"
+GlacialMythicWarriorChestplateName: "#73e5ff!Glacial Mythic Warrior Chestplate"
+GlacialMythicWarriorHelmetName: "#73e5ff!Glacial Mythic Warrior Helmet"
 
 # Natural Spawn
 SpawnWitherSpiders: 1

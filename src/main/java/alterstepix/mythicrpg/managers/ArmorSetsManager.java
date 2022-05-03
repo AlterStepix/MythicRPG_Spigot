@@ -11,6 +11,7 @@ import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.EquipmentSlot;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
@@ -30,6 +31,9 @@ public class ArmorSetsManager {
     public ItemStack[] FrozenWarriorArmorSet = new ItemStack[4];
     public ItemStack[] MythicWarriorArmorset = new ItemStack[4];
     public ItemStack[] ThiefArmorset = new ItemStack[4];
+    public ItemStack[] BeastArmorset = new ItemStack[2];
+    public ItemStack[] CorruptedMythicArmor = new ItemStack[4];
+    public ItemStack[] GlacialMythicArmor = new ItemStack[4];
 
     public ArmorSetsManager(Mythicrpg main)
     {
@@ -46,6 +50,9 @@ public class ArmorSetsManager {
         createFrozenWarriorArmorSet();
         createMythicWarriorArmorset();
         createThiefArmorset();
+        createBeastArmorset();
+        createCorruptedMythicWarriorArmorset();
+        createGlacialMythicWarriorArmorset();
     }
 
     public void createGrandmasterArmorSet()
@@ -398,6 +405,210 @@ public class ArmorSetsManager {
         ThiefArmorset[1] = leggings;
         ThiefArmorset[2] = chestplate;
         ThiefArmorset[3] = helmet;
+
+    }
+
+    public void createBeastArmorset()
+    {
+        List<String> lore = new ArrayList<String>();
+        for(String l : lib.Lore.get("BA"))
+            lore.add(l);
+
+
+
+        ItemStack chestplate = new ItemStack(Material.LEATHER_CHESTPLATE);
+        LeatherArmorMeta metaC = (LeatherArmorMeta) chestplate.getItemMeta();
+
+        AttributeModifier modifierC = new AttributeModifier(UUID.randomUUID(),"mrpg",0.03, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.CHEST);
+        AttributeModifier modifierC_A = new AttributeModifier(UUID.randomUUID(),"mrpg",0.07, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.CHEST);
+
+        metaC.addAttributeModifier(Attribute.GENERIC_MOVEMENT_SPEED,modifierC);
+        metaC.addAttributeModifier(Attribute.GENERIC_ATTACK_SPEED,modifierC_A);
+
+        metaC.setDisplayName(ColorUtil.ConvertToCustom(config.getString("BeastChestplateName")));
+
+        metaC.setLore(lore);
+        metaC.setUnbreakable(true);
+
+        metaC.setColor(Color.fromRGB(214,214,214));
+
+        chestplate.setItemMeta(metaC);
+
+        //
+
+        ItemStack helmet = GetPlayerHead.GetCustomHead(GetPlayerHead.BeastHelmet);
+        ItemMeta metaH = helmet.getItemMeta();
+
+        metaH.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,10,true);
+
+        metaH.setDisplayName(ColorUtil.ConvertToCustom(config.getString("BeastHelmetName")));
+
+        AttributeModifier modifierH = new AttributeModifier(UUID.randomUUID(),"mrpg",0.03, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.HEAD);
+        AttributeModifier modifierH_A = new AttributeModifier(UUID.randomUUID(),"mrpg",0.07, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.HEAD);
+
+        metaH.addAttributeModifier(Attribute.GENERIC_MOVEMENT_SPEED,modifierH);
+        metaH.addAttributeModifier(Attribute.GENERIC_ATTACK_SPEED,modifierH_A);
+
+        metaH.setLore(lore);
+        metaH.setUnbreakable(true);
+
+        helmet.setItemMeta(metaH);
+
+        BeastArmorset[0] = chestplate;
+        BeastArmorset[1] = helmet;
+
+    }
+
+    public void createCorruptedMythicWarriorArmorset()
+    {
+        List<String> lore = new ArrayList<String>();
+        for(String l : lib.Lore.get("CMWA"))
+            lore.add(l);
+
+
+
+        ItemStack boots = new ItemStack(Material.LEATHER_BOOTS);
+        LeatherArmorMeta metaB = (LeatherArmorMeta) boots.getItemMeta();
+        metaB.setColor(Color.fromRGB(98,42,163));
+
+        AttributeModifier modifierB = new AttributeModifier(UUID.randomUUID(),"mrpg",30, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.FEET);
+        metaB.addAttributeModifier(Attribute.GENERIC_ARMOR,modifierB);
+
+
+        metaB.setDisplayName(ColorUtil.ConvertToCustom(config.getString("CorruptedMythicWarriorBootsName")));
+
+        metaB.setLore(lore);
+        metaB.setUnbreakable(true);
+
+        boots.setItemMeta(metaB);
+
+        //
+
+        ItemStack leggings = new ItemStack(Material.LEATHER_LEGGINGS);
+        LeatherArmorMeta metaL = (LeatherArmorMeta) leggings.getItemMeta();
+        metaL.setColor(Color.fromRGB(98,42,163));
+
+        AttributeModifier modifierL = new AttributeModifier(UUID.randomUUID(),"mrpg",30, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.LEGS);
+        metaL.addAttributeModifier(Attribute.GENERIC_ARMOR,modifierL);
+
+        metaL.setDisplayName(ColorUtil.ConvertToCustom(config.getString("CorruptedMythicWarriorLeggingsName")));
+
+        metaL.setLore(lore);
+        metaL.setUnbreakable(true);
+
+        leggings.setItemMeta(metaL);
+
+        //
+
+        ItemStack chestplate = new ItemStack(Material.LEATHER_CHESTPLATE);
+        LeatherArmorMeta metaC = (LeatherArmorMeta) chestplate.getItemMeta();
+        metaC.setColor(Color.fromRGB(98,42,163));
+
+        AttributeModifier modifierC = new AttributeModifier(UUID.randomUUID(),"mrpg",30, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.CHEST);
+        metaC.addAttributeModifier(Attribute.GENERIC_ARMOR,modifierC);
+
+        metaC.setDisplayName(ColorUtil.ConvertToCustom(config.getString("CorruptedMythicWarriorChestplateName")));
+
+        metaC.setLore(lore);
+        metaC.setUnbreakable(true);
+
+        chestplate.setItemMeta(metaC);
+
+        //
+
+        ItemStack helmet = GetPlayerHead.GetCustomHead(GetPlayerHead.CorruptedMythicHelmet);
+        ItemMeta metaH = helmet.getItemMeta();
+
+        AttributeModifier modifierH = new AttributeModifier(UUID.randomUUID(),"mrpg",30, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.HEAD);
+        metaH.addAttributeModifier(Attribute.GENERIC_ARMOR,modifierH);
+
+        metaH.setDisplayName(ColorUtil.ConvertToCustom(config.getString("CorruptedMythicWarriorHelmetName")));
+
+        metaH.setLore(lore);
+        metaH.setUnbreakable(true);
+
+        helmet.setItemMeta(metaH);
+
+        CorruptedMythicArmor[0] = boots;
+        CorruptedMythicArmor[1] = leggings;
+        CorruptedMythicArmor[2] = chestplate;
+        CorruptedMythicArmor[3] = helmet;
+
+    }
+    public void createGlacialMythicWarriorArmorset()
+    {
+        List<String> lore = new ArrayList<String>();
+        for(String l : lib.Lore.get("GMWA"))
+            lore.add(l);
+
+
+
+        ItemStack boots = new ItemStack(Material.LEATHER_BOOTS);
+        LeatherArmorMeta metaB = (LeatherArmorMeta) boots.getItemMeta();
+        metaB.setColor(Color.fromRGB(174,240,255));
+
+        AttributeModifier modifierB = new AttributeModifier(UUID.randomUUID(),"mrpg",50, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.FEET);
+        metaB.addAttributeModifier(Attribute.GENERIC_ARMOR,modifierB);
+
+
+        metaB.setDisplayName(ColorUtil.ConvertToCustom(config.getString("GlacialMythicWarriorBootsName")));
+
+        metaB.setLore(lore);
+        metaB.setUnbreakable(true);
+
+        boots.setItemMeta(metaB);
+
+        //
+
+        ItemStack leggings = new ItemStack(Material.LEATHER_LEGGINGS);
+        LeatherArmorMeta metaL = (LeatherArmorMeta) leggings.getItemMeta();
+        metaL.setColor(Color.fromRGB(174,240,255));
+
+        AttributeModifier modifierL = new AttributeModifier(UUID.randomUUID(),"mrpg",70, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.LEGS);
+        metaL.addAttributeModifier(Attribute.GENERIC_ARMOR,modifierL);
+
+        metaL.setDisplayName(ColorUtil.ConvertToCustom(config.getString("GlacialMythicWarriorLeggingsName")));
+
+        metaL.setLore(lore);
+        metaL.setUnbreakable(true);
+
+        leggings.setItemMeta(metaL);
+
+        //
+
+        ItemStack chestplate = new ItemStack(Material.LEATHER_CHESTPLATE);
+        LeatherArmorMeta metaC = (LeatherArmorMeta) chestplate.getItemMeta();
+        metaC.setColor(Color.fromRGB(136,233,255));
+
+        AttributeModifier modifierC = new AttributeModifier(UUID.randomUUID(),"mrpg",90, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.CHEST);
+        metaC.addAttributeModifier(Attribute.GENERIC_ARMOR,modifierC);
+
+        metaC.setDisplayName(ColorUtil.ConvertToCustom(config.getString("GlacialMythicWarriorChestplateName")));
+
+        metaC.setLore(lore);
+        metaC.setUnbreakable(true);
+
+        chestplate.setItemMeta(metaC);
+
+        //
+
+        ItemStack helmet = GetPlayerHead.GetCustomHead(GetPlayerHead.GlacialMythicHelmet);
+        ItemMeta metaH = helmet.getItemMeta();
+
+        AttributeModifier modifierH = new AttributeModifier(UUID.randomUUID(),"mrpg",50, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.HEAD);
+        metaH.addAttributeModifier(Attribute.GENERIC_ARMOR,modifierH);
+
+        metaH.setDisplayName(ColorUtil.ConvertToCustom(config.getString("GlacialMythicWarriorHelmetName")));
+
+        metaH.setLore(lore);
+        metaH.setUnbreakable(true);
+
+        helmet.setItemMeta(metaH);
+
+        GlacialMythicArmor[0] = boots;
+        GlacialMythicArmor[1] = leggings;
+        GlacialMythicArmor[2] = chestplate;
+        GlacialMythicArmor[3] = helmet;
 
     }
 }

@@ -302,6 +302,19 @@ public class ItemLoreLibrary {
 
         Lore.put("Singularity",Singularity);
 
+        //  Corrupted Curse
+        ArrayList<String> CorruptedCurseDescription = new ArrayList<>();
+
+        CorruptedCurseDescription.add("");
+        CorruptedCurseDescription.add("§6ITEM ABILITY: §eCorrupted Curse");
+        CorruptedCurseDescription.add("§7Applies extreme debuffs to your enemies on hit");
+        CorruptedCurseDescription.add("");
+        CorruptedCurseDescription.add("§6RIGHT CLICK: §eCorrupted Totem");
+        CorruptedCurseDescription.add("§7Right click to slam your sword into the ground, creating");
+        CorruptedCurseDescription.add("§7a corrupted totem that debuffs your opponents.");
+
+        Lore.put("CorruptedCurse",CorruptedCurseDescription);
+
         /* ===========================================
            ==============| Scrolls |==================
            ===========================================
@@ -432,6 +445,50 @@ public class ItemLoreLibrary {
         TADescription.add("§7You can dodge projectiles with 20% chance");
 
         Lore.put("TA",TADescription);
+
+
+        // Beast Armor
+
+        ArrayList<String> BADescription = new ArrayList<>();
+
+        BADescription.add("");
+        BADescription.add("§6Full Set Bonus: §eThe Beast");
+        BADescription.add("§7You will get regeneration and strength on hit.");
+        BADescription.add("§7You will be immune to projectiles");
+        BADescription.add("§7After 5 hit combo you will charge your superhit.");
+
+        Lore.put("BA",BADescription);
+
+        // Corrupted Mythic Warrior
+
+        ArrayList<String> CMWADescription = new ArrayList<>();
+
+        CMWADescription.add("");
+        CMWADescription.add("§6Full Set Bonus: §eCorrupted Mythic Warrior");
+        CMWADescription.add("§7I: Your damage will be multiplied by 1.5");
+        CMWADescription.add("§7II: You will get Strength 3");
+        CMWADescription.add("§7and Speed 1 for 3s if you will get damaged");
+        CMWADescription.add("§7III: You can ignore any damage you get");
+        CMWADescription.add("§7with 45% chance");
+        CMWADescription.add("§7IV: You have 20% chance to apply §5Corruption §7to your opponent");
+        CMWADescription.add("§7on hit.");
+
+        Lore.put("CMWA",CMWADescription);
+
+
+        ArrayList<String> GMWADescription = new ArrayList<>();
+
+        GMWADescription.add("");
+        GMWADescription.add("§6Full Set Bonus: §eGlacial Mythic Warrior");
+        GMWADescription.add("§7I: Your damage will be multiplied by 1.5");
+        GMWADescription.add("§7II: You will get speed 1");
+        GMWADescription.add("§7if you will get damaged");
+        GMWADescription.add("§7III: You can ignore any damage you get");
+        GMWADescription.add("§7with 55% chance");
+        GMWADescription.add("§7IV: You have 20% chance to apply §bFreezing §7to your opponent");
+        GMWADescription.add("§7on hit.");
+
+        Lore.put("GMWA",GMWADescription);
 
         /* ===========================================
            ==============| Misc |==================

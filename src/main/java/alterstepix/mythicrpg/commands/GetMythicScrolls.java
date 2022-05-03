@@ -1,6 +1,8 @@
 package alterstepix.mythicrpg.commands;
 
 import alterstepix.mythicrpg.Mythicrpg;
+import alterstepix.mythicrpg.guis.ExperimentalMenu;
+import alterstepix.mythicrpg.guis.ScrollsMenu;
 import alterstepix.mythicrpg.util.Messages;
 import alterstepix.mythicrpg.managers.ScrollManager;
 import org.bukkit.Bukkit;
@@ -21,25 +23,15 @@ public class GetMythicScrolls implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if(sender instanceof Player)
+        if(sender instanceof Player player)
         {
             if(sender.isOp() || sender.hasPermission("mythicrpg.getmythicscrolls"))
             {
-                Inventory gui = Bukkit.createInventory(null, InventoryType.CHEST);
-                ScrollManager m = new ScrollManager(main);
-                m.init();
 
-                gui.addItem(m.ArrowStormScroll);
-                gui.addItem(m.NetherStormScroll);
-                gui.addItem(m.HealingTotemScroll);
-                gui.addItem(m.InfernalAuraScroll);
-                gui.addItem(m.FrozenStormScroll);
-
-                Player p = (Player)sender;
-                p.openInventory(gui);
-                p.sendMessage(Messages.CommandSuccess);
+                ScrollsMenu menu = new ScrollsMenu(Mythicrpg.getPMU(player));
+                menu.open();
+                player.sendMessage(Messages.CommandSuccess);
             }
-
 
         }
         else

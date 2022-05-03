@@ -1,9 +1,8 @@
 package alterstepix.mythicrpg.itemabilities;
 
 import alterstepix.mythicrpg.Mythicrpg;
-import alterstepix.mythicrpg.guis.BestiaryEvent;
+import alterstepix.mythicrpg.guis.BestiaryMenu;
 import alterstepix.mythicrpg.util.ItemLoreLibrary;
-import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -28,7 +27,8 @@ public class BestiaryBook implements Listener {
             Player player = e.getPlayer();
 
             if (player.getInventory().getItemInMainHand().getItemMeta() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore().contains(lib.Lore.get("Bestiary").get(1))) {
-                Bukkit.getServer().getPluginManager().callEvent(new BestiaryEvent(player));
+                BestiaryMenu menu = new BestiaryMenu(Mythicrpg.getPMU(player));
+                menu.open();
             }
         }
     }

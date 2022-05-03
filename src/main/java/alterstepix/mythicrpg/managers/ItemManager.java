@@ -37,6 +37,7 @@ public class ItemManager {
     public ItemStack InfectedSword;
     public ItemStack SwordOfGrowth;
     public ItemStack Singularity;
+    public ItemStack CorruptedMythicIdolsIncarnate;
 
     Mythicrpg main;
     FileConfiguration config;
@@ -71,6 +72,7 @@ public class ItemManager {
         this.createInfectedSword();
         this.createSwordOfGrowth();
         this.createSingularity();
+        this.createCorruptedMythicIdolsIncarnate();
     }
 
     public void createLightingAxe()
@@ -514,5 +516,27 @@ public class ItemManager {
 
         BestiaryBook = item;
     }
+    public void createCorruptedMythicIdolsIncarnate()
+    {
+        ItemStack item = new ItemStack(Material.NETHERITE_SWORD, 1);
 
+        ItemMeta meta = item.getItemMeta();
+
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+
+        meta.setDisplayName(ColorUtil.ConvertToCustom(this.config.getString("corruptedMythicIdolIncarnate")));
+        meta.setUnbreakable(true);
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        List<String> lore = new ArrayList<>();
+
+        for(String l : lib.Lore.get("CorruptedCurse"))
+            lore.add(l);
+
+
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+
+        CorruptedMythicIdolsIncarnate = item;
+    }
 }

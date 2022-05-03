@@ -1,3 +1,8 @@
+<div align="center">
+  <img src="https://img.shields.io/github/last-commit/AlterStepix/mythicrpg"/>
+  <img src="https://tokei.rs/b1/github/AlterStepix/MythicRPG"/>
+</div>
+
 # MythicRPG
 Simple minecraft plugin made for minecraft rpg servers
 

@@ -2,6 +2,7 @@ package alterstepix.mythicrpg.mobs;
 
 import alterstepix.mythicrpg.Mythicrpg;
 import alterstepix.mythicrpg.util.ColorUtil;
+import alterstepix.mythicrpg.util.GetPlayerHead;
 import org.bukkit.*;
 import org.bukkit.attribute.Attributable;
 import org.bukkit.attribute.Attribute;
@@ -77,6 +78,8 @@ public class NetherLord implements Listener {
         horse.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE,9999999,10,false,false,false));
         horse.addPassenger(boss);
 
+        boss.getEquipment().setHelmet(GetPlayerHead.GetCustomHead(GetPlayerHead.WitherusNetherlordHead));
+
         BossBar bar = Bukkit.createBossBar(ColorUtil.ConvertToCustom(config.getString("BossPrefix"))+ColorUtil.ConvertToCustom(config.getString("NetherLordBossNametag")), BarColor.RED, BarStyle.SEGMENTED_10);
 
         createHealer(boss.getLocation().add(0,3.5,0));
@@ -98,6 +101,10 @@ public class NetherLord implements Listener {
                         if(p.getLocation().distanceSquared(boss.getLocation()) > 1000)
                         {
                             bar.removePlayer(p);
+                        }
+                        else
+                        {
+                            bar.addPlayer(p);
                         }
                     }
 

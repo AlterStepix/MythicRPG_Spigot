@@ -95,6 +95,10 @@ public class CursedEmperor implements Listener {
                         {
                             bar.removePlayer(p);
                         }
+                        else
+                        {
+                            bar.addPlayer(p);
+                        }
                     }
 
                     bar.setProgress(emperor.getHealth()/emperor.getMaxHealth());

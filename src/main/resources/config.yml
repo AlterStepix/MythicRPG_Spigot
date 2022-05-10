@@ -63,6 +63,7 @@ RevenantArcherNametag: "#5e218f!Revenant Archer"
 MushroomMonsterNametag: "#630606!Mushroom Monster"
 CyclopsNametag: "#9191a5!Cyclops"
 WatchingEyeNametag: "#28538d!Watching Eye"
+RedstoneMonsterNametag: "#c73b4d!Redstone Monster"
 
 MiniBossPrefix: "#ff535c!MINI BOSS " # --- Miniboss prefix
 BossPrefix: "#7d2222!BOSS " # --- Boss prefix
@@ -87,6 +88,7 @@ RevenantArcherHealth: 125
 MushroomMonsterHealth: 100
 CyclopsHealth: 145
 WatchingEyeHealth: 20
+RedstoneMonsterHealth: 165
 
 # --- Mob Drops ---
 

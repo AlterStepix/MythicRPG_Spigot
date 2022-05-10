@@ -120,6 +120,10 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                             mGiant mob19 = new mGiant(main);
                             mob19.summon(player.getLocation());
                         }
+                        case "RedstoneMonster" -> {
+                            RedstoneMonster mob20 = new RedstoneMonster();
+                            mob20.summon(player.getLocation());
+                        }
                     }
                 }
                 else
@@ -154,112 +158,94 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                     Bukkit.getLogger().info(Messages.WrongWorld.replace("§c",""));
                 }
             }
+            Location loc = new Location(wr, Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]));
             switch (args[0]) {
                 case "WitherSpider" -> {
                     WitherSpider mob1 = new WitherSpider(main);
-                    Location loc1 = new Location(wr, Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]));
-                    mob1.createLeapingSpider(loc1);
+
+                    mob1.createLeapingSpider(loc);
                 }
                 case "Parasite" -> {
                     Parasite mob2 = new Parasite(main);
-                    Location loc2 = new Location(wr, Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]));
-                    mob2.createParasite(loc2);
+                    mob2.createParasite(loc);
                 }
                 case "InfectedZombie" -> {
                     InfectedZombie mob3 = new InfectedZombie(main);
-                    Location loc3 = new Location(wr, Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]));
-                    mob3.createInfectedZombie(loc3);
+                    mob3.createInfectedZombie(loc);
                 }
                 case "MasterAssassin" -> {
                     MasterAssassin mob4 = new MasterAssassin(main);
-                    Location loc4 = new Location(wr, Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]));
-                    mob4.createMasterAssassin(loc4);
+                    mob4.createMasterAssassin(loc);
                 }
                 case "AirSpirit" -> {
                     AirSpirit mob5 = new AirSpirit(main);
-                    Location loc5 = new Location(wr, Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]));
-                    mob5.createAirSpirit(loc5);
+                    mob5.createAirSpirit(loc);
                 }
                 case "FireSpirit" -> {
                     FireSpirit mob6 = new FireSpirit(main);
-                    Location loc6 = new Location(wr, Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]));
-                    mob6.createFireSpirit(loc6);
+                    mob6.createFireSpirit(loc);
                 }
                 case "IceSpirit" -> {
                     IceSpirit mob7 = new IceSpirit(main);
-                    Location loc7 = new Location(wr, Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]));
-                    mob7.createIceSpirit(loc7);
+                    mob7.createIceSpirit(loc);
                 }
                 case "SemiIdol" -> {
                     SemiIdol mob8 = new SemiIdol(main);
-                    Location loc8 = new Location(wr, Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]));
-                    mob8.createSemiIdol(loc8);
+                    mob8.createSemiIdol(loc);
                 }
                 case "AncientZombie" -> {
                     AncientZombie mob9 = new AncientZombie(main);
-                    Location loc9 = new Location(wr, Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]));
-                    mob9.createAncientZombie(loc9);
+                    mob9.createAncientZombie(loc);
                 }
                 case "WitherusNetherlord" -> {
                     NetherLord mob10 = new NetherLord(main);
-                    Location loc10 = new Location(wr, Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]));
-                    mob10.createNetherLord(loc10);
+                    mob10.createNetherLord(loc);
                 }
                 case "OverworldInvader" -> {
                     OverworldInvader mob11 = new OverworldInvader(main);
-                    Location loc11 = new Location(wr, Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]));
-                    mob11.CreateOverworldInvader(loc11);
+                    mob11.CreateOverworldInvader(loc);
                 }
                 case "Ghost" -> {
                     Ghost mob12 = new Ghost(main);
-                    Location loc12 = new Location(wr, Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]));
-                    mob12.createGhost(loc12);
+                    mob12.createGhost(loc);
                 }
                 case "CursedEmperor" -> {
                     CursedEmperor mob13 = new CursedEmperor(main);
-                    Location loc13 = new Location(wr, Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]));
-                    mob13.createCursedEmperor(loc13);
+                    mob13.createCursedEmperor(loc);
                 }
                 case "PhantomRider" -> {
                     PhantomRider mob14 = new PhantomRider(main);
-                    Location loc14 = new Location(wr, Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]));
-                    mob14.createPhantom(loc14);
+                    mob14.createPhantom(loc);
                 }
                 case "FrozenSoul" -> {
                     FrozenSoul mob15 = new FrozenSoul(main);
-                    Location loc15 = new Location(wr, Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]));
-                    mob15.createFrozenSoul(loc15);
+                    mob15.createFrozenSoul(loc);
                 }
                 case "DesertGuardian" -> {
                     DesertGuardian mob16 = new DesertGuardian(main);
-                    Location loc16 = new Location(wr, Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]));
-                    mob16.createDesertGuardian(loc16);
+                    mob16.createDesertGuardian(loc);
                 }
                 case "RevenantArcher" -> {
                     RevenantArcher mob17 = new RevenantArcher(main);
-                    Location loc17 = new Location(wr, Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]));
-                    mob17.createRevenantArcher(loc17);
+                    mob17.createRevenantArcher(loc);
                 }
                 case "MushroomMonster" -> {
                     MushroomMonster mob18 = new MushroomMonster(main);
-                    Location loc18 = new Location(wr, Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]));
-                    mob18.createMushroomMonster(loc18);
+                    mob18.createMushroomMonster(loc);
                 }
                 case "Cyclops" -> {
                     Cyclops mob19 = new Cyclops(main);
-                    Location loc19 = new Location(wr, Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]));
-                    mob19.summon(loc19);
+                    mob19.summon(loc);
                 }
                 case "WatchingEye" -> {
                     WatchingEye mob19 = new WatchingEye(main);
-                    Location loc19 = new Location(wr, Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]));
-                    mob19.summon(loc19);
+                    mob19.summon(loc);
                 }
                 case "Giant" -> {
                     mGiant mob19 = new mGiant(main);
-                    Location loc19 = new Location(wr, Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]));
-                    mob19.summon(loc19);
+                    mob19.summon(loc);
                 }
+                case "RedstoneMonster" -> (new RedstoneMonster()).summon(loc);
             }
         }
         else
@@ -302,6 +288,7 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
         list.add("Cyclops");
         list.add("WatchingEye");
         list.add("Giant");
+        list.add("RedstoneMonster");
         List<String> tab = new ArrayList<String>();
         if(args.length == 1)
         {

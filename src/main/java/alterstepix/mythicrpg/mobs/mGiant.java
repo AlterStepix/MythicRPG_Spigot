@@ -63,16 +63,11 @@ public class mGiant implements Listener {
                 if(!giant.isDead()) {
 
                     // Default Damage Section
-
-                    for (Entity e_trg : giant.getNearbyEntities(12, 12, 12)) {
-                        if (e_trg instanceof LivingEntity target) {
-                            if (target.getCustomName() != null && !target.getCustomName().contains(config.getString("AncientZombieNametag").split("!")[1]) && !target.getCustomName().contains(config.getString("CyclopsNametag").split("!")[1])
-                                    && !target.getCustomName().contains(config.getString("WatchingEyeNametag").split("!")[1])) {
-
-                                target.damage(14);
-                                target.getWorld().playSound(target.getLocation(),Sound.BLOCK_GRAVEL_BREAK,5,5);
-
-                            }
+                    for(Player p : Bukkit.getOnlinePlayers())
+                    {
+                        if(p.getLocation().distanceSquared(giant.getLocation()) < 144)
+                        {
+                            p.damage(14);
                         }
                     }
 

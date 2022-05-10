@@ -1,6 +1,7 @@
 package alterstepix.mythicrpg.mobs;
 import alterstepix.mythicrpg.Mythicrpg;
 import alterstepix.mythicrpg.util.ColorUtil;
+import alterstepix.mythicrpg.util.GetPlayerHead;
 import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.enchantments.Enchantment;
@@ -31,14 +32,13 @@ public class FireSpirit {
         spirit.setCustomName(config.getString("FireSpiritNametag"));
         spirit.setCustomNameVisible(true);
 
-        ItemStack helmet = new ItemStack(Material.LEATHER_HELMET);
+        ItemStack helmet = GetPlayerHead.GetCustomHead(GetPlayerHead.FlamingSpritHead);
         ItemStack chestplate = new ItemStack(Material.LEATHER_CHESTPLATE);
         ItemStack leggings = new ItemStack(Material.LEATHER_LEGGINGS);
         ItemStack boots = new ItemStack(Material.LEATHER_BOOTS);
-        LeatherArmorMeta armormeta = (LeatherArmorMeta)helmet.getItemMeta();
+        LeatherArmorMeta armormeta = (LeatherArmorMeta)chestplate.getItemMeta();
         armormeta.setColor(Color.fromRGB(255,74,28));
         armormeta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,7,true);
-        helmet.setItemMeta(armormeta);
         chestplate.setItemMeta(armormeta);
         leggings.setItemMeta(armormeta);
         boots.setItemMeta(armormeta);

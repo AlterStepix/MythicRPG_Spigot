@@ -180,7 +180,7 @@ public class generateLoot {
         {
 
         }
-        else if(name != null && name.contains(config.getString("MushroomMonsterNamatag").split("!")[1]))
+        else if(name != null && name.contains(config.getString("MushroomMonsterNametag").split("!")[1]))
         {
 
         }

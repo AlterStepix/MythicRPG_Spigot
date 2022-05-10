@@ -2,6 +2,7 @@ package alterstepix.mythicrpg.mobs;
 
 import alterstepix.mythicrpg.Mythicrpg;
 import alterstepix.mythicrpg.util.ColorUtil;
+import alterstepix.mythicrpg.util.GetPlayerHead;
 import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -59,7 +60,7 @@ public class MushroomMonster implements Listener {
         monster.getEquipment().setBoots(boots);
         monster.getEquipment().setLeggings(leggings);
         monster.getEquipment().setChestplate(cp);
-        monster.getEquipment().setHelmet(new ItemStack(Material.RED_MUSHROOM_BLOCK));
+        monster.getEquipment().setHelmet(GetPlayerHead.GetCustomHead(GetPlayerHead.MushroomMosterHead));
 
         new BukkitRunnable()
         {
@@ -68,7 +69,7 @@ public class MushroomMonster implements Listener {
             public void run() {
                 if(!monster.isDead())
                 {
-                    monster.setCustomName(ColorUtil.ConvertToCustom(config.getString("MiniBossPrefix")) + ColorUtil.ConvertToCustom(config.getString("MushroomMonsterNamatag")) + " §7[" + Math.round(monster.getHealth()) + "/" + monster.getMaxHealth() + "]");
+                    monster.setCustomName(ColorUtil.ConvertToCustom(config.getString("MiniBossPrefix")) + ColorUtil.ConvertToCustom(config.getString("MushroomMonsterNametag")) + " §7[" + Math.round(monster.getHealth()) + "/" + monster.getMaxHealth() + "]");
                     if(i % 5 == 0)
                     {
                         for(Entity entity : monster.getNearbyEntities(12,12,12))

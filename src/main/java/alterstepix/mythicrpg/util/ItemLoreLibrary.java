@@ -377,6 +377,19 @@ public class ItemLoreLibrary {
 
         Lore.put("InfernalAura",InferalAuraScrollDescription);
 
+
+        // Necromancer Scroll
+
+        ArrayList<String> NecromancerScrollDescription = new ArrayList<>();
+
+        NecromancerScrollDescription.add("");
+        NecromancerScrollDescription.add("§6SCROLL: §eNecromancer");
+        NecromancerScrollDescription.add("§7Creates an army that targets");
+        NecromancerScrollDescription.add("§7selected enemy");
+        InferalAuraScrollDescription.add("§8Consumed on use");
+
+        Lore.put("NecromancerScroll",NecromancerScrollDescription);
+
         /* ===========================================
            ==============| Armor |==================
            ===========================================

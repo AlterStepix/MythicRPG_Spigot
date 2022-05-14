@@ -36,8 +36,8 @@ public class DynamicAbilityHandler implements Listener {
                                 target.setHealth(target.getMaxHealth());
                             }
 
-                            le_damager.getWorld().playSound(le_damager.getLocation(),v_damager.VAMPIRE_INFO().Sound,v_damager.VAMPIRE_INFO().SoundVolume,v_damager.VAMPIRE_INFO().SoundPitch);
-                            le_damager.getWorld().spawnParticle(v_damager.VAMPIRE_INFO().Particle, le_damager.getLocation().add(v_damager.VAMPIRE_INFO().ParticleOffset),v_damager.VAMPIRE_INFO().ParticleAmount,0,0,0);
+                            v_damager.VAMPIRE_INFO().displayParticle(le_damager.getLocation());
+                            v_damager.VAMPIRE_INFO().playSound(le_damager.getLocation());
 
                         }
                     }

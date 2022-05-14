@@ -27,7 +27,8 @@ public class ScrollsMenu extends AbstractPaginatedMenu {
                 m.FrozenStormScroll,
                 m.HealingTotemScroll,
                 m.InfernalAuraScroll,
-                m.NetherStormScroll
+                m.NetherStormScroll,
+                m.NecromancerScroll
         ));
     }
 

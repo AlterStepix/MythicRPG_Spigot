@@ -65,7 +65,7 @@ public abstract class CustomMob {
             }
         }.runTaskTimer(Mythicrpg.INSTANCE,0L,20L);
 
-        if(this instanceof BlockThrower thrower)
+        if(this instanceof BlockThrower ability)
         {
             new BukkitRunnable()
             {
@@ -73,15 +73,15 @@ public abstract class CustomMob {
                 @Override
                 public void run() {
 
-                    if(i % thrower.BLOCK_THROWER_INFO().cooldown == thrower.BLOCK_THROWER_INFO().starting)
+                    if(i % ability.BLOCK_THROWER_INFO().cooldown == ability.BLOCK_THROWER_INFO().starting)
                     {
-                        FallingBlock fallingBlock = mob.getWorld().spawnFallingBlock(mob.getLocation().add(0,2,0), thrower.BLOCK_THROWER_INFO().material, (byte) 0);
+                        FallingBlock fallingBlock = mob.getWorld().spawnFallingBlock(mob.getLocation().add(0,2,0), ability.BLOCK_THROWER_INFO().material, (byte) 0);
                         fallingBlock.setCustomName("##!never_place");
                         fallingBlock.setDropItem(false);
                         fallingBlock.setVelocity(mob.getTarget().getLocation().add(0,1,0).subtract(fallingBlock.getLocation()).toVector().multiply(0.5));
 
-                        fallingBlock.getWorld().playSound(fallingBlock.getLocation(),thrower.BLOCK_THROWER_INFO().Sound,thrower.BLOCK_THROWER_INFO().SoundVolume,thrower.BLOCK_THROWER_INFO().SoundPitch);
-                        fallingBlock.getWorld().spawnParticle(thrower.BLOCK_THROWER_INFO().Particle, fallingBlock.getLocation().add(thrower.BLOCK_THROWER_INFO().ParticleOffset),thrower.BLOCK_THROWER_INFO().ParticleAmount,0,0,0);
+                        ability.BLOCK_THROWER_INFO().playSound(mob.getLocation());
+                        ability.BLOCK_THROWER_INFO().displayParticles(mob.getLocation());
 
                         //
 
@@ -90,7 +90,7 @@ public abstract class CustomMob {
                             {
                                 if(!fallingBlock.isDead())
                                 {
-                                    fallingBlock.getWorld().spawnParticle(thrower.BLOCK_THROWER_INFO().Particle, fallingBlock.getLocation().add(thrower.BLOCK_THROWER_INFO().ParticleOffset),1,0,0,0);
+                                    ability.BLOCK_THROWER_INFO().displayTrailParticles(mob.getLocation());
                                     for(Entity entity : fallingBlock.getNearbyEntities(2,2,2))
                                     {
                                         if(entity instanceof Player){

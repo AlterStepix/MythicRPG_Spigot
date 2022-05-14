@@ -86,6 +86,7 @@ public final class Mythicrpg extends JavaPlugin{
         Bukkit.getServer().getPluginManager().registerEvents(new HealingTotemScroll(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new InfernalAuraScroll(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new FrozenStorm(this),this);
+        Bukkit.getServer().getPluginManager().registerEvents(new NecromancerScroll(this),this);
 
         Bukkit.getServer().getPluginManager().registerEvents(new GrandmasterArmor(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new MasterAssassinArmor(this),this);

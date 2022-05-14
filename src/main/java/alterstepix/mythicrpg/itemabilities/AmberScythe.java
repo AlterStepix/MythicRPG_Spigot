@@ -2,9 +2,12 @@ package alterstepix.mythicrpg.itemabilities;
 
 
 import alterstepix.mythicrpg.Mythicrpg;
+import alterstepix.mythicrpg.misc.ParticleSpawner;
 import alterstepix.mythicrpg.util.Cooldown;
 import alterstepix.mythicrpg.util.ItemLoreLibrary;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.Particle;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Fireball;
 import org.bukkit.entity.Player;
@@ -45,6 +48,20 @@ public class AmberScythe implements Listener {
                             Fireball fire = player.getWorld().spawn(player.getLocation().add(player.getLocation().getDirection().normalize().multiply(2.5)),Fireball.class);
                             fire.setDirection(player.getLocation().getDirection());
                             fire.setVelocity(player.getLocation().getDirection());
+
+                            new BukkitRunnable()
+                            {
+
+                                @Override
+                                public void run() {
+                                    fire.getWorld().spawnParticle(Particle.LAVA,fire.getLocation(),10,0.5,0.5,0.5);
+                                    if(fire.isDead())
+                                        cancel();
+                                    if(!fire.isValid())
+                                        cancel();
+                                }
+                            }.runTaskTimer(main,0L,2L);
+
                             i++;
                             if(i > 2)
                             {
@@ -53,6 +70,14 @@ public class AmberScythe implements Listener {
                         }
                     }.runTaskTimer(main,0L,15L);
                     thiscd.putCooldown(player,config.getInt("amberScytheCooldown"));
+
+                    Location location = player.getEyeLocation();
+
+
+
+
+
+
                 }
                 else
                 {

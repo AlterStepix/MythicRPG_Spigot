@@ -51,7 +51,7 @@ public class ItemLoreLibrary {
 
         TerminationDescription.add("");
         TerminationDescription.add("§6LEFT CLICK: §eTermination");
-        TerminationDescription.add("§7Instantly shoots 3 arrow");
+        TerminationDescription.add("§7Left click to instantly shoot 1 homing arrow");
 
 
         Lore.put("Termination",TerminationDescription);

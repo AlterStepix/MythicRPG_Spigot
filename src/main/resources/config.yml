@@ -184,6 +184,10 @@ AncientPriestHealth: 40
 GiantNametag: "#e83838!Giant"
 GiantHealth: 2000
 
+#DarknessIncarnate
+DarknessIncarnateNametag: "#2e003e!Darkness Incarnate"
+DarknessIncarnateHealth: 1750
+
 # --- Armor sets ---
 
 #Grandmaster Armorset

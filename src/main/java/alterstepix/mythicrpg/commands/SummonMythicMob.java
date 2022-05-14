@@ -124,6 +124,7 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                             RedstoneMonster mob20 = new RedstoneMonster();
                             mob20.summon(player.getLocation());
                         }
+                        case "DarknessIncarnate" -> (new DarknessIncarnate()).summon(player.getLocation());
                     }
                 }
                 else
@@ -246,6 +247,7 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
                     mob19.summon(loc);
                 }
                 case "RedstoneMonster" -> (new RedstoneMonster()).summon(loc);
+                case "DarknessIncarnate" -> (new DarknessIncarnate()).summon(loc);
             }
         }
         else
@@ -289,6 +291,7 @@ public class SummonMythicMob implements CommandExecutor, TabCompleter {
         list.add("WatchingEye");
         list.add("Giant");
         list.add("RedstoneMonster");
+        list.add("DarknessIncarnate");
         List<String> tab = new ArrayList<String>();
         if(args.length == 1)
         {

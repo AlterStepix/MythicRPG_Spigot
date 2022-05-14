@@ -32,7 +32,7 @@ public class GetPlayerHead {
     public static String WaterGolemHead="{display:{Name:\"{\\\"text\\\":\\\"Eerie Eye\\\"}\"},SkullOwner:{Id:[I;690590302,1176981287,-1898166977,1709318521],Properties:{textures:[{Value:\"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzk5MDJjODdmNjVlNDViNzFjNThhN2FlYjRmZmRiM2IzNDY5NDQ5Nzk0NDcwNTlkNTk5ZGQ4OTdkYzA0Nzk3MyJ9fX0=\"}]}}}";
     public static String WoodenGolemHead="{display:{Name:\"{\\\"text\\\":\\\"Haunted Log\\\"}\"},SkullOwner:{Id:[I;-105683416,593775689,-1561023019,-1945881606],Properties:{textures:[{Value:\"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDE4YzIwZjhjNTg3MmViMWQ4MDgwMmY2NzMxMjJmYmUzMDg5MTNkMWI2YmE0MTc2YTQ0ZTlkNjczZDQ5OWU0In19fQ==\"}]}}}";
     public static String RedstoneMonsterHead="{display:{Name:\"{\\\"text\\\":\\\"Redstone Monstrosity\\\"}\"},SkullOwner:{Id:[I;-363238476,-952942392,-1220472066,1652571084],Properties:{textures:[{Value:\"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzE1ZGRjYTQ5NjUxMDAxNjU3OGYwNjdlMWE3YTdhMTE0NjA1Mjg4MjVhMmVjYTdjZTUzYWEwMTU3NjJhYjExOCJ9fX0=\"}]}}}";
-
+    public static String DarknessIncarnateHead="{display:{Name:\"{\\\"text\\\":\\\"Insect (black)\\\"}\"},SkullOwner:{Id:[I;1998407191,-615297467,-1244325431,-446164320],Properties:{textures:[{Value:\"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTk0YTVlOGZlYWY5NTlhNzI3ZDZmMDdmODM4MmRjMzkyODBlNDY2YzRkODgzMGViMGFiYzM4YzQ2NGJmZDdiYyJ9fX0=\"}]}}}";
 
     public static ItemStack GetCustomHead(String value)
     {

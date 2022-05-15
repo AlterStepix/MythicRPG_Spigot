@@ -18,6 +18,7 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityChangeBlockEvent;
 import org.bukkit.event.entity.EntityDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.material.MaterialData;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -76,7 +77,8 @@ public class FrozenWand implements Listener {
                                             trg.damage(2);
                                             trg.addPotionEffect(potionEffect);
                                             trg.addPotionEffect(potionEffect2);
-                                            trg.getWorld().spawnParticle(Particle.WATER_SPLASH, trg.getLocation(), 10);
+                                            trg.getWorld().spawnParticle(Particle.SNOWBALL, trg.getLocation(),15);
+                                            trg.getWorld().playSound(trg.getLocation(), Sound.BLOCK_GLASS_BREAK,15,5);
                                             ice.remove();
                                         }
                                     }
@@ -93,7 +95,8 @@ public class FrozenWand implements Listener {
                                             PotionEffect potionEffect2 = new PotionEffect(PotionEffectType.SLOW, 80, 3, true, true, true);
                                             trg.addPotionEffect(potionEffect);
                                             trg.addPotionEffect(potionEffect2);
-                                            trg.getWorld().spawnParticle(Particle.WATER_SPLASH, trg.getLocation(), 10);
+                                            trg.getWorld().spawnParticle(Particle.SNOWBALL, trg.getLocation(),15);
+                                            trg.getWorld().playSound(trg.getLocation(), Sound.BLOCK_GLASS_BREAK,15,5);
                                             ice2.remove();
                                         }
                                     }
@@ -110,7 +113,8 @@ public class FrozenWand implements Listener {
                                             PotionEffect potionEffect2 = new PotionEffect(PotionEffectType.SLOW, 80, 3, true, true, true);
                                             trg.addPotionEffect(potionEffect);
                                             trg.addPotionEffect(potionEffect2);
-                                            trg.getWorld().spawnParticle(Particle.WATER_SPLASH, trg.getLocation(), 10);
+                                            trg.getWorld().spawnParticle(Particle.SNOWBALL, trg.getLocation(),15);
+                                            trg.getWorld().playSound(trg.getLocation(), Sound.BLOCK_GLASS_BREAK,15,5);
                                             ice3.remove();
                                         }
                                     }
@@ -130,6 +134,8 @@ public class FrozenWand implements Listener {
                 else
                 {
                     player.sendMessage("§c[Mythic RPG] This item is on cooldown for " + (thiscd.getCooldownTime(player)+1));
+                    player.getWorld().spawnParticle(Particle.WATER_SPLASH, player.getLocation(), 10);
+                    player.getWorld().playSound(player.getLocation(), Sound.BLOCK_POINTED_DRIPSTONE_DRIP_WATER,15,5);
                 }
             }
         }

@@ -1,4 +1,13 @@
-package alterstepix.mythicrpg.managers;
+
+/*
+Copyright 2022 AlterStepix and Crutogurch
+
+        Licensed under the Apache License, Version 2.0 (the "License");
+        you may not use this file except in compliance with the License.
+        You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+*/package alterstepix.mythicrpg.managers;
 
 import alterstepix.mythicrpg.Mythicrpg;
 import alterstepix.mythicrpg.util.ColorUtil;
@@ -548,7 +557,12 @@ public class ArmorSetsManager {
         metaB.setColor(Color.fromRGB(174,240,255));
 
         AttributeModifier modifierB = new AttributeModifier(UUID.randomUUID(),"mrpg",50, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.FEET);
+        AttributeModifier mod_HP_B = new AttributeModifier(UUID.randomUUID(),"mrpg",8, AttributeModifier.Operation.ADD_NUMBER,EquipmentSlot.FEET);
         metaB.addAttributeModifier(Attribute.GENERIC_ARMOR,modifierB);
+        metaB.addAttributeModifier(Attribute.GENERIC_MAX_HEALTH,mod_HP_B);
+
+        metaB.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,12,true);
+        metaB.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 
 
         metaB.setDisplayName(ColorUtil.ConvertToCustom(config.getString("GlacialMythicWarriorBootsName")));
@@ -565,7 +579,12 @@ public class ArmorSetsManager {
         metaL.setColor(Color.fromRGB(174,240,255));
 
         AttributeModifier modifierL = new AttributeModifier(UUID.randomUUID(),"mrpg",70, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.LEGS);
+        AttributeModifier mod_HP_L = new AttributeModifier(UUID.randomUUID(),"mrpg",8, AttributeModifier.Operation.ADD_NUMBER,EquipmentSlot.LEGS);
         metaL.addAttributeModifier(Attribute.GENERIC_ARMOR,modifierL);
+        metaL.addAttributeModifier(Attribute.GENERIC_MAX_HEALTH,mod_HP_L);
+
+        metaL.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,12,true);
+        metaL.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 
         metaL.setDisplayName(ColorUtil.ConvertToCustom(config.getString("GlacialMythicWarriorLeggingsName")));
 
@@ -581,9 +600,14 @@ public class ArmorSetsManager {
         metaC.setColor(Color.fromRGB(136,233,255));
 
         AttributeModifier modifierC = new AttributeModifier(UUID.randomUUID(),"mrpg",90, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.CHEST);
+        AttributeModifier mod_HP_C = new AttributeModifier(UUID.randomUUID(),"mrpg",8, AttributeModifier.Operation.ADD_NUMBER,EquipmentSlot.CHEST);
         metaC.addAttributeModifier(Attribute.GENERIC_ARMOR,modifierC);
+        metaC.addAttributeModifier(Attribute.GENERIC_MAX_HEALTH,mod_HP_C);
 
         metaC.setDisplayName(ColorUtil.ConvertToCustom(config.getString("GlacialMythicWarriorChestplateName")));
+
+        metaC.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,12,true);
+        metaC.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 
         metaC.setLore(lore);
         metaC.setUnbreakable(true);
@@ -596,9 +620,14 @@ public class ArmorSetsManager {
         ItemMeta metaH = helmet.getItemMeta();
 
         AttributeModifier modifierH = new AttributeModifier(UUID.randomUUID(),"mrpg",50, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.HEAD);
+        AttributeModifier mod_HP_H = new AttributeModifier(UUID.randomUUID(),"mrpg",8, AttributeModifier.Operation.ADD_NUMBER,EquipmentSlot.HEAD);
         metaH.addAttributeModifier(Attribute.GENERIC_ARMOR,modifierH);
+        metaH.addAttributeModifier(Attribute.GENERIC_MAX_HEALTH,mod_HP_H);
 
         metaH.setDisplayName(ColorUtil.ConvertToCustom(config.getString("GlacialMythicWarriorHelmetName")));
+
+        metaH.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,12,true);
+        metaH.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 
         metaH.setLore(lore);
         metaH.setUnbreakable(true);

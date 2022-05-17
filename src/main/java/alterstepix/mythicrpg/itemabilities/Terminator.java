@@ -1,3 +1,12 @@
+/*
+Copyright 2022 AlterStepix and Crutogurch
+
+        Licensed under the Apache License, Version 2.0 (the "License");
+        you may not use this file except in compliance with the License.
+        You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+*/
 package alterstepix.mythicrpg.itemabilities;
 
 import alterstepix.mythicrpg.Mythicrpg;
@@ -68,7 +77,7 @@ public class Terminator implements Listener {
 
                                 for(Entity entitytrg : targets)
                                 {
-                                    if(entitytrg instanceof LivingEntity target && !entitytrg.isDead() && entitytrg != p)
+                                    if(entitytrg instanceof LivingEntity target && !entitytrg.isDead() && entitytrg != p && !(entitytrg instanceof Arrow))
                                     {
                                         arrow.setVelocity(target.getEyeLocation().toVector().subtract(arrow.getLocation().toVector()).normalize().multiply(2));
                                     }

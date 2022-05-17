@@ -14,8 +14,6 @@ import org.bukkit.entity.Player;
 import java.util.HashMap;
 import java.util.UUID;
 
-// Taken from Epic Items
-
 public class Cooldown {
     public HashMap<UUID, Double> cd;
 

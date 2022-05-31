@@ -47,6 +47,8 @@ public class ItemManager {
     public ItemStack SwordOfGrowth;
     public ItemStack Singularity;
     public ItemStack CorruptedMythicIdolsIncarnate;
+    public ItemStack FeatherBow;
+    public ItemStack BlazingFlare;
 
     Mythicrpg main;
     FileConfiguration config;
@@ -82,6 +84,8 @@ public class ItemManager {
         this.createSwordOfGrowth();
         this.createSingularity();
         this.createCorruptedMythicIdolsIncarnate();
+        this.createFeatherBow();
+        this.createBlazingFlare();
     }
 
     public void createLightingAxe()
@@ -177,6 +181,9 @@ public class ItemManager {
 
         meta.setDisplayName(ColorUtil.ConvertToCustom(this.config.getString("frozenWand")));
         meta.setUnbreakable(true);
+
+        meta.setCustomModelData(1281231);
+
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
         List<String> lore = new ArrayList<>();
 
@@ -511,6 +518,8 @@ public class ItemManager {
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 
+        meta.setCustomModelData(1281292);
+
         meta.setDisplayName("§6Bestiary");
         meta.setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
@@ -534,6 +543,8 @@ public class ItemManager {
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 
+        meta.setCustomModelData(1441442);
+
         meta.setDisplayName(ColorUtil.ConvertToCustom(this.config.getString("corruptedMythicIdolIncarnate")));
         meta.setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
@@ -547,5 +558,55 @@ public class ItemManager {
         item.setItemMeta(meta);
 
         CorruptedMythicIdolsIncarnate = item;
+    }
+    public void createFeatherBow()
+    {
+        ItemStack item = new ItemStack(Material.BOW, 1);
+
+        ItemMeta meta = item.getItemMeta();
+
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+
+        meta.setCustomModelData(1441402);
+
+        meta.setDisplayName(ColorUtil.ConvertToCustom(this.config.getString("featherBow")));
+        meta.setUnbreakable(true);
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        List<String> lore = new ArrayList<>();
+
+        for(String l : lib.Lore.get("FeatherBow"))
+            lore.add(l);
+
+
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+
+        FeatherBow = item;
+    }
+    public void createBlazingFlare()
+    {
+        ItemStack item = new ItemStack(Material.BOW, 1);
+
+        ItemMeta meta = item.getItemMeta();
+
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+
+        meta.setCustomModelData(1441402);
+
+        meta.setDisplayName(ColorUtil.ConvertToCustom2(this.config.getString("blazingFlare")));
+        meta.setUnbreakable(true);
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        List<String> lore = new ArrayList<>();
+
+        for(String l : lib.Lore.get("BlazingFlare"))
+            lore.add(l);
+
+
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+
+        BlazingFlare = item;
     }
 }

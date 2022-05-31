@@ -14,7 +14,7 @@ import org.bukkit.Bukkit;
 
 public class ColorUtil {
 
-    public static String ConvertToCustom(String text)
+    public static String ConvertToCustom(String text) // #hexcode!text
     {
         String finalText = "";
 
@@ -29,5 +29,29 @@ public class ColorUtil {
             }
 
         return finalText;
+    }
+
+    public static String ConvertToCustom2(String line) // !hexcode!text!hexcode2!text2
+    {
+        String finalText = "";
+        boolean color = true;
+
+        for(String part : line.split("!"))
+        {
+            if(color)
+            {
+                finalText += (ChatColor.of(part));
+            }
+            else
+            {
+                finalText += part;
+            }
+
+
+            color = !color;
+        }
+
+        return finalText;
+
     }
 }

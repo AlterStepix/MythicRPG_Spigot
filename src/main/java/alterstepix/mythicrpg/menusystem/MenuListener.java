@@ -16,6 +16,9 @@ public class MenuListener implements Listener {
 
         InventoryHolder holder = e.getClickedInventory().getHolder();
 
+        if(holder == null)
+            return;
+
         if(holder instanceof AbstractMenu menu)
         {
             e.setCancelled(true);

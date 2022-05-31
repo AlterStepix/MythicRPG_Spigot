@@ -324,6 +324,28 @@ public class ItemLoreLibrary {
 
         Lore.put("CorruptedCurse",CorruptedCurseDescription);
 
+
+        //  Feather Bow..
+        ArrayList<String> FeatherBowDescription = new ArrayList<>();
+
+        FeatherBowDescription.add("");
+        FeatherBowDescription.add("§6ITEM ABILITY: §eFeather Laser");
+        FeatherBowDescription.add("§7Shoots a special laser that damages your enemies on its way");
+
+        Lore.put("FeatherBow",FeatherBowDescription);
+
+        //  Blazing Flare..
+        ArrayList<String> BlazingFlareDescription = new ArrayList<>();
+
+        cooldown = config.getInt("blazingFlareCooldown");
+
+        BlazingFlareDescription.add("");
+        BlazingFlareDescription.add("§6ITEM ABILITY: §cBlazing Flare");
+        BlazingFlareDescription.add("§7Fires a purified flaming ray that burns everything on its way.");
+        BlazingFlareDescription.add("§8Cooldown: "+ cooldown + "s");
+
+        Lore.put("BlazingFlare",BlazingFlareDescription);
+
         /* ===========================================
            ==============| Scrolls |==================
            ===========================================

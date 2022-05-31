@@ -41,6 +41,9 @@ public class DropTable {
     public ItemStack destructiveShard; // Overworld Invader
     public ItemStack cursedHeart; // Cursed Emperor
     public ItemStack cursedBone; // Cursed Emperor
+    public ItemStack cyclopsBone; // Cyclops
+    public ItemStack NONE; // Watching eye
+    public ItemStack FlamingRedstone; // Redstone Monster
 
     Mythicrpg main;
     FileConfiguration config;
@@ -72,6 +75,7 @@ public class DropTable {
         CreateDestructiveShard();
         CreateGhostEssence();
         CreateShadyAura();
+        CreateCyclopsBone();
     }
 
     private void CreateAmberShard()
@@ -320,5 +324,18 @@ public class DropTable {
 
         item.setItemMeta(meta);
         shadyAura = item;
+    }
+    public void CreateCyclopsBone()
+    {
+        ItemStack item = new ItemStack(Material.BONE, 1);
+        ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName(ColorUtil.ConvertToCustom(config.getString("CyclopsAura")));
+
+        List<String> lore = new ArrayList<>();
+        lore.add(ColorUtil.ConvertToCustom(config.getString("CommonRarity")));
+        meta.setLore(lore);
+
+        item.setItemMeta(meta);
+        cyclopsBone = item;
     }
 }

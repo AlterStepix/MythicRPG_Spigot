@@ -75,6 +75,8 @@ public final class Mythicrpg extends JavaPlugin{
         Bukkit.getServer().getPluginManager().registerEvents(new SwordOfGrowth(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new Singularity(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new CorruptedMythicIdolsIncarnate(this),this);
+        Bukkit.getServer().getPluginManager().registerEvents(new FeatherBow(this),this);
+        Bukkit.getServer().getPluginManager().registerEvents(new BlazingFlare(this),this);
 
         Bukkit.getServer().getPluginManager().registerEvents(new WitherSpider(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(new Parasite(this),this);

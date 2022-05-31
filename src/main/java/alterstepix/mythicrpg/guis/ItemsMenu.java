@@ -136,7 +136,9 @@ public class ItemsMenu extends AbstractPaginatedMenu {
                 m.InfectedSword,
                 m.SwordOfGrowth,
                 m.Singularity,
-                m.CorruptedMythicIdolsIncarnate
+                m.CorruptedMythicIdolsIncarnate,
+                m.FeatherBow,
+                m.BlazingFlare
         ));
     }
 }

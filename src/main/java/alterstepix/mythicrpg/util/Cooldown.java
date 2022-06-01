@@ -43,5 +43,10 @@ public class Cooldown {
         cd.put(player.getUniqueId(), delay);
     }
 
+    public void resetCooldown(Player player)
+    {
+        cd.remove(player.getUniqueId());
+    }
+
 
 }

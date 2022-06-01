@@ -49,6 +49,9 @@ public class ItemManager {
     public ItemStack CorruptedMythicIdolsIncarnate;
     public ItemStack FeatherBow;
     public ItemStack BlazingFlare;
+    public ItemStack AmethystSword;
+    public ItemStack LightningHammer;
+    public ItemStack Inquisitor;
 
     Mythicrpg main;
     FileConfiguration config;
@@ -86,6 +89,9 @@ public class ItemManager {
         this.createCorruptedMythicIdolsIncarnate();
         this.createFeatherBow();
         this.createBlazingFlare();
+        this.createAmethystSword();
+        this.createLightningHammer();
+        this.createInquisitor();
     }
 
     public void createLightingAxe()
@@ -608,5 +614,80 @@ public class ItemManager {
         item.setItemMeta(meta);
 
         BlazingFlare = item;
+    }
+    public void createAmethystSword()
+    {
+        ItemStack item = new ItemStack(Material.IRON_SWORD, 1);
+
+        ItemMeta meta = item.getItemMeta();
+
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+
+        meta.setCustomModelData(1441403);
+
+        meta.setDisplayName(ColorUtil.ConvertToCustom2(this.config.getString("amethystSword")));
+        meta.setUnbreakable(true);
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        List<String> lore = new ArrayList<>();
+
+        for(String l : lib.Lore.get("Soundwave"))
+            lore.add(l);
+
+
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+
+        AmethystSword = item;
+    }
+    public void createLightningHammer()
+    {
+        ItemStack item = new ItemStack(Material.IRON_AXE, 1);
+
+        ItemMeta meta = item.getItemMeta();
+
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+
+        meta.setCustomModelData(1441404);
+
+        meta.setDisplayName(ColorUtil.ConvertToCustom2(this.config.getString("lightningHammer")));
+        meta.setUnbreakable(true);
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        List<String> lore = new ArrayList<>();
+
+        for(String l : lib.Lore.get("Thunderidol"))
+            lore.add(l);
+
+
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+
+        LightningHammer = item;
+    }
+    public void createInquisitor()
+    {
+        ItemStack item = new ItemStack(Material.NETHERITE_HOE, 1);
+
+        ItemMeta meta = item.getItemMeta();
+
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+
+        meta.setCustomModelData(1441405);
+
+        meta.setDisplayName(ColorUtil.ConvertToCustom2(this.config.getString("inquisitor")));
+        meta.setUnbreakable(true);
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        List<String> lore = new ArrayList<>();
+
+        for(String l : lib.Lore.get("Inquisition"))
+            lore.add(l);
+
+
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+
+        Inquisitor = item;
     }
 }

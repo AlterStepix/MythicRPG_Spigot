@@ -138,7 +138,10 @@ public class ItemsMenu extends AbstractPaginatedMenu {
                 m.Singularity,
                 m.CorruptedMythicIdolsIncarnate,
                 m.FeatherBow,
-                m.BlazingFlare
+                m.BlazingFlare,
+                m.AmethystSword,
+                m.LightningHammer,
+                m.Inquisitor
         ));
     }
 }

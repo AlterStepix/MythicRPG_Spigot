@@ -346,6 +346,40 @@ public class ItemLoreLibrary {
 
         Lore.put("BlazingFlare",BlazingFlareDescription);
 
+        // Soundwave
+
+        ArrayList<String> SoundwaveDescription = new ArrayList<>();
+
+        SoundwaveDescription.add("");
+        SoundwaveDescription.add("§6RIGHT CLICK: §eSound Wave");
+        SoundwaveDescription.add("§7Right click to shoot a sound wave that");
+        SoundwaveDescription.add("§7damages your enemies on its way");
+
+        Lore.put("Soundwave",SoundwaveDescription);
+
+
+        // ThunderIdol
+
+        ArrayList<String> ThunderIdolDescription = new ArrayList<>();
+
+        ThunderIdolDescription.add("");
+        ThunderIdolDescription.add("§6RIGHT CLICK: §eThunderidol");
+        ThunderIdolDescription.add("§7Unleashes purified lightning power and");
+        ThunderIdolDescription.add("§7strikes all nearby enemies with powerful lightnings");
+
+        Lore.put("Thunderidol",ThunderIdolDescription);
+
+        // Inquisition
+
+        ArrayList<String> InquisitionDescription = new ArrayList<>();
+
+        InquisitionDescription.add("");
+        InquisitionDescription.add("§6RIGHT CLICK: §eInquisition");
+        InquisitionDescription.add("§7Right click to teleport forward,");
+        InquisitionDescription.add("§7damaging everyone on your way.");
+
+        Lore.put("Inquisition",InquisitionDescription);
+
         /* ===========================================
            ==============| Scrolls |==================
            ===========================================

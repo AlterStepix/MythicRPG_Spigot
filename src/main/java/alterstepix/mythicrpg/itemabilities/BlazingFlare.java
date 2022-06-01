@@ -93,7 +93,7 @@ public class BlazingFlare implements Listener {
                                 }.runTaskTimer(main,0L,20L);
 
                                 trg.getWorld().spawnParticle(Particle.LAVA,trg.getLocation(),25,0.35,0.35,0.35,0.2,null,true);
-                                ParticleManager.helix(loc,1,Particle.FLAME,loc.add(dir));
+                                ParticleManager.helix(loc,1,Particle.FLAME,loc.add(dir),false);
                                 trg.getWorld().playSound(trg.getLocation(), Sound.ENTITY_ITEM_BREAK,1,5);
                             }
                         }

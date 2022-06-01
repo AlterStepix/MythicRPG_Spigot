@@ -23,7 +23,7 @@ public class ParticleManager {
     }
 
 
-    public static void helix(Location location, int r, Particle p, Location rotatedTo)
+    public static void helix(Location location, float r, Particle p, Location rotatedTo, boolean force)
     {
         new BukkitRunnable(){
             double t = 0;
@@ -41,7 +41,7 @@ public class ParticleManager {
 
                 loc = loc.add(v);
 
-                loc.getWorld().spawnParticle(p,loc,5,0.05,0.05,0.05,0);
+                loc.getWorld().spawnParticle(p,loc,5,0.05,0.05,0.05,0,null,force);
 
                 loc = loc.subtract(v);
 
@@ -129,6 +129,92 @@ public class ParticleManager {
 
             if (t > Math.PI * 4)
                 break;
+        }
+    }
+
+
+    public static void circle_instant(Location location, float r, Particle particle, Location rotatedTo, boolean force)
+    {
+        double t = 0;
+        Location loc = location.clone();
+
+        while (true)
+        {
+            t = t + Math.PI / 8;
+            double x = r * Math.cos(t);
+            double y = r * Math.sin(t);
+            double z = 0;
+
+            Vector v = new Vector(x,y,z);
+            v = rotate(v,rotatedTo);
+
+            loc = loc.add(v);
+
+            loc.getWorld().spawnParticle(particle, loc, 1, 0, 0, 0, 0,null,force);
+
+            loc = loc.subtract(v);
+
+            if (t > Math.PI * 4)
+                break;
+        }
+    }
+    public static void wave(Location location, Vector dir, Particle particle)
+    {
+        double t = 0;
+        Location loc = location.clone();
+
+        while (true)
+        {
+            t = t+Math.PI / 16;
+
+            double y = 0.2 * ( Math.sin(2*t) / (0.2*t) );
+
+            loc = loc.add(new Vector(0,y,0));
+            loc.getWorld().spawnParticle(particle, loc,1,0,0,0,0);
+            loc = loc.subtract(new Vector(0,y,0));
+
+            loc = loc.add(dir);
+
+            if(t > Math.PI*4)
+                return;
+
+        }
+    }
+
+    public static void circle2(Location location, Particle particle, double radius, boolean force)
+    {
+        double t = 0;
+        Location loc = location.clone();
+
+        while (true)
+        {
+            t = t + Math.PI / 8;
+            double x = radius * Math.cos(t);
+            double y = 0;
+            double z = radius * Math.sin(t);
+
+            loc = loc.add(x,y,z);
+
+            loc.getWorld().spawnParticle(particle, loc, 1, 0, 0, 0, 0,null,force);
+
+            loc = loc.subtract(x,y,z);
+
+            if (t > Math.PI * 4)
+                break;
+        }
+    }
+
+    public static void strange_3D_shape(Location location,Particle particle, float radius, boolean force)
+    {
+        double t = 0;
+
+        while (true)
+        {
+            circle2(location.add(0,t/(Math.PI*Math.PI*Math.PI),0),particle, (Math.sin(t/Math.PI)*radius),force);
+            t = t + Math.PI / 8;
+
+            if(t > Math.PI * Math.PI)
+                return;
         }
     }
 

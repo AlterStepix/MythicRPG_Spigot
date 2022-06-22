@@ -380,6 +380,17 @@ public class ItemLoreLibrary {
 
         Lore.put("Inquisition",InquisitionDescription);
 
+        // Shadow Katana
+
+        ArrayList<String> ShadowKatanaDescription = new ArrayList<>();
+
+        ShadowKatanaDescription.add("");
+        ShadowKatanaDescription.add("§6LEFT CLICK: §eTwilight Assassin");
+        ShadowKatanaDescription.add("§7Left click to perform shadow jump,");
+        ShadowKatanaDescription.add("§7damaging everyone on your way.");
+
+        Lore.put("ShadowKatana",ShadowKatanaDescription);
+
         /* ===========================================
            ==============| Scrolls |==================
            ===========================================

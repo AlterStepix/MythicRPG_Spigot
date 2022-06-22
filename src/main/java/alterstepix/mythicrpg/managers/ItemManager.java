@@ -15,6 +15,7 @@ import alterstepix.mythicrpg.util.ItemLoreLibrary;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
+import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Item;
@@ -24,6 +25,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 
 public class ItemManager {
@@ -52,6 +54,7 @@ public class ItemManager {
     public ItemStack AmethystSword;
     public ItemStack LightningHammer;
     public ItemStack Inquisitor;
+    public ItemStack ShadowKatana;
 
     Mythicrpg main;
     FileConfiguration config;
@@ -92,6 +95,7 @@ public class ItemManager {
         this.createAmethystSword();
         this.createLightningHammer();
         this.createInquisitor();
+        this.createShadowKatana();
     }
 
     public void createLightingAxe()
@@ -689,5 +693,35 @@ public class ItemManager {
         item.setItemMeta(meta);
 
         Inquisitor = item;
+    }
+
+    public void createShadowKatana()
+    {
+        ItemStack item = new ItemStack(Material.NETHERITE_SWORD, 1);
+
+        ItemMeta meta = item.getItemMeta();
+
+        AttributeModifier modifier = new AttributeModifier("",2, AttributeModifier.Operation.ADD_NUMBER);
+        meta.addAttributeModifier(Attribute.GENERIC_ATTACK_SPEED,modifier);
+
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+
+        meta.setCustomModelData(1441406);
+
+        meta.setDisplayName(ColorUtil.ConvertToCustom2(this.config.getString("shadowKatana")));
+        meta.setUnbreakable(true);
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        List<String> lore = new ArrayList<>();
+
+        for(String l : lib.Lore.get("ShadowKatana"))
+            lore.add(l);
+
+
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+
+        ShadowKatana = item;
     }
 }

@@ -22,6 +22,7 @@ import org.bukkit.entity.Wither;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.util.Vector;
 
 public class PhantomRider {
     Mythicrpg main;
@@ -38,7 +39,9 @@ public class PhantomRider {
         Phantom phantom = location.getWorld().spawn(location,Phantom.class);
         Stray skeleton = location.getWorld().spawn(location,Stray.class);
 
-        skeleton.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 99999,10,false,false,false));
+
+        phantom.setVelocity(new Vector(0,2,0));
+
 
         phantom.setInvulnerable(true);
         phantom.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 99999,10,false,false,false));

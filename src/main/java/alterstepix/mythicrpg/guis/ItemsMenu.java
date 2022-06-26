@@ -142,7 +142,8 @@ public class ItemsMenu extends AbstractPaginatedMenu {
                 m.AmethystSword,
                 m.LightningHammer,
                 m.Inquisitor,
-                m.ShadowKatana
+                m.ShadowKatana,
+                m.TwilightBow
         ));
     }
 }

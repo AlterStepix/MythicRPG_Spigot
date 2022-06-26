@@ -204,6 +204,82 @@ public class ParticleManager {
         }
     }
 
+    public static void d2_vortex(Location location, Particle particle, double radius, boolean force)
+    {
+        double t = 0;
+        Location loc = location.clone();
+
+        while (true)
+        {
+            t = t + Math.PI / 8;
+            double x = radius * Math.cos(t) / t;
+            double y = 0;
+            double z = radius * Math.sin(t) / t;
+
+            loc = loc.add(x,y,z);
+
+            loc.getWorld().spawnParticle(particle, loc, 1, 0, 0, 0, 0,null,force);
+
+            loc = loc.subtract(x,y,z);
+
+            if (t > Math.PI * 4)
+                break;
+        }
+    }
+
+    public static void d2_vortex(Location location, Particle.DustTransition particle, double radius, boolean force)
+    {
+        double t = 0;
+        Location loc = location.clone();
+
+        while (true)
+        {
+            t = t + Math.PI / 8;
+            double x = radius * Math.cos(t) / t;
+            double y = 0;
+            double z = radius * Math.sin(t) / t;
+
+            loc = loc.add(x,y,z);
+
+            loc.getWorld().spawnParticle(Particle.DUST_COLOR_TRANSITION, loc, 1, 0, 0, 0, 0,particle,force);
+
+            loc = loc.subtract(x,y,z);
+
+            if (t > Math.PI * 4)
+                break;
+        }
+    }
+
+    public static void d2_vortex_ni(Location location, Particle.DustTransition particle, double radius, boolean force)
+    {
+
+        new BukkitRunnable()
+        {
+            double t = 0;
+            double v = 3;
+            Location loc = location.clone();
+
+            public void run()
+            {
+                t = t + Math.PI / 8;
+                v = v + 0.1;
+                double x = 3 * radius * Math.cos(t) / v;
+                double y = 0.1;
+                double z = 3 * radius * Math.sin(t) / v;
+
+                loc = loc.add(x,y,z);
+
+                loc.getWorld().spawnParticle(Particle.DUST_COLOR_TRANSITION, loc, 1, 0, 0, 0, 0,particle,force);
+
+                loc = loc.subtract(x,y,z);
+
+                if (t > Math.PI * 8)
+                    cancel();
+            }
+
+        }.runTaskTimer(Mythicrpg.INSTANCE,0L,1L);
+    }
+
     public static void strange_3D_shape(Location location,Particle particle, float radius, boolean force)
     {
         double t = 0;

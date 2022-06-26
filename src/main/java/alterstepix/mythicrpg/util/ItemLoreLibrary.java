@@ -391,6 +391,18 @@ public class ItemLoreLibrary {
 
         Lore.put("ShadowKatana",ShadowKatanaDescription);
 
+        // Ray of shadows
+
+
+        ArrayList<String> RayOfShadowsDescription = new ArrayList<>();
+
+        RayOfShadowsDescription.add("");
+        RayOfShadowsDescription.add("§6LEFT CLICK: §eRay of Shadows");
+        RayOfShadowsDescription.add("§7Left click to perform shadow jump,");
+        RayOfShadowsDescription.add("§7damaging everyone on your way.");
+
+        Lore.put("RayOfShadows",RayOfShadowsDescription);
+
         /* ===========================================
            ==============| Scrolls |==================
            ===========================================

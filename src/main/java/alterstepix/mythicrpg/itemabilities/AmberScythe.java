@@ -11,10 +11,8 @@ package alterstepix.mythicrpg.itemabilities;
 
 
 import alterstepix.mythicrpg.Mythicrpg;
-import alterstepix.mythicrpg.misc.ParticleSpawner;
 import alterstepix.mythicrpg.util.Cooldown;
 import alterstepix.mythicrpg.util.ItemLoreLibrary;
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.configuration.file.FileConfiguration;

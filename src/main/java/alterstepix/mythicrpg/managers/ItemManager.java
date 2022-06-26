@@ -55,6 +55,7 @@ public class ItemManager {
     public ItemStack LightningHammer;
     public ItemStack Inquisitor;
     public ItemStack ShadowKatana;
+    public ItemStack TwilightBow;
 
     Mythicrpg main;
     FileConfiguration config;
@@ -96,6 +97,7 @@ public class ItemManager {
         this.createLightningHammer();
         this.createInquisitor();
         this.createShadowKatana();
+        this.createTwilightBow();
     }
 
     public void createLightingAxe()
@@ -723,5 +725,32 @@ public class ItemManager {
         item.setItemMeta(meta);
 
         ShadowKatana = item;
+    }
+
+    public void createTwilightBow()
+    {
+        ItemStack item = new ItemStack(Material.BOW, 1);
+
+        ItemMeta meta = item.getItemMeta();
+
+
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+
+        meta.setCustomModelData(1441407);
+
+        meta.setDisplayName(ColorUtil.ConvertToCustom2(this.config.getString("twilightBow")));
+        meta.setUnbreakable(true);
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        List<String> lore = new ArrayList<>();
+
+        for(String l : lib.Lore.get("RayOfShadows"))
+            lore.add(l);
+
+
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+
+        TwilightBow = item;
     }
 }
